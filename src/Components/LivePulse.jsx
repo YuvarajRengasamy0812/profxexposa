@@ -14,7 +14,7 @@ const LivePulse = () => {
   return (
     <>
       <section className="live-pulse py-5 mt-5" style={{
-        backgroundImage: 'linear-gradient(to right top, #e91e63, #e3206b, #dc2473, #d5297a, #cd2e81, #c53386, #bd378a, #b53b8e, #ab3f91, #a14394, #964696, #8c4997)'
+        backgroundImage: 'linear-gradient(230deg, #0e5941, #15831d)'
       }}
       >
         <div className="container text-center">

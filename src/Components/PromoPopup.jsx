@@ -41,7 +41,7 @@ function PromoPopup() {
         >
           <img
             src="/assets/images/promo/promo-banner.png"
-            alt="ProFX Summit Dubai 2026 Promotion"
+            alt="PROFX EXPO AFRICA 2026 Promotion"
             className="promo-img"
           />
         </div>

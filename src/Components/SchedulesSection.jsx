@@ -14,7 +14,7 @@ const SchedulesSection = () => {
                 FOLLOW <span className="pink">EVENT</span> SCHEDULES
               </h2>
               <p className="m-0">
-                <b>PROFX SUMMIT DUBAI 2026</b> is a two-day immersive experience featuring
+                <b>PROFX EXPO AFRICA 2026</b> is a two-day immersive experience featuring
                 continuous summit sessions alongside a full-scale exhibition.
                 Attendees can freely move between expert-led knowledge sessions,
                 networking zones, and exhibitor booths throughout the event.
@@ -28,11 +28,11 @@ const SchedulesSection = () => {
                   <div className="col-lg-3 col-md-4 mt-lg-5 mt-md-5 pt-lg-3 pt-md-3">
                     <div className="schedule-day text-center text-sm-start py-6 position-relative ps-2 z-1">
                       <h4 className="pink mb-2">1ST DAY</h4>
-                      <h6 className="mb-2">DECEMBER 10, 2026</h6>
+                      <h6 className="mb-2">AUGUST 10, 2026</h6>
                       <p>
-                        PROFX Summit
+                        PROFX EXPO AFRICA 2026
                         <br />
-                        Le Meridian, Airport Road, <br />Dubai UAE
+                        Cape Town, <br />South Africa
                       </p>
                     </div>
                   </div>
@@ -46,11 +46,11 @@ const SchedulesSection = () => {
                             OPENING CEREMONY & WELCOME ADDRESS
                           </Link>
                         </h5>
-                        <p><small>Official inauguration of <b>PROFX SUMMIT DUBAI 2026</b></small></p>
+                        <p><small>Official inauguration of <b>PROFX EXPO AFRICA 2026</b></small></p>
                         <ul className="p-0">
                           <li className="d-inline">
                             <Podcast className="pink mx-2" />
-                            <small>PROFX SUMMIT TEAM</small>
+                            <small>PROFX EXPO AFRICA TEAM</small>
                           </li>
                         </ul>
                       </div>
@@ -126,11 +126,11 @@ const SchedulesSection = () => {
                   <div className="col-lg-3 col-md-4 mt-lg-5 mt-md-5 pt-lg-3 pt-md-3">
                     <div className="schedule-day text-center text-sm-start py-6 ps-2 z-1">
                       <h4 className="pink mb-2">2ND DAY</h4>
-                      <h6 className="mb-2">DECEMBER 11, 2026</h6>
+                      <h6 className="mb-2">AUGUST 11, 2026</h6>
                       <p>
-                        PROFX Summit
+                        PROFX EXPO AFRICA 2026
                         <br />
-                        Le Meridian, Airport Road, <br />Dubai UAE
+                        Cape Town, <br />South Africa
                       </p>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ const SchedulesSection = () => {
                           </Link>
                         </h5>
                         <p><small>Celebrating excellence in Forex & FinTech</small></p>
-                        <Podcast className="pink mx-2" /> <small>PROFX SUMMIT BOARD</small>
+                        <Podcast className="pink mx-2" /> <small>PROFX EXPO AFRICA BOARD</small>
                       </div>
 
                       <div className="partner-button mt-6">

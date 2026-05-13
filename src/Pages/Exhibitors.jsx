@@ -30,11 +30,11 @@ const Exhibitors = () => {
               {/* Text Block */}
               <div className="col-lg-6">
                 <h2 className="section-title mb-3">
-                  Exhibit: <span className="highlight">Showcase Your Brand to Global Finance Leaders</span>
+                  Exhibit: <span className="exhibitor-highlight">Showcase Your Brand to Global Finance Leaders</span>
                 </h2>
 
                 <p className="section-desc mb-4">
-                  Secure your exhibition space at <strong><b>PROFX SUMMIT DUBAI 2026</b></strong> and connect with <strong>3,000+ finance professionals, innovators, and decision-makers</strong> from Forex, FinTech, blockchain, and trading sectors. Maximize your brand visibility and create meaningful business opportunities during this two-day international finance summit.
+                  Secure your exhibition space at <strong><b>PROFX EXPO AFRICA 2026</b></strong> and connect with <strong>3,000+ finance professionals, innovators, and decision-makers</strong> from Forex, FinTech, blockchain, and trading sectors. Maximize your brand visibility and create meaningful business opportunities during this two-day international finance summit.
                 </p>
 
                 <div className="">
@@ -71,14 +71,14 @@ const Exhibitors = () => {
           <div className="container">
             <div className="col-lg-6 mx-auto">
               <div className="title-content text-lg-center mb-4">
-                <p className="mb-1 pink">
-                  <b>PROFX SUMMIT 2026</b> EXHIBITION
+                <p className="mb-1 text-blue">
+                  <b>PROFX EXPO AFRICA 2026</b> EXHIBITION
                 </p>
                 <h2 className="mb-1">
-                  Exhibition <span className="pink">Booths Overview</span>
+                  Exhibition <span className="highlight-text">Booths Overview</span>
                 </h2>
                 <p className="m-0">
-                  The exhibition area at <b>PROFX SUMMIT DUBAI 2026</b> provides companies with a premium
+                  The exhibition area at <b>PROFX EXPO AFRICA 2026</b> provides companies with a premium
                   opportunity to showcase their products and services directly to a highly targeted audience.
                 </p>
               </div>
@@ -114,7 +114,7 @@ const Exhibitors = () => {
               {/* Step 3 */}
               <div className="col-md-6 col-lg-3 text-center">
                 <div className="success-step h-100 p-4 rounded shadow-sm d-flex justify-content-center align-items-center flex-column">
-                  <div className="step-icon mb-3 bg-elite text-white rounded-circle d-flex align-items-center justify-content-center">
+                  <div className="step-icon mb-3 bg-pink text-white rounded-circle d-flex align-items-center justify-content-center">
                     3
                   </div>
                   <h5 className="mb-2">Standard Booth</h5>
@@ -164,7 +164,7 @@ const Exhibitors = () => {
         <div className="custom-modal-overlay">
           <div className="custom-modal">
             <div className="modal-header">
-              <h4 className="pink">Book Booth - Step {step}/3</h4>
+              <h4 className="black">Book Booth - Step {step}/3</h4>
               <X
                 size={24}
                 className="cursor-pointer"
@@ -227,14 +227,14 @@ const Exhibitors = () => {
 
               {step < 3 ? (
                 <button
-                  className="btn bg-pink text-white rounded-pill px-4 py-2"
+                  className="btn primary-btn rounded-pill px-4 py-2"
                   onClick={nextStep}
                 >
                   Next <ArrowRight size={16} className="ms-1" />
                 </button>
               ) : (
                 <button
-                  className="btn bg-pink text-white rounded-pill px-4 py-2"
+                  className="btn primary-btn rounded-pill px-4 py-2"
                   onClick={closeBoothModal}
                 >
                   Submit

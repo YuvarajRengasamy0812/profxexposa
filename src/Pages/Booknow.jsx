@@ -16,7 +16,7 @@ function Booknow() {
           <div className="booking-form w-lg-75 m-auto px-2">
             <div className="form-title mb-4">
               <h2 className="mb-2">
-                <span className="pink"><b>PROFX SUMMIT 2026</b></span> Booking Form
+                <span className="pink"><b>PROFX EXPO AFRICA 2026</b></span> Booking Form
               </h2>
               <p>Book your tickets to the event now!!</p>
             </div>

@@ -1,5 +1,6 @@
 {
-  "name": "profxsummit",
+  "name": "profxexpo-africa",
+  "homepage": "https://profxexpo.com/africa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

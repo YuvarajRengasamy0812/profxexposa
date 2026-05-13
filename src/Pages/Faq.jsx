@@ -20,7 +20,7 @@ function Faq() {
                                     </div>
                                     <div className="speaker-statement-box p-4 rounded bg-pink w-lg-80 mb-mi">
                                         <div className="speaker-statement ps-4 border-start border-white border-7">
-                                            <p><small>"Free entry passes to <b>PROFX SUMMIT 2026</b> - get clarity on everything <b>PROFX SUMMIT 2026</b> has to offer."</small></p>
+                                            <p><small>"Free entry passes to <b>PROFX EXPO AFRICA 2026</b> - get clarity on everything <b>PROFX EXPO AFRICA 2026</b> has to offer."</small></p>
                                             <h6 className="text-white">PROFX Help Desk</h6>
                                         </div>
                                     </div>
@@ -33,7 +33,7 @@ function Faq() {
                                     <div className="section-title pb-4 text-center text-lg-start">
                                         <p className="mb-1 pink">GENERAL QUESTIONS</p>
                                         <h2 className="mb-2">FREQUENTLY ASKED <span className="pink">QUESTIONS</span></h2>
-                                        <p>Your most common ProFX Summit Dubai 2026 queries - answered.</p>
+                                        <p>Your most common PROFX EXPO AFRICA 2026 queries - answered.</p>
                                     </div>
 
                                     <div className="faq-accordion p-4 bg-white rounded border border-2 border-light-subtle">
@@ -45,13 +45,13 @@ function Faq() {
                                                     <button className="accordion-button collapsed fw-semibold p-0"
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#flush-collapseOne">
-                                                        What is the core theme of ProFX Summit 2026?
+                                                        What is the core theme of PROFX EXPO AFRICA 2026?
                                                     </button>
                                                 </p>
                                                 <div id="flush-collapseOne" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        ProFX Summit Dubai 2026 brings together global finance, trading, FinTech, and Forex leaders for a two-day summit featuring expert-led sessions, live exhibition booths, networking opportunities, and the prestigious ProFX Awards.
+                                                        PROFX EXPO AFRICA 2026 brings together global finance, trading, FinTech, and Forex leaders for a two-day summit featuring expert-led sessions, live exhibition booths, networking opportunities, and the prestigious ProFX Awards.
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,7 +86,7 @@ function Faq() {
                                                 <div id="flush-collapseThree" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Yes, entry to ProFX Summit Dubai 2026 is completely free for all attendees. Registration grants access to summit sessions, exhibition booths, networking areas, and the awards ceremony.
+                                                        Yes, entry to PROFX EXPO AFRICA 2026 is completely free for all attendees. Registration grants access to summit sessions, exhibition booths, networking areas, and the awards ceremony.
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,7 +114,7 @@ function Faq() {
                                 <div className="popular-ques-left me-4 m-sm-0">
                                     <div className="section-title pb-4 text-center text-lg-start">
                                         <p className="mb-1 pink">POPULAR QUESTIONS</p>
-                                        <h2 className="mb-">PROFX Summit <span className="pink">FAQ</span></h2>
+                                        <h2 className="mb-">PROFX EXPO AFRICA 2026 <span className="pink">FAQ</span></h2>
                                         <p>Browse the most common questions from attendees, exhibitors, sponsors, and speakers.</p>
                                     </div>
 
@@ -127,7 +127,7 @@ function Faq() {
                                                     <button className="accordion-button collapsed fw-semibold p-0 text-uppercase"
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapseOne">
-                                                        Who can attend the ProFX Summit?
+                                                        Who can attend PROFX EXPO AFRICA 2026?
                                                     </button>
                                                 </p>
                                                 <div id="collapseOne" className="accordion-collapse collapse"
@@ -150,7 +150,7 @@ function Faq() {
                                                 <div id="collapseTwo" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Yes, ProFX Summit offers Gold, Silver, and Standard exhibition booths for companies to showcase their products and services. Booths are active throughout both days to maximize engagement.
+                                                        Yes, PROFX EXPO AFRICA 2026 offers Gold, Silver, and Standard exhibition booths for companies to showcase their products and services. Booths are active throughout both days to maximize engagement.
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,7 +167,7 @@ function Faq() {
                                                 <div id="collapseThree" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        ProFX Summit offers multiple sponsorship tiers, including Title Sponsor, Platinum, Gold, Networking Lounge, and Awards Sponsor. Each package provides tailored branding, visibility, and engagement opportunities.
+                                                        PROFX EXPO AFRICA 2026 offers multiple sponsorship tiers, including Title Sponsor, Platinum, Gold, Networking Lounge, and Awards Sponsor. Each package provides tailored branding, visibility, and engagement opportunities.
                                                     </div>
                                                 </div>
                                             </div>

@@ -28,11 +28,11 @@ function About() {
                     <h2 className="mb-2">
                       GET THE LATEST INFO ABOUT{" "}
                       <span className="pink">
-                        <b>PROFX SUMMIT 2026</b>
+                        <b>PROFX EXPO AFRICA 2026</b>
                       </span>
                     </h2>
                     <p data-aos="fade-right" data-aos-delay="1100">
-                      <b>PROFX SUMMIT DUBAI 2026</b> is a premier international financial
+                      <b>PROFX EXPO AFRICA 2026</b> is a premier international financial
                       gathering that brings together global leaders from Forex,
                       FinTech, Blockchain, and digital finance under one roof.
                     </p>
@@ -77,7 +77,7 @@ function About() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHEN</h5>
                                 <small className="pink">
-                                  Thu & Fri <br /> December 10-11, 2026
+                                  Mon & Tue <br /> 10 - 11 August 2026
                                 </small>
                               </Link>
                             </div>
@@ -218,12 +218,12 @@ function About() {
                   <div className="overview-title pb-4">
                     <p className="mb-1 pink">WHY ATTEND</p>
                     <h2 className="mb-3 black fw-bold">
-                      Discover the <span className="pink">PROFX Summit Advantage</span>
+                      Discover the <span className="pink">PROFX EXPO AFRICA 2026 Advantage</span>
                     </h2>
                   </div>
                   <div className="overview-info text-grey">
                     <p>
-                      Attend <b><b>PROFX SUMMIT DUBAI 2026</b></b> - a two-day international finance summit - to learn from expert keynote speakers, panelists, Exhibitors and industry innovators. Explore the latest in Forex, FinTech, blockchain, and trading innovation while networking with global leaders.
+                      Attend <b><b>PROFX EXPO AFRICA 2026</b></b> - a two-day international finance summit - to learn from expert keynote speakers, panelists, Exhibitors and industry innovators. Explore the latest in Forex, FinTech, blockchain, and trading innovation while networking with global leaders.
                     </p>
                     <p>
                       Join 100+ speakers, 50+ sessions, and 5,000+ attendees to gain actionable insights, connect with top companies, and experience live exhibitions and strategic networking.

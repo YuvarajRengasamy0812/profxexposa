@@ -15,7 +15,7 @@ const BlogSection = () => {
                                         READ Our <span className="pink">Blogs </span>TO KNOW MORE
                                     </h2>
                                     <p className="mb-0">
-                                        Stay updated with exclusive articles, keynote highlights, speaker interviews, and behind-the-scenes stories from the PROFX SUMMIT.
+                                        Stay updated with exclusive articles, keynote highlights, speaker interviews, and behind-the-scenes stories from PROFX EXPO AFRICA 2026.
                                     </p>
                                 </div>
                             </div>

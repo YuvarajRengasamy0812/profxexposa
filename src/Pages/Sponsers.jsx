@@ -17,24 +17,24 @@ function Sponsers() {
             <div className="col-lg-7">
               <h2 className="sponsor-title mb-3">
                 Sponsorship Opportunities:{" "}
-                <span className="gradient-text">
+                <span className="highlight-text">
                   Maximize Your Brand Visibility
                 </span>
               </h2>
 
               <p className="text-grey fs-5 mb-4">
-                ProFX Summit Dubai 2026 offers a wide range of sponsorship opportunities designed to maximize your brand exposure, authority, and engagement across the summit venue, digital platforms, and marketing campaigns.
+                PROFX EXPO AFRICA 2026 offers a wide range of sponsorship opportunities designed to maximize your brand exposure, authority, and engagement across the summit venue, digital platforms, and marketing campaigns.
               </p>
 
               <a
-                href="/assets/brochure/ProFX Summit Dubai 2026 - Sponsorship Brochure.pdf"
+                href="/assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn primary-btn px-4 py-3"
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/assets/brochure/ProFX Summit Dubai 2026 - Sponsorship Brochure.pdf";
-                  link.download = "ProFX Summit Dubai 2026 - Sponsorship Brochure.pdf";
+                  link.href = "/assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
+                  link.download = "PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
                   link.click();
                 }}
               >
@@ -62,13 +62,13 @@ function Sponsers() {
           <div className="col-lg-6 mx-auto">
             <div className="title-content text-lg-center mb-4">
               <p className="mb-1 pink">
-                <b>PROFX SUMMIT 2026</b> SPONSORS
+                <b>PROFX EXPO AFRICA 2026</b> SPONSORS
               </p>
               <h2 className="mb-1">
                 Tiered <span className="pink"> Opportunities</span>
               </h2>
               <p className="m-0">
-                Choose your sponsorship level to maximize your brand's impact at ProFX Summit Dubai 2026.
+                Choose your sponsorship level to maximize your brand's impact at PROFX EXPO AFRICA 2026.
               </p>
             </div>
           </div>
@@ -88,7 +88,7 @@ function Sponsers() {
                   <li>• VIP tickets + exclusive access</li>
                   <li>• Custom activation opportunities</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#393182" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #0e5941, #15831d)", color: "#fff" }}>
                   2 Slots Left
                 </a>
               </div>
@@ -108,7 +108,7 @@ function Sponsers() {
                   <li>• Stage demo opportunities</li>
                   <li>• Branded recap in post-event report</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#ae4b84" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #0e5941, #15831d)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -128,7 +128,7 @@ function Sponsers() {
                   <li>• Branded refreshment breaks</li>
                   <li>• Feature in agenda app & emails</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#d4af37" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #c19d38, #c19d38)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -148,7 +148,7 @@ function Sponsers() {
                   <li>• App promotion for your lounge</li>
                   <li>• Logo in virtual streams & press kits</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#e91e63" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #c19d38, #c19d38)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -168,7 +168,7 @@ function Sponsers() {
                   <li>• 2 VIP tickets for awards ceremony</li>
                   <li>• Feature in event press coverage</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#ae4b84" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #0e5941, #15831d)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -184,7 +184,7 @@ function Sponsers() {
       <section
         className="partner-perks py-12"
         style={{
-          background: "linear-gradient(135deg, #fdfdfd, #faf4ff)",
+          background: "linear-gradient(135deg, #fdfdfd, #f6f5ea)",
           position: "relative",
           overflow: "hidden",
         }}
@@ -204,7 +204,7 @@ function Sponsers() {
             </h2>
 
             <p className="text-grey w-lg-60 mx-auto fs-5">
-              Premium visibility, targeted engagement, and measurable designed for financial brands, FinTech innovators, and industry leaders participating in ProFX Summit Dubai 2026.
+              Premium visibility, targeted engagement, and measurable designed for financial brands, FinTech innovators, and industry leaders participating in PROFX EXPO AFRICA 2026.
             </p>
           </div>
 
@@ -284,7 +284,7 @@ function Sponsers() {
                 href="/Contact"
                 className="btn btn-primary px-5 py-3 rounded-pill fw-bold"
                 style={{
-                  background: "linear-gradient(90deg, #c40f4c, #8220e5)",
+                  background: "linear-gradient(230deg, #0e5941, #15831d)",
                   border: "none",
                   fontSize: "1.1rem",
                 }}
@@ -320,7 +320,7 @@ function Sponsers() {
             </div>
             <div className="next-sponser-info">
               <p>
-                Join hands with <b>PROFX SUMMIT 2026</b> to elevate your
+                Join hands with <b>PROFX EXPO AFRICA 2026</b> to elevate your
                 brand in the dynamic world of Forex. Explore tailored sponsorship
                 packages designed to maximize your visibility and engagement at
                 Dubai premier Forex event.

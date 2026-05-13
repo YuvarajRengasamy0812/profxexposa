@@ -71,8 +71,8 @@ const Booth = ({
         width={width}
         height={height}
         rx={borderRadius}
-        fill={hover ? "#e91e63" : color}
-        stroke={hover ? "#c2185b" : "rgba(0,0,0,0.15)"}
+        fill={hover ? "#c19d38" : color}
+        stroke={hover ? "#0e5941" : "rgba(0,0,0,0.15)"}
         strokeWidth={hover ? 3 : 1.5}
         style={{ transition: "all 0.2s ease" }}
       />

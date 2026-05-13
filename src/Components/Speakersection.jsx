@@ -46,9 +46,9 @@ const Speakersection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-uppercase fw-medium mb-3"
-          style={{ letterSpacing: "0.2em", fontSize: "0.85rem", color: "#e91e63" }}
+          style={{ letterSpacing: "0.2em", fontSize: "0.85rem", color: "#c19d38" }}
         >
-          PROFX SUMMIT 2026 SPEAKERS
+          PROFX EXPO AFRICA 2026 SPEAKERS
         </motion.p>
 
         <motion.h2
@@ -59,7 +59,7 @@ const Speakersection = () => {
           className="fw-light"
           style={{ color: "#223645", fontSize: "clamp(2rem, 4vw, 3rem)" }}
         >
-          OUR <span className="fw-semibold" style={{ color: "#e91e63" }}>SPEAKERS</span>
+          OUR <span className="fw-semibold" style={{ color: "#c19d38" }}>SPEAKERS</span>
         </motion.h2>
       </div>
 

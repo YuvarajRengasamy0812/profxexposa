@@ -39,7 +39,7 @@ function Footer() {
                 <div className="sub-right py-2">
                   <p className="text-white mb-4 text-center text-lg-start">
                     {" "}
-                    <b>PROFX SUMMIT 2026</b> News & Updates
+                    <b>PROFX EXPO AFRICA 2026</b> News & Updates
                   </p>
                   <SubscribeForm />
                 </div>
@@ -66,7 +66,7 @@ function Footer() {
             </div>
             <div className="footer-disciption border-bottom border-white border-opacity-25 m-auto mb-6">
               <p className=" mb-6">
-                <b>PROFX SUMMIT DUBAI 2026</b> is a global platform connecting Forex, FinTech, Innovators,
+                <b>PROFX EXPO AFRICA 2026</b> is a global platform connecting Forex, FinTech, Innovators,
                 and Decision-makers. Join us in Dubai for two days of insights, networking, exhibitions, and
                 recognition.
               </p>
@@ -126,7 +126,7 @@ function Footer() {
           </div>
           <div className="copyright pb-6 pt-1">
             <small>
-              © All Rights Reserved By <a href="https://profxsummit.com/">PROFX SUMMIT</a> {new Date().getFullYear()}.
+              © All Rights Reserved By <a href="https://profxexpo.com/africa">PROFX EXPO AFRICA</a> {new Date().getFullYear()}.
             </small>
           </div>
         </div>

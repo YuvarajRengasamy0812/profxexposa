@@ -21,7 +21,7 @@ import FloorPlanDubai from "../Components/FloorPlanDubai";
 import MediaPartners from "../Components/MediaPartners";
 import SponsorPartners from "../Components/SponsorPartners";
 import Speakersection from "../Components/Speakersection";
-import PromoPopup from "../Components/PromoPopup";
+// import PromoPopup from "../Components/PromoPopup";
 function Home() {
   const [brochure, setBrochure] = useState([]);
 
@@ -41,7 +41,7 @@ function Home() {
   };
   return (
     <div style={{ overflowX: "hidden" }}>
-      <PromoPopup />
+      {/* <PromoPopup /> */}
       {/*!-- Bannner section starts --*/}
       <section className="banner position-relative pb-0">
         <div className="overlay"></div>
@@ -92,9 +92,7 @@ function Home() {
                       />
                     </a>
 
-                    <h4 className="text-white pb-3">
-                      PROFX <span className="pink">SUMMIT</span> Dubai 2026
-                    </h4>
+                    <h4 className="text-white pb-3">PROFX EXPO AFRICA 2026</h4>
 
                     <h3 className="text-white">
                       Where Global Finance, Trading &{" "}
@@ -110,7 +108,7 @@ function Home() {
                   >
                     <ul className="m-0 ps-0 d-sm-flex justify-content-center justify-content-lg-start list-unstyled">
                       <li className="pe-2 border-end border-1 border-lightgrey">
-                        <i className="fa fa-calendar-o pe-1"></i> 10-11 December 2026
+                        <i className="fa fa-calendar-o pe-1"></i> 10 - 11 August 2026
                       </li>
                       <li className="ps-2">
                         <i className="fa fa-map-marker pe-1"></i>Le Méridien,
@@ -126,7 +124,7 @@ function Home() {
                     data-aos-delay="600"
                   >
                     <p className="pb-4 m-0">
-                      <b>PROFX SUMMIT DUBAI 2026</b> is a premier international financial gathering
+                      <b>PROFX EXPO AFRICA 2026</b> is a premier international financial gathering
                       that brings together global leaders from Forex, FinTech, Blockchain, and
                       digital finance. The two-day summit features expert-led discussions,
                       live exhibition booths, high-level networking, and a prestigious awards
@@ -197,11 +195,11 @@ function Home() {
                     <h2 className="mb-2" data-aos="fade-right" data-aos-delay="900">
                       GET THE LATEST INFO ABOUT{" "}
                       <span className="pink" data-aos="fade-right" data-aos-delay="1000">
-                        <b>PROFX SUMMIT 2026</b>
+                        <b>PROFX EXPO AFRICA 2026</b>
                       </span>
                     </h2>
                     <p data-aos="fade-right" data-aos-delay="1100">
-                      <b>PROFX SUMMIT DUBAI 2026</b> is a premier international financial
+                      <b>PROFX EXPO AFRICA 2026</b> is a premier international financial
                       gathering that brings together global leaders from Forex,
                       FinTech, Blockchain, and digital finance under one roof.
                     </p>
@@ -246,7 +244,7 @@ function Home() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHEN</h5>
                                 <small className="pink">
-                                  Thu & Fri <br /> December 10-11, 2026
+                                  Mon & Tue <br /> 10 - 11 August 2026
                                 </small>
                               </Link>
                             </div>
@@ -432,7 +430,7 @@ function Home() {
                         <small>
                           Participate in live draws and competitions to win exclusive
                           prizes, branded merchandise, and special recognition at
-                          <b>PROFX SUMMIT DUBAI 2026</b>.
+                          <b>PROFX EXPO AFRICA 2026</b>.
                         </small>
                       </div>
                     </a>
@@ -498,7 +496,7 @@ function Home() {
                       WAS AN AMAGING <span className="pink">GALLERY</span>
                     </h2>
                     <p className="m-0">
-                      Our expo in dubai named: ProFX Expo Dubai 2025, where we had an official Guinness World Record!
+                      Our Dubai expo, ProFX Expo Dubai 2025, earned an official Guinness World Record.
                       Top traders battled it out for a share of the $25,000 prize pool. A truly unforgettable milestone!
                     </p>
                   </div>
@@ -525,7 +523,7 @@ function Home() {
             <p className="mb-1  pink">OUR TESTIMONIALS</p>
             <h2 className="mb-1">
               WHAT PEOPLES'S SAYS ABOUT{" "}
-              <span className="pink">PROFX SUMMIT</span>
+              <span className="pink">PROFX EXPO AFRICA 2026</span>
             </h2>
             <p className="m-0">
               Powerful Testimonials From Our Delegates And Speakers

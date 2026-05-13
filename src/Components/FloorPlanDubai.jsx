@@ -87,7 +87,7 @@ const FloorPlanDubai = () => {
               Floor Plan
             </p>
             <h2 className="mb-1">
-              PROFX SUMMIT<span className="pink"> <b>DUBAI 2026</b></span>
+              PROFX EXPO<span className="pink"> <b>AFRICA 2026</b></span>
             </h2>
             <p className="m-0">
               Choose from 4 powerful tiers - designed for trend explorers, skill builders, networkers, and deal-closers.
@@ -980,7 +980,7 @@ const FloorPlanDubai = () => {
         </div>
         {/* Footer */}
         <div className="text-center mt-4 text-slate-400 text-sm">
-          <p>Hover over any booth for details and to reserve • © PROFX SUMMIT DUBAI 2026</p>
+          <p>Hover over any booth for details and to reserve • © PROFX EXPO AFRICA 2026</p>
         </div>
       </div>
 

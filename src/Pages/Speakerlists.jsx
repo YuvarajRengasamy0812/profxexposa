@@ -16,7 +16,7 @@ function Eventlists() {
           <div className="col-lg-12">
             <div className="title-content text-center mb-2">
               <p className="mb-1 pink">
-                <b>PROFX SUMMIT 2026</b> SPEAKERS
+                <b>PROFX EXPO AFRICA 2026</b> SPEAKERS
               </p>
               <h2 className="mb-1">
                 MEET OUR{" "}

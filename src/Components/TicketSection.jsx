@@ -139,7 +139,7 @@ const TicketSection = () => {
                     </div>
 
                     <div className="partner-button mt-auto p-6">
-                      <Link to="/Pricing" className="btn" style={{ background: "#ae4b84" }}>
+                      <Link to="/Pricing" className="btn" style={{ background: "linear-gradient(230deg, #0e5941, #15831d)", color: "#fff" }}>
                         BUY NOW
                       </Link>
                     </div>
