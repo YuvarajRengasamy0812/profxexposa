@@ -88,10 +88,10 @@ const TabbedDays = () => {
         <div className="text-center mb-5">
           <p className="ag-pink fw-semibold mb-1">Event Agenda</p>
           <h2 className="ag-black fw-bold">
-            Full Schedule - <span className="ag-pink"><b>PROFX EXPO AFRICA 2026</b></span>
+            Full Schedule - <span className="ag-pink"><b>PROFX SUMMIT DUBAI 2026</b></span>
           </h2>
           <p className="ag-text-grey mt-2">
-            <b>PROFX EXPO AFRICA 2026</b> is a premier two-day global finance summit featuring keynote speeches by industry leaders, panel discussions on Forex, FinTech & Trading Innovation, exhibition showcases, and exclusive networking opportunities. Join us on 10 and 11 August 2026 at Le Méridien, Airport Road, Dubai, UAE.
+            <b>PROFX SUMMIT DUBAI 2026</b> is a premier two-day global finance summit featuring keynote speeches by industry leaders, panel discussions on Forex, FinTech & Trading Innovation, exhibition showcases, and exclusive networking opportunities. Join us on 10-11 December 2026 at Le Méridien, Airport Road, Dubai, UAE.
           </p>
         </div>
 

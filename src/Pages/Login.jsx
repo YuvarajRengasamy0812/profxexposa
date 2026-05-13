@@ -95,7 +95,7 @@ const Login = () => {
             {/* RIGHT SIDE – LOGIN FORM */}
             <div className="col-12 col-lg-7">
               <div className="h-100 bg-white rounded shadow p-4 d-flex flex-column justify-content-center">
-                <h4 className="pink mb-4 text-center">Login to PROFX EXPO AFRICA 2026</h4>
+                <h4 className="pink mb-4 text-center">Login to PROFX SUMMIT Dubai 2026</h4>
 
                 <form onSubmit={handleLogin} className="row g-3">
 

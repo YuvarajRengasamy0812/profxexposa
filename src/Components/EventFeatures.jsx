@@ -21,7 +21,7 @@ const EventFeatures = () => {
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                Why <span className="pink"><b>PROFX EXPO AFRICA 2026</b></span> Matters
+                Why <span className="pink"><b>PROFX SUMMIT DUBAI 2026</b></span> Matters
               </h2>
 
               <p className="text-grey" data-aos="fade-up">

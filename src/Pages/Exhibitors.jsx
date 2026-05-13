@@ -34,7 +34,7 @@ const Exhibitors = () => {
                 </h2>
 
                 <p className="section-desc mb-4">
-                  Secure your exhibition space at <strong><b>PROFX EXPO AFRICA 2026</b></strong> and connect with <strong>3,000+ finance professionals, innovators, and decision-makers</strong> from Forex, FinTech, blockchain, and trading sectors. Maximize your brand visibility and create meaningful business opportunities during this two-day international finance summit.
+                  Secure your exhibition space at <strong><b>PROFX SUMMIT DUBAI 2026</b></strong> and connect with <strong>3,000+ finance professionals, innovators, and decision-makers</strong> from Forex, FinTech, blockchain, and trading sectors. Maximize your brand visibility and create meaningful business opportunities during this two-day international finance summit.
                 </p>
 
                 <div className="">
@@ -78,7 +78,7 @@ const Exhibitors = () => {
                   Exhibition <span className="pink">Booths Overview</span>
                 </h2>
                 <p className="m-0">
-                  The exhibition area at <b>PROFX EXPO AFRICA 2026</b> provides companies with a premium
+                  The exhibition area at <b>PROFX SUMMIT DUBAI 2026</b> provides companies with a premium
                   opportunity to showcase their products and services directly to a highly targeted audience.
                 </p>
               </div>

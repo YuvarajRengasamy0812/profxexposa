@@ -17,7 +17,7 @@ const LetsDoIt = () => {
             </div>
             <div className="ticket-info">
               <p>
-                Registration for <b>PROFX EXPO AFRICA 2026</b> is completely free! Gain access to expert-led sessions,
+                Registration for <b>PROFX SUMMIT DUBAI 2026</b> is completely free! Gain access to expert-led sessions,
                 live exhibition booths, high-level networking, and the prestigious ProFX Awards Ceremony.
                 Be part of Dubai's premier international finance and trading event.
               </p>

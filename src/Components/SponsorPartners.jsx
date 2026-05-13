@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { getApiUrl } from "../api/config";
 
 // SponsorSection component
 const SponsorSection = ({ title, items, single = false, showTitle = true }) => (
@@ -48,7 +47,7 @@ export default function SponsorPartners() {
         const fetchSponsors = async () => {
             try {
                 const { data } = await axios.get(
-                    getApiUrl("website/Sponsors")
+                    `${process.env.REACT_APP_API_URL}/website/Sponsors`
                 );
 
                 if (data.success) {

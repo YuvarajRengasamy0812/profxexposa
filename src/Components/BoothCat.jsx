@@ -12,7 +12,7 @@ const BoothCat = () => {
                                 Booth Categories
                             </p>
                             <h2 className="mb-1">
-                                Elevate your brand’s presence at<span className="pink"> <b>PROFX EXPO AFRICA 2026</b></span>
+                                Elevate your brand’s presence at<span className="pink"> <b>PROFX SUMMIT DUBAI 2026</b></span>
                             </h2>
                             <p className="m-0">
                                 By choosing the booth that fits your visibility and engagement goals.

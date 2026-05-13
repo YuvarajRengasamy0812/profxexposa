@@ -17,7 +17,7 @@ import BlogSection from "../Components/BlogSection";
 import { getBrochure } from "../api/brochure";
 import { useEffect, useState } from "react";
 import TrustedPartners from "../Components/TrustedPartners";
-import FloorPlanAFRICA from "../Components/FloorPlanDubai";
+import FloorPlanDubai from "../Components/FloorPlanDubai";
 import MediaPartners from "../Components/MediaPartners";
 import SponsorPartners from "../Components/SponsorPartners";
 import Speakersection from "../Components/Speakersection";
@@ -93,7 +93,7 @@ function Home() {
                     </a>
 
                     <h4 className="text-white pb-3">
-                      PROFX <span className="pink">EXPO</span> AFRICA 2026
+                      PROFX <span className="pink">SUMMIT</span> Dubai 2026
                     </h4>
 
                     <h3 className="text-white">
@@ -110,11 +110,11 @@ function Home() {
                   >
                     <ul className="m-0 ps-0 d-sm-flex justify-content-center justify-content-lg-start list-unstyled">
                       <li className="pe-2 border-end border-1 border-lightgrey">
-                        <i className="fa fa-calendar-o pe-1"></i> 10 and 11 August 2026
+                        <i className="fa fa-calendar-o pe-1"></i> 10-11 December 2026
                       </li>
                       <li className="ps-2">
                         <i className="fa fa-map-marker pe-1"></i>Le Méridien,
-                        Airport Road, AFRICA, UAE
+                        Airport Road, Dubai, UAE
                       </li>
                     </ul>
                   </div>
@@ -126,9 +126,9 @@ function Home() {
                     data-aos-delay="600"
                   >
                     <p className="pb-4 m-0">
-                      <b>PROFX EXPO AFRICA 2026</b> is a premier international financial gathering
+                      <b>PROFX SUMMIT DUBAI 2026</b> is a premier international financial gathering
                       that brings together global leaders from Forex, FinTech, Blockchain, and
-                      digital finance. The two-day EXPO features expert-led discussions,
+                      digital finance. The two-day summit features expert-led discussions,
                       live exhibition booths, high-level networking, and a prestigious awards
                       ceremony - all under one roof.
                     </p>
@@ -197,16 +197,16 @@ function Home() {
                     <h2 className="mb-2" data-aos="fade-right" data-aos-delay="900">
                       GET THE LATEST INFO ABOUT{" "}
                       <span className="pink" data-aos="fade-right" data-aos-delay="1000">
-                        <b>PROFX EXPO 2026</b>
+                        <b>PROFX SUMMIT 2026</b>
                       </span>
                     </h2>
                     <p data-aos="fade-right" data-aos-delay="1100">
-                      <b>PROFX EXPO AFRICA 2026</b> is a premier international financial
+                      <b>PROFX SUMMIT DUBAI 2026</b> is a premier international financial
                       gathering that brings together global leaders from Forex,
                       FinTech, Blockchain, and digital finance under one roof.
                     </p>
                     <p className="mb-2" data-aos="fade-right" data-aos-delay="1200">
-                      The two-day EXPO features expert-led discussions, live
+                      The two-day summit features expert-led discussions, live
                       exhibition booths, continuous networking opportunities, and a
                       prestigious awards ceremony recognizing excellence across the
                       global financial ecosystem.
@@ -227,7 +227,7 @@ function Home() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHERE</h5>
                                 <small className="pink">
-                                  Le Meridian, Airport Road, AFRICA UAE
+                                  Le Meridian, Airport Road, Dubai UAE
                                 </small>
                               </Link>
                             </div>
@@ -432,7 +432,7 @@ function Home() {
                         <small>
                           Participate in live draws and competitions to win exclusive
                           prizes, branded merchandise, and special recognition at
-                          <b>PROFX EXPO AFRICA 2026</b>.
+                          <b>PROFX SUMMIT DUBAI 2026</b>.
                         </small>
                       </div>
                     </a>
@@ -482,7 +482,7 @@ function Home() {
       {/*--Pricing Section end--*/}
 
       {/* Floorplan Component */}
-      <FloorPlanAFRICA id="floorplan"/>
+      <FloorPlanDubai id="floorplan"/>
       {/* Floorplan Component */}
 
       {/*--Gallery Section end--*/}
@@ -498,7 +498,7 @@ function Home() {
                       WAS AN AMAGING <span className="pink">GALLERY</span>
                     </h2>
                     <p className="m-0">
-                      Our expo in AFRICA named: ProFX Expo AFRICA 2025, where we had an official Guinness World Record!
+                      Our expo in dubai named: ProFX Expo Dubai 2025, where we had an official Guinness World Record!
                       Top traders battled it out for a share of the $25,000 prize pool. A truly unforgettable milestone!
                     </p>
                   </div>
@@ -525,7 +525,7 @@ function Home() {
             <p className="mb-1  pink">OUR TESTIMONIALS</p>
             <h2 className="mb-1">
               WHAT PEOPLES'S SAYS ABOUT{" "}
-              <span className="pink">PROFX EXPO</span>
+              <span className="pink">PROFX SUMMIT</span>
             </h2>
             <p className="m-0">
               Powerful Testimonials From Our Delegates And Speakers

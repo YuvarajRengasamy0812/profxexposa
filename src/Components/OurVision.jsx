@@ -10,7 +10,7 @@ const milestones = [
     year: "10 December 2026",
     title: "Opening Ceremony & Keynotes",
     description:
-      "<b>PROFX EXPO AFRICA 2026</b> kicks off with a grand opening ceremony followed by keynote speeches from global Forex finance and FinTech leaders.",
+      "<b>PROFX SUMMIT DUBAI 2026</b> kicks off with a grand opening ceremony followed by keynote speeches from global Forex finance and FinTech leaders.",
     icon: <CreditCard size={24} />,
   },
   {
@@ -70,7 +70,7 @@ const OurVision = () => {
               Why This <span className="pink">PROFX Summit Matters</span>
             </h2>
             <p className="text-grey">
-              <b>PROFX EXPO AFRICA 2026</b> is the premier international finance event bringing together global leaders from Forex, FinTech, Blockchain, and digital finance. Over two days, attendees explore expert-led sessions, live exhibition booths, networking, and the prestigious PROFX Awards - all under one roof in Dubai’s world-class financial hub.
+              <b>PROFX SUMMIT DUBAI 2026</b> is the premier international finance event bringing together global leaders from Forex, FinTech, Blockchain, and digital finance. Over two days, attendees explore expert-led sessions, live exhibition booths, networking, and the prestigious PROFX Awards - all under one roof in Dubai’s world-class financial hub.
             </p>
           </div>
         </div>
@@ -83,7 +83,7 @@ const OurVision = () => {
                 Our Vision - <span className="pink">Driving Forex Innovation</span>
               </h2>
               <p className="text-dark">
-                <b>PROFX EXPO AFRICA 2026</b> is designed as a complete financial ecosystem experience. The summit seamlessly integrates summit sessions, live exhibition booths, continuous networking, and the PROFX Awards ceremony. Participants engage with industry experts, decision-makers, and innovators shaping the future of global finance. From advanced trading discussions to Forex innovation, Dubai emerges as the hub for scalable, compliant, and impactful financial solutions.
+                <b>PROFX SUMMIT DUBAI 2026</b> is designed as a complete financial ecosystem experience. The summit seamlessly integrates summit sessions, live exhibition booths, continuous networking, and the PROFX Awards ceremony. Participants engage with industry experts, decision-makers, and innovators shaping the future of global finance. From advanced trading discussions to Forex innovation, Dubai emerges as the hub for scalable, compliant, and impactful financial solutions.
               </p>
               <div className="vision-image mt-4 text-center text-lg-start">
                 <img

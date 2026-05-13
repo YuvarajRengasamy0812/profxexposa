@@ -14,7 +14,7 @@ const SchedulesSection = () => {
                 FOLLOW <span className="pink">EVENT</span> SCHEDULES
               </h2>
               <p className="m-0">
-                <b>PROFX EXPO AFRICA 2026</b> is a two-day immersive experience featuring
+                <b>PROFX SUMMIT DUBAI 2026</b> is a two-day immersive experience featuring
                 continuous summit sessions alongside a full-scale exhibition.
                 Attendees can freely move between expert-led knowledge sessions,
                 networking zones, and exhibitor booths throughout the event.
@@ -46,7 +46,7 @@ const SchedulesSection = () => {
                             OPENING CEREMONY & WELCOME ADDRESS
                           </Link>
                         </h5>
-                        <p><small>Official inauguration of <b>PROFX EXPO AFRICA 2026</b></small></p>
+                        <p><small>Official inauguration of <b>PROFX SUMMIT DUBAI 2026</b></small></p>
                         <ul className="p-0">
                           <li className="d-inline">
                             <Podcast className="pink mx-2" />

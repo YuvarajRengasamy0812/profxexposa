@@ -66,7 +66,7 @@ function Footer() {
             </div>
             <div className="footer-disciption border-bottom border-white border-opacity-25 m-auto mb-6">
               <p className=" mb-6">
-                <b>PROFX EXPO AFRICA 2026</b> is a global platform connecting Forex, FinTech, Innovators,
+                <b>PROFX SUMMIT DUBAI 2026</b> is a global platform connecting Forex, FinTech, Innovators,
                 and Decision-makers. Join us in Dubai for two days of insights, networking, exhibitions, and
                 recognition.
               </p>

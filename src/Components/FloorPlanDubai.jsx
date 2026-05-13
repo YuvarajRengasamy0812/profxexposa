@@ -5,7 +5,6 @@ import FloorBorder from "./FloorBorder";
 import { createPortal } from "react-dom";
 import BoothModal from "./BoothModal";
 import axios from "axios";
-import { getApiUrl } from "../api/config";
 
 const FloorPlanDubai = () => {
   const [selectedBooth, setSelectedBooth] = React.useState(null);
@@ -16,7 +15,7 @@ const FloorPlanDubai = () => {
 
   useEffect(() => {
     axios
-      .get(getApiUrl("floorplanList"))
+      .get(`${process.env.REACT_APP_API_URL}/floorplanList`)
       .then((res) => {
         const tickets = res.data.details.tickets.data;
 
@@ -981,7 +980,7 @@ const FloorPlanDubai = () => {
         </div>
         {/* Footer */}
         <div className="text-center mt-4 text-slate-400 text-sm">
-          <p>Hover over any booth for details and to reserve • © PROFX EXPO AFRICA 2026</p>
+          <p>Hover over any booth for details and to reserve • © PROFX SUMMIT DUBAI 2026</p>
         </div>
       </div>
 
