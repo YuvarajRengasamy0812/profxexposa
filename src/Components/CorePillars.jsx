@@ -39,7 +39,7 @@ const CorePillars = () => {
               Our <span className="pink">Focus Areas</span>
             </h2>
             <p className="text-grey">
-              The key pillars driving <b>PROFX SUMMIT DUBAI 2026</b> - integrating global finance, trading, FinTech, blockchain, and innovation.
+              The key pillars driving <b>PROFX EXPO AFRICA 2026</b> - integrating global finance, trading, FinTech, blockchain, and innovation.
             </p>
           </div>
         </div>

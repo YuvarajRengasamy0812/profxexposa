@@ -49,7 +49,7 @@ const ProfileDropdown = ({ user, onLogout }) => {
         onClick={() => setOpen(!open)}
       >
         <img
-          src={user?.avatar || "/assets/images/resources/avatar.png"}
+          src={user?.avatar || "assets/images/resources/avatar.png"}
           alt="User Avatar"
           className="pd-avatar rounded-circle"
         />

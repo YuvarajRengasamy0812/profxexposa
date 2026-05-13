@@ -55,7 +55,7 @@ const CustomNavbar = () => {
         {/* Left side: ProfileDropdown if logged in */}
         {user && (
           <ProfileDropdown
-            user={{ avatar: "/assets/images/resources/avatar.png" }}
+            user={{ avatar: "assets/images/resources/avatar.png" }}
             onLogout={logout}
           />
         )}

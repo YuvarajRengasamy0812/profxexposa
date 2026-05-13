@@ -33,7 +33,7 @@ function Faq() {
                                     <div className="section-title pb-4 text-center text-lg-start">
                                         <p className="mb-1 pink">GENERAL QUESTIONS</p>
                                         <h2 className="mb-2">FREQUENTLY ASKED <span className="pink">QUESTIONS</span></h2>
-                                        <p>Your most common ProFX Summit Dubai 2026 queries - answered.</p>
+                                        <p>Your most common PROFX EXPO AFRICA 2026 queries - answered.</p>
                                     </div>
 
                                     <div className="faq-accordion p-4 bg-white rounded border border-2 border-light-subtle">
@@ -51,7 +51,7 @@ function Faq() {
                                                 <div id="flush-collapseOne" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        ProFX Summit Dubai 2026 brings together global finance, trading, FinTech, and Forex leaders for a two-day summit featuring expert-led sessions, live exhibition booths, networking opportunities, and the prestigious ProFX Awards.
+                                                        PROFX EXPO AFRICA 2026 brings together global finance, trading, FinTech, and Forex leaders for a two-day summit featuring expert-led sessions, live exhibition booths, networking opportunities, and the prestigious ProFX Awards.
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,7 +86,7 @@ function Faq() {
                                                 <div id="flush-collapseThree" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Yes, entry to ProFX Summit Dubai 2026 is completely free for all attendees. Registration grants access to summit sessions, exhibition booths, networking areas, and the awards ceremony.
+                                                        Yes, entry to PROFX EXPO AFRICA 2026 is completely free for all attendees. Registration grants access to summit sessions, exhibition booths, networking areas, and the awards ceremony.
                                                     </div>
                                                 </div>
                                             </div>

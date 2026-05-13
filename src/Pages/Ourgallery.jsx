@@ -34,7 +34,7 @@ function Ourgallery() {
             </div>
             <div className="ticket-info w-lg-55 mx-auto">
               <p>
-                Purchase a suitable ticket to attend the <b>PROFX SUMMIT DUBAI 2026</b> and gain access to insightful sessions, networking
+                Purchase a suitable ticket to attend the <b>PROFX EXPO AFRICA 2026</b> and gain access to insightful sessions, networking
                 opportunities, and hands-on workshops. Don't miss out on the
                 chance to be part of Dubai premier Forex event!
               </p>

@@ -105,7 +105,7 @@ function Bloglists() {
                                             <h6 className="mb-1">Hi, Dawood Sha</h6>
                                             <p className="mb-0 w-80 m-auto">
                                                 <small>
-                                                    Dawood Sha is a Forex enthusiast and organizer of the PROFX SUMMIT Dubai 2026,
+                                                    Dawood Sha is a Forex enthusiast and organizer of the PROFX EXPO AFRICA 2026,
                                                     dedicated to fostering innovation and collaboration in the Forex space.
                                                 </small>
                                             </p>

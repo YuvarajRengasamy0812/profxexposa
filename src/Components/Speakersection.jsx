@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { getApiUrl } from "../api/config";
 
 const Speakersection = () => {
   const [speakersData, setSpeakersData] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/website/speakers`)
+    fetch(getApiUrl("website/speakers"))
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

@@ -32,7 +32,7 @@ function About() {
                       </span>
                     </h2>
                     <p data-aos="fade-right" data-aos-delay="1100">
-                      <b>PROFX SUMMIT DUBAI 2026</b> is a premier international financial
+                      <b>PROFX EXPO AFRICA 2026</b> is a premier international financial
                       gathering that brings together global leaders from Forex,
                       FinTech, Blockchain, and digital finance under one roof.
                     </p>
@@ -223,7 +223,7 @@ function About() {
                   </div>
                   <div className="overview-info text-grey">
                     <p>
-                      Attend <b><b>PROFX SUMMIT DUBAI 2026</b></b> - a two-day international finance summit - to learn from expert keynote speakers, panelists, Exhibitors and industry innovators. Explore the latest in Forex, FinTech, blockchain, and trading innovation while networking with global leaders.
+                      Attend <b><b>PROFX EXPO AFRICA 2026</b></b> - a two-day international finance summit - to learn from expert keynote speakers, panelists, Exhibitors and industry innovators. Explore the latest in Forex, FinTech, blockchain, and trading innovation while networking with global leaders.
                     </p>
                     <p>
                       Join 100+ speakers, 50+ sessions, and 5,000+ attendees to gain actionable insights, connect with top companies, and experience live exhibitions and strategic networking.

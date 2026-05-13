@@ -23,18 +23,18 @@ function Sponsers() {
               </h2>
 
               <p className="text-grey fs-5 mb-4">
-                ProFX Summit Dubai 2026 offers a wide range of sponsorship opportunities designed to maximize your brand exposure, authority, and engagement across the summit venue, digital platforms, and marketing campaigns.
+                PROFX EXPO AFRICA 2026 offers a wide range of sponsorship opportunities designed to maximize your brand exposure, authority, and engagement across the summit venue, digital platforms, and marketing campaigns.
               </p>
 
               <a
-                href="/assets/brochure/ProFX Summit Dubai 2026 - Sponsorship Brochure.pdf"
+                href="assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn primary-btn px-4 py-3"
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/assets/brochure/ProFX Summit Dubai 2026 - Sponsorship Brochure.pdf";
-                  link.download = "ProFX Summit Dubai 2026 - Sponsorship Brochure.pdf";
+                  link.href = "assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
+                  link.download = "PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
                   link.click();
                 }}
               >
@@ -68,7 +68,7 @@ function Sponsers() {
                 Tiered <span className="pink"> Opportunities</span>
               </h2>
               <p className="m-0">
-                Choose your sponsorship level to maximize your brand's impact at ProFX Summit Dubai 2026.
+                Choose your sponsorship level to maximize your brand's impact at PROFX EXPO AFRICA 2026.
               </p>
             </div>
           </div>
@@ -204,7 +204,7 @@ function Sponsers() {
             </h2>
 
             <p className="text-grey w-lg-60 mx-auto fs-5">
-              Premium visibility, targeted engagement, and measurable designed for financial brands, FinTech innovators, and industry leaders participating in ProFX Summit Dubai 2026.
+              Premium visibility, targeted engagement, and measurable designed for financial brands, FinTech innovators, and industry leaders participating in PROFX EXPO AFRICA 2026.
             </p>
           </div>
 

@@ -4,11 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import App from './App';
+import { APP_BASENAME } from './api/config';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter> {/* Only one BrowserRouter here */}
+    <BrowserRouter basename={APP_BASENAME}> {/* Only one BrowserRouter here */}
       <App />
     </BrowserRouter>
   </React.StrictMode>

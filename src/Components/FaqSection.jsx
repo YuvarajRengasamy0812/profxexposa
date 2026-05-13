@@ -16,7 +16,7 @@ const FaqSection = () => {
                       FREQUENTLY ASKED <span className="pink">QUESTIONS</span>
                     </h2>
                     <p className="text-white">
-                      Answers to common questions about <b>PROFX SUMMIT DUBAI 2026</b>
+                      Answers to common questions about <b>PROFX EXPO AFRICA 2026</b>
                     </p>
                   </div>
                   <div className="faq-accordion p-4 mb-5 bg-white rounded">
@@ -41,7 +41,7 @@ const FaqSection = () => {
                           data-bs-parent="#accordionFlushExample"
                         >
                           <div className="accordion-body bg-lightgrey p-6">
-                            Yes, entry to <b>PROFX SUMMIT DUBAI 2026</b> is completely free for all attendees.
+                            Yes, entry to <b>PROFX EXPO AFRICA 2026</b> is completely free for all attendees.
                           </div>
                         </div>
                       </div>
