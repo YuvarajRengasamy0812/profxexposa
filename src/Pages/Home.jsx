@@ -17,7 +17,8 @@ import BlogSection from "../Components/BlogSection";
 import { getBrochure } from "../api/brochure";
 import { useEffect, useState } from "react";
 import TrustedPartners from "../Components/TrustedPartners";
-import FloorPlanDubai from "../Components/FloorPlanDubai";
+// import FloorPlanDubai from "../Components/FloorPlanDubai";
+import FloorPlanImage from "../Components/FloorPlanImage";
 import MediaPartners from "../Components/MediaPartners";
 import SponsorPartners from "../Components/SponsorPartners";
 import Speakersection from "../Components/Speakersection";
@@ -54,7 +55,7 @@ function Home() {
                     data-aos="fade-up"
                     data-aos-delay="200">
                     <img
-                      src="assets/images/team/4.png"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/4.png`}
                       alt="banner-image"
                       className="w-50 shake"
                     />
@@ -87,7 +88,7 @@ function Home() {
                     <a href="https://www.guinnessworldrecords.com/world-records/774828-most-participants-in-a-trading-competition">
                       <img
                         className="w-50 img-fluid mb-3"
-                        src="assets/images//resources/guiness.png"
+                        src={`${process.env.PUBLIC_URL}/assets/images//resources/guiness.png`}
                         alt="guiness"
                       />
                     </a>
@@ -111,8 +112,7 @@ function Home() {
                         <i className="fa fa-calendar-o pe-1"></i> 10 - 11 August 2026
                       </li>
                       <li className="ps-2">
-                        <i className="fa fa-map-marker pe-1"></i>Le Méridien,
-                        Airport Road, Dubai, UAE
+                        <i className="fa fa-map-marker pe-1"></i>Cape Town, South Africa
                       </li>
                     </ul>
                   </div>
@@ -225,7 +225,7 @@ function Home() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHERE</h5>
                                 <small className="pink">
-                                  Le Meridian, Airport Road, Dubai UAE
+                                  Cape Town, South Africa
                                 </small>
                               </Link>
                             </div>
@@ -265,13 +265,13 @@ function Home() {
                         <div className="img-left-1 float-end w-lg-80" data-aos="zoom-in" data-aos-delay="1000">
                           <img
                             className="mb-2 w-100 rounded"
-                            src="assets/images/group/1.jpg"
+                            src={`${process.env.PUBLIC_URL}/assets/images/group/1.jpg`}
                             alt="blockchain-session"
                           />
                         </div>
                         <div className="img-left-2" data-aos="zoom-in" data-aos-delay="1200">
                           <img
-                            src="assets/images/group/2.jpg"
+                            src={`${process.env.PUBLIC_URL}/assets/images/group/2.jpg`}
                             alt="networking"
                             className="w-100 rounded"
                           />
@@ -282,7 +282,7 @@ function Home() {
                     <div className="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="1400">
                       <div className="container-img-right w-lg-75">
                         <img
-                          src="assets/images/group/3.jpg"
+                          src={`${process.env.PUBLIC_URL}/assets/images/group/3.jpg`}
                           alt="expo-floor"
                           className="w-100 rounded"
                         />
@@ -480,7 +480,8 @@ function Home() {
       {/*--Pricing Section end--*/}
 
       {/* Floorplan Component */}
-      <FloorPlanDubai id="floorplan"/>
+      {/* <FloorPlanDubai id="floorplan" /> */}
+      <FloorPlanImage id="floorplan" />
       {/* Floorplan Component */}
 
       {/*--Gallery Section end--*/}

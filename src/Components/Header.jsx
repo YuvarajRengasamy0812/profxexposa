@@ -137,8 +137,8 @@ const Header = () => {
                     <img
                       src={
                         isScrolled
-                          ? "assets/images/logo/profx-dark.png" // 👈 on scroll
-                          : "assets/images/logo/profx-white.png" // 👈 top
+                          ? `${process.env.PUBLIC_URL}/assets/images/logo/profx-dark.png`
+                          : `${process.env.PUBLIC_URL}/assets/images/logo/profx-white.png`
                       }
                       alt="Logo"
                       className=""
@@ -158,7 +158,7 @@ const Header = () => {
                   {/* <Search className="d-md-none" /> */}
                   {user ? (
                     <>
-                      <ProfileDropdown user={{ avatar: "/assets/images/resources/avatar.png" }} onLogout={logout} />
+                      <ProfileDropdown user={{ avatar: `${process.env.PUBLIC_URL}/assets/images/resources/avatar.png` }} onLogout={logout} />
                       <Link to="/Booknow" className="btn btn3">
                         Buy Ticket <i className="fa fa-long-arrow-right ms-4"></i>
                       </Link>

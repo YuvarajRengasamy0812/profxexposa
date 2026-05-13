@@ -62,7 +62,7 @@ const ScheduledSecTwo = () => {
                             <div className="schedule-box-bio d-md-flex">
                               <div className="schedule-bio-image ">
                                 <img
-                                  src="assets/images/team/2.jpg"
+                                  src={`${process.env.PUBLIC_URL}/assets/images/team/2.jpg`}
                                   alt="team-image"
                                   className="me-2 rounded-circle"
                                 />
@@ -115,7 +115,7 @@ const ScheduledSecTwo = () => {
                             <div className="schedule-box-bio d-md-flex">
                               <div className="schedule-bio-image">
                                 <img
-                                  src="assets/images/team/3.jpg"
+                                  src={`${process.env.PUBLIC_URL}/assets/images/team/3.jpg`}
                                   alt="team-image"
                                   className="me-2 rounded-circle"
                                 />
@@ -172,7 +172,7 @@ const ScheduledSecTwo = () => {
                             <div className="schedule-box-bio d-md-flex">
                               <div className="schedule-bio-image">
                                 <img
-                                  src="assets/images/team/1.jpg"
+                                  src={`${process.env.PUBLIC_URL}/assets/images/team/1.jpg`}
                                   alt="team-image"
                                   className="me-2 rounded-circle"
                                 />
@@ -225,7 +225,7 @@ const ScheduledSecTwo = () => {
                             <div className="schedule-box-bio d-md-flex">
                               <div className="schedule-bio-image ">
                                 <img
-                                  src="assets/images/team/2.jpg"
+                                  src={`${process.env.PUBLIC_URL}/assets/images/team/2.jpg`}
                                   alt="team-image"
                                   className="me-2 rounded-circle"
                                 />
@@ -312,7 +312,7 @@ const ScheduledSecTwo = () => {
                 <div className="schedule-box-bio d-md-flex ">
                   <div className="schedule-bio-image">
                     <img
-                      src="assets/images/team/2.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/2.jpg`}
                       alt="team-image"
                       className="me-2 rounded-circle"
                     />
@@ -364,7 +364,7 @@ const ScheduledSecTwo = () => {
                 <div className="schedule-box-bio d-md-flex">
                   <div className="schedule-bio-image ">
                     <img
-                      src="assets/images/team/3.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/3.jpg`}
                       alt="team-image"
                       className="me-2 rounded-circle"
                     />
@@ -416,7 +416,7 @@ const ScheduledSecTwo = () => {
                 <div className="schedule-box-bio d-md-flex">
                   <div className="schedule-bio-image">
                     <img
-                      src="assets/images/team/1.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/1.jpg`}
                       alt="team-image"
                       className="me-2 rounded-circle"
                     />

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import PageHelmet from "../Components/Pagehelmet";
 import Breadcrumb from "../Components/Breadcrumb";
 import { ArrowRight, Briefcase, Mail, Phone, User, X } from "lucide-react";
+import { Link } from "react-router-dom";
 // import BoothSpectrum from "../Components/BoothSpectrum";
 import TicketSection from "../Components/TicketSection";
 import FloorPlan from "../Components/FloorPlan";
 import BoothCat from "../Components/BoothCat";
-import FloorPlanDubai from "../Components/FloorPlanDubai";
+// import FloorPlanDubai from "../Components/FloorPlanDubai";
+import FloorPlanImage from "../Components/FloorPlanImage";
 
 const Exhibitors = () => {
   const [showBoothModal, setShowBoothModal] = useState(false);
@@ -38,9 +40,9 @@ const Exhibitors = () => {
                 </p>
 
                 <div className="">
-                  <a href="/ExhibitorsForm" className="btn col-lg-6">
+                  <Link to="/ExhibitorsForm" className="btn col-lg-6">
                     Reserve Your Exhibit Space
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -49,7 +51,7 @@ const Exhibitors = () => {
                 <div className="floorplan-box">
                   {/* Replace with iframe or image later */}
                   <img
-                    src="assets/images/resources/floorplan.jpg"
+                    src={`${process.env.PUBLIC_URL}/assets/images/resources/floorplan.jpg`}
                     alt="Exhibition Floor Plan"
                     className="img-fluid rounded shadow-lg"
                   />
@@ -64,7 +66,8 @@ const Exhibitors = () => {
         {/* -- Floor Plan Section End -- */}
         {/* <TicketSection /> */}
         {/* <FloorPlan /> */}
-        <FloorPlanDubai />
+        {/* <FloorPlanDubai /> */}
+        <FloorPlanImage />
 
         {/* -- Exhibitor Success Path Section Start -- */}
         <section className="exhibitor-success py-5 py-md-14">
@@ -150,9 +153,9 @@ const Exhibitors = () => {
               >
                 Inquiry Form
               </a>
-              <a href="/Sponsers" className="btn outline-btn">
+              <Link to="/Sponsers" className="btn outline-btn">
                 Sponsor Bundle
-              </a>
+              </Link>
             </div>
           </div>
         </section>

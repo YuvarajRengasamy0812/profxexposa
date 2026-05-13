@@ -65,7 +65,7 @@ const FaqSection = () => {
                           data-bs-parent="#accordionFlushExample"
                         >
                           <div className="accordion-body bg-lightgrey p-6">
-                            Le Méridien, Airport Road, Dubai, UAE.
+                            Cape Town, South Africa.
                           </div>
                         </div>
                       </div>

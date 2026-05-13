@@ -26,7 +26,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/2.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/2.jpg`}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -51,7 +51,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/3.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/3.jpg`}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -76,7 +76,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/1.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/1.jpg`}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -101,7 +101,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/3.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/3.jpg`}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -126,7 +126,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/1.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/1.jpg`}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -151,7 +151,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/2.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/team/2.jpg`}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />

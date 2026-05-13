@@ -32,7 +32,7 @@ function Blogs() {
             <div className="col-lg-6">
               <div className="blog-hero-img shadow-xl rounded-4 overflow-hidden">
                 <img
-                  src="assets/images/resources/blogs.jpg"
+                  src={`${process.env.PUBLIC_URL}/assets/images/resources/blogs.jpg`}
                   className="img-fluid"
                   alt="Featured Blog Banner"
                 />

@@ -17,7 +17,7 @@ function Eventdetail() {
                     <div className="col-lg-8">
                     <div className="event-detail-left">
                         <div className="event-img mb-4">
-                        <img src="assets/images/group/4.jpg" alt="event-image" className="w-100 rounded"/>
+                        <img src={`${process.env.PUBLIC_URL}/assets/images/group/4.jpg`} alt="event-image" className="w-100 rounded"/>
                         </div>
                         <div className="event-description pb-4">
                         <h4 className="mb-4">Event Description</h4>
@@ -53,7 +53,7 @@ function Eventdetail() {
                             <div className="row gy-3">
                             <div className="col-lg-4 col-md-4">
                                 <div className="speaker-box  position-relative overflow-hidden text-white">
-                                    <img className="speaker-image rounded w-100" src="assets/images/speakers/1.jpg" alt="speaker-image"/>
+                                    <img className="speaker-image rounded w-100" src={`${process.env.PUBLIC_URL}/assets/images/speakers/1.jpg`} alt="speaker-image"/>
                                     <div className="box-content position-absolute bottom-0 z-1">
                                         <h6 className="speaker-title d-block text-white pb-1"><Link to="/Speakerdetail" >GERARDO AMBROSE</Link>
                                         </h6>
@@ -72,7 +72,7 @@ function Eventdetail() {
                             </div>
                             <div className="col-lg-4 col-md-4">
                                 <div className="speaker-box position-relative overflow-hidden">
-                                    <img className="speaker-image rounded w-100" src="assets/images/speakers/2.jpg" alt="speaker-image"/>
+                                    <img className="speaker-image rounded w-100" src={`${process.env.PUBLIC_URL}/assets/images/speakers/2.jpg`} alt="speaker-image"/>
                                     <div className="box-content position-absolute bottom-0 z-1">
                                         <h6 className="speaker-title d-block text-white pb-1"><Link to="/Speakerdetail" >GERARDO AMBROSE</Link>
                                         </h6>
@@ -91,7 +91,7 @@ function Eventdetail() {
                             </div>
                             <div className="col-lg-4 col-md-4">
                                 <div className="speaker-box position-relative overflow-hidden">
-                                    <img className="speaker-image rounded w-100" src="assets/images/speakers/4.jpg" alt="speaker-image" />
+                                    <img className="speaker-image rounded w-100" src={`${process.env.PUBLIC_URL}/assets/images/speakers/4.jpg`} alt="speaker-image" />
                                     <div className="box-content position-absolute bottom-0 z-1">
                                         <h6 className="speaker-title d-block text-white pb-1"><Link to="/Speakerdetail" >GERARDO AMBROSE</Link>
                                         </h6>
@@ -127,7 +127,7 @@ function Eventdetail() {
                                 <div className="organizer-list">
                                     <div className="organizer d-md-flex text-md-start pb-4 mb-4 border-dashed-bottom-2">
                                     <div className="organizer-bio-image ">
-                                        <Link to="/Speakerdetail"><img src="assets/images/team/1.jpg" alt="team-image" className="me-2 rounded-circle m-sm-0"/></Link>
+                                        <Link to="/Speakerdetail"><img src={`${process.env.PUBLIC_URL}/assets/images/team/1.jpg`} alt="team-image" className="me-2 rounded-circle m-sm-0"/></Link>
                                     </div> 
                                     <div className="organizer-bio-info"> 
                                         <p className="mt-1 mb-0 fw-semibold black text-uppercase"><Link to="/Speakerdetail" className="black">Rickey Malone</Link></p>
@@ -136,7 +136,7 @@ function Eventdetail() {
                                     </div>
                                     <div className="organizer d-md-flex text-md-start border-0 pb-1">
                                     <div className="organizer-bio-image ">
-                                        <Link to="/Speakerdetail"><img src="assets/images/team/2.jpg" alt="team-image" className="me-2 rounded-circle m-sm-0"/></Link>
+                                        <Link to="/Speakerdetail"><img src={`${process.env.PUBLIC_URL}/assets/images/team/2.jpg`} alt="team-image" className="me-2 rounded-circle m-sm-0"/></Link>
                                     </div> 
                                     <div className="organizer-bio-info"> 
                                         <p className="mt-1 mb-0 fw-semibold black text-uppercase"><Link to="/Speakerdetail" className="black">JESUS HOLLAND</Link></p> 

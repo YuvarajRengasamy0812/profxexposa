@@ -58,7 +58,7 @@ function About() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHERE</h5>
                                 <small className="pink">
-                                  Le Meridian, Airport Road, Dubai UAE
+                                  Cape Town, South Africa
                                 </small>
                               </Link>
                             </div>
@@ -98,13 +98,13 @@ function About() {
                         <div className="img-left-1 float-end w-lg-80">
                           <img
                             className="mb-2 w-100 rounded"
-                            src="assets/images/group/1.jpg"
+                            src={`${process.env.PUBLIC_URL}/assets/images/group/1.jpg`}
                             alt="blockchain-session"
                           />
                         </div>
                         <div className="img-left-2">
                           <img
-                            src="assets/images/group/2.jpg"
+                            src={`${process.env.PUBLIC_URL}/assets/images/group/2.jpg`}
                             alt="networking"
                             className="w-100 rounded"
                           />
@@ -115,7 +115,7 @@ function About() {
                     <div className="col-lg-6 col-md-6">
                       <div className="container-img-right w-lg-75">
                         <img
-                          src="assets/images/group/3.jpg"
+                          src={`${process.env.PUBLIC_URL}/assets/images/group/3.jpg`}
                           alt="expo-floor"
                           className="w-100 rounded"
                         />
@@ -279,7 +279,7 @@ function About() {
                   <div className="speaker-box  position-relative overflow-hidden text-white">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/1.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/1.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -307,7 +307,7 @@ function About() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/2.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/2.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -335,7 +335,7 @@ function About() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/3.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/3.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -363,7 +363,7 @@ function About() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/4.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/4.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">

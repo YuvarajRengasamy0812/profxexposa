@@ -25,7 +25,7 @@ const FloorPlanDubai = () => {
             boothNo: String(t.boothno),
             companyName: t.company || "",
             // ✅ Set default placeholder if logo is missing
-            logo: t.company_logo || "assets/images/booth-reserved/v-process.png",
+            logo: t.company_logo || `${process.env.PUBLIC_URL}/assets/images/booth-reserved/v-process.png`,
             url: t.company_url || "#",
             title: t.boothtitle || "Reserved Booth",
             size: t.boothsize || "",

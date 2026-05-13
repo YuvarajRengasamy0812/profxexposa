@@ -11,10 +11,10 @@ const ProductSlider = () => {
   const slider2 = useRef(null);
 
   const images = [
-    { src: "assets/images/product/4.jpg", alt: "Lewis Shirt" },
-    { src: "assets/images/product/5.jpg", alt: "London T-shirt" },
-    { src: "assets/images/product/2.jpg", alt: "Ladies Top" },
-    { src: "assets/images/product/6.jpg", alt: "Yellow Sofa" },
+    { src: `${process.env.PUBLIC_URL}/assets/images/product/4.jpg`, alt: "Lewis Shirt" },
+    { src: `${process.env.PUBLIC_URL}/assets/images/product/5.jpg`, alt: "London T-shirt" },
+    { src: `${process.env.PUBLIC_URL}/assets/images/product/2.jpg`, alt: "Ladies Top" },
+    { src: `${process.env.PUBLIC_URL}/assets/images/product/6.jpg`, alt: "Yellow Sofa" },
   ];
 
   return (

@@ -37,7 +37,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src="assets/images/resources/blockchain.png"
+                    src={`${process.env.PUBLIC_URL}/assets/images/resources/blockchain.png`}
                     alt="icon"
                     className="w-25"
                   />
@@ -65,7 +65,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src="assets/images/resources/metaverse.png"
+                    src={`${process.env.PUBLIC_URL}/assets/images/resources/metaverse.png`}
                     alt="icon"
                     className="w-25"
                   />
@@ -92,7 +92,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src="assets/images/resources/crypto.png"
+                    src={`${process.env.PUBLIC_URL}/assets/images/resources/crypto.png`}
                     alt="icon"
                     className="w-25"
                   />

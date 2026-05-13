@@ -329,35 +329,35 @@ const BoothModal = ({ booth, onClose, onReserve }) => {
                                 className={`payment-card ${paymentMethod === "now" ? "active" : ""}`}
                                 onClick={() => setPaymentMethod("now")}
                             >
-                                <img src="/assets/images/payments/nowpayments.png" alt="NowPayments" />
+                                <img src={`${process.env.PUBLIC_URL}/assets/images/payments/nowpayments.png`} alt="NowPayments" />
                             </div>
 
                             <div
                                 className={`payment-card ${paymentMethod === "stripe" ? "active" : ""}`}
                                 onClick={() => setPaymentMethod("stripe")}
                             >
-                                <img src="/assets/images/payments/stripe.png" alt="Stripe" />
+                                <img src={`${process.env.PUBLIC_URL}/assets/images/payments/stripe.png`} alt="Stripe" />
                             </div>
 
                             <div
                                 className={`payment-card ${paymentMethod === "upi" ? "active" : ""}`}
                                 onClick={() => setPaymentMethod("upi")}
                             >
-                                <img src="/assets/images/payments/upi.png" alt="UPI" />
+                                <img src={`${process.env.PUBLIC_URL}/assets/images/payments/upi.png`} alt="UPI" />
                             </div>
 
                             <div
                                 className={`payment-card ${paymentMethod === "usdt" ? "active" : ""}`}
                                 onClick={() => setPaymentMethod("usdt")}
                             >
-                                <img src="/assets/images/payments/usdt.png" alt="USDT" />
+                                <img src={`${process.env.PUBLIC_URL}/assets/images/payments/usdt.png`} alt="USDT" />
                             </div>
 
                             <div
                                 className={`payment-card ${paymentMethod === "bank" ? "active" : ""}`}
                                 onClick={() => setPaymentMethod("bank")}
                             >
-                                <img src="/assets/images/payments/bank-deposit.png" alt="Bank Deposit" />
+                                <img src={`${process.env.PUBLIC_URL}/assets/images/payments/bank-deposit.png`} alt="Bank Deposit" />
                             </div>
                         </div>
 
@@ -389,7 +389,7 @@ const BoothModal = ({ booth, onClose, onReserve }) => {
                                         <span>MS MS SHREE SHYAM BUILDERS</span>
                                         <img
                                             className="img-fluid"
-                                            src="/assets/images/payments/upi-qr.png"
+                                            src={`${process.env.PUBLIC_URL}/assets/images/payments/upi-qr.png`}
                                             alt="UPI QR"
                                         />
                                         <span className="text-center">
@@ -419,7 +419,7 @@ const BoothModal = ({ booth, onClose, onReserve }) => {
                                             <h6>TRON (TRC20)</h6>
                                             <img
                                                 className="img-fluid mb-2"
-                                                src="/assets/images/payments/usdt-qr-1.png"
+                                                src={`${process.env.PUBLIC_URL}/assets/images/payments/usdt-qr-1.png`}
                                                 alt="TRON QR"
                                             />
                                             <span className="text-break text-center">
@@ -432,7 +432,7 @@ const BoothModal = ({ booth, onClose, onReserve }) => {
                                             <h6>ETHEREUM (ERC20)</h6>
                                             <img
                                                 className="img-fluid mb-2"
-                                                src="/assets/images/payments/usdt-qr-2.png"
+                                                src={`${process.env.PUBLIC_URL}/assets/images/payments/usdt-qr-2.png`}
                                                 alt="ETH QR"
                                             />
                                             <span className="text-break text-center">

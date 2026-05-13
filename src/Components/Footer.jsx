@@ -58,7 +58,7 @@ function Footer() {
             <div className="footer-logo mb-4 pt-1">
               <Link to="/">
                 <img
-                  src="assets/images/logo/profx-white.png"
+                  src={`${process.env.PUBLIC_URL}/assets/images/logo/profx-white.png`}
                   className="w-50"
                   alt="footer-logo"
                 />

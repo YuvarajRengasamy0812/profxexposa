@@ -16,7 +16,7 @@ function Faq() {
                             <div className="col-lg-6 order-2 order-lg-1 p-2">
                                 <div className="general-ques-left text-white">
                                     <div className=" text-center">
-                                        <img src="assets/images/team/6.png" alt="faq-general-image" className="w-50" /><br />
+                                        <img src={`${process.env.PUBLIC_URL}/assets/images/team/6.png`} alt="faq-general-image" className="w-50" /><br />
                                     </div>
                                     <div className="speaker-statement-box p-4 rounded bg-pink w-lg-80 mb-mi">
                                         <div className="speaker-statement ps-4 border-start border-white border-7">
@@ -68,7 +68,7 @@ function Faq() {
                                                 <div id="flush-collapseTwo" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Le Méridien, Airport Road, Dubai, UAE - centrally located and easily accessible.
+                                                        Cape Town, South Africa - centrally located and easily accessible.
                                                         Event Hours: 10 AM - 9 PM. Free airport shuttle service available for attendees.
                                                     </div>
                                                 </div>
@@ -201,7 +201,7 @@ function Faq() {
                                                 <div id="collapseFive" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Le Méridien, Airport Road, Dubai, UAE. The venue is easily accessible and provides ample space for summit sessions, networking, and exhibition booths.
+                                                        Cape Town, South Africa. The venue is easily accessible and provides ample space for summit sessions, networking, and exhibition booths.
                                                     </div>
                                                 </div>
                                             </div>

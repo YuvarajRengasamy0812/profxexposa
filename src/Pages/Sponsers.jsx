@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Pagehelmet from "../Components/Pagehelmet";
 
 function Sponsers() {
+  const brochureUrl = `${process.env.PUBLIC_URL}/assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf`;
+
   return (
     <div>
       <Pagehelmet pageTitle="Our Sponsers" />
@@ -27,13 +29,13 @@ function Sponsers() {
               </p>
 
               <a
-                href="/assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf"
+                href={brochureUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn primary-btn px-4 py-3"
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
+                  link.href = brochureUrl;
                   link.download = "PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
                   link.click();
                 }}
@@ -45,7 +47,7 @@ function Sponsers() {
             {/* Image / placeholder */}
             <div className="col-lg-5">
               <img
-                src="assets/images/resources/sponsor-hero.jpg"
+                src={`${process.env.PUBLIC_URL}/assets/images/resources/sponsor-hero.jpg`}
                 alt="Sponsor"
                 className="img-fluid rounded shadow-lg"
               />
@@ -214,7 +216,7 @@ function Sponsers() {
             <div className="col-lg-4 col-md-6">
               <div className="perk-premium-card h-100 p-5 rounded-4">
                 <div className="perk-icon mb-3">
-                  <img src="assets/images/resources/reach.png" className="img-fluid" alt="reach" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/resources/reach.png`} className="img-fluid" alt="reach" />
                 </div>
 
                 <h4 className="black fw-bold mb-2">Reach</h4>
@@ -231,7 +233,7 @@ function Sponsers() {
             <div className="col-lg-4 col-md-6">
               <div className="perk-premium-card h-100 p-5 rounded-4">
                 <div className="perk-icon mb-3">
-                  <img src="assets/images/resources/engage.png" className="img-fluid" alt="engage" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/resources/engage.png`} className="img-fluid" alt="engage" />
                 </div>
 
                 <h4 className="black fw-bold mb-2">Engage</h4>
@@ -248,7 +250,7 @@ function Sponsers() {
             <div className="col-lg-4 col-md-6">
               <div className="perk-premium-card h-100 p-5 rounded-4">
                 <div className="perk-icon mb-3">
-                  <img src="assets/images/resources/measure.png" className="img-fluid" alt="measure" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/resources/measure.png`} className="img-fluid" alt="measure" />
                 </div>
 
                 <h4 className="black fw-bold mb-2">Measure</h4>
@@ -280,8 +282,8 @@ function Sponsers() {
             <p className="fw-bold pink fs-5 mb-3">Ready to Partner?</p>
 
             <div className="d-flex flex-column flex-md-row justify-content-center gap-3">
-              <a
-                href="/Contact"
+              <Link
+                to="/Contact"
                 className="btn btn-primary px-5 py-3 rounded-pill fw-bold"
                 style={{
                   background: "linear-gradient(230deg, #0e5941, #15831d)",
@@ -290,7 +292,7 @@ function Sponsers() {
                 }}
               >
                 Share Your Goals
-              </a>
+              </Link>
 
               <a
                 href="tel:+971588845033"

@@ -99,7 +99,7 @@ function Bloglists() {
                                         </div>
                                         <div className="sperator mb-6 w-20 border-bottom border-2 border-pink m-auto"></div>
                                         <div className="organizer-image">
-                                            <img src="assets/images/blogs/organiser.jpeg" alt="Organizer" className=" rounded-circle mb-3" />
+                                            <img src={`${process.env.PUBLIC_URL}/assets/images/blogs/organiser.jpeg`} alt="Organizer" className=" rounded-circle mb-3" />
                                         </div>
                                         <div className="organizer-bio pb-5 mb-4 border-bottom border-2 border-grey border-opacity-25 border-bottom-dashed">
                                             <h6 className="mb-1">Hi, Dawood Sha</h6>

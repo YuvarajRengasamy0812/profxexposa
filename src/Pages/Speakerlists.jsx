@@ -34,7 +34,7 @@ function Eventlists() {
                   <div className="speaker-box  position-relative overflow-hidden text-white">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/1.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/1.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -62,7 +62,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/2.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/2.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -90,7 +90,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/3.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/3.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -118,7 +118,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/4.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/4.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -146,7 +146,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/2.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/2.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -174,7 +174,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/3.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/3.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -202,7 +202,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/4.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/4.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -230,7 +230,7 @@ function Eventlists() {
                   <div className="speaker-box  position-relative overflow-hidden text-white">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/1.jpg"
+                      src={`${process.env.PUBLIC_URL}/assets/images/speakers/1.jpg`}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">

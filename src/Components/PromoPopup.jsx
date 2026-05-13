@@ -40,7 +40,7 @@ function PromoPopup() {
           onClick={() => { handleClose(); navigate("/Register"); }}
         >
           <img
-            src="/assets/images/promo/promo-banner.png"
+            src={`${process.env.PUBLIC_URL}/assets/images/promo/promo-banner.png`}
             alt="PROFX EXPO AFRICA 2026 Promotion"
             className="promo-img"
           />

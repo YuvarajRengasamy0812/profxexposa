@@ -52,7 +52,7 @@ function Pricing() {
               <div className="col-lg-6">
                 <div className="">
                   <img
-                    src="assets/images/team/5.png"
+                    src={`${process.env.PUBLIC_URL}/assets/images/team/5.png`}
                     alt="ticket-img"
                     className="w-50"
                   />

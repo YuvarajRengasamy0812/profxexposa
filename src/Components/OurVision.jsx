@@ -87,7 +87,7 @@ const OurVision = () => {
               </p>
               <div className="vision-image mt-4 text-center text-lg-start">
                 <img
-                  src="assets/images/resources/vision-image.jpg"
+                  src={`${process.env.PUBLIC_URL}/assets/images/resources/vision-image.jpg`}
                   alt="Our Vision"
                   className="img-fluid rounded shadow-sm animate-pulse"
                 />

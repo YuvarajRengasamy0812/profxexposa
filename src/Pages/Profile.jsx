@@ -7,7 +7,7 @@ import { User, Camera } from "lucide-react";
 const Profile = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("profile");
-  const [avatar, setAvatar] = useState("assets/images/resources/avatar.png");
+  const [avatar, setAvatar] = useState(`${process.env.PUBLIC_URL}/assets/images/resources/avatar.png`);
   const [user, setUser] = useState(null);
 
   useEffect(() => {

@@ -22,7 +22,7 @@ const AboutSection = () => {
               </p>
 
               <a
-                href="assets/brochure/PROFX EXPO AFRICA 2026 - Event Brochure.pdf"
+                href={`${process.env.PUBLIC_URL}/assets/brochure/PROFX EXPO AFRICA 2026 - Event Brochure.pdf`}
                 target="_blank"
                 className="btn btn-download d-inline-flex align-items-center px-4 py-2 rounded-pill"
               >
@@ -36,7 +36,7 @@ const AboutSection = () => {
           <div className="col-lg-6">
             <div className="about-image text-center">
               <img
-                src="assets/images/resources/blockchain-hero.jpg"
+                src={`${process.env.PUBLIC_URL}/assets/images/resources/blockchain-hero.jpg`}
                 alt="Forex Illustration"
                 className="img-fluid rounded shadow-sm animate-pulse"
               />
