@@ -2774,18 +2774,14 @@ h3.pink,
 }
 
 .outline-btn,
-.tab-btn,
 .pink-border,
 .ag-pink {
   color: var(--theme-primary-end) !important;
 }
 
-.outline-btn {
-  color: #fff !important;
-}
-
-.tab-btn,
-.pink-border {
+.tab-btn {
+  background-image: var(--theme-primary-gradient) !important;
+  background-color: var(--theme-primary-end) !important;
   color: #fff !important;
 }
 
