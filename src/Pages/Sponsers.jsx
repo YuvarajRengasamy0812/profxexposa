@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Pagehelmet from "../Components/Pagehelmet";
 
 function Sponsers() {
-  const brochureUrl = `${process.env.PUBLIC_URL}/assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf`;
+  const brochureUrl = `${process.env.PUBLIC_URL}/assets/brochure/ProFx Expo Africa 2026 Capetown - Sponsorship Brochure.pdf`;
 
   return (
     <div>
@@ -36,7 +36,7 @@ function Sponsers() {
                 onClick={() => {
                   const link = document.createElement("a");
                   link.href = brochureUrl;
-                  link.download = "PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
+                  link.download = "ProFx Expo Africa 2026 Capetown - Sponsorship Brochure.pdf";
                   link.click();
                 }}
               >

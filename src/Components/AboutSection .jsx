@@ -22,7 +22,7 @@ const AboutSection = () => {
               </p>
 
               <a
-                href={`${process.env.PUBLIC_URL}/assets/brochure/PROFX EXPO AFRICA 2026 - Event Brochure.pdf`}
+                href={`${process.env.PUBLIC_URL}/assets/brochure/ProFx Expo Africa 2026 Capetown - Sponsorship Brochure.pdf`}
                 target="_blank"
                 className="btn btn-download d-inline-flex align-items-center px-4 py-2 rounded-pill"
               >
