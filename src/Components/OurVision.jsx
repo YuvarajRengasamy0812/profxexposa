@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CreditCard, Image, Layers, TrendingUp } from "lucide-react";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,7 +88,7 @@ const OurVision = () => {
               </p>
               <div className="vision-image mt-4 text-center text-lg-start">
                 <img
-                  src={`${process.env.PUBLIC_URL}/assets/images/resources/vision-image.jpg`}
+                  src={buildAssetUrl('/assets/images/resources/vision-image.jpg')}
                   alt="Our Vision"
                   className="img-fluid rounded shadow-sm animate-pulse"
                 />

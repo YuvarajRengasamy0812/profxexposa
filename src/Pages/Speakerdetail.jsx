@@ -2,6 +2,7 @@ import React from 'react'
 import Breadcrumb from '../Components/Breadcrumb'
 import Pagehelmet from '../Components/Pagehelmet'
 import { Link } from 'react-router-dom'
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Speakerdetail() {
   return (
@@ -67,7 +68,7 @@ function Speakerdetail() {
                         <div className="col-lg-5"> 
                         <div className="speaker-detail-right box-shadow p-6 rounded">
                             <div className="speaker-img ">
-                                <img src={`${process.env.PUBLIC_URL}/assets/images/speakers/1.jpg`} alt="speaker" className="rounded-circle border border-4 border-lightgrey object-fit-cover"/>
+                                <img src={buildAssetUrl('/assets/images/speakers/1.jpg')} alt="speaker" className="rounded-circle border border-4 border-lightgrey object-fit-cover"/>
                             </div>
                             <div className="speaker-bio mb-4">
                                 <h5 className="my-1">Gerardo Kels</h5>

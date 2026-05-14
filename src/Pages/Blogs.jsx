@@ -1,6 +1,7 @@
 import React from "react";
 import Breadcrumb from "../Components/Breadcrumb";
 import Pagehelmet from "../Components/Pagehelmet";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Blogs() {
   return (
@@ -32,7 +33,7 @@ function Blogs() {
             <div className="col-lg-6">
               <div className="blog-hero-img shadow-xl rounded-4 overflow-hidden">
                 <img
-                  src={`${process.env.PUBLIC_URL}/assets/images/resources/blogs.jpg`}
+                  src={buildAssetUrl('/assets/images/resources/blogs.jpg')}
                   className="img-fluid"
                   alt="Featured Blog Banner"
                 />

@@ -4,6 +4,14 @@ RewriteBase /africa/
 # Don't touch adminpanel requests
 RewriteRule ^adminpanel(/.*)?$ - [L]
 
+<IfModule mod_headers.c>
+  <FilesMatch "^(index\.html|manifest\.json)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

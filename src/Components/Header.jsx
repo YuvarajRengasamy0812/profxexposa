@@ -8,6 +8,7 @@ import { getAllTopBar } from '../api/topbar';
 import { getAllLog } from '../api/style';
 import ProfileDropdown from "../Pages/ProfileDropdown";
 import { useAuth } from "./AuthContext";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -137,8 +138,8 @@ const Header = () => {
                     <img
                       src={
                         isScrolled
-                          ? `${process.env.PUBLIC_URL}/assets/images/logo/profx-dark.png`
-                          : `${process.env.PUBLIC_URL}/assets/images/logo/profx-white.png`
+                          ? buildAssetUrl('/assets/images/logo/profx-dark.png')
+                          : buildAssetUrl('/assets/images/logo/profx-white.png')
                       }
                       alt="Logo"
                       className=""
@@ -158,7 +159,7 @@ const Header = () => {
                   {/* <Search className="d-md-none" /> */}
                   {user ? (
                     <>
-                      <ProfileDropdown user={{ avatar: `${process.env.PUBLIC_URL}/assets/images/resources/avatar.png` }} onLogout={logout} />
+                      <ProfileDropdown user={{ avatar: buildAssetUrl('/assets/images/resources/avatar.png') }} onLogout={logout} />
                       <Link to="/Booknow" className="btn btn3">
                         Buy Ticket <i className="fa fa-long-arrow-right ms-4"></i>
                       </Link>

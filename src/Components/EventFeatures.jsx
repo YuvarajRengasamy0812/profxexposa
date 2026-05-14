@@ -1,4 +1,5 @@
 import React from "react";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const EventFeatures = () => {
   return (
@@ -37,7 +38,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src={`${process.env.PUBLIC_URL}/assets/images/resources/blockchain.png`}
+                    src={buildAssetUrl('/assets/images/resources/blockchain.png')}
                     alt="icon"
                     className="w-25"
                   />
@@ -65,7 +66,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src={`${process.env.PUBLIC_URL}/assets/images/resources/metaverse.png`}
+                    src={buildAssetUrl('/assets/images/resources/metaverse.png')}
                     alt="icon"
                     className="w-25"
                   />
@@ -92,7 +93,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src={`${process.env.PUBLIC_URL}/assets/images/resources/crypto.png`}
+                    src={buildAssetUrl('/assets/images/resources/crypto.png')}
                     alt="icon"
                     className="w-25"
                   />

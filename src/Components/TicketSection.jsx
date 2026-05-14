@@ -1,6 +1,7 @@
 import { BadgeCheck, OctagonX } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const TicketSection = () => {
   return (
@@ -26,7 +27,7 @@ const TicketSection = () => {
                 <div className="">
                   <div className="ticket-box-inner bg-white position-relative rounded-bottom-5 d-flex flex-column" style={{ height: "100%" }}>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/pattern/1.png`}
+                      src={buildAssetUrl('/assets/images/pattern/1.png')}
                       alt="pattern"
                       className="w-100 pattern position-absolute rounded-top"
                     />
@@ -87,7 +88,7 @@ const TicketSection = () => {
                 <div className="">
                   <div className="ticket-box-inner bg-white position-relative rounded-bottom-5 d-flex flex-column" style={{ height: "100%" }}>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/pattern/2.png`}
+                      src={buildAssetUrl('/assets/images/pattern/2.png')}
                       alt="pattern"
                       className="w-100 pattern position-absolute rounded-top"
                     />
@@ -150,7 +151,7 @@ const TicketSection = () => {
                 <div className="">
                   <div className="ticket-box-inner bg-white position-relative rounded-bottom-5 d-flex flex-column" style={{ height: "100%" }}>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/pattern/5.png`}
+                      src={buildAssetUrl('/assets/images/pattern/5.png')}
                       alt="pattern"
                       className="w-100 pattern position-absolute rounded-top"
                     />
@@ -217,7 +218,7 @@ const TicketSection = () => {
                 <div className="">
                   <div className="ticket-box-inner bg-white position-relative rounded-bottom-5 d-flex flex-column" style={{ height: "100%" }}>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/pattern/4.png`}
+                      src={buildAssetUrl('/assets/images/pattern/4.png')}
                       alt="pattern"
                       className="w-100 pattern position-absolute rounded-top"
                     />
@@ -280,7 +281,7 @@ const TicketSection = () => {
                 <div className="">
                   <div className="ticket-box-inner bg-white position-relative rounded-bottom-5 d-flex flex-column" style={{ height: "100%" }}>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/pattern/6.png`}
+                      src={buildAssetUrl('/assets/images/pattern/6.png')}
                       alt="pattern"
                       className="w-100 pattern position-absolute rounded-top"
                     />

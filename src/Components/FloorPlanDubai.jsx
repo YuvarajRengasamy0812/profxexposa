@@ -5,6 +5,7 @@ import FloorBorder from "./FloorBorder";
 import { createPortal } from "react-dom";
 import BoothModal from "./BoothModal";
 import axios from "axios";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const FloorPlanDubai = () => {
   const [selectedBooth, setSelectedBooth] = React.useState(null);
@@ -25,7 +26,7 @@ const FloorPlanDubai = () => {
             boothNo: String(t.boothno),
             companyName: t.company || "",
             // ✅ Set default placeholder if logo is missing
-            logo: t.company_logo || `${process.env.PUBLIC_URL}/assets/images/booth-reserved/v-process.png`,
+            logo: t.company_logo || buildAssetUrl('/assets/images/booth-reserved/v-process.png'),
             url: t.company_url || "#",
             title: t.boothtitle || "Reserved Booth",
             size: t.boothsize || "",

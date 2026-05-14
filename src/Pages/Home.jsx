@@ -22,6 +22,7 @@ import FloorPlanImage from "../Components/FloorPlanImage";
 import MediaPartners from "../Components/MediaPartners";
 import SponsorPartners from "../Components/SponsorPartners";
 import Speakersection from "../Components/Speakersection";
+import { buildAssetUrl } from "../utils/assetUrl";
 // import PromoPopup from "../Components/PromoPopup";
 function Home() {
   const [brochure, setBrochure] = useState([]);
@@ -55,7 +56,7 @@ function Home() {
                     data-aos="fade-up"
                     data-aos-delay="200">
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/team/4.png`}
+                      src={buildAssetUrl('/assets/images/team/4.png')}
                       alt="banner-image"
                       className="w-50 shake"
                     />
@@ -88,7 +89,7 @@ function Home() {
                     <a href="https://www.guinnessworldrecords.com/world-records/774828-most-participants-in-a-trading-competition">
                       <img
                         className="w-50 img-fluid mb-3"
-                        src={`${process.env.PUBLIC_URL}/assets/images//resources/guiness.png`}
+                        src={buildAssetUrl('/assets/images//resources/guiness.png')}
                         alt="guiness"
                       />
                     </a>
@@ -265,13 +266,13 @@ function Home() {
                         <div className="img-left-1 float-end w-lg-80" data-aos="zoom-in" data-aos-delay="1000">
                           <img
                             className="mb-2 w-100 rounded"
-                            src={`${process.env.PUBLIC_URL}/assets/images/group/1.jpg`}
+                            src={buildAssetUrl('/assets/images/group/1.jpg')}
                             alt="blockchain-session"
                           />
                         </div>
                         <div className="img-left-2" data-aos="zoom-in" data-aos-delay="1200">
                           <img
-                            src={`${process.env.PUBLIC_URL}/assets/images/group/2.jpg`}
+                            src={buildAssetUrl('/assets/images/group/2.jpg')}
                             alt="networking"
                             className="w-100 rounded"
                           />
@@ -282,7 +283,7 @@ function Home() {
                     <div className="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="1400">
                       <div className="container-img-right w-lg-75">
                         <img
-                          src={`${process.env.PUBLIC_URL}/assets/images/group/3.jpg`}
+                          src={buildAssetUrl('/assets/images/group/3.jpg')}
                           alt="expo-floor"
                           className="w-100 rounded"
                         />

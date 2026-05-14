@@ -1,6 +1,7 @@
 import React from 'react'
 import Breadcrumb from '../Components/Breadcrumb'
 import Pagehelmet from '../Components/Pagehelmet'
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Faq() {
     return (
@@ -16,7 +17,7 @@ function Faq() {
                             <div className="col-lg-6 order-2 order-lg-1 p-2">
                                 <div className="general-ques-left text-white">
                                     <div className=" text-center">
-                                        <img src={`${process.env.PUBLIC_URL}/assets/images/team/6.png`} alt="faq-general-image" className="w-50" /><br />
+                                        <img src={buildAssetUrl('/assets/images/team/6.png')} alt="faq-general-image" className="w-50" /><br />
                                     </div>
                                     <div className="speaker-statement-box p-4 rounded bg-pink w-lg-80 mb-mi">
                                         <div className="speaker-statement ps-4 border-start border-white border-7">

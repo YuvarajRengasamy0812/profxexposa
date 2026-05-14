@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const ProductSlider = () => {
   const [nav1, setNav1] = useState(null);
@@ -11,10 +12,10 @@ const ProductSlider = () => {
   const slider2 = useRef(null);
 
   const images = [
-    { src: `${process.env.PUBLIC_URL}/assets/images/product/4.jpg`, alt: "Lewis Shirt" },
-    { src: `${process.env.PUBLIC_URL}/assets/images/product/5.jpg`, alt: "London T-shirt" },
-    { src: `${process.env.PUBLIC_URL}/assets/images/product/2.jpg`, alt: "Ladies Top" },
-    { src: `${process.env.PUBLIC_URL}/assets/images/product/6.jpg`, alt: "Yellow Sofa" },
+    { src: buildAssetUrl('/assets/images/product/4.jpg'), alt: "Lewis Shirt" },
+    { src: buildAssetUrl('/assets/images/product/5.jpg'), alt: "London T-shirt" },
+    { src: buildAssetUrl('/assets/images/product/2.jpg'), alt: "Ladies Top" },
+    { src: buildAssetUrl('/assets/images/product/6.jpg'), alt: "Yellow Sofa" },
   ];
 
   return (

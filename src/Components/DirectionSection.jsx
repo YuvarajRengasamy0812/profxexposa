@@ -49,7 +49,7 @@ const DirectionSection = () => {
                 >
                   <a>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/thumbnail/4.jpg`}
+                      src={buildAssetUrl('/assets/images/thumbnail/4.jpg')}
                       className="w-100 rounded"
                       alt="VR Presentation and conference"
                     />
@@ -61,7 +61,7 @@ const DirectionSection = () => {
                 >
                   <a>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/thumbnail/7.jpg`}
+                      src={buildAssetUrl('/assets/images/thumbnail/7.jpg')}
                       className="w-100 rounded"
                       alt="VR Presentation and conference"
                     />
@@ -73,7 +73,7 @@ const DirectionSection = () => {
                 >
                   <a>
                     <img
-                      src={`${process.env.PUBLIC_URL}/assets/images/thumbnail/1.jpg`}
+                      src={buildAssetUrl('/assets/images/thumbnail/1.jpg')}
                       className="w-100 rounded"
                       alt="VR Presentation and conference"
                     />

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const BlogSection = () => {
     return (
@@ -34,7 +35,7 @@ const BlogSection = () => {
                                         <Link to="/Bloglists">
                                             <img
                                                 className="blog-img rounded rounded-bottom-0 w-100 h-auto"
-                                                src={`${process.env.PUBLIC_URL}/assets/images/blogs/1.png`}
+                                                src={buildAssetUrl('/assets/images/blogs/1.png')}
                                                 alt="blog-img"
                                             />
                                         </Link>
@@ -63,7 +64,7 @@ const BlogSection = () => {
                                         <Link to="/Bloglists">
                                             <img
                                                 className="blog-img rounded w-100 rounded-bottom-0 h-auto"
-                                                src={`${process.env.PUBLIC_URL}/assets/images/blogs/2.png`}
+                                                src={buildAssetUrl('/assets/images/blogs/2.png')}
                                                 alt="blog-img"
                                             />
                                         </Link>
@@ -92,7 +93,7 @@ const BlogSection = () => {
                                         <Link to="/Bloglists">
                                             <img
                                                 className="blog-img rounded rounded-bottom-0 w-100 h-auto"
-                                                src={`${process.env.PUBLIC_URL}/assets/images/blogs/3.png`}
+                                                src={buildAssetUrl('/assets/images/blogs/3.png')}
                                                 alt="blog-img"
                                             />
                                         </Link>

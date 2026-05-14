@@ -9,6 +9,7 @@ import FloorPlan from "../Components/FloorPlan";
 import BoothCat from "../Components/BoothCat";
 // import FloorPlanDubai from "../Components/FloorPlanDubai";
 import FloorPlanImage from "../Components/FloorPlanImage";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const Exhibitors = () => {
   const [showBoothModal, setShowBoothModal] = useState(false);
@@ -51,7 +52,7 @@ const Exhibitors = () => {
                 <div className="floorplan-box">
                   {/* Replace with iframe or image later */}
                   <img
-                    src={`${process.env.PUBLIC_URL}/assets/images/resources/floorplan.jpg`}
+                    src={buildAssetUrl('/assets/images/resources/floorplan.jpg')}
                     alt="Exhibition Floor Plan"
                     className="img-fluid rounded shadow-lg"
                   />

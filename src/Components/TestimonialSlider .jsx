@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 // const testimonials = [
 //   {
@@ -28,31 +29,31 @@ const testimonials = [
   {
     name: "Michael Thompson",
     role: "Senior Event Strategist",
-    image: `${process.env.PUBLIC_URL}/assets/images/speakers/3.jpg`,
+    image: buildAssetUrl('/assets/images/speakers/3.jpg'),
     text: "Transformed our entire business model - the summit is where FinTech meets real innovation.",
   },
   {
     name: "Sophia Martinez",
     role: "Corporate Planner",
-    image: `${process.env.PUBLIC_URL}/assets/images/speakers/1.jpg`,
+    image: buildAssetUrl('/assets/images/speakers/1.jpg'),
     text: "A game-changing experience! The insights reshaped our approach to digital finance.",
   },
   {
     name: "David Williams",
     role: "Director of Operations",
-    image: `${process.env.PUBLIC_URL}/assets/images/speakers/4.jpg`,
+    image: buildAssetUrl('/assets/images/speakers/4.jpg'),
     text: "The perfect blend of Forex, payments, and future-tech. Truly world-class speakers!",
   },
   {
     name: "Emily Carter",
     role: "Event Coordination Lead",
-    image: `${process.env.PUBLIC_URL}/assets/images/speakers/2.jpg`,
+    image: buildAssetUrl('/assets/images/speakers/2.jpg'),
     text: "Exceptional networking! Met partners who became core to our growth strategy.",
   },
   {
     name: "Christopher Allen",
     role: "Business Development Manager",
-    image: `${process.env.PUBLIC_URL}/assets/images/speakers/3.jpg`,
+    image: buildAssetUrl('/assets/images/speakers/3.jpg'),
     text: "A powerhouse event - every session delivered practical, future-ready value.",
   },
 ];
