@@ -91,7 +91,7 @@ const TabbedDays = () => {
             Full Schedule - <span className="ag-pink"><b>PROFX EXPO AFRICA 2026</b></span>
           </h2>
           <p className="ag-text-grey mt-2">
-            <b>PROFX EXPO AFRICA 2026</b> is a premier two-day global finance summit featuring keynote speeches by industry leaders, panel discussions on Forex, FinTech & Trading Innovation, exhibition showcases, and exclusive networking opportunities. Join us on 10 - 11 August 2026 in Cape Town, South Africa.
+            <b>PROFX EXPO AFRICA 2026</b> is a premier two-day global finance summit featuring keynote speeches by industry leaders, panel discussions on Forex, FinTech & Trading Innovation, exhibition showcases, and exclusive networking opportunities. Join us on 20 - 21 Aug 2026 at EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa.
           </p>
         </div>
 
@@ -102,14 +102,14 @@ const TabbedDays = () => {
             onClick={() => setActiveTab("day1")}
             className={`ag-tab-btn ${activeTab === "day1" ? "active" : ""}`}
           >
-            Day 1 - Launchpad (Dec 10)
+            Day 1 - Launchpad (Aug 20)
           </button>
 
           <button
             onClick={() => setActiveTab("day2")}
             className={`ag-tab-btn ${activeTab === "day2" ? "active" : ""}`}
           >
-            Day 2 - Scale-Up (Dec 11)
+            Day 2 - Scale-Up (Aug 21)
           </button>
         </div>
 

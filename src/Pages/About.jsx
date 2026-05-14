@@ -59,7 +59,7 @@ function About() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHERE</h5>
                                 <small className="pink">
-                                  Cape Town, South Africa
+                                  EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa
                                 </small>
                               </Link>
                             </div>
@@ -78,7 +78,7 @@ function About() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHEN</h5>
                                 <small className="pink">
-                                  Mon & Tue <br /> 10 - 11 August 2026
+                                  Thu & Fri <br /> 20 - 21 Aug 2026
                                 </small>
                               </Link>
                             </div>

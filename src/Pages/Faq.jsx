@@ -69,7 +69,7 @@ function Faq() {
                                                 <div id="flush-collapseTwo" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Cape Town, South Africa - centrally located and easily accessible.
+                                                        EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa - centrally located and easily accessible.
                                                         Event Hours: 10 AM - 9 PM. Free airport shuttle service available for attendees.
                                                     </div>
                                                 </div>
@@ -202,7 +202,7 @@ function Faq() {
                                                 <div id="collapseFive" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Cape Town, South Africa. The venue is easily accessible and provides ample space for summit sessions, networking, and exhibition booths.
+                                                        EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa. The venue is easily accessible and provides ample space for summit sessions, networking, and exhibition booths.
                                                     </div>
                                                 </div>
                                             </div>

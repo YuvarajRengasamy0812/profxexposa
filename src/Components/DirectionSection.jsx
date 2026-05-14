@@ -21,14 +21,14 @@ const DirectionSection = () => {
                   <div className="p-6 d-flex text-white w-100 h-100 rounded bg-pink ">
                     <div className="justify-content-center align-self-center ms-6">
                       <h5 className="text-white pb-2">EVENT VENUE:</h5>
-                      <p className="pb-5 m-0">Cape Town, South Africa</p>
+                      <p className="pb-5 m-0">EXHIBITION HALL 5 CTICC 2</p>
                       <h5 className="text-white pb-2">ADDRESS:</h5>
                       <p className="pb-5 m-0">
                         Cape Town, South Africa
                       </p>
                       <h5 className="text-white pb-2">RECEPTION INFO:</h5>
                       <p className="pb-5 m-0">Booking: <a className="social-url" href="tel:+971588845033">(+971) 58 884 5033</a></p>
-                      <a className="btn border" href="https://maps.google.com/?q=Cape+Town,+South+Africa">Get Directions</a>
+                      <a className="btn border" href="https://maps.google.com/?q=CTICC+2+Cape+Town">Get Directions</a>
                     </div>
                   </div>
                 </div>
@@ -36,7 +36,7 @@ const DirectionSection = () => {
                   <iframe
                     height="400"
                     className="rounded w-100"
-                    src="https://maps.google.com/maps?q=Cape%20Town,%20South%20Africa&output=embed"
+                    src="https://maps.google.com/maps?q=CTICC%202%20Cape%20Town&output=embed"
                   ></iframe>
                 </div>
               </div>

@@ -476,6 +476,42 @@
   }
 }
 
+.banner-event-list {
+  row-gap: 8px;
+}
+
+.banner-event-item {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.banner-event-item i {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.banner-event-location {
+  max-width: 430px;
+}
+
+@media (max-width: 576px) {
+  .banner-event-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-event-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .banner-event-location {
+    max-width: none;
+  }
+}
+
 /*Overview CSS*/
 .event-info-icon i {
   width: 60px;

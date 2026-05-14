@@ -196,7 +196,10 @@ function Booknow() {
             <div className="col-12 col-lg-5">
               <div className="h-100 bg-white rounded shadow p-4 d-flex flex-column gap-3">
                 <h5 className="pink mb-2">Contact Info:</h5>
-                <p className="mb-1 fw-semibold"><Pin /> Cape Town, South Africa</p>
+                <div className="mb-1 fw-semibold">
+                  <p className="mb-1 d-flex align-items-center gap-1"><Pin /> EVENT VENUE: EXHIBITION HALL 5 CTICC 2</p>
+                  <p className="mb-0 d-flex align-items-center gap-1"><Pin /> ADDRESS: Cape Town, South Africa</p>
+                </div>
                 <Link className="text-grey d-flex align-items-center gap-1" to="https://profxexpo.com/africa" target="_blank" rel="noreferrer"><Globe /> profxexpo.com/africa</Link>
                 <Link className="text-grey d-flex align-items-center gap-1" to="tel:+971588845033"><PhoneCall /> +971 58 884 5033</Link>
                 <Link className="text-grey d-flex align-items-center gap-1" to="mailto:info@profxmedia.com"><Mail /> info@profxmedia.com</Link>
@@ -206,7 +209,7 @@ function Booknow() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Cape Town Map"
+                    title="CTICC 2 Map"
                   />
                 </div>
               </div>

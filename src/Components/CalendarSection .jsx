@@ -11,16 +11,16 @@ const CalendarSection = () => {
 
   // Sample event mapping based on your DOCS
   const events = [
-    { title: "Opening Ceremony & Welcome Address", date: "2026-08-10T10:00:00" },
-    { title: "Keynote Speeches by Global Industry Leaders", date: "2026-08-10T10:30:00" },
-    { title: "Panel Discussions on Forex, FinTech & Trading Innovation", date: "2026-08-10T13:00:00" },
-    { title: "Exhibition Booths Open All Day", date: "2026-08-10T09:00:00" },
-    { title: "Networking & Business Meetings", date: "2026-08-10T15:30:00" },
-    { title: "Expert Talks & Fireside Chats", date: "2026-08-11T10:00:00" },
-    { title: "Advanced Panels on Market Trends & Technology", date: "2026-08-11T11:30:00" },
-    { title: "Exhibition Booths & Product Showcases", date: "2026-08-11T09:00:00" },
-    { title: "Investor & Partner Networking", date: "2026-08-11T14:00:00" },
-    { title: "PROFX Awards Ceremony", date: "2026-08-11T17:30:00" },
+    { title: "Opening Ceremony & Welcome Address", date: "2026-08-20T10:00:00" },
+    { title: "Keynote Speeches by Global Industry Leaders", date: "2026-08-20T10:30:00" },
+    { title: "Panel Discussions on Forex, FinTech & Trading Innovation", date: "2026-08-20T13:00:00" },
+    { title: "Exhibition Booths Open All Day", date: "2026-08-20T09:00:00" },
+    { title: "Networking & Business Meetings", date: "2026-08-20T15:30:00" },
+    { title: "Expert Talks & Fireside Chats", date: "2026-08-21T10:00:00" },
+    { title: "Advanced Panels on Market Trends & Technology", date: "2026-08-21T11:30:00" },
+    { title: "Exhibition Booths & Product Showcases", date: "2026-08-21T09:00:00" },
+    { title: "Investor & Partner Networking", date: "2026-08-21T14:00:00" },
+    { title: "PROFX Awards Ceremony", date: "2026-08-21T17:30:00" },
   ];
 
   return (
@@ -47,7 +47,7 @@ const CalendarSection = () => {
           <FullCalendar
             plugins={[dayGridPlugin, listPlugin, interactionPlugin]}
             initialView="dayGridMonth"
-            initialDate="2026-08-01"
+            initialDate="2026-08-20"
             headerToolbar={{
               left: "prev,next today",
               center: "title",

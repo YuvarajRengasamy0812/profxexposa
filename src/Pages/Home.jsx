@@ -108,12 +108,14 @@ function Home() {
                     data-aos="fade-left"
                     data-aos-delay="450"
                   >
-                    <ul className="m-0 ps-0 d-sm-flex justify-content-center justify-content-lg-start list-unstyled">
-                      <li className="pe-2 border-end border-1 border-lightgrey">
-                        <i className="fa fa-calendar-o pe-1"></i> 10 - 11 August 2026
+                    <ul className="m-0 ps-0 d-sm-flex justify-content-center justify-content-lg-start list-unstyled banner-event-list">
+                      <li className="pe-2 border-end border-1 border-lightgrey banner-event-item">
+                        <i className="fa fa-calendar-o pe-1"></i>
+                        <span>20 - 21 Aug 2026</span>
                       </li>
-                      <li className="ps-2">
-                        <i className="fa fa-map-marker pe-1"></i>Cape Town, South Africa
+                      <li className="ps-2 banner-event-item banner-event-location">
+                        <i className="fa fa-map-marker pe-1"></i>
+                        <span>EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa</span>
                       </li>
                     </ul>
                   </div>
@@ -226,7 +228,7 @@ function Home() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHERE</h5>
                                 <small className="pink">
-                                  Cape Town, South Africa
+                                  EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa
                                 </small>
                               </Link>
                             </div>
@@ -245,7 +247,7 @@ function Home() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHEN</h5>
                                 <small className="pink">
-                                  Mon & Tue <br /> 10 - 11 August 2026
+                                  Thu & Fri <br /> 20 - 21 Aug 2026
                                 </small>
                               </Link>
                             </div>

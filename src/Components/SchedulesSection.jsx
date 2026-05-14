@@ -28,11 +28,11 @@ const SchedulesSection = () => {
                   <div className="col-lg-3 col-md-4 mt-lg-5 mt-md-5 pt-lg-3 pt-md-3">
                     <div className="schedule-day text-center text-sm-start py-6 position-relative ps-2 z-1">
                       <h4 className="pink mb-2">1ST DAY</h4>
-                      <h6 className="mb-2">AUGUST 10, 2026</h6>
+                      <h6 className="mb-2">AUG 20, 2026</h6>
                       <p>
                         PROFX EXPO AFRICA 2026
                         <br />
-                        Cape Town, <br />South Africa
+                        EXHIBITION HALL 5 CTICC 2,<br />Cape Town, South Africa
                       </p>
                     </div>
                   </div>
@@ -126,11 +126,11 @@ const SchedulesSection = () => {
                   <div className="col-lg-3 col-md-4 mt-lg-5 mt-md-5 pt-lg-3 pt-md-3">
                     <div className="schedule-day text-center text-sm-start py-6 ps-2 z-1">
                       <h4 className="pink mb-2">2ND DAY</h4>
-                      <h6 className="mb-2">AUGUST 11, 2026</h6>
+                      <h6 className="mb-2">AUG 21, 2026</h6>
                       <p>
                         PROFX EXPO AFRICA 2026
                         <br />
-                        Cape Town, <br />South Africa
+                        EXHIBITION HALL 5 CTICC 2,<br />Cape Town, South Africa
                       </p>
                     </div>
                   </div>

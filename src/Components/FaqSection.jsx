@@ -65,7 +65,7 @@ const FaqSection = () => {
                           data-bs-parent="#accordionFlushExample"
                         >
                           <div className="accordion-body bg-lightgrey p-6">
-                            Cape Town, South Africa.
+                            EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa.
                           </div>
                         </div>
                       </div>

@@ -18,7 +18,7 @@ function Contact() {
                 <div className="contact-event-info p-8 text-white h-100 rounded bg-pink">
                   <div className="event-venue pb-5">
                     <h5 className="text-white pb-2">EVENT VENUE:</h5>
-                    <p className="m-0">Cape Town, South Africa</p>
+                    <p className="m-0">EXHIBITION HALL 5 CTICC 2</p>
                   </div>
                   <div className="address pb-5">
                     <h5 className="text-white pb-2">ADDRESS:</h5>
@@ -36,7 +36,7 @@ function Contact() {
                     <p className="m-0 mt-2">Email: <a className="social-url" href="mailto:info@profxmedia.com">info@profxmedia.com</a></p>
                   </div>
                   <div className="direction-link">
-                    <a className="btn border" href="https://maps.google.com/?q=Cape+Town,+South+Africa">Get Directions</a>
+                    <a className="btn border" href="https://maps.google.com/?q=CTICC+2+Cape+Town">Get Directions</a>
                   </div>
                 </div>
               </div>
@@ -60,7 +60,7 @@ function Contact() {
               <iframe
                 height="400"
                 className="rounded w-100"
-                src="https://maps.google.com/maps?q=Cape%20Town,%20South%20Africa&output=embed"
+                src="https://maps.google.com/maps?q=CTICC%202%20Cape%20Town&output=embed"
               ></iframe>
             </div>
           </div>
