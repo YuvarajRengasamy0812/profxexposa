@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User, LogOut } from "lucide-react";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const ProfileDropdown = ({ user, onLogout }) => {
 
@@ -49,7 +50,7 @@ const ProfileDropdown = ({ user, onLogout }) => {
         onClick={() => setOpen(!open)}
       >
         <img
-          src={user?.avatar || "assets/images/resources/avatar.png"}
+          src={user?.avatar || buildAssetUrl('/assets/images/resources/avatar.png')}
           alt="User Avatar"
           className="pd-avatar rounded-circle"
         />

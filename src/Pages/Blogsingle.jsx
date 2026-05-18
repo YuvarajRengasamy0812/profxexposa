@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Pagehelmet from '../Components/Pagehelmet';
 import { BadgeCheck } from 'lucide-react';
 import { getAllBlog } from "../api/blog";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Blogsingle() {
   const location = useLocation();
@@ -45,7 +46,7 @@ function Blogsingle() {
                 <div className="news-left">
                   <div className="news-img mb-4">
                     <img
-                      src={blogData.image || 'assets/images/blogs/1.png'}
+                      src={blogData.image || buildAssetUrl('/assets/images/blogs/1.png')}
                       alt={blogData.title}
                       className="w-100 rounded"
                     />
@@ -61,7 +62,7 @@ function Blogsingle() {
 
                   <div className="qoutation p-4 bg-lightgrey rounded d-flex align-items-center mb-4 text-center text-md-start">
                     <div className="qoutation-img">
-                      <img src="assets/images/blogs/organiser.jpeg" alt="Organizer" className="rounded-circle" />
+                      <img src={buildAssetUrl('/assets/images/blogs/organiser.jpeg')} alt="Organizer" className="rounded-circle" />
                     </div>
                     <div className="qoutation-info ms-4">
                       <h6 className="pink my-1">{blogData.author}</h6>
@@ -106,7 +107,7 @@ function Blogsingle() {
                     </div>
                     <div className="sperator mb-6 w-20 border-bottom border-2 border-pink m-auto"></div>
                     <div className="organizer-image">
-                      <img src="assets/images/blogs/organiser.jpeg" alt="Organizer" className="rounded-circle mb-3" />
+                      <img src={buildAssetUrl('/assets/images/blogs/organiser.jpeg')} alt="Organizer" className="rounded-circle mb-3" />
                     </div>
                     <div className="organizer-bio pb-5 mb-4 border-bottom border-2 border-grey border-opacity-25 border-bottom-dashed">
                       <h6 className="mb-1">{blogData.author}</h6>

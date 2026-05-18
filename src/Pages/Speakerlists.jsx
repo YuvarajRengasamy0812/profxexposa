@@ -3,6 +3,7 @@ import Breadcrumb from "../Components/Breadcrumb";
 import { Link } from "react-router-dom";
 import Pagehelmet from "../Components/Pagehelmet";
 import LetsDoIt from "../Components/LetsDoIt";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Eventlists() {
   return (
@@ -16,7 +17,7 @@ function Eventlists() {
           <div className="col-lg-12">
             <div className="title-content text-center mb-2">
               <p className="mb-1 pink">
-                <b>PROFX SUMMIT 2026</b> SPEAKERS
+                <b>PROFX EXPO AFRICA 2026</b> SPEAKERS
               </p>
               <h2 className="mb-1">
                 MEET OUR{" "}
@@ -34,7 +35,7 @@ function Eventlists() {
                   <div className="speaker-box  position-relative overflow-hidden text-white">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/1.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/1.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -62,7 +63,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/2.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/2.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -90,7 +91,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/3.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/3.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -118,7 +119,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/4.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/4.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -146,7 +147,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/2.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/2.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -174,7 +175,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/3.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/3.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -202,7 +203,7 @@ function Eventlists() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/4.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/4.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -230,7 +231,7 @@ function Eventlists() {
                   <div className="speaker-box  position-relative overflow-hidden text-white">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/1.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/1.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">

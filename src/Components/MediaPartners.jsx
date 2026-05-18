@@ -22,7 +22,7 @@ const [media, setMedia] = useState([]);
   };
 
   return (
-    <section className="partners pt-0">
+    <section className="partners media-partners pt-0">
       <div className="container">
         <div className="partner-inner">
           <div className="partner-title text-center pb-6 w-lg-60 m-auto">
@@ -38,8 +38,8 @@ const [media, setMedia] = useState([]);
           <div className="partner-img pb-6">
             <div className="row row-cols-1 row-cols-lg-5 row-cols-md-5">
               {media.map((partner, index) => (
-                <div className="col p-0" key={index}>
-                  <div className="p-2 partner-img-box text-center rounded">
+                <div className="col px-2 pb-2" key={index}>
+                  <div className="p-2 partner-img-box media-partner-card text-center rounded">
                     <a href={partner.details} target="_blank" rel="noopener noreferrer">
                       <img
                         src={partner.photo_file}

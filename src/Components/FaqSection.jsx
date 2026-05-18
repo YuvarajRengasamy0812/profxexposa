@@ -65,7 +65,7 @@ const FaqSection = () => {
                           data-bs-parent="#accordionFlushExample"
                         >
                           <div className="accordion-body bg-lightgrey p-6">
-                            Le Méridien, Airport Road, Dubai, UAE.
+                            EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa.
                           </div>
                         </div>
                       </div>
@@ -131,7 +131,7 @@ const FaqSection = () => {
                       LET'S RESERVE A <span className="pink">SEAT</span>
                     </h2>
                     <p className="m-0">
-                      Book your tickets to the <b>PROFX SUMMIT 2026</b> now!!
+                      Book your tickets to the <b>PROFX EXPO AFRICA 2026</b> now!!
                     </p>
                   </div>
                   <div className="form-content justify-content-between">

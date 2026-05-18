@@ -1,8 +1,9 @@
 import React from 'react'
-import FloorPlanDubai from '../Components/FloorPlanDubai'
+// import FloorPlanDubai from '../Components/FloorPlanDubai'
 import PageHelmet from '../Components/Pagehelmet'
 import Breadcrumb from '../Components/Breadcrumb'
-import SVGComponent from '../Components/SVGComponent'
+// import SVGComponent from '../Components/SVGComponent'
+import FloorPlanImage from '../Components/FloorPlanImage'
 
 const Floorplan = () => {
     return (
@@ -11,7 +12,8 @@ const Floorplan = () => {
                 <PageHelmet pageTitle="Floorplan" />
                 <Breadcrumb title="Floorplan" />
 
-                <FloorPlanDubai />
+                {/* <FloorPlanDubai /> */}
+                <FloorPlanImage />
             </div>
         </>
     )

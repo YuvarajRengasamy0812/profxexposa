@@ -2,33 +2,34 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CreditCard, Image, Layers, TrendingUp } from "lucide-react";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const milestones = [
   {
-    year: "10 December 2026",
+    year: "20 Aug 2026",
     title: "Opening Ceremony & Keynotes",
     description:
       "<b>PROFX EXPO AFRICA 2026</b> kicks off with a grand opening ceremony followed by keynote speeches from global Forex finance and FinTech leaders.",
     icon: <CreditCard size={24} />,
   },
   {
-    year: "10 December 2026",
+    year: "20 Aug 2026",
     title: "Panels & Exhibition",
     description:
       "Day 1 features in-depth panel discussions on Forex, FinTech, and Trading Innovation, alongside live exhibition booths open throughout the day.",
     icon: <Image size={24} />,
   },
   {
-    year: "11 December 2026",
+    year: "21 Aug 2026",
     title: "Expert Talks & Networking",
     description:
       "Day 2 offers fireside chats, advanced panels on market trends and technology, and dedicated investor and partner networking sessions.",
     icon: <Layers size={24} />,
   },
   {
-    year: "11 December 2026",
+    year: "21 Aug 2026",
     title: "PROFX Awards Ceremony",
     description:
       "The summit concludes with the prestigious PROFX Awards, celebrating excellence, innovation, and leadership within the global finance ecosystem.",
@@ -67,10 +68,10 @@ const OurVision = () => {
           <div className="col-lg-8">
             <p className="mb-1 pink">OUR VISION</p>
             <h2 className="black fw-bold pb-3">
-              Why This <span className="pink">PROFX Summit Matters</span>
+              Why This <span className="pink">PROFX EXPO AFRICA 2026 Matters</span>
             </h2>
             <p className="text-grey">
-              <b>PROFX EXPO AFRICA 2026</b> is the premier international finance event bringing together global leaders from Forex, FinTech, Blockchain, and digital finance. Over two days, attendees explore expert-led sessions, live exhibition booths, networking, and the prestigious PROFX Awards - all under one roof in Dubai’s world-class financial hub.
+              <b>PROFX EXPO AFRICA 2026</b> is the premier international finance event bringing together global leaders from Forex, FinTech, Blockchain, and digital finance. Over two days, attendees explore expert-led sessions, live exhibition booths, networking, and the prestigious PROFX Awards - all under one roof at EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa.
             </p>
           </div>
         </div>
@@ -83,11 +84,11 @@ const OurVision = () => {
                 Our Vision - <span className="pink">Driving Forex Innovation</span>
               </h2>
               <p className="text-dark">
-                <b>PROFX EXPO AFRICA 2026</b> is designed as a complete financial ecosystem experience. The summit seamlessly integrates summit sessions, live exhibition booths, continuous networking, and the PROFX Awards ceremony. Participants engage with industry experts, decision-makers, and innovators shaping the future of global finance. From advanced trading discussions to Forex innovation, Dubai emerges as the hub for scalable, compliant, and impactful financial solutions.
+                <b>PROFX EXPO AFRICA 2026</b> is designed as a complete financial ecosystem experience. The summit seamlessly integrates summit sessions, live exhibition booths, continuous networking, and the PROFX Awards ceremony. Participants engage with industry experts, decision-makers, and innovators shaping the future of global finance. From advanced trading discussions to Forex innovation, EXHIBITION HALL 5 CTICC 2 in Cape Town sets the stage for scalable, compliant, and impactful financial solutions.
               </p>
               <div className="vision-image mt-4 text-center text-lg-start">
                 <img
-                  src="assets/images/resources/vision-image.jpg"
+                  src={buildAssetUrl('/assets/images/resources/vision-image.jpg')}
                   alt="Our Vision"
                   className="img-fluid rounded shadow-sm animate-pulse"
                 />

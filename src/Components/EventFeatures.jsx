@@ -1,4 +1,5 @@
 import React from "react";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const EventFeatures = () => {
   return (
@@ -37,7 +38,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src="assets/images/resources/blockchain.png"
+                    src={buildAssetUrl('/assets/images/resources/blockchain.png')}
                     alt="icon"
                     className="w-25"
                   />
@@ -53,7 +54,7 @@ const EventFeatures = () => {
 
                 <p className="text-grey">
                   Gain valuable insights from global leaders across Forex, FinTech,
-                  and digital finance. PROFX Summit delivers expert-led sessions
+                  and digital finance. PROFX EXPO AFRICA 2026 delivers expert-led sessions
                   covering market trends, regulations, and emerging financial
                   technologies.
                 </p>
@@ -65,7 +66,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src="assets/images/resources/metaverse.png"
+                    src={buildAssetUrl('/assets/images/resources/metaverse.png')}
                     alt="icon"
                     className="w-25"
                   />
@@ -92,7 +93,7 @@ const EventFeatures = () => {
               <div className="feature-box p-4 bg-lightgrey rounded-4 h-100 text-center">
                 <div className="feature-icon mb-3">
                   <img
-                    src="assets/images/resources/crypto.png"
+                    src={buildAssetUrl('/assets/images/resources/crypto.png')}
                     alt="icon"
                     className="w-25"
                   />

@@ -18,12 +18,12 @@ function Contact() {
                 <div className="contact-event-info p-8 text-white h-100 rounded bg-pink">
                   <div className="event-venue pb-5">
                     <h5 className="text-white pb-2">EVENT VENUE:</h5>
-                    <p className="m-0">Le Meridian, Dubai UAE</p>
+                    <p className="m-0">EXHIBITION HALL 5 CTICC 2</p>
                   </div>
                   <div className="address pb-5">
                     <h5 className="text-white pb-2">ADDRESS:</h5>
                     <p className="m-0">
-                      Le Meridian, Airport Road, Dubai UAE
+                      Cape Town, South Africa
                     </p>
                   </div>
                   {/* <div className="reception-info pb-5">
@@ -36,7 +36,7 @@ function Contact() {
                     <p className="m-0 mt-2">Email: <a className="social-url" href="mailto:info@profxmedia.com">info@profxmedia.com</a></p>
                   </div>
                   <div className="direction-link">
-                    <a className="btn border" href="https://maps.app.goo.gl/pzmErXhidm3Euz8f6">Get Directions</a>
+                    <a className="btn border" href="https://maps.google.com/?q=CTICC+2+Cape+Town">Get Directions</a>
                   </div>
                 </div>
               </div>
@@ -60,7 +60,7 @@ function Contact() {
               <iframe
                 height="400"
                 className="rounded w-100"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d209000.25475612728!2d55.264738!3d25.249132!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d052da27f4b%3A0x1e08c07158e27b01!2sLe%20M%C3%A9ridien%20Dubai%20Hotel%20%26%20Conference%20Centre!5e1!3m2!1sen!2sae!4v1766667195286!5m2!1sen!2sae"
+                src="https://maps.google.com/maps?q=CTICC%202%20Cape%20Town&output=embed"
               ></iframe>
             </div>
           </div>

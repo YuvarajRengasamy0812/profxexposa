@@ -31,7 +31,7 @@ const BackToTop = () => {
         bottom: '30px',
         right: '30px',
         padding: '10px 15px',
-        backgroundColor: '#e91e63',
+        background: 'linear-gradient(230deg, #c19d38, #c19d38)',
         color: '#fff',
         border: 'none',
         borderRadius: '50%',

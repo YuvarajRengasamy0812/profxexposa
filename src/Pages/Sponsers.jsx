@@ -2,8 +2,11 @@ import React from "react";
 import Breadcrumb from "../Components/Breadcrumb";
 import { Link } from "react-router-dom";
 import Pagehelmet from "../Components/Pagehelmet";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Sponsers() {
+  const brochureUrl = buildAssetUrl('/assets/brochure/ProFx Expo Africa 2026 Capetown - Sponsorship Brochure.pdf');
+
   return (
     <div>
       <Pagehelmet pageTitle="Our Sponsers" />
@@ -17,7 +20,7 @@ function Sponsers() {
             <div className="col-lg-7">
               <h2 className="sponsor-title mb-3">
                 Sponsorship Opportunities:{" "}
-                <span className="gradient-text">
+                <span className="highlight-text">
                   Maximize Your Brand Visibility
                 </span>
               </h2>
@@ -27,14 +30,14 @@ function Sponsers() {
               </p>
 
               <a
-                href="assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf"
+                href={brochureUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn primary-btn px-4 py-3"
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "assets/brochure/PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
-                  link.download = "PROFX EXPO AFRICA 2026 - Sponsorship Brochure.pdf";
+                  link.href = brochureUrl;
+                  link.download = "ProFx Expo Africa 2026 Capetown - Sponsorship Brochure.pdf";
                   link.click();
                 }}
               >
@@ -45,7 +48,7 @@ function Sponsers() {
             {/* Image / placeholder */}
             <div className="col-lg-5">
               <img
-                src="assets/images/resources/sponsor-hero.jpg"
+                src={buildAssetUrl('/assets/images/resources/sponsor-hero.jpg')}
                 alt="Sponsor"
                 className="img-fluid rounded shadow-lg"
               />
@@ -62,7 +65,7 @@ function Sponsers() {
           <div className="col-lg-6 mx-auto">
             <div className="title-content text-lg-center mb-4">
               <p className="mb-1 pink">
-                <b>PROFX SUMMIT 2026</b> SPONSORS
+                <b>PROFX EXPO AFRICA 2026</b> SPONSORS
               </p>
               <h2 className="mb-1">
                 Tiered <span className="pink"> Opportunities</span>
@@ -88,7 +91,7 @@ function Sponsers() {
                   <li>• VIP tickets + exclusive access</li>
                   <li>• Custom activation opportunities</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#393182" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #0e5941, #15831d)", color: "#fff" }}>
                   2 Slots Left
                 </a>
               </div>
@@ -108,7 +111,7 @@ function Sponsers() {
                   <li>• Stage demo opportunities</li>
                   <li>• Branded recap in post-event report</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#ae4b84" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #0e5941, #15831d)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -128,7 +131,7 @@ function Sponsers() {
                   <li>• Branded refreshment breaks</li>
                   <li>• Feature in agenda app & emails</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#d4af37" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #c19d38, #c19d38)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -148,7 +151,7 @@ function Sponsers() {
                   <li>• App promotion for your lounge</li>
                   <li>• Logo in virtual streams & press kits</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#e91e63" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #c19d38, #c19d38)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -168,7 +171,7 @@ function Sponsers() {
                   <li>• 2 VIP tickets for awards ceremony</li>
                   <li>• Feature in event press coverage</li>
                 </ul>
-                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "#ae4b84" }}>
+                <a href="/Contact" className="btn w-100 mt-auto" style={{ background: "linear-gradient(230deg, #0e5941, #15831d)", color: "#fff" }}>
                   Inquire
                 </a>
               </div>
@@ -184,7 +187,7 @@ function Sponsers() {
       <section
         className="partner-perks py-12"
         style={{
-          background: "linear-gradient(135deg, #fdfdfd, #faf4ff)",
+          background: "linear-gradient(135deg, #fdfdfd, #f6f5ea)",
           position: "relative",
           overflow: "hidden",
         }}
@@ -214,7 +217,7 @@ function Sponsers() {
             <div className="col-lg-4 col-md-6">
               <div className="perk-premium-card h-100 p-5 rounded-4">
                 <div className="perk-icon mb-3">
-                  <img src="assets/images/resources/reach.png" className="img-fluid" alt="reach" />
+                  <img src={buildAssetUrl('/assets/images/resources/reach.png')} className="img-fluid" alt="reach" />
                 </div>
 
                 <h4 className="black fw-bold mb-2">Reach</h4>
@@ -231,7 +234,7 @@ function Sponsers() {
             <div className="col-lg-4 col-md-6">
               <div className="perk-premium-card h-100 p-5 rounded-4">
                 <div className="perk-icon mb-3">
-                  <img src="assets/images/resources/engage.png" className="img-fluid" alt="engage" />
+                  <img src={buildAssetUrl('/assets/images/resources/engage.png')} className="img-fluid" alt="engage" />
                 </div>
 
                 <h4 className="black fw-bold mb-2">Engage</h4>
@@ -248,7 +251,7 @@ function Sponsers() {
             <div className="col-lg-4 col-md-6">
               <div className="perk-premium-card h-100 p-5 rounded-4">
                 <div className="perk-icon mb-3">
-                  <img src="assets/images/resources/measure.png" className="img-fluid" alt="measure" />
+                  <img src={buildAssetUrl('/assets/images/resources/measure.png')} className="img-fluid" alt="measure" />
                 </div>
 
                 <h4 className="black fw-bold mb-2">Measure</h4>
@@ -280,17 +283,17 @@ function Sponsers() {
             <p className="fw-bold pink fs-5 mb-3">Ready to Partner?</p>
 
             <div className="d-flex flex-column flex-md-row justify-content-center gap-3">
-              <a
-                href="/Contact"
+              <Link
+                to="/Contact"
                 className="btn btn-primary px-5 py-3 rounded-pill fw-bold"
                 style={{
-                  background: "linear-gradient(90deg, #c40f4c, #8220e5)",
+                  background: "linear-gradient(230deg, #0e5941, #15831d)",
                   border: "none",
                   fontSize: "1.1rem",
                 }}
               >
                 Share Your Goals
-              </a>
+              </Link>
 
               <a
                 href="tel:+971588845033"
@@ -320,7 +323,7 @@ function Sponsers() {
             </div>
             <div className="next-sponser-info">
               <p>
-                Join hands with <b>PROFX SUMMIT 2026</b> to elevate your
+                Join hands with <b>PROFX EXPO AFRICA 2026</b> to elevate your
                 brand in the dynamic world of Forex. Explore tailored sponsorship
                 packages designed to maximize your visibility and engagement at
                 Dubai premier Forex event.

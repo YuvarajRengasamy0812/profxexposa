@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const TicketTwo = () => {
   return (
@@ -23,7 +24,7 @@ const TicketTwo = () => {
                   <div className="ticket-box">
                     <div className="ticket-box-inner bg-white position-relative rounded-bottom-5">
                       <img
-                        src="assets/images/pattern/2.png"
+                        src={buildAssetUrl('/assets/images/pattern/2.png')}
                         alt="pattern"
                         className="w-100 pattern position-absolute rounded-top"
                       />
@@ -81,7 +82,7 @@ const TicketTwo = () => {
                 <div className="col-lg-4 col-md-6">
                   <div className="ticket-box-inner bg-white position-relative rounded-bottom-5">
                     <img
-                      src="assets/images/pattern/2.png"
+                      src={buildAssetUrl('/assets/images/pattern/2.png')}
                       alt="pattern"
                       className="w-100 pattern position-absolute rounded-top"
                     />
@@ -143,7 +144,7 @@ const TicketTwo = () => {
                 <div className="col-lg-4 col-md-6">
                   <div className="ticket-box-inner  bg-white position-relative rounded-bottom-5">
                     <img
-                      src="assets/images/pattern/1.png"
+                      src={buildAssetUrl('/assets/images/pattern/1.png')}
                       alt="pattern"
                       className="w-100 pattern position-absolute rounded-top"
                     />

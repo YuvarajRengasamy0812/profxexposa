@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { getApiUrl } from "../api/config";
 
 // SponsorSection component
 const SponsorSection = ({ title, items, single = false, showTitle = true }) => (
@@ -48,7 +47,7 @@ export default function SponsorPartners() {
         const fetchSponsors = async () => {
             try {
                 const { data } = await axios.get(
-                    getApiUrl("website/Sponsors")
+                    `${process.env.REACT_APP_API_URL}/website/Sponsors`
                 );
 
                 if (data.success) {
@@ -80,9 +79,9 @@ export default function SponsorPartners() {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                     className="text-uppercase fw-medium mb-3"
-                    style={{ letterSpacing: "0.2em", fontSize: "0.85rem", color: "#e91e63" }}
+                    style={{ letterSpacing: "0.2em", fontSize: "0.85rem", color: "#c19d38" }}
                 >
-                    PROFX SUMMIT SPONSORS
+                    PROFX EXPO AFRICA SPONSORS
                 </motion.p>
 
                 <motion.h2
@@ -94,7 +93,7 @@ export default function SponsorPartners() {
                     style={{ color: "#223645", fontSize: "clamp(2rem, 4vw, 3rem)" }}
                 >
                     CHECK{" "}
-                    <span className="fw-semibold" style={{ color: "#e91e63" }}>
+                    <span className="fw-semibold" style={{ color: "#c19d38" }}>
                         OUR SPONSORS
                     </span>{" "}
                     WHO MAKE IT

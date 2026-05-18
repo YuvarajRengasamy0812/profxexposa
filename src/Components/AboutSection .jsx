@@ -1,5 +1,6 @@
 import React from "react";
 import { FileText } from "lucide-react";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const AboutSection = () => {
   return (
@@ -10,7 +11,7 @@ const AboutSection = () => {
           {/* Left Text Content */}
           <div className="col-lg-6">
             <div className="about-text mb-4 mb-lg-0">
-              <p className="small pink mb-2">ABOUT PROFX SUMMIT</p>
+              <p className="small pink mb-2">ABOUT PROFX EXPO AFRICA</p>
               <h2 className="mb-3">
                 <b>PROFX EXPO AFRICA 2026</b> - <span className="pink">Global Finance, Trading & Innovation</span>
               </h2>
@@ -22,7 +23,7 @@ const AboutSection = () => {
               </p>
 
               <a
-                href="assets/brochure/PROFX SUMMIT 2026 - Event Brochure.pdf"
+                href={buildAssetUrl('/assets/brochure/ProFx Expo Africa 2026 Capetown - Sponsorship Brochure.pdf')}
                 target="_blank"
                 className="btn btn-download d-inline-flex align-items-center px-4 py-2 rounded-pill"
               >
@@ -36,7 +37,7 @@ const AboutSection = () => {
           <div className="col-lg-6">
             <div className="about-image text-center">
               <img
-                src="assets/images/resources/blockchain-hero.jpg"
+                src={buildAssetUrl('/assets/images/resources/blockchain-hero.jpg')}
                 alt="Forex Illustration"
                 className="img-fluid rounded shadow-sm animate-pulse"
               />

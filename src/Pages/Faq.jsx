@@ -1,6 +1,7 @@
 import React from 'react'
 import Breadcrumb from '../Components/Breadcrumb'
 import Pagehelmet from '../Components/Pagehelmet'
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Faq() {
     return (
@@ -16,11 +17,11 @@ function Faq() {
                             <div className="col-lg-6 order-2 order-lg-1 p-2">
                                 <div className="general-ques-left text-white">
                                     <div className=" text-center">
-                                        <img src="assets/images/team/6.png" alt="faq-general-image" className="w-50" /><br />
+                                        <img src={buildAssetUrl('/assets/images/team/6.png')} alt="faq-general-image" className="w-50" /><br />
                                     </div>
                                     <div className="speaker-statement-box p-4 rounded bg-pink w-lg-80 mb-mi">
                                         <div className="speaker-statement ps-4 border-start border-white border-7">
-                                            <p><small>"Free entry passes to <b>PROFX SUMMIT 2026</b> - get clarity on everything <b>PROFX SUMMIT 2026</b> has to offer."</small></p>
+                                            <p><small>"Free entry passes to <b>PROFX EXPO AFRICA 2026</b> - get clarity on everything <b>PROFX EXPO AFRICA 2026</b> has to offer."</small></p>
                                             <h6 className="text-white">PROFX Help Desk</h6>
                                         </div>
                                     </div>
@@ -45,7 +46,7 @@ function Faq() {
                                                     <button className="accordion-button collapsed fw-semibold p-0"
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#flush-collapseOne">
-                                                        What is the core theme of ProFX Summit 2026?
+                                                        What is the core theme of PROFX EXPO AFRICA 2026?
                                                     </button>
                                                 </p>
                                                 <div id="flush-collapseOne" className="accordion-collapse collapse"
@@ -68,7 +69,7 @@ function Faq() {
                                                 <div id="flush-collapseTwo" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Le Méridien, Airport Road, Dubai, UAE - centrally located and easily accessible.
+                                                        EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa - centrally located and easily accessible.
                                                         Event Hours: 10 AM - 9 PM. Free airport shuttle service available for attendees.
                                                     </div>
                                                 </div>
@@ -114,7 +115,7 @@ function Faq() {
                                 <div className="popular-ques-left me-4 m-sm-0">
                                     <div className="section-title pb-4 text-center text-lg-start">
                                         <p className="mb-1 pink">POPULAR QUESTIONS</p>
-                                        <h2 className="mb-">PROFX Summit <span className="pink">FAQ</span></h2>
+                                        <h2 className="mb-">PROFX EXPO AFRICA 2026 <span className="pink">FAQ</span></h2>
                                         <p>Browse the most common questions from attendees, exhibitors, sponsors, and speakers.</p>
                                     </div>
 
@@ -127,7 +128,7 @@ function Faq() {
                                                     <button className="accordion-button collapsed fw-semibold p-0 text-uppercase"
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapseOne">
-                                                        Who can attend the ProFX Summit?
+                                                        Who can attend PROFX EXPO AFRICA 2026?
                                                     </button>
                                                 </p>
                                                 <div id="collapseOne" className="accordion-collapse collapse"
@@ -150,7 +151,7 @@ function Faq() {
                                                 <div id="collapseTwo" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Yes, ProFX Summit offers Gold, Silver, and Standard exhibition booths for companies to showcase their products and services. Booths are active throughout both days to maximize engagement.
+                                                        Yes, PROFX EXPO AFRICA 2026 offers Gold, Silver, and Standard exhibition booths for companies to showcase their products and services. Booths are active throughout both days to maximize engagement.
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,7 +168,7 @@ function Faq() {
                                                 <div id="collapseThree" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        ProFX Summit offers multiple sponsorship tiers, including Title Sponsor, Platinum, Gold, Networking Lounge, and Awards Sponsor. Each package provides tailored branding, visibility, and engagement opportunities.
+                                                        PROFX EXPO AFRICA 2026 offers multiple sponsorship tiers, including Title Sponsor, Platinum, Gold, Networking Lounge, and Awards Sponsor. Each package provides tailored branding, visibility, and engagement opportunities.
                                                     </div>
                                                 </div>
                                             </div>
@@ -201,7 +202,7 @@ function Faq() {
                                                 <div id="collapseFive" className="accordion-collapse collapse"
                                                     data-bs-parent="#accordionExample">
                                                     <div className="accordion-body bg-lightgrey p-6">
-                                                        Le Méridien, Airport Road, Dubai, UAE. The venue is easily accessible and provides ample space for summit sessions, networking, and exhibition booths.
+                                                        EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa. The venue is easily accessible and provides ample space for summit sessions, networking, and exhibition booths.
                                                     </div>
                                                 </div>
                                             </div>

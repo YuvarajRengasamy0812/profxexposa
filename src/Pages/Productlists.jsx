@@ -2,6 +2,7 @@ import React from 'react'
 import Breadcrumb from '../Components/Breadcrumb'
 import { Link } from 'react-router-dom'
 import Pagehelmet from '../Components/Pagehelmet'
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Productlists() {
   return (
@@ -36,7 +37,7 @@ function Productlists() {
                                         <div className="col-lg-6 col-md-6">
                                             <div className="product-box p-3 pb-4 box-shadow rounded me-1 m-md-0">
                                                 <div className="product-img mb-5">
-                                                    <Link to="/Productdetail"><img src="assets/images/product/1.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                                                    <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/1.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                                                 </div>
                                                 <div className="product-info mb-3">
                                                     <h6 className="pb-2"><Link to="/Productsingle" className="black">Bamboo Bucket</Link></h6>
@@ -53,7 +54,7 @@ function Productlists() {
                                                     <span className="position-absolute translate-middle sale bg-blue rounded text-white py-2 px-4 align-self-center">
                                                     <small>Sale!</small>
                                                     </span>
-                                                    <Link to="/Productdetail"><img src="assets/images/product/2.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                                                    <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/2.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                                                 </div>
                                                 <div className="product-info mb-3">
                                                     <h6 className="pb-2"><Link to="/Productsingle" className="black">Ladies Top</Link></h6>
@@ -70,7 +71,7 @@ function Productlists() {
                                                     <span className="position-absolute translate-middle sale bg-blue rounded text-white py-2 px-4 align-self-center">
                                                     <small>Sale!</small>
                                                     </span>
-                                                    <Link to="/Productdetail"><img src="assets/images/product/3.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                                                    <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/3.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                                                 </div>
                                                 <div className="product-info mb-3">
                                                     <h6 className="pb-2"><Link to="/Productsingle" className="black">Leather Bag</Link></h6>
@@ -84,7 +85,7 @@ function Productlists() {
                                         <div className="col-lg-6 col-md-6">
                                             <div className="product-box p-3 pb-4 box-shadow rounded ms-1 m-md-0">
                                                 <div className="product-img mb-5">
-                                                    <Link to="/Productdetail"><img src="assets/images/product/4.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                                                    <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/4.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                                                 </div>
                                                 <div className="product-info mb-3">
                                                     <h6 className="pb-2"><Link to="/Productsingle" className="black">Lewis Shirt</Link></h6>
@@ -98,7 +99,7 @@ function Productlists() {
                                         <div className="col-lg-6 col-md-6">
                                             <div className="product-box p-3 pb-4 box-shadow rounded me-1 m-md-0">
                                                 <div className="product-img mb-5">
-                                                    <Link to="/Productdetail"><img src="assets/images/product/5.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                                                    <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/5.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                                                 </div>
                                                 <div className="product-info mb-3">
                                                     <h6 className="pb-2"><Link to="/Productsingle" className="black">London T-shirt</Link></h6>
@@ -112,7 +113,7 @@ function Productlists() {
                                         <div className="col-lg-6 col-md-6">
                                             <div className="product-box p-3 pb-4 box-shadow rounded ms-1 m-md-0">
                                                 <div className="product-img mb-5">
-                                                    <Link to="/Productdetail"><img src="assets/images/product/6.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                                                    <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/6.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                                                 </div>
                                                 <div className="product-info mb-3">
                                                     <h6 className="pb-2"><Link to="/Productsingle" className="black">Yellow Sofa</Link></h6>
@@ -146,40 +147,40 @@ function Productlists() {
 
                                 <div className="product-gallery-inner ">
                                     <div id="selector1" className="row g-3 ">
-                                        <div className="item col-lg-6 col-md-6 position-relative" data-src="assets/images/product/6.jpg">
+                                        <div className="item col-lg-6 col-md-6 position-relative" data-src={buildAssetUrl('/assets/images/product/6.jpg')}>
                                             <a >
                                                 <div className="image-overlay rounded mx-1"></div>
-                                                <img src="assets/images/product/6.jpg" className="w-100 rounded position-relative" alt="Yellow Sofa"/>
+                                                <img src={buildAssetUrl('/assets/images/product/6.jpg')} className="w-100 rounded position-relative" alt="Yellow Sofa"/>
                                             </a>
                                         </div>
-                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src="assets/images/product/4.jpg">
+                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src={buildAssetUrl('/assets/images/product/4.jpg')}>
                                             <a>
                                                 <div className="image-overlay rounded mx-1 "></div>
-                                                <img src="assets/images/product/4.jpg" className="w-100 rounded position-relative" alt="Lewis Shirt"/>
+                                                <img src={buildAssetUrl('/assets/images/product/4.jpg')} className="w-100 rounded position-relative" alt="Lewis Shirt"/>
                                             </a>
                                         </div>
-                                        <div className="item col-lg-6 col-md-6 position-relative" data-src="assets/images/product/5.jpg">
+                                        <div className="item col-lg-6 col-md-6 position-relative" data-src={buildAssetUrl('/assets/images/product/5.jpg')}>
                                             <a>
                                                 <div className="image-overlay rounded mx-1"></div>
-                                                <img src="assets/images/product/5.jpg" className="w-100 rounded position-relative" alt="London T-Shirt"/>
+                                                <img src={buildAssetUrl('/assets/images/product/5.jpg')} className="w-100 rounded position-relative" alt="London T-Shirt"/>
                                             </a>
                                         </div>
-                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src="assets/images/product/3.jpg">
+                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src={buildAssetUrl('/assets/images/product/3.jpg')}>
                                             <a>
                                                 <div className="image-overlay rounded mx-1"></div>
-                                                <img src="assets/images/product/3.jpg" className="w-100 rounded position-relative" alt="Leather Bag"/>
+                                                <img src={buildAssetUrl('/assets/images/product/3.jpg')} className="w-100 rounded position-relative" alt="Leather Bag"/>
                                             </a>
                                         </div>
-                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src="assets/images/product/2.jpg">
+                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src={buildAssetUrl('/assets/images/product/2.jpg')}>
                                             <a>
                                                 <div className="image-overlay rounded mx-1"></div>
-                                                <img src="assets/images/product/2.jpg" className="w-100 rounded position-relative" alt="Ladies Top"/>
+                                                <img src={buildAssetUrl('/assets/images/product/2.jpg')} className="w-100 rounded position-relative" alt="Ladies Top"/>
                                             </a>
                                         </div>
-                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src="assets/images/product/1.jpg">
+                                        <div className="item  col-lg-6 col-md-6 position-relative" data-src={buildAssetUrl('/assets/images/product/1.jpg')}>
                                             <a>
                                                 <div className="image-overlay rounded mx-1"></div>
-                                                <img src="assets/images/product/1.jpg" className="w-100 rounded position-relative" alt="Bamboo Bucket"/>
+                                                <img src={buildAssetUrl('/assets/images/product/1.jpg')} className="w-100 rounded position-relative" alt="Bamboo Bucket"/>
                                             </a>
                                         </div>
                                     </div> 
@@ -193,7 +194,7 @@ function Productlists() {
                                     <div className="col-lg-12 col-md-6">
                                         <div className="recent-product d-flex align-items-center  mb-3">
                                             <div className="product-img">
-                                            <Link to="/Productdetail"><img src="assets/images/product/6.jpg" alt="Yellow Sofa" className="rounded me-3"/></Link>
+                                            <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/6.jpg')} alt="Yellow Sofa" className="rounded me-3"/></Link>
                                             </div>
                                             <div className="product-detail">
                                             <a href="product-single.html" className="black fw-semibold text-uppercase">Yellow Sofa</a>
@@ -204,7 +205,7 @@ function Productlists() {
                                     <div className="col-lg-12 col-md-6">
                                         <div className="recent-product d-flex align-items-center mb-3">
                                             <div className="product-img">
-                                            <Link to="/Productdetail"><img src="assets/images/product/3.jpg" alt="Leather Bag" className="rounded me-3"/></Link>
+                                            <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/3.jpg')} alt="Leather Bag" className="rounded me-3"/></Link>
                                             </div>
                                             <div className="product-detail">
                                             <a href="product-single.html" className="black fw-semibold text-uppercase">Leather Bag</a>
@@ -215,7 +216,7 @@ function Productlists() {
                                     <div className="col-lg-12 col-md-6">
                                         <div className="recent-product d-flex align-items-center mb-4">
                                             <div className="product-img">
-                                            <Link to="/Productdetail"><img src="assets/images/product/1.jpg" alt="Bamboo Bucket" className="rounded me-3"/></Link>
+                                            <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/1.jpg')} alt="Bamboo Bucket" className="rounded me-3"/></Link>
                                             </div>
                                             <div className="product-detail">
                                                 <a href="product-single.html" className="black fw-semibold text-uppercase">Bamboo Bucket</a>
@@ -226,7 +227,7 @@ function Productlists() {
                                     <div className="col-lg-12 col-md-6">  
                                         <div className="recent-product d-flex align-items-center mb-4">
                                             <div className="product-img">
-                                            <Link to="/Productdetail"><img src="assets/images/product/4.jpg" alt="Lewis Shirt" className="rounded me-3"/></Link>
+                                            <Link to="/Productdetail"><img src={buildAssetUrl('/assets/images/product/4.jpg')} alt="Lewis Shirt" className="rounded me-3"/></Link>
                                             </div>
                                             <div className="product-detail">
                                             <a href="product-single.html" className="black fw-semibold text-uppercase">Lewis Shirt</a>

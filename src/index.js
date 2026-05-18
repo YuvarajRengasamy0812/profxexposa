@@ -4,12 +4,28 @@ import { BrowserRouter } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import App from './App';
-import { APP_BASENAME } from './api/config';
 
+const getBasename = () => {
+  if (process.env.NODE_ENV !== 'production') {
+    return window.location.pathname.startsWith('/africa') ? '/africa' : undefined;
+  }
+
+  if (!process.env.PUBLIC_URL) {
+    return undefined;
+  }
+
+  try {
+    return new URL(process.env.PUBLIC_URL).pathname.replace(/\/$/, '') || '/';
+  } catch {
+    return process.env.PUBLIC_URL.replace(/\/$/, '');
+  }
+};
+
+const basename = getBasename();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={APP_BASENAME}> {/* Only one BrowserRouter here */}
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

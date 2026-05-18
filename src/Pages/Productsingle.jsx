@@ -3,6 +3,7 @@ import Breadcrumb from '../Components/Breadcrumb'
 import { Link } from 'react-router-dom'
 import Pagehelmet from '../Components/Pagehelmet'
 import Thumbnailslider from '../Components/Thumbnailslider'
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Productsingle() {
   return (
@@ -63,7 +64,7 @@ function Productsingle() {
                             <small><span className="position-absolute translate-middle sale rounded text-white fw-bold">
                                 Sale!
                                 </span></small>
-                            <Link to="/Productsingle"><img src="assets/images/product/2.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                            <Link to="/Productsingle"><img src={buildAssetUrl('/assets/images/product/2.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                         </div>
                         <div className="product-info mb-3">
                             <h6 className="pb-2"><Link to="/Productsingle" className="black">Ladies Top</Link></h6>
@@ -77,7 +78,7 @@ function Productsingle() {
                     <div className="col-lg-6 col-md-6">
                         <div className="product-box p-4 pb-4 box-shadow rounded me-1 m-md-0">
                         <div className="product-img mb-5">
-                            <Link to="/Productsingle"><img src="assets/images/product/5.jpg" alt="Bamboo Bucket" className="w-100 rounded"/></Link>
+                            <Link to="/Productsingle"><img src={buildAssetUrl('/assets/images/product/5.jpg')} alt="Bamboo Bucket" className="w-100 rounded"/></Link>
                         </div>
                         <div className="product-info mb-3">
                             <h6 className="pb-2"><Link to="/Productsingle" className="black">London T-shirt</Link></h6>

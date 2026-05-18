@@ -3,6 +3,7 @@ import Breadcrumb from "../Components/Breadcrumb";
 import { Link } from "react-router-dom";
 import Pagehelmet from "../Components/Pagehelmet";
 import TicketSection from "../Components/TicketSection";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Pricing() {
   return (
@@ -52,7 +53,7 @@ function Pricing() {
               <div className="col-lg-6">
                 <div className="">
                   <img
-                    src="assets/images/team/5.png"
+                    src={buildAssetUrl('/assets/images/team/5.png')}
                     alt="ticket-img"
                     className="w-50"
                   />

@@ -3,11 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import PageHelmet from "../Components/Pagehelmet";
 import Breadcrumb from "../Components/Breadcrumb";
 import { User, Camera } from "lucide-react";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const Profile = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("profile");
-  const [avatar, setAvatar] = useState("assets/images/resources/avatar.png");
+  const [avatar, setAvatar] = useState(buildAssetUrl('/assets/images/resources/avatar.png'));
   const [user, setUser] = useState(null);
 
   useEffect(() => {

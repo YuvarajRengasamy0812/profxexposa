@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function PromoPopup() {
   const [visible, setVisible] = useState(false);
@@ -40,7 +41,7 @@ function PromoPopup() {
           onClick={() => { handleClose(); navigate("/Register"); }}
         >
           <img
-            src="assets/images/promo/promo-banner.png"
+            src={buildAssetUrl('/assets/images/promo/promo-banner.png')}
             alt="PROFX EXPO AFRICA 2026 Promotion"
             className="promo-img"
           />

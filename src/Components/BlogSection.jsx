@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const BlogSection = () => {
     return (
@@ -15,7 +16,7 @@ const BlogSection = () => {
                                         READ Our <span className="pink">Blogs </span>TO KNOW MORE
                                     </h2>
                                     <p className="mb-0">
-                                        Stay updated with exclusive articles, keynote highlights, speaker interviews, and behind-the-scenes stories from the PROFX SUMMIT.
+                                        Stay updated with exclusive articles, keynote highlights, speaker interviews, and behind-the-scenes stories from PROFX EXPO AFRICA 2026.
                                     </p>
                                 </div>
                             </div>
@@ -34,7 +35,7 @@ const BlogSection = () => {
                                         <Link to="/Bloglists">
                                             <img
                                                 className="blog-img rounded rounded-bottom-0 w-100 h-auto"
-                                                src="assets/images/blogs/1.png"
+                                                src={buildAssetUrl('/assets/images/blogs/1.png')}
                                                 alt="blog-img"
                                             />
                                         </Link>
@@ -63,7 +64,7 @@ const BlogSection = () => {
                                         <Link to="/Bloglists">
                                             <img
                                                 className="blog-img rounded w-100 rounded-bottom-0 h-auto"
-                                                src="assets/images/blogs/2.png"
+                                                src={buildAssetUrl('/assets/images/blogs/2.png')}
                                                 alt="blog-img"
                                             />
                                         </Link>
@@ -92,7 +93,7 @@ const BlogSection = () => {
                                         <Link to="/Bloglists">
                                             <img
                                                 className="blog-img rounded rounded-bottom-0 w-100 h-auto"
-                                                src="assets/images/blogs/3.png"
+                                                src={buildAssetUrl('/assets/images/blogs/3.png')}
                                                 alt="blog-img"
                                             />
                                         </Link>

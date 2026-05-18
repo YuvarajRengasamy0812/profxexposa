@@ -2,6 +2,7 @@ import React from "react";
 import Breadcrumb from "../Components/Breadcrumb";
 import Pagehelmet from "../Components/Pagehelmet";
 import { Link } from "react-router-dom";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function Testimonials() {
   return (
@@ -26,7 +27,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/2.jpg"
+                      src={buildAssetUrl('/assets/images/team/2.jpg')}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -51,7 +52,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/3.jpg"
+                      src={buildAssetUrl('/assets/images/team/3.jpg')}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -76,7 +77,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/1.jpg"
+                      src={buildAssetUrl('/assets/images/team/1.jpg')}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -101,7 +102,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/3.jpg"
+                      src={buildAssetUrl('/assets/images/team/3.jpg')}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -126,7 +127,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/1.jpg"
+                      src={buildAssetUrl('/assets/images/team/1.jpg')}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />
@@ -151,7 +152,7 @@ function Testimonials() {
                   </div>
                   <div className="testimonial-bio">
                     <img
-                      src="assets/images/team/2.jpg"
+                      src={buildAssetUrl('/assets/images/team/2.jpg')}
                       alt="testimonial-image"
                       className="bio-img mb-1 rounded-circle"
                     />

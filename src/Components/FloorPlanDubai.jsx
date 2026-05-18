@@ -5,7 +5,7 @@ import FloorBorder from "./FloorBorder";
 import { createPortal } from "react-dom";
 import BoothModal from "./BoothModal";
 import axios from "axios";
-import { getApiUrl } from "../api/config";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const FloorPlanDubai = () => {
   const [selectedBooth, setSelectedBooth] = React.useState(null);
@@ -16,7 +16,7 @@ const FloorPlanDubai = () => {
 
   useEffect(() => {
     axios
-      .get(getApiUrl("floorplanList"))
+      .get(`${process.env.REACT_APP_API_URL}/floorplanList`)
       .then((res) => {
         const tickets = res.data.details.tickets.data;
 
@@ -26,7 +26,7 @@ const FloorPlanDubai = () => {
             boothNo: String(t.boothno),
             companyName: t.company || "",
             // ✅ Set default placeholder if logo is missing
-            logo: t.company_logo || "assets/images/booth-reserved/v-process.png",
+            logo: t.company_logo || buildAssetUrl('/assets/images/booth-reserved/v-process.png'),
             url: t.company_url || "#",
             title: t.boothtitle || "Reserved Booth",
             size: t.boothsize || "",
@@ -88,7 +88,7 @@ const FloorPlanDubai = () => {
               Floor Plan
             </p>
             <h2 className="mb-1">
-              PROFX SUMMIT<span className="pink"> <b>DUBAI 2026</b></span>
+              PROFX EXPO<span className="pink"> <b>AFRICA 2026</b></span>
             </h2>
             <p className="m-0">
               Choose from 4 powerful tiers - designed for trend explorers, skill builders, networkers, and deal-closers.

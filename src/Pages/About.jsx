@@ -8,6 +8,7 @@ import CorePillars from "../Components/CorePillars";
 import AccessSynergies from "../Components/AccessSynergies";
 import DirectionSection from "../Components/DirectionSection";
 import LetsDoIt from "../Components/LetsDoIt";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 function About() {
   return (
@@ -28,7 +29,7 @@ function About() {
                     <h2 className="mb-2">
                       GET THE LATEST INFO ABOUT{" "}
                       <span className="pink">
-                        <b>PROFX SUMMIT 2026</b>
+                        <b>PROFX EXPO AFRICA 2026</b>
                       </span>
                     </h2>
                     <p data-aos="fade-right" data-aos-delay="1100">
@@ -58,7 +59,7 @@ function About() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHERE</h5>
                                 <small className="pink">
-                                  Le Meridian, Airport Road, Dubai UAE
+                                  EXHIBITION HALL 5 CTICC 2, Cape Town, South Africa
                                 </small>
                               </Link>
                             </div>
@@ -77,7 +78,7 @@ function About() {
                               <Link to="/Contact">
                                 <h5 className="mb-1">WHEN</h5>
                                 <small className="pink">
-                                  Thu & Fri <br /> December 10-11, 2026
+                                  Thu & Fri <br /> 20 - 21 Aug 2026
                                 </small>
                               </Link>
                             </div>
@@ -98,13 +99,13 @@ function About() {
                         <div className="img-left-1 float-end w-lg-80">
                           <img
                             className="mb-2 w-100 rounded"
-                            src="assets/images/group/1.jpg"
+                            src={buildAssetUrl('/assets/images/group/1.jpg')}
                             alt="blockchain-session"
                           />
                         </div>
                         <div className="img-left-2">
                           <img
-                            src="assets/images/group/2.jpg"
+                            src={buildAssetUrl('/assets/images/group/2.jpg')}
                             alt="networking"
                             className="w-100 rounded"
                           />
@@ -115,7 +116,7 @@ function About() {
                     <div className="col-lg-6 col-md-6">
                       <div className="container-img-right w-lg-75">
                         <img
-                          src="assets/images/group/3.jpg"
+                          src={buildAssetUrl('/assets/images/group/3.jpg')}
                           alt="expo-floor"
                           className="w-100 rounded"
                         />
@@ -218,7 +219,7 @@ function About() {
                   <div className="overview-title pb-4">
                     <p className="mb-1 pink">WHY ATTEND</p>
                     <h2 className="mb-3 black fw-bold">
-                      Discover the <span className="pink">PROFX Summit Advantage</span>
+                      Discover the <span className="pink">PROFX EXPO AFRICA 2026 Advantage</span>
                     </h2>
                   </div>
                   <div className="overview-info text-grey">
@@ -279,7 +280,7 @@ function About() {
                   <div className="speaker-box  position-relative overflow-hidden text-white">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/1.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/1.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -307,7 +308,7 @@ function About() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/2.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/2.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -335,7 +336,7 @@ function About() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/3.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/3.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">
@@ -363,7 +364,7 @@ function About() {
                   <div className="speaker-box position-relative overflow-hidden">
                     <img
                       className="speaker-image rounded w-100"
-                      src="assets/images/speakers/4.jpg"
+                      src={buildAssetUrl('/assets/images/speakers/4.jpg')}
                       alt="speaker-image"
                     />
                     <div className="box-content position-absolute bottom-0 z-1">

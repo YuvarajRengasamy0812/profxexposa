@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X, ArrowRight, User, Mail, Briefcase, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const RoleTabs = () => {
   const [activeTab, setActiveTab] = useState("visitor");
@@ -58,9 +59,9 @@ const RoleTabs = () => {
                 <li>Perks: Access to exclusive events of Forex & Fintech .</li>
               </ul>
 
-              <a href="/Booknow" className="btn bg-blue text-white px-4 py-2 mt-3 rounded-pill">
+              <Link to="/Booknow" className="btn bg-blue text-white px-4 py-2 mt-3 rounded-pill">
                 Book Free Ticket
-              </a>
+              </Link>
             </div>
           )}
 
