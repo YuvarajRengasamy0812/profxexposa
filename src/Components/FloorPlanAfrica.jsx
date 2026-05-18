@@ -10,9 +10,8 @@ import { buildAssetUrl } from "../utils/assetUrl";
 const FloorPlanAfrica = () => {
   const [selectedBooth, setSelectedBooth] = React.useState(null);
   const [reservedBooths, setReservedBooths] = useState([]);
-
-
-  const [booths, setBooths] = useState([]);
+  const [showTradingTooltip, setShowTradingTooltip] = useState(false);
+  const [activeTooltipId, setActiveTooltipId] = useState(null);
 
   useEffect(() => {
     axios
@@ -26,7 +25,7 @@ const FloorPlanAfrica = () => {
             boothNo: String(t.boothno),
             companyName: t.company || "",
             // ✅ Set default placeholder if logo is missing
-            logo: t.company_logo || buildAssetUrl('/assets/images/booth-reserved/v-process.png'),
+            logo: t.company_logo || "assets/images/booth-reserved/v-process.png",
             url: t.company_url || "#",
             title: t.boothtitle || "Reserved Booth",
             size: t.boothsize || "",
@@ -49,31 +48,48 @@ const FloorPlanAfrica = () => {
   // Layout constants based on grid
   const startX = 50;
   const startY = 50;
-  // Arrow constants
-  const dx = -95;
-  const dy = 18;
-  const up = 60;
-  // Speaker Hall
-  const hallX = startX + 530;
-  const hallY = startY + 475;
-  const hallW = 550;
-  const hallH = 402;
+  const tradingZone = {
+    x: startX + 160,
+    y: startY + 215,
+    width: 320,
+    height: 360,
+    size: 165,
+    circleRadius: 52,
+    tooltipWidth: 180,
+    tooltipHeight: 58,
+  };
+  const tradingStageX = tradingZone.x + (tradingZone.width - tradingZone.size) / 2;
+  const tradingStageY = tradingZone.y + 50;
+  const tradingCornerInset = 10;
+  const tradingCornerLong = 42;
+  const tradingCornerShort = 14;
+  const speakerAudience = {
+    startX: startX + 888,
+    startY: startY + 245,
+    cols: 8,
+    rows: 14,
+    seatWidth: 18,
+    seatHeight: 12,
+    seatGapX: 20,
+    seatGapY: 21,
+    centerGap: 18,
+    userSize: 8,
+  };
 
   // Colors matching the reference PDF
   const colors = {
-    official: "#2ecc71",      // Green
-    exclusive: "#9b59b6",     // Purple  
-    diamond: "#6fd3e7",       // Cyan/Light blue
-    gold: "#f5d98e",          // Light gold/beige
-    silver: "#d4d8dc",        // Light gray
-    standard: "#d97556",      // Orange/coral
+    podcast: "#e74c3c",       // Bright red
+    title: "#f39c12",         // Bright amber/orange
+    regional: "#27ae60",      // Bright green
+    premium: "#ff5845",       // Hot pink
+    official: "#8e44ad",      // Bright purple
+    exclusive: "#c39bd3",     // Light lavender
+    diamond: "#5dade2",       // Bright sky blue
+    gold: "#f4d03f",          // Bright gold/yellow
+    silver: "#aab7b8",        // Silver gray
     speakerHall: "#a855b7",   // Purple/magenta
-    networking: "#2c2f7c",    // Dark blue/navy
-    cafe: "#8b5a2b",          // Brown
-    cocktail: "#6c7bd9",      // Blue
-    photoWall: "#6c7a89",     // Gray
-    photoWallStage: "#F1F3F3",     // Gray
-    backdrop: "#d4d8dc87",      // Light gray
+    networking: "#5d61c8",    // Dark blue/navy
+    backdrop: "#d4d8dc87",    // Light gray
     ledWall: "#e74c3c"        // Red
   };
 
@@ -130,111 +146,36 @@ const FloorPlanAfrica = () => {
 
             {/* Floor Border */}
             <FloorBorder
-              style={{
-                position: "absolute",
-                top: startY,
-                left: startX,
-                width: 80,
-                height: 80,
-              }}
+              x={0}
+              y={0}
+              width={1220}
+              height={634}
             />
-
-
-            {/* ===== ENTRANCE - Top Left ===== */}
-            <g>
-              <text x={startX - 10} y={startY + 20} fontSize="9" fill="#333" fontWeight="600" transform={`rotate(-90, ${startX + 75}, ${startY + 55})`}>
-                ENTRANCE
-              </text>
-
-              {/* Top arrow */}
-              <path
-                d={`
-                  M ${startX + 100 + dx} ${startY + 45 + up}
-                  L ${startX + 120 + dx} ${startY + 45 + up}
-                  M ${startX + 115 + dx} ${startY + 40 + up}
-                  L ${startX + 120 + dx} ${startY + 45 + up}
-                  L ${startX + 115 + dx} ${startY + 50 + up}
-                `}
-                stroke="#555"
-                strokeWidth="1.5"
-                fill="none"
-              />
-
-              {/* Bottom arrow */}
-              <path
-                d={`
-                  M ${startX + 100 + dx} ${startY + 45 + dy + up}
-                  L ${startX + 120 + dx} ${startY + 45 + dy + up}
-                  M ${startX + 115 + dx} ${startY + 40 + dy + up}
-                  L ${startX + 120 + dx} ${startY + 45 + dy + up}
-                  L ${startX + 115 + dx} ${startY + 50 + dy + up}
-                `}
-                stroke="#555"
-                strokeWidth="1.5"
-                fill="none"
-              />
-            </g>
 
             {/* ===== TOP ROW ===== */}
 
-            {/* Official Sponsor */}
+            {/* Podcast ProFX Media - top-left */}
             <Booth
-              boothId="OFFICIAL-01"
-              boothType="official"
-              boothNo="1"
-              size="4 x 3"
-              title={"Official\nSponsor"}
-              x={startX + 180}
-              y={startY + 50}
-              width={120}
-              height={90}
-              fontSize={14}
-              color={colors.official}
-              isReserved={!!getReservedInfo("1")}
-              reservedInfo={getReservedInfo("1")}
+              boothId="PODCAST-01"
+              boothType="podcast"
+              title={"Podcast\nProFX Media"}
+              size="3 x 3"
+              x={startX + 28}
+              y={startY + 40}
+              width={82}
+              height={82}
+              fontSize={10}
+              color={colors.podcast}
+              textColor="#ffffff"
               onClick={setSelectedBooth}
+              activeTooltipId={activeTooltipId}
+              setActiveTooltipId={setActiveTooltipId}
             />
 
 
-
-
-
-
-            {/* Gold Booths Row - 2 booths */}
-            {Array.from({ length: 2 }).map((_, i) => {
-              const number = i + 3; // boothNo = 3, 4
-              const id = `GOLD-${number}`;
-
-              const reservedInfo = getReservedInfo(number);
-
-              return (
-                <Booth
-                  key={id}
-                  boothId={id}
-                  boothType="gold"
-                  boothNo={number}
-                  size="4 x 3"
-                  x={startX + 355 + i * 120}
-                  y={startY + 52}
-                  width={120}
-                  height={72}
-                  color={colors.gold}
-                  title={"Gold\nBooth"}
-                  fontSize={12}
-
-                  /* ✅ CORRECT RESERVE CHECK */
-                  isReserved={!!reservedInfo}
-                  reservedInfo={reservedInfo}
-
-                  onClick={setSelectedBooth}
-                />
-              );
-            })}
-
-
-            {/* Silver Booths Row - 5 booths */}
-            {Array.from({ length: 5 }).map((_, i) => {
-              const number = i + 11;
+            {/* Silver Booths Row - 8 booths */}
+            {Array.from({ length: 8 }).map((_, i) => {
+              const number = 18 - i;
               const id = `SILVER-${number}`;
               const reservedInfo = getReservedInfo(number);
               return (
@@ -243,170 +184,10 @@ const FloorPlanAfrica = () => {
                   boothId={id}
                   boothType="silver"
                   boothNo={number}
-                  size="3 x 2"
-                  x={startX + 650 + i * 78}
-                  y={startY + 52}
-                  width={78}
-                  height={72}
-                  color={colors.silver}
-                  title={"Silver\nBooth"}
-                  fontSize={12}
-                  isReserved={!!reservedInfo}
-                  reservedInfo={reservedInfo}
-
-                  onClick={setSelectedBooth}
-                />
-              );
-            })}
-
-            {/* LED Exposure Wall - Top Right */}
-            <g>
-              {/* LED Wall Box */}
-              <rect
-                x={startX + 1067}
-                y={startY + 100}
-                width={23}
-                height={70}
-                fill={colors.ledWall}
-                rx={3}
-              />
-
-              {/* LED Exposure Wall text */}
-              <text
-                x={startX + 1015}
-                y={startY + 54}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fontSize="6"
-                fill="#fff"
-                fontWeight="600"
-                transform={`rotate(-90, ${startX + 1085}, ${startY + 65})`}
-              >
-                LED Exposure Wall
-              </text>
-
-              {/* Size text */}
-              <text
-                x={startX + 1035}
-                y={startY + 84}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fontSize="7"
-                fill="rgba(255,255,255,0.9)"
-                transform={`rotate(-90, ${startX + 1085}, ${startY + 85})`}
-              >
-                2.5w × 3h
-              </text>
-            </g>
-
-            {/* ===== SECOND SECTION ===== */}
-
-            {/* Exclusive Sponsor */}
-            <Booth
-              boothId="EXCLUSIVE-01"
-              boothType="exclusive"
-              boothNo="2"
-              size="4 x 3"
-              x={startX + 180}
-              y={startY + 180}
-              width={120}
-              height={90}
-              color={colors.exclusive}
-              title={"Exclusive\nSponsor"}
-              fontSize={14}
-              isReserved={!!getReservedInfo("2")}
-              reservedInfo={getReservedInfo("2")}
-              onClick={setSelectedBooth}
-            /* 🔒 always reserved */
-
-            />
-
-
-            {/* Photo Wall - Diagonal */}
-            <g>
-              {/* Photo Wall rectangle */}
-              <rect
-                x={startX + 0}
-                y={startY + 215}
-                width={100}
-                height={25}
-                fill={colors.photoWall}
-                rx={4}
-                transform={`rotate(45, ${startX + 25}, ${startY + 420})`} // pivot at rect center
-              />
-              <rect
-                x={startX + 10}
-                y={startY + 240}
-                width={80}
-                height={25}
-                fill={colors.photoWallStage}       // fill color
-                rx={4}                             // rounded corners
-                stroke="#000"                      // border color
-                strokeWidth={1}                    // border thickness
-                transform={`rotate(45, ${startX + 25}, ${startY + 420})`} // pivot at rect center
-              />
-
-
-              {/* Photo Wall text */}
-              <text
-                x={startX + 48}            // center of rect before rotation
-                y={startY + 226}           // center of rect before rotation
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fill="#ffffff"
-                fontSize="10"
-                fontWeight="600"
-                transform={`rotate(45, ${startX + 25}, ${startY + 420})`}
-              >
-                Photo Wall
-              </text>
-            </g>
-
-            {/* Diamond Sponsors - 2 horizontal */}
-            {Array.from({ length: 2 }).map((_, i) => {
-              const num = i + 5; // 5, 6
-              const id = `DIAMOND-${num}`;
-              const isDiamond5 = id === "DIAMOND-5";
-              const reservedInfo = getReservedInfo(num);
-              return (
-                <Booth
-                  key={id}
-                  boothId={id}
-                  boothType="diamond"
-                  boothNo={num}
-                  size="4 x 3"
-                  x={startX + 355 + i * 120}
-                  y={startY + 180}
-                  width={120}
-                  height={95}
-                  color={colors.diamond}
-                  title={"Diamond\nBooth"}
-                  fontSize={14}
-
-                  isReserved={!!reservedInfo}
-                  reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
-                />
-              );
-            })}
-
-
-            {/* Silver Booths - 2x2 grid (4 booths) */}
-            {[0, 1, 2, 3].map((i) => {
-              const boothNumbers = [16, 17, 18, 19];
-              const num = boothNumbers[i];
-              const id = `SILVER-${num}`;
-              const reservedInfo = getReservedInfo(num);
-              return (
-                <Booth
-                  key={id}
-                  boothId={id}
-                  boothType="silver"
-                  boothNo={num}
-                  size="3 x 2"
-                  x={startX + 650 + (i % 2) * 63}
-                  y={startY + 180 + Math.floor(i / 2) * 82}
-                  width={63}
+                  size="3 x 3"
+                  x={startX + 111 + i * 82}
+                  y={startY + 40}
+                  width={82}
                   height={82}
                   color={colors.silver}
                   title={"Silver\nBooth"}
@@ -414,39 +195,608 @@ const FloorPlanAfrica = () => {
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
                   onClick={setSelectedBooth}
+                  activeTooltipId={activeTooltipId}
+                  setActiveTooltipId={setActiveTooltipId}
                 />
               );
             })}
 
+            {/* Gold Sponsor */}
+            <Booth
+              boothId="GOLD-10"
+              boothType="gold"
+              boothNo="10"
+              size="3 x 3"
+              x={startX + 767}
+              y={startY + 40}
+              width={82}
+              height={82}
+              color={colors.gold}
+              title={"Gold\nSponsor"}
+              fontSize={14}
+              isReserved={!!getReservedInfo("2")}
+              reservedInfo={getReservedInfo("2")}
+              onClick={setSelectedBooth}
+              activeTooltipId={activeTooltipId}
+              setActiveTooltipId={setActiveTooltipId}
+            /* 🔒 always reserved */
 
-            {/* Standard Booths - Left 6 */}
-            {Array.from({ length: 6 }).map((_, i) => {
-              const boothNumbers = [20, 23, 21, 24, 22, 25];
-              const num = boothNumbers[i];
-              const col = i % 2;              // 2 columns
-              const row = Math.floor(i / 2);  // 3 rows
-              const id = `STANDARD-${num}`;
-              const reservedInfo = getReservedInfo(num);
+            />
+
+            {/* Gold + Silver vertical stack */}
+            {[
+              {
+                boothId: "GOLD-19",
+                boothType: "gold",
+                boothNo: 19,
+                title: "Gold\nBooth",
+                color: colors.gold,
+              },
+              {
+                boothId: "SILVER-20",
+                boothType: "silver",
+                boothNo: 20,
+                title: "Silver\nBooth",
+                color: colors.silver,
+              },
+              {
+                boothId: "SILVER-21",
+                boothType: "silver",
+                boothNo: 21,
+                title: "Silver\nBooth",
+                color: colors.silver,
+              },
+              {
+                boothId: "SILVER-22",
+                boothType: "silver",
+                boothNo: 22,
+                title: "Silver\nBooth",
+                color: colors.silver,
+              },
+              {
+                boothId: "SILVER-23",
+                boothType: "silver",
+                boothNo: 23,
+                title: "Silver\nBooth",
+                color: colors.silver,
+              },
+              {
+                boothId: "GOLD-24",
+                boothType: "gold",
+                boothNo: 24,
+                title: "Gold\nBooth",
+                color: colors.gold,
+              },
+            ].map((booth, i) => {
+              const reservedInfo = getReservedInfo(booth.boothNo);
+
               return (
                 <Booth
-                  key={id}
-                  boothId={id}
-                  boothType="standard"
-                  boothNo={num}
-                  size="2 x 2"
-                  x={startX + 820 + col * 62}
-                  y={startY + 180 + row * 55}
-                  width={62}
-                  height={55}
-                  color={colors.standard}
-                  title={`Standard\nBooth`}
-                  fontSize={10}
+                  key={booth.boothId}
+                  boothId={booth.boothId}
+                  boothType={booth.boothType}
+                  boothNo={booth.boothNo}
+                  size="3 x 3"
+                  x={startX + 28}
+                  y={startY + 200 + i * 82}
+                  width={82}
+                  height={82}
+                  color={booth.color}
+                  title={booth.title}
+                  fontSize={12}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
                   onClick={setSelectedBooth}
+                  activeTooltipId={activeTooltipId}
+                  setActiveTooltipId={setActiveTooltipId}
                 />
               );
             })}
+
+
+            {/* ===== SECOND SECTION ===== */}
+
+            {/* Sponsorship blocks based on original layout */}
+            {[
+              {
+                boothId: "PREMIUM-9",
+                boothType: "premium",
+                boothNo: 9,
+                title: "Premium\nSponsorship",
+                color: colors.premium,
+                x: startX + 700 - 140,
+                y: startY + 180,
+              },
+              {
+                boothId: "DIAMOND-8",
+                boothType: "diamond",
+                boothNo: 8,
+                title: "Diamond\nSponsorship",
+                color: colors.diamond,
+                x: startX + 885 - 140,
+                y: startY + 180,
+              },
+              {
+                boothId: "REGIONAL-7",
+                boothType: "regional",
+                boothNo: 7,
+                title: "Regional\nSponsorship",
+                color: colors.regional,
+                x: startX + 700 - 140,
+                y: startY + 333,
+              },
+              {
+                boothId: "DIAMOND-5",
+                boothType: "diamond",
+                boothNo: 5,
+                title: "Diamond\nSponsorship",
+                color: colors.diamond,
+                x: startX + 885 - 140,
+                y: startY + 333,
+              },
+              {
+                boothId: "TITLE-4",
+                boothType: "title",
+                boothNo: 4,
+                title: "Title\nSponsorship",
+                color: colors.title,
+                x: startX + 700 - 140,
+                y: startY + 415,
+              },
+              {
+                boothId: "DIAMOND-3",
+                boothType: "diamond",
+                boothNo: 3,
+                title: "Diamond\nSponsorship",
+                color: colors.diamond,
+                x: startX + 885 - 140,
+                y: startY + 415,
+              },
+              {
+                boothId: "EXCLUSIVE-01",
+                boothType: "exclusive",
+                boothNo: 2,
+                title: "Exclusive\nSponsorship",
+                color: colors.exclusive,
+                x: startX + 700 - 140,
+                y: startY + 570,
+              },
+              {
+                boothId: "OFFICIAL-1",
+                boothType: "official",
+                boothNo: 1,
+                title: "Official\nSponsorship",
+                color: colors.official,
+                x: startX + 885 - 140,
+                y: startY + 570,
+              },
+            ].map((booth) => {
+              const reservedInfo = getReservedInfo(booth.boothNo);
+
+              return (
+                <Booth
+                  key={booth.boothId}
+                  boothId={booth.boothId}
+                  boothType={booth.boothType}
+                  boothNo={booth.boothNo}
+                  size="3 x 4"
+                  x={booth.x}
+                  y={booth.y}
+                  width={120}
+                  height={80}
+                  color={booth.color}
+                  title={booth.title}
+                  fontSize={14}
+                  isReserved={!!reservedInfo}
+                  reservedInfo={reservedInfo}
+                  onClick={setSelectedBooth}
+                  activeTooltipId={activeTooltipId}
+                  setActiveTooltipId={setActiveTooltipId}
+                />
+              );
+            })}
+
+
+            {/* ===== TRADING CONTEST ZONE ===== */}
+            <g
+              onMouseEnter={() => setShowTradingTooltip(true)}
+              onMouseLeave={() => setShowTradingTooltip(false)}
+              style={{ cursor: "default" }}
+            >
+              <rect
+                x={tradingZone.x}
+                y={tradingZone.y}
+                width={tradingZone.width}
+                height={tradingZone.height}
+                fill="#d9d9d9"
+              />
+
+              <rect
+                x={tradingStageX}
+                y={tradingStageY}
+                width={tradingZone.size}
+                height={tradingZone.size}
+                fill="#e6e7e8"
+                stroke="rgba(255,255,255,0.28)"
+                strokeWidth="2"
+              />
+
+              {[
+                {
+                  x: tradingStageX + tradingCornerInset,
+                  y: tradingStageY + tradingCornerInset,
+                  horizontalX: tradingStageX + tradingCornerInset,
+                  horizontalY: tradingStageY + tradingCornerInset,
+                  verticalX: tradingStageX + tradingCornerInset,
+                  verticalY: tradingStageY + tradingCornerInset
+                },
+                {
+                  x: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong,
+                  y: tradingStageY + tradingCornerInset,
+                  horizontalX: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong,
+                  horizontalY: tradingStageY + tradingCornerInset,
+                  verticalX: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerShort,
+                  verticalY: tradingStageY + tradingCornerInset
+                },
+                {
+                  x: tradingStageX + tradingCornerInset,
+                  y: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort,
+                  horizontalX: tradingStageX + tradingCornerInset,
+                  horizontalY: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort,
+                  verticalX: tradingStageX + tradingCornerInset,
+                  verticalY: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerLong
+                },
+                {
+                  x: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong,
+                  y: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort,
+                  horizontalX: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong,
+                  horizontalY: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort,
+                  verticalX: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerShort,
+                  verticalY: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerLong
+                },
+              ].map((corner, index) => (
+                <g key={`trading-corner-${index}`}>
+                  <rect
+                    x={corner.horizontalX}
+                    y={corner.horizontalY}
+                    width={tradingCornerLong}
+                    height={tradingCornerShort}
+                    fill="#d6d8db"
+                  />
+                  <rect
+                    x={corner.verticalX}
+                    y={corner.verticalY}
+                    width={tradingCornerShort}
+                    height={tradingCornerLong}
+                    fill="#d6d8db"
+                  />
+                </g>
+              ))}
+
+              <circle
+                cx={tradingZone.x + tradingZone.width / 2}
+                cy={tradingStageY + tradingZone.size / 2}
+                r={tradingZone.circleRadius}
+                fill="#b5b7ba"
+              />
+
+              <text
+                x={tradingZone.x + tradingZone.width / 2}
+                y={tradingZone.y + tradingZone.height - 62}
+                textAnchor="middle"
+                fontSize="16"
+                fill="#1f2937"
+                fontWeight="700"
+              >
+                Trading Contest Zone
+              </text>
+
+              <text
+                x={tradingZone.x + tradingZone.width / 2}
+                y={tradingZone.y + tradingZone.height - 28}
+                textAnchor="middle"
+                fontSize="15"
+                fill="#1f2937"
+                fontWeight="600"
+              >
+                14 x 15
+              </text>
+
+              {showTradingTooltip && (
+                <g pointerEvents="none">
+                  <rect
+                    x={tradingZone.x + tradingZone.width / 2 - tradingZone.tooltipWidth / 2}
+                    y={tradingZone.y - tradingZone.tooltipHeight - 14}
+                    width={tradingZone.tooltipWidth}
+                    height={tradingZone.tooltipHeight}
+                    rx={8}
+                    fill="#fff"
+                    stroke="#e0e0e0"
+                    filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))"
+                  />
+
+                  <polygon
+                    points={`
+                      ${tradingZone.x + tradingZone.width / 2 - 8},${tradingZone.y - 14}
+                      ${tradingZone.x + tradingZone.width / 2 + 8},${tradingZone.y - 14}
+                      ${tradingZone.x + tradingZone.width / 2},${tradingZone.y - 6}
+                    `}
+                    fill="#fff"
+                  />
+
+                  <text
+                    x={tradingZone.x + tradingZone.width / 2}
+                    y={tradingZone.y - tradingZone.tooltipHeight + 8}
+                    textAnchor="middle"
+                    fontSize="12"
+                    fontWeight="700"
+                    fill="#111827"
+                  >
+                    Trading Contest Zone
+                  </text>
+
+                  <text
+                    x={tradingZone.x + tradingZone.width / 2}
+                    y={tradingZone.y - tradingZone.tooltipHeight + 28}
+                    textAnchor="middle"
+                    fontSize="11"
+                    fill="#666"
+                  >
+                    Size: 14 x 15
+                  </text>
+                </g>
+              )}
+            </g>
+
+            {/* Gold + Silver horizontal row */}
+            {[
+              {
+                boothId: "GOLD-25",
+                boothType: "gold",
+                boothNo: 25,
+                title: "Gold\nBooth",
+                color: colors.gold,
+              },
+              {
+                boothId: "SILVER-26",
+                boothType: "silver",
+                boothNo: 26,
+                title: "Silver\nBooth",
+                color: colors.silver,
+              },
+              {
+                boothId: "SILVER-27",
+                boothType: "silver",
+                boothNo: 27,
+                title: "Silver\nBooth",
+                color: colors.silver,
+              },
+              {
+                boothId: "GOLD-28",
+                boothType: "gold",
+                boothNo: 28,
+                title: "Gold\nBooth",
+                color: colors.gold,
+              },
+            ].map((booth, i) => {
+              const reservedInfo = getReservedInfo(booth.boothNo);
+
+              return (
+                <Booth
+                  key={booth.boothId}
+                  boothId={booth.boothId}
+                  boothType={booth.boothType}
+                  boothNo={booth.boothNo}
+                  size="3 x 3"
+                  x={startX + 180 + i * 82}
+                  y={startY + 605}
+                  width={82}
+                  height={82}
+                  color={booth.color}
+                  title={booth.title}
+                  fontSize={12}
+                  isReserved={!!reservedInfo}
+                  reservedInfo={reservedInfo}
+                  onClick={setSelectedBooth}
+                  activeTooltipId={activeTooltipId}
+                  setActiveTooltipId={setActiveTooltipId}
+                />
+              );
+            })}
+
+            {/* ===== SPEAKER HALL ===== */}
+            <g>
+              {/* stages visualization */}
+              <g
+                transform={`
+                    rotate(
+                      -180
+                      ${startX + 798 + 270 / 2}
+                      ${startY + 790 + 80 / 2}
+                    )
+                  `}
+              >
+
+                {/* Stage Steps */}
+                <rect
+                  x={startX + 840}
+                  y={startY + 1450 - 10}
+                  width={70}
+                  height={40}
+                  rx={3}
+                  fill="#6c7a89"
+                />
+                {/* Speaker Stage Container */}
+                <rect
+                  x={startX + 770}
+                  y={startY + 1450}
+                  width={220}
+                  height={80}
+                  rx={4}
+                  fill="#6c7a89"
+                />
+
+                <text
+                  x={startX + 880}
+                  y={startY + 1488}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="13"
+                  fill="#ffffff"
+                  fontWeight="bold"
+                  transform={`rotate(180, ${startX + 880}, ${startY + 1478})`}
+                >
+                  Speaker Stage
+                </text>
+
+                <text
+                  x={startX + 880}
+                  y={startY + 1530}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="10"
+                  fill="rgba(255,255,255,0.8)"
+                  transform={`rotate(180, ${startX + 880}, ${startY + 1492})`}
+                >
+                  8 x 4
+                </text>
+
+                {/* Left Screen */}
+                <rect
+                  x={startX + 784}
+                  y={startY + 1480}
+                  width={42}
+                  height={44}
+                  rx={3}
+                  fill="#ff0000"
+                />
+                <text
+                  x={startX + 805}
+                  y={startY + 1494}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="7"
+                  fill="#ffffff"
+                  fontWeight="600"
+                  transform={`rotate(180, ${startX + 805}, ${startY + 1494})`}
+                >
+                  Wing Led
+                </text>
+                <text
+                  x={startX + 805}
+                  y={startY + 1508}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="6"
+                  fill="rgba(255,255,255,0.7)"
+                  transform={`rotate(180, ${startX + 805}, ${startY + 1508})`}
+                >
+                  1.5 X 4
+                </text>
+
+                {/* Main Screen */}
+                <rect
+                  x={startX + 850}
+                  y={startY + 1480}
+                  width={60}
+                  height={44}
+                  rx={3}
+                  fill="#ff0000"
+                />
+                <text
+                  x={startX + 880}
+                  y={startY + 1494}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="7"
+                  fill="#ffffff"
+                  fontWeight="600"
+                  transform={`rotate(180, ${startX + 880}, ${startY + 1494})`}
+                >
+                  Main LED Screen
+                </text>
+                <text
+                  x={startX + 880}
+                  y={startY + 1508}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="6"
+                  fill="rgba(255,255,255,0.7)"
+                  transform={`rotate(180, ${startX + 880}, ${startY + 1508})`}
+                >
+                  4 x 4
+                </text>
+
+                {/* Right Screen */}
+                <rect
+                  x={startX + 934}
+                  y={startY + 1480}
+                  width={42}
+                  height={44}
+                  rx={3}
+                  fill="#ff0000"
+                />
+                <text
+                  x={startX + 955}
+                  y={startY + 1494}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="7"
+                  fill="#ffffff"
+                  fontWeight="600"
+                  transform={`rotate(180, ${startX + 955}, ${startY + 1494})`}
+                >
+                  Wing Led
+                </text>
+                <text
+                  x={startX + 955}
+                  y={startY + 1508}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize="6"
+                  fill="rgba(255,255,255,0.7)"
+                  transform={`rotate(180, ${startX + 955}, ${startY + 1508})`}
+                >
+                  1.5 X 4
+                </text>
+              </g>
+
+              {/* Seating rows visualization */}
+              {[...Array(speakerAudience.rows)].map((_, row) =>
+                [...Array(speakerAudience.cols)].map((_, col) => {
+                  const seatX =
+                    speakerAudience.startX +
+                    col * speakerAudience.seatGapX +
+                    (col >= speakerAudience.cols / 2 ? speakerAudience.centerGap : 0);
+                  const seatY = speakerAudience.startY + row * speakerAudience.seatGapY;
+
+                  return (
+                    <React.Fragment key={`speaker-seat-${row}-${col}`}>
+                      <rect
+                        x={seatX}
+                        y={seatY}
+                        width={speakerAudience.seatWidth}
+                        height={speakerAudience.seatHeight}
+                        rx={3}
+                        fill="rgba(255,255,255,0.1)"
+                        stroke="rgba(255,255,255,0.14)"
+                        strokeWidth="1"
+                      />
+
+                      <Users
+                        x={seatX + (speakerAudience.seatWidth - speakerAudience.userSize) / 2}
+                        y={seatY + (speakerAudience.seatHeight - speakerAudience.userSize) / 2}
+                        size={speakerAudience.userSize}
+                        color="#ffffff66"
+                      />
+                    </React.Fragment>
+                  );
+                })
+              )}
+
+            </g>
+
+
 
             {/* ===== NETWORKING LOUNGE ===== */}
             <Booth
@@ -455,23 +805,27 @@ const FloorPlanAfrica = () => {
               title={`Networking\nLounge`}
               subtitle="6 x 4"
               size="6 x 4"
-              x={startX + 978}
-              y={startY + 175}
-              width={110}
-              height={170}
+              showBottomSize={false}
+              x={startX + 892}
+              y={startY + 555}
+              width={170}
+              height={150}
               color={colors.networking}
               textColor="#ffffff"
               fontSize={13}
               onClick={setSelectedBooth}
+              activeTooltipId={activeTooltipId}
+              setActiveTooltipId={setActiveTooltipId}
             />
 
-
-            {/* LED Exposure Wall - Second Right */}
+            {/* LED Wall Screens */}
+            
+            {/* LED Exposure Wall - Top LEFT */}
             <g>
               {/* LED Wall Box */}
               <rect
-                x={startX + 1067}
-                y={startY + 350}
+                x={startX + 28}
+                y={startY + 125}
                 width={23}
                 height={70}
                 fill={colors.ledWall}
@@ -480,502 +834,179 @@ const FloorPlanAfrica = () => {
 
               {/* LED Exposure Wall text */}
               <text
-                x={startX + 1005}
-                y={startY + 293}
+                x={startX + 55}
+                y={startY + 112}
                 textAnchor="middle"
                 dominantBaseline="middle"
                 fontSize="6"
                 fill="#fff"
                 fontWeight="600"
-                transform={`rotate(-90, ${startX + 1085}, ${startY + 305})`}
+                transform={`rotate(-90, ${startX + 69.5}, ${startY + 145})`}
               >
                 LED Exposure Wall
               </text>
 
               {/* Size text */}
               <text
-                x={startX + 1025}
-                y={startY + 323}
+                x={startX + 72}
+                y={startY + 140}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontSize="7"
+                fontSize="6"
                 fill="rgba(255,255,255,0.9)"
-                transform={`rotate(-90, ${startX + 1085}, ${startY + 325})`}
+                transform={`rotate(-90, ${startX + 69.5}, ${startY + 165})`}
               >
-                2.5w × 3h
+                2 x 3h
               </text>
             </g>
 
-            {/* ===== GOLD + SILVER ROW ===== */}
-
-
-
-            {/* Gold Booths - 2x2 grid (4 booths) */}
-            {[0, 1, 2, 3].map((i) => {
-              const boothNumbers = [7, 8, 9, 10];
-              const num = boothNumbers[i];
-              const id = `GOLD-${num}`;
-              const reservedInfo = getReservedInfo(num);
-
-
-              return (
-                <Booth
-                  key={id}
-                  boothId={id}
-                  boothType="gold"
-                  boothNo={num}
-                  size="4 x 3"
-                  x={startX + 355 + (i % 2) * 120}
-                  y={startY + 310 + Math.floor(i / 2) * 65}
-                  width={120}
-                  height={65}
-                  color={colors.gold}
-                  title={"Gold\nBooth"}
-                  fontSize={12}
-
-                  /* 🔒 lock only booth 8 */
-                  isReserved={!!reservedInfo}
-                  reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
-                />
-              );
-            })}
-
-
-
-            {/* Silver Booths after Diamond - 5 horizontal */}
-            {Array.from({ length: 5 }).map((_, i) => {
-              const boothNumbers = [26, 27, 28, 29, 30];
-              const num = boothNumbers[i];
-              const id = `SILVER-${num}`;
-              const reservedInfo = getReservedInfo(num);
-
-              return (
-                <Booth
-                  key={id}
-                  boothId={id}
-                  boothType="silver"
-                  boothNo={num}
-                  size="3 x 2"
-                  x={startX + 650 + i * 82}
-                  y={startY + 410}
-                  width={82}
-                  height={60}
-                  color={colors.silver}
-                  title={"Silver\nBooth"}
-                  fontSize={11}
-
-                  /* 🔒 lock only booth 8 */
-                  isReserved={!!reservedInfo}
-                  reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
-                />
-              );
-            })}
-
-
-
-            {/* ===== LEFT SIDE - Cafe, Cocktail, People Icons ===== */}
-
-            {/* Cafe */}
-            <Booth
-              boothId="SPONSOR-CAFE"
-              boothType="cafe"
-              title="Café"
-              size=""
-              x={startX - 15}
-              y={startY + 350}
-              width={70}
-              height={90}
-              color={colors.cafe}
-              textColor="#ffffff"
-              fontSize={13}
-              onClick={setSelectedBooth}
-            />
-
-
-            {/* Cafe Tables - Only 2 */}
-            {[0, 1].map((i) => (
-              <g key={`cafe-table-${i}`}>
-                <circle
-                  cx={startX + 160 + i * 40}  // horizontal spacing
-                  cy={startY + 400}           // same row
-                  r={10}
-                  fill="#d4a574"
-                  stroke="#8b5a2b"
-                  strokeWidth={1}
-                />
-                <circle
-                  cx={startX + 160 + i * 40}
-                  cy={startY + 400}
-                  r={4}
-                  fill="#8b4513"
-                />
-              </g>
-            ))}
-
-
-            {/* Cocktail Lounge */}
-            <Booth
-              boothId="SPONSOR-COCKTAIL"
-              boothType="cocktail"
-              title={`Cocktail\nLounge`}
-              size=""
-              x={startX - 15}
-              y={startY + 460}
-              width={70}
-              height={90}
-              color={colors.cocktail}
-              textColor="#ffffff"
-              fontSize={11}
-              onClick={setSelectedBooth}
-            />
-
-
-
-            {/* Cocktail Lounge Tables */}
-            {[0, 1].map((row) => (
-              <g key={`cocktail-row-${row}`}>
-                {[0, 1].map((col) => (
-                  <g key={`cocktail-table-${row}-${col}`}>
-                    <circle
-                      cx={startX + 160 + col * 40}
-                      cy={startY + 600 + row * 40}
-                      r={10}
-                      fill="#7986cb"
-                      stroke="#5b6bc0"
-                      strokeWidth="1"
-                    />
-                    <circle cx={startX + 160 + col * 40} cy={startY + 600 + row * 40} r={4} fill="#3f51b5" />
-                  </g>
-                ))}
-              </g>
-            ))}
-
-            {/* ===== EXIT ===== */}
+            
+            {/* LED Exposure Wall near entrance */}
             <g>
-              {/* Left-pointing arrows stacked next to EXIT */}
-              {/* arrows in front of EXIT — spaced correctly */}
-              {[0, 10].map((offset, i) => (
-                <path
-                  key={i}
-                  d={`
-                    M ${startX + 315 - 95 - offset} ${startY + 235 + 150}
-                    L ${startX + 315 - 95 - offset} ${startY + 210 + 150}
-
-                    M ${startX + 315 - 95 - offset} ${startY + 210 + 150}
-                    L ${startX + 310 - 95 - offset} ${startY + 215 + 150}
-
-                    M ${startX + 315 - 95 - offset} ${startY + 210 + 150}
-                    L ${startX + 320 - 95 - offset} ${startY + 215 + 150}
-                  `}
-                  stroke="#555"
-                  strokeWidth="1.5"
-                  fill="none"
-                  transform={`rotate(-90, ${startX + 320}, ${startY + 428})`}
-                />
-              ))}
-
-
-              <text x={startX + 228} y={startY + 400} fontSize="9" fill="#333" fontWeight="600" transform={`rotate(-90, ${startX + 330}, ${startY + 440})`}>
-                EXIT
-              </text>
-            </g>
-
-
-
-            {/* ===== SPEAKER HALL ===== */}
-            <g>
-              <path
-                d={`
-                  M ${hallX} ${hallY}
-                  H ${hallX + hallW}
-                  V ${hallY + hallH}
-                  H ${hallX + 270}
-                  L ${hallX + 120} ${hallY + hallH - 140}
-                  H ${hallX + 20}
-                  V ${hallY}
-                  H ${hallX}
-                  Z
-                `}
-                fill={colors.speakerHall}
+              {/* LED Wall Box */}
+              <rect
+                x={startX + 842}
+                y={startY + 499}
+                width={23}
+                height={70}
+                fill={colors.ledWall}
+                rx={3}
               />
 
-
-
-              {/* Speaker Hall Title */}
+              {/* LED Exposure Wall text */}
               <text
-                x={startX + 810}
-                y={startY + 620}
+                x={startX - 320}
+                y={startY + 925}
                 textAnchor="middle"
-                fontSize="26"
+                dominantBaseline="middle"
+                fontSize="6"
                 fill="#fff"
-                fontWeight="bold"
-                fontFamily="Inter, system-ui, sans-serif"
+                fontWeight="600"
+                transform={`rotate(-90, ${startX + 69.5}, ${startY + 145})`}
               >
-                Speaker Hall
+                LED Exposure Wall
               </text>
 
+              {/* Size text */}
               <text
-                x={startX + 810}
-                y={startY + 650}
+                x={startX - 299}
+                y={startY + 955}
                 textAnchor="middle"
-                fontSize="18"
+                dominantBaseline="middle"
+                fontSize="6"
                 fill="rgba(255,255,255,0.9)"
-                fontFamily="Inter, system-ui, sans-serif"
+                transform={`rotate(-90, ${startX + 69.5}, ${startY + 165})`}
               >
-                16 × 16
+                2 x 3h
+              </text>
+            </g>
+
+
+            {/* LED Exposure Wall near Booth 5 */}
+            <g>
+              {/* LED Wall Box */}
+              <rect
+                x={startX + 842}
+                y={startY + 262}
+                width={23}
+                height={70}
+                fill={colors.ledWall}
+                rx={3}
+              />
+
+              {/* LED Exposure Wall text */}
+              <text
+                x={startX - 320 + 236}
+                y={startY + 925}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="6"
+                fill="#fff"
+                fontWeight="600"
+                transform={`rotate(-90, ${startX + 69.5}, ${startY + 145})`}
+              >
+                LED Exposure Wall
               </text>
 
-
-              {/* Seating rows visualization */}
-
-              {/* users */}
-              {[0, 1, 2, 3, 4, 5, 6].map((row) =>
-                [0, 1, 2, 3, 4].map((col) => {
-                  const seatWidth = 40;
-                  const seatHeight = 20;
-                  const userSize = 16;
-
-                  const isCenterRow = row === 3; // 🔹 4th row
-
-                  const seatX = startX + 610 + col * 70;
-                  const seatY = startY + 510 + row * 32;
-
-                  return (
-                    <React.Fragment key={`left-${row}-${col}`}>
-                      {/* Seat (always visible) */}
-                      <rect
-                        x={seatX}
-                        y={seatY}
-                        width={seatWidth}
-                        height={seatHeight}
-                        rx={3}
-                        fill="rgba(255,255,255,0.06)"
-                      />
-
-                      {/* User icon (hidden ONLY in center row) */}
-                      {!isCenterRow && (
-                        <Users
-                          x={seatX + (seatWidth - userSize) / 2}
-                          y={seatY + (seatHeight - userSize) / 2}
-                          size={userSize}
-                          color="#ffffff6b"
-                          transform={`
-                            rotate(
-                              90
-                              ${seatX + seatWidth / 2}
-                              ${seatY + seatHeight / 2}
-                            )
-                          `}
-                        />
-                      )}
-                    </React.Fragment>
-                  );
-                })
-              )}
-
-              {/* next users */}
-              {[0, 1, 2, 3].map((row) =>
-                [0, 1, 2].map((col) => {
-                  const seatWidth = 40;
-                  const seatHeight = 20;
-                  const userSize = 16;
-
-                  const seatX = startX + 780 + col * 70;
-                  const seatY = startY + 740 + row * 32;
-
-                  return (
-                    <React.Fragment key={`left-${row}-${col}`}>
-                      {/* Seat */}
-                      <rect
-                        x={seatX}
-                        y={seatY}
-                        width={seatWidth}
-                        height={seatHeight}
-                        rx={3}
-                        fill="rgba(255,255,255,0.06)"
-                      />
-
-                      {/* User icon (always visible) */}
-                      <Users
-                        x={seatX + (seatWidth - userSize) / 2}
-                        y={seatY + (seatHeight - userSize) / 2}
-                        size={userSize}
-                        color="#ffffff6b"
-                        transform={`
-                          rotate(
-                            90
-                            ${seatX + seatWidth / 2}
-                            ${seatY + seatHeight / 2}
-                          )
-                        `}
-                      />
-                    </React.Fragment>
-                  );
-                })
-              )}
-
-
-              {/* stages visualization */}
-              <g
-                transform={`
-                    rotate(
-                      -90
-                      ${startX + 798 + 270 / 2}
-                      ${startY + 790 + 80 / 2}
-                    )
-                  `}
+              {/* Size text */}
+              <text
+                x={startX - 299 + 236}
+                y={startY + 955}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="6"
+                fill="rgba(255,255,255,0.9)"
+                transform={`rotate(-90, ${startX + 69.5}, ${startY + 165})`}
               >
-
-                <rect
-                  x={startX + 850 + 45 + 152}
-                  y={startY + 928 - 50}
-                  width={70}
-                  height={40}
-                  rx={3}
-                  fill="#6c7a89"
-                />
-                {/* Speaker Stage Container */}
-                <rect
-                  x={startX + 950}
-                  y={startY + 890}
-                  width={290}
-                  height={80}
-                  rx={4}
-                  fill="#6c7a89"
-                />
-
-                <text
-                  x={startX + 1082}
-                  y={startY + 910}
-                  textAnchor="middle"
-                  fontSize="13"
-                  fill="#ffffff"
-                  fontWeight="bold"
-                >
-                  Speaker Stage
-                </text>
-
-                <text
-                  x={startX + 1082}
-                  y={startY + 922}
-                  textAnchor="middle"
-                  fontSize="10"
-                  fill="rgba(255,255,255,0.8)"
-                >
-                  9 x 3
-                </text>
-
-                {/* Left Screen */}
-                <rect
-                  x={startX + 765 + 45 + 152}
-                  y={startY + 928 - 2}
-                  width={70}
-                  height={40}
-                  rx={3}
-                  fill="#1a1a3e"
-                />
-                <text
-                  x={startX + 800 + 45 + 152}
-                  y={startY + 944 - 2}
-                  textAnchor="middle"
-                  fontSize="7"
-                  fill="#ffffff"
-                  fontWeight="600"
-                >
-                  Side Screen
-                </text>
-                <text
-                  x={startX + 800 + 45 + 152}
-                  y={startY + 955 - 2}
-                  textAnchor="middle"
-                  fontSize="6"
-                  fill="rgba(255,255,255,0.7)"
-                >
-                  1.5 w X 2.5 h
-                </text>
-
-                {/* Main Screen */}
-                <rect
-                  x={startX + 855 + 45 + 152}
-                  y={startY + 928 - 2}
-                  width={70}
-                  height={40}
-                  rx={3}
-                  fill="#1a1a3e"
-                />
-                <text
-                  x={startX + 890 + 45 + 152}
-                  y={startY + 944 - 2}
-                  textAnchor="middle"
-                  fontSize="7"
-                  fill="#ffffff"
-                  fontWeight="600"
-                >
-                  Main Screen
-                </text>
-                <text
-                  x={startX + 890 + 45 + 152}
-                  y={startY + 955 - 2}
-                  textAnchor="middle"
-                  fontSize="6"
-                  fill="rgba(255,255,255,0.7)"
-                >
-                  5 w x 2.5 h
-                </text>
-
-                {/* Right Screen */}
-                <rect
-                  x={startX + 945 + 45 + 152}
-                  y={startY + 928 - 2}
-                  width={70}
-                  height={40}
-                  rx={3}
-                  fill="#1a1a3e"
-                />
-                <text
-                  x={startX + 980 + 45 + 152}
-                  y={startY + 944 - 2}
-                  textAnchor="middle"
-                  fontSize="7"
-                  fill="#ffffff"
-                  fontWeight="600"
-                >
-                  Side Screen
-                </text>
-                <text
-                  x={startX + 980 + 45 + 152}
-                  y={startY + 955 - 2}
-                  textAnchor="middle"
-                  fontSize="6"
-                  fill="rgba(255,255,255,0.7)"
-                >
-                  1.5 w X 2.5 h
-                </text>
-              </g>
-
+                2 x 3h
+              </text>
             </g>
 
-            {/* ===== LEGEND ===== */}
-            <g transform={`translate(${startX + 140}, ${startY + 700})`}>
-              <text x={0} y={0} fontSize="13" fontWeight="bold" fill="#1e293b">Booth Legend</text>
+            {/* ===== BOTTOM ACCESS / REGISTRATION ===== */}
+            <g>
+              <rect
+                x={startX + 300}
+                y={startY + 728}
+                width={320}
+                height={72}
+                rx={4}
+                fill="#3f2f9d"
+              />
+              <text
+                x={startX + 460}
+                y={startY + 765}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="22"
+                fill="#ffffff"
+                fontWeight="500"
+              >
+                Registration Area
+              </text>
 
-              {[
-                { color: colors.official, label: "Official:", count: "01" },
-                { color: colors.exclusive, label: "Exclusive:", count: "01" },
-                { color: colors.diamond, label: "Diamond:", count: "02" },
-                { color: colors.gold, label: "Gold Booth:", count: "06" },
-                { color: colors.silver, label: "Silver Booth:", count: "15" },
-                { color: colors.standard, label: "Standard:", count: "09" },
-              ].map((item, i) => (
-                <g key={`legend-${i}`} transform={`translate(0, ${22 + i * 20})`}>
-                  <rect x={0} y={0} width={14} height={14} rx={2} fill={item.color} stroke="#94a3b8" strokeWidth="0.5" />
-                  <text x={22} y={11} fontSize="11" fill="#475569">{item.label}</text>
-                  <text x={100} y={11} fontSize="11" fill="#1e293b" fontWeight="600">{item.count}</text>
-                </g>
-              ))}
+              <rect
+                x={startX + 70}
+                y={startY + 700}
+                width={108}
+                height={22}
+                rx={3}
+                fill="#8b7d67"
+              />
+              <text
+                x={startX + 124}
+                y={startY + 711}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="11"
+                fill="#ffffff"
+                fontWeight="700"
+                letterSpacing="1.5"
+              >
+                ↓ EXIT ↓
+              </text>
+
+              <rect
+                x={startX + 690}
+                y={startY + 700}
+                width={132}
+                height={22}
+                rx={3}
+                fill="#8b7d67"
+              />
+              <text
+                x={startX + 756}
+                y={startY + 711}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="11"
+                fill="#ffffff"
+                fontWeight="700"
+                letterSpacing="1"
+              >
+                ↑ ENTRANCE ↑
+              </text>
             </g>
+
 
           </svg>
         </div>
