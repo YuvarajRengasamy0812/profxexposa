@@ -7,7 +7,7 @@ import BoothModal from "./BoothModal";
 import axios from "axios";
 import { buildAssetUrl } from "../utils/assetUrl";
 
-const FloorPlanDubai = () => {
+const FloorPlanAfrica = () => {
   const [selectedBooth, setSelectedBooth] = React.useState(null);
   const [reservedBooths, setReservedBooths] = useState([]);
 
@@ -1019,4 +1019,4 @@ const FloorPlanDubai = () => {
   );
 };
 
-export default FloorPlanDubai;
+export default FloorPlanAfrica;
