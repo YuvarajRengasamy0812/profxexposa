@@ -299,6 +299,10 @@
 }
 
 /* ── Tournament table ─────────────────────────────────────── */
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 .tournament-table {
   border: 0;
   border-collapse: separate;
@@ -323,6 +327,23 @@
 .tournament-table thead th:first-child { padding-left: 50px; text-align: left; }
 .tournament-table thead th:nth-child(2) { text-align: left; }
 .tournament-table thead th:last-child { padding-right: 50px; }
+
+@media (max-width: 575px) {
+  .tournament-table thead th {
+    font-size: 0.72rem;
+    line-height: 36px;
+    padding: 0 8px;
+    letter-spacing: 0;
+  }
+  .tournament-table thead th:first-child { padding-left: 20px; }
+  .tournament-table thead th:last-child  { padding-right: 20px; }
+  .tournament-table tbody tr th,
+  .tournament-table tbody tr td {
+    font-size: 0.8rem;
+    padding: 8px 8px;
+  }
+  .tournament-table tbody tr th { font-size: 0.85rem; }
+}
 .tournament-table tbody tr {
   clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
   background: #f9f9f5;
