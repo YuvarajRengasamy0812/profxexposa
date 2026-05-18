@@ -72,7 +72,7 @@
 
 .tournament-card.style2 .tournament-card-content .tournament-card-meta {
   position: absolute;
-  bottom: 0;
+  bottom: -11px;
   z-index: 1;
   left: 50%;
   transform: translateX(-50%);
@@ -396,7 +396,9 @@
 }
 .cfx-stats li strong { color: #e8c96b; }
 
-/* ── Responsive — exact from profxleague style.css ─────────── */
+/* ── Responsive ─────────────────────────────────────────────── */
+
+/* 992px–1199px: images on top row, content below — details still in a row */
 @media (max-width: 1199px) {
   .tournament-card.style2 {
     display: flex;
@@ -411,25 +413,22 @@
   .tournament-card.style2 .tournament-card-content {
     order: 3;
     margin: 0;
+    width: 100%;
+    flex: 1 1 100%;
   }
   .tournament-card.style2 .tournament-card-content .tournament-card-title {
     font-size: 30px;
   }
 }
 
-@media (max-width: 767px) {
-  .tournament-card.style2 .tournament-card-img {
-    padding: 35px 55px;
-  }
-  .tournament-card.style2 .tournament-card-versus {
-    width: 80px;
-  }
+/* 768px–991px: wrap the 3-column details panel to prevent overflow */
+@media (max-width: 991px) {
   .tournament-card.style2 .tournament-card-content .tournament-card-details {
     flex-wrap: wrap;
     -webkit-mask-image: none !important;
     mask-image: none !important;
-    padding: 28px 40px 85px;
-    gap: 25px;
+    padding: 28px 30px 85px;
+    gap: 20px;
   }
   .tournament-card.style2 .tournament-card-content .tournament-card-details:after,
   .tournament-card.style2 .tournament-card-content .tournament-card-details:before {
@@ -442,13 +441,28 @@
   .tournament-card.style2 .tournament-card-content .card-title-wrap {
     min-width: auto;
     width: 100%;
-    text-align: center;
+    text-align: center !important;
   }
   .tournament-card.style2 .tournament-card-content .tournament-card-meta {
     bottom: 30px;
   }
 }
 
+/* ≤767px: tighten image padding, shrink versus */
+@media (max-width: 767px) {
+  .tournament-card.style2 .tournament-card-img {
+    padding: 35px 55px;
+  }
+  .tournament-card.style2 .tournament-card-versus {
+    width: 80px;
+  }
+  .tournament-card.style2 .tournament-card-content .tournament-card-details {
+    padding: 28px 40px 85px;
+    gap: 25px;
+  }
+}
+
+/* ≤575px: match original theme padding + shrink images */
 @media (max-width: 575px) {
   .tournament-card.style2 .tournament-card-img img {
     max-width: 60px;
@@ -458,39 +472,14 @@
     width: 60px;
   }
   .tournament-card.style2 .tournament-card-img {
-    padding: 24px 42px;
+    padding: 30px 47px;
   }
   .tournament-card.style2 .tournament-card-content .tournament-card-meta {
     width: 100%;
   }
 }
 
-/* Fine-grained small-screen img padding — from championship.blade.php */
-@media (max-width: 426px) {
-  .tournament-card.style2 .tournament-card-img {
-    padding: 22px 39px;
-  }
-}
-
-@media (max-width: 406px) {
-  .tournament-card.style2 .tournament-card-img {
-    padding: 15px 32px;
-  }
-}
-
-/* 422–438px narrow-band override */
-@media (min-width: 422px) and (max-width: 438px) {
-  .tournament-card.style2 .tournament-card-img {
-    padding: 17px 30px;
-  }
-}
-
-@media (max-width: 378px) {
-  .tournament-card.style2 .tournament-card-img {
-    padding: 10px 27px;
-  }
-}
-
+/* ≤375px: match original theme */
 @media (max-width: 375px) {
   .tournament-card.style2 .tournament-card-img {
     padding: 20px 37px;
@@ -500,23 +489,12 @@
   }
 }
 
+/* ≤320px: match original theme */
 @media (max-width: 320px) {
   .tournament-card.style2 .tournament-card-img {
     padding: 20px 31px;
   }
   .tournament-card.style2 .tournament-card-versus {
     width: 40px;
-  }
-}
-
-@media (min-width: 318px) and (max-width: 338px) {
-  .tournament-card.style2 .tournament-card-img {
-    padding: 5px 22px;
-  }
-}
-
-@media (max-width: 318px) {
-  .tournament-card.style2 .tournament-card-img {
-    padding: 5px 22px;
   }
 }
