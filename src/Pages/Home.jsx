@@ -32,6 +32,9 @@ function Home() {
   }, [])
 
 
+
+  
+
   const getSocialList = () => {
     getBrochure()
       .then((res) => {
