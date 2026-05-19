@@ -14,6 +14,7 @@ export const Login ='login'
 export const TrustedPartners ='topics/20/page/1/count/100/en'
 export const mediapartners ='topics/17/page/1/count/100/en'
 export const brochure ='topics/18/page/1/count/10/en'
+export const sponsersbrochure ='topics/25/page/1/count/10/en'
 export const Countdown ='topics/19/page/1/count/10/en'
 
 
