@@ -14,14 +14,14 @@ const VS = buildAssetUrl("/assets/images/league/game-vs1.svg");
 const FREE = buildAssetUrl("/assets/images/league/club_free.png");
 
 const rounds = [
-  { num: 1, name: "Volatility Vault Qualifier", start: "2026-03-09T00:00:00", end: "2026-03-13T23:59:59" },
-  { num: 2, name: "Trend Triumph Qualifier", start: "2026-03-16T00:00:00", end: "2026-03-20T23:59:59" },
-  { num: 3, name: "Precision Power Qualifier", start: "2026-03-23T00:00:00", end: "2026-03-27T23:59:59" },
-  { num: 4, name: "Momentum Mastery Qualifier", start: "2026-03-30T00:00:00", end: "2026-04-03T23:59:59" },
+  { num: 1, name: "Volatility Vault Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
+  { num: 2, name: "Trend Triumph Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
+  { num: 3, name: "Precision Power Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
+  { num: 4, name: "Momentum Mastery Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
 ];
 const grandFinal = {
   num: 5, name: "Grand Final Showdown",
-  start: "2026-04-06T00:00:00", end: "2026-04-10T23:59:59",
+  start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59",
 };
 
 const statItems = [
@@ -336,7 +336,7 @@ export default function League() {
                   <li><strong>FREE</strong> Entry</li>
                   <li><strong>4</strong> Qualifier Rounds</li>
                   <li><strong>MT5</strong> Platform</li>
-                  <li><strong>Mar – Apr 2026</strong></li>
+                  <li><strong>20 – 21 Aug 2026</strong></li>
                 </ul>
               </div>
             </div>
