@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { buildAssetUrl } from "../utils/assetUrl";
+import { getAllGallery } from "../api/gallery";
 import {
   ChevronLeft,
   ChevronRight,
@@ -10,247 +11,158 @@ import {
   X,
 } from "lucide-react";
 
-export default function Gallery({ limit = null }) {  // ⬅ NEW
-  const tabs = ["All", "Speakers", "Expo Zone", "Workshops", "Networking"];
+const FALLBACK_IMAGE = buildAssetUrl("/assets/images/gallery/Speakers1.png");
 
-  const images = [
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers1.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers1.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers2.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers2.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers3.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers3.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers4.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers4.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers5.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers5.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers6.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers6.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers7.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers7.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers8.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers8.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers9.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers9.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Speakers10.png'),
-      full: buildAssetUrl('/assets/images/gallery/Speakers10.png'),
-      alt: "Speakers",
-      category: "Speakers",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone1.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone1.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone2.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone2.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone3.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone3.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone4.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone4.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone5.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone5.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone6.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone6.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone7.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone7.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone8.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone8.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone9.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone9.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone10.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone10.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone11.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone11.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone12.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone12.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone13.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone13.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone14.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone14.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Expozone15.png'),
-      full: buildAssetUrl('/assets/images/gallery/Expozone15.png'),
-      alt: "Expo Zone Booth",
-      category: "Expo Zone",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/workshop1.png'),
-      full: buildAssetUrl('/assets/images/gallery/workshop1.png'),
-      alt: "Workshop Training",
-      category: "Workshops",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/workshop2.png'),
-      full: buildAssetUrl('/assets/images/gallery/workshop2.png'),
-      alt: "Workshop Training",
-      category: "Workshops",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/workshop3.png'),
-      full: buildAssetUrl('/assets/images/gallery/workshop3.png'),
-      alt: "Workshop Training",
-      category: "Workshops",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/workshop4.png'),
-      full: buildAssetUrl('/assets/images/gallery/workshop4.png'),
-      alt: "Workshop Training",
-      category: "Workshops",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking1.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking1.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking2.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking2.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking3.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking3.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking4.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking4.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking5.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking5.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking6.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking6.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking7.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking7.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
-    {
-      thumb: buildAssetUrl('/assets/images/gallery/Networking8.png'),
-      full: buildAssetUrl('/assets/images/gallery/Networking8.png'),
-      alt: "Networking Event",
-      category: "Networking",
-    },
+const firstFilledValue = (...values) => {
+  for (const value of values) {
+    if (typeof value === "string" && value.trim()) {
+      return value.trim();
+    }
+  }
 
-  ];
+  return "";
+};
 
+const getFieldMap = (fields = []) =>
+  Array.isArray(fields)
+    ? fields.reduce((acc, field) => {
+        const key = field?.field_title?.toString().trim().toLowerCase();
+        if (key) {
+          acc[key] = field?.value;
+        }
+        return acc;
+      }, {})
+    : {};
+
+const normalizeCategory = (value) => {
+  const normalized = value?.toString().trim().toLowerCase();
+
+  if (!normalized) {
+    return "General";
+  }
+
+  if (normalized === "work shop" || normalized === "workshop" || normalized === "workshops") {
+    return "Workshops";
+  }
+
+  if (normalized === "expo zone" || normalized === "expo") {
+    return "Expo Zone";
+  }
+
+  if (normalized === "speaker" || normalized === "speakers") {
+    return "Speakers";
+  }
+
+  if (normalized === "networking") {
+    return "Networking";
+  }
+
+  return value
+    .toString()
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+const getCollectionFromResponse = (payload) => {
+  if (Array.isArray(payload)) {
+    return payload;
+  }
+
+  if (Array.isArray(payload?.items)) {
+    return payload.items;
+  }
+
+  if (Array.isArray(payload?.topics)) {
+    return payload.topics;
+  }
+
+  if (Array.isArray(payload?.data)) {
+    return payload.data;
+  }
+
+  return [];
+};
+
+const normalizeGalleryItem = (item, index) => {
+  const fieldMap = getFieldMap(item?.fields);
+  const image = firstFilledValue(
+    item?.image,
+    item?.thumb,
+    item?.full,
+    item?.photo_file,
+    item?.photo,
+    fieldMap.image,
+    fieldMap.photo
+  ) || FALLBACK_IMAGE;
+
+  return {
+    id: item?.id || `${item?.category || "gallery"}-${index}`,
+    thumb: image,
+    full: image,
+    alt:
+      firstFilledValue(
+        item?.alt,
+        item?.title,
+        item?.name,
+        item?.description,
+        fieldMap.alt,
+        fieldMap.title
+      ) || `Gallery image ${index + 1}`,
+    category: normalizeCategory(
+      firstFilledValue(
+        item?.category,
+        item?.category_name,
+        item?.section,
+        fieldMap.category
+      )
+    ),
+  };
+};
+
+export default function Gallery({ limit = null }) {
+  const [images, setImages] = useState([]);
   const [activeTab, setActiveTab] = useState("All");
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [zoom, setZoom] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const imgRef = useRef(null);
 
-  // Filter first
+  useEffect(() => {
+    const fetchGallery = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response = await getAllGallery();
+        const rawItems = getCollectionFromResponse(response?.data);
+        const formattedItems = rawItems.map(normalizeGalleryItem);
+
+        setImages(formattedItems);
+      } catch (fetchError) {
+        console.error("Error fetching gallery:", fetchError);
+        setError("Unable to load gallery data right now.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGallery();
+  }, []);
+
+  useEffect(() => {
+    setLightboxIndex(null);
+    setZoom(1);
+  }, [activeTab, limit]);
+
+  const tabs = ["All", ...new Set(images.map((img) => img.category).filter(Boolean))];
+
   let filtered =
     activeTab === "All"
       ? images
       : images.filter((img) => img.category === activeTab);
 
-  // Apply limit if passed
   if (limit) {
     filtered = filtered.slice(0, limit);
   }
@@ -275,6 +187,10 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
   };
 
   const downloadImg = () => {
+    if (lightboxIndex === null || !filtered[lightboxIndex]) {
+      return;
+    }
+
     const link = document.createElement("a");
     link.href = filtered[lightboxIndex].full;
     link.download = "image.jpg";
@@ -282,6 +198,10 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
   };
 
   const shareImg = async () => {
+    if (lightboxIndex === null || !filtered[lightboxIndex]) {
+      return;
+    }
+
     if (navigator.share) {
       await navigator.share({
         title: "Gallery Image",
@@ -292,15 +212,12 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
 
   return (
     <div className="premium-gallery container">
-
-      {/* Tabs - HIDE when limit is active */}
       {!limit && (
         <div className="filter-buttons d-inline-flex gap-3 flex-wrap pt-2 pb-5 align-items-center w-100 justify-content-center">
           {tabs.map((tab) => (
             <button
               key={tab}
-              className={`filter-btn ${activeTab === tab ? "filter-btn active" : "filter-btn"
-                }`}
+              className={`filter-btn ${activeTab === tab ? "filter-btn active" : "filter-btn"}`}
               onClick={() => setActiveTab(tab)}
             >
               {tab}
@@ -309,28 +226,49 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
         </div>
       )}
 
-      {/* Gallery Grid */}
-      <div className="row fade-animation">
-        {filtered.map((img, i) => (
-          <div key={i} className="col-lg-4 col-md-6 mb-3 px-2 gallery-img-item">
-            <img
-              src={img.thumb}
-              alt={img.alt}
-              className="w-100 rounded shadow-sm hover-scale"
-              onClick={() => openLightbox(i)}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
-        ))}
-      </div>
+      {loading && (
+        <div className="text-center py-5">
+          <div className="spinner-border pink" role="status" aria-hidden="true"></div>
+          <p className="text-grey mt-3 mb-0">Loading gallery data...</p>
+        </div>
+      )}
 
-      {/* Lightbox */}
-      {lightboxIndex !== null && (
+      {!loading && error && (
+        <div className="alert alert-warning text-center rounded-4" role="alert">
+          {error}
+        </div>
+      )}
+
+      {!loading && !error && filtered.length === 0 && (
+        <div className="alert alert-light text-center rounded-4 border" role="alert">
+          No gallery records found.
+        </div>
+      )}
+
+      {!loading && !error && filtered.length > 0 && (
+        <div className="row fade-animation">
+          {filtered.map((img, i) => (
+            <div key={img.id || i} className="col-lg-4 col-md-6 mb-3 px-2 gallery-img-item">
+              <img
+                src={img.thumb}
+                alt={img.alt}
+                className="w-100 rounded shadow-sm hover-scale"
+                onClick={() => openLightbox(i)}
+                onError={(event) => {
+                  event.currentTarget.src = FALLBACK_IMAGE;
+                }}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {lightboxIndex !== null && filtered[lightboxIndex] && (
         <div
           className="lightbox position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
           style={{ background: "rgba(0,0,0,0.85)", zIndex: 2000 }}
         >
-          {/* Left Arrow */}
           <button
             className="position-absolute start-0 bg-transparent border-0 text-white ms-3 p-0"
             style={{ left: 20, zIndex: 2 }}
@@ -339,11 +277,13 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
             <ChevronLeft size={40} />
           </button>
 
-          {/* Image */}
           <img
             ref={imgRef}
             src={filtered[lightboxIndex].full}
-            alt="full"
+            alt={filtered[lightboxIndex].alt}
+            onError={(event) => {
+              event.currentTarget.src = FALLBACK_IMAGE;
+            }}
             style={{
               maxWidth: "90%",
               maxHeight: "90%",
@@ -353,7 +293,6 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
             draggable
           />
 
-          {/* Right Arrow */}
           <button
             className="position-absolute end-0 bg-transparent border-0 text-white me-3 p-0"
             style={{ right: 20 }}
@@ -362,7 +301,6 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
             <ChevronRight size={40} />
           </button>
 
-          {/* Toolbar */}
           <div className="toolbar position-absolute d-flex gap-2">
             <button className="btn btn-light" onClick={() => setZoom((z) => z + 0.2)}>
               <ZoomIn />
@@ -386,27 +324,26 @@ export default function Gallery({ limit = null }) {  // ⬅ NEW
         </div>
       )}
 
-      {/* CSS */}
       <style>{`
         .hover-scale:hover { transform: scale(1.03); transition: 0.3s; }
         .fade-animation { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { 
-          from { opacity: 0; transform: translateY(10px); } 
-          to { opacity: 1; transform: translateY(0); } 
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
-        .toolbar button { 
-          background: transparent !important; 
-          border: none !important; 
+        .toolbar button {
+          background: transparent !important;
+          border: none !important;
           color: #adadad !important;
-          padding: 6px; 
+          padding: 6px;
         }
 
         .toolbar svg { width: 20px; height: 20px; }
 
-        .toolbar { 
-          right: 25px; 
-          top: 25px; 
+        .toolbar {
+          right: 25px;
+          top: 25px;
         }
       `}</style>
     </div>
