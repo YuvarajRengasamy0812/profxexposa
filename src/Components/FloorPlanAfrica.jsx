@@ -184,42 +184,42 @@ const FloorPlanAfrica = () => {
               {
                 boothId: "AFRICA-TOP-LEFT-SILVER-18",
                 boothType: "silver",
-                boothNo: 18,
+                boothNo: 34,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-LEFT-SILVER-17",
                 boothType: "silver",
-                boothNo: 17,
+                boothNo: 33,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-LEFT-SILVER-16",
                 boothType: "silver",
-                boothNo: 16,
+                boothNo: 32,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-LEFT-SILVER-15",
                 boothType: "silver",
-                boothNo: 15,
+                boothNo: 31,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-LEFT-SILVER-14",
                 boothType: "silver",
-                boothNo: 14,
+                boothNo: 30,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-LEFT-GOLD-10",
                 boothType: "gold",
-                boothNo: 10,
+                boothNo: 29,
                 title: "Gold\nBooth",
                 color: colors.gold,
               },
@@ -249,41 +249,41 @@ const FloorPlanAfrica = () => {
               );
             })}
 
-            
+
             {/* Top-right row: Gold, Silver, Silver, Silver, Gold */}
             {[
               {
                 boothId: "AFRICA-TOP-RIGHT-GOLD-11",
                 boothType: "gold",
-                boothNo: 11,
+                boothNo: 24,
                 title: "Gold\nBooth",
                 color: colors.gold,
               },
               {
                 boothId: "AFRICA-TOP-RIGHT-SILVER-12",
                 boothType: "silver",
-                boothNo: 12,
+                boothNo: 25,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-RIGHT-SILVER-13",
                 boothType: "silver",
-                boothNo: 13,
+                boothNo: 26,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-RIGHT-SILVER-14",
                 boothType: "silver",
-                boothNo: 14,
+                boothNo: 27,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-TOP-RIGHT-GOLD-15",
                 boothType: "gold",
-                boothNo: 15,
+                boothNo: 28,
                 title: "Gold\nBooth",
                 color: colors.gold,
               },
@@ -318,21 +318,21 @@ const FloorPlanAfrica = () => {
               {
                 boothId: "AFRICA-DIGITAL-KIOSK-1",
                 boothType: "title",
-                boothNo: 31,
+                boothNo: 21,
                 title: "Digital\nKiosk",
                 color: "#F7A83F",
               },
               {
                 boothId: "AFRICA-DIGITAL-KIOSK-2",
                 boothType: "title",
-                boothNo: 32,
+                boothNo: 22,
                 title: "Digital\nKiosk",
                 color: "#F7A83F",
               },
               {
                 boothId: "AFRICA-DIGITAL-KIOSK-3",
                 boothType: "title",
-                boothNo: 33,
+                boothNo: 23,
                 title: "Digital\nKiosk",
                 color: "#F7A83F",
               },
@@ -464,35 +464,35 @@ const FloorPlanAfrica = () => {
               {
                 boothId: "AFRICA-SPEAKER-RIGHT-GOLD-41",
                 boothType: "gold",
-                boothNo: 41,
+                boothNo: 16,
                 title: "Gold\nBooth",
                 color: colors.gold,
               },
               {
                 boothId: "AFRICA-SPEAKER-RIGHT-SILVER-42",
                 boothType: "silver",
-                boothNo: 42,
+                boothNo: 17,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-SPEAKER-RIGHT-SILVER-43",
                 boothType: "silver",
-                boothNo: 43,
+                boothNo: 18,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-SPEAKER-RIGHT-SILVER-44",
                 boothType: "silver",
-                boothNo: 44,
+                boothNo: 19,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
               {
                 boothId: "AFRICA-SPEAKER-RIGHT-SILVER-45",
                 boothType: "silver",
-                boothNo: 45,
+                boothNo: 20,
                 title: "Silver\nBooth",
                 color: colors.silver,
               },
@@ -523,7 +523,7 @@ const FloorPlanAfrica = () => {
             })}
 
 
-            {/* FinXcartn booth — next to right-side vertical stack */}
+            {/* FinXcartn booth - next to right-side vertical stack */}
             {(() => {
               const finxX = speakerHall.x + speakerHall.width + 1 + speakerSideBoothWidth + 28;
               const finxY = topRowY + 104;
@@ -534,7 +534,7 @@ const FloorPlanAfrica = () => {
                 <Booth
                   boothId="AFRICA-FINXCARTN"
                   boothType="finxcartn"
-                  boothNo={50}
+                  boothNo={10}
                   size="3 x 5"
                   x={finxX}
                   y={finxY}
@@ -552,7 +552,7 @@ const FloorPlanAfrica = () => {
               );
             })()}
 
-            {/* Café Lounge — below FinXcartn */}
+            {/* Café Lounge - below FinXcartn */}
             {(() => {
               const cafeX = speakerHall.x + speakerHall.width + 1 + speakerSideBoothWidth + 28;
               const cafeY = topRowY + 104 + 100 + 8;
@@ -583,7 +583,7 @@ const FloorPlanAfrica = () => {
               );
             })()}
 
-            {/* Networking Lounge — below Café */}
+            {/* Networking Lounge - below Café */}
             {(() => {
               const netX = speakerHall.x + speakerHall.width + 1 + speakerSideBoothWidth + 28;
               const netY = topRowY + 104 + 100 + 8 + 75;
@@ -640,10 +640,10 @@ const FloorPlanAfrica = () => {
 
               {/* L-shaped corner brackets */}
               {[
-                { hx: tradingStageX + tradingCornerInset,                                              hy: tradingStageY + tradingCornerInset,                                              vx: tradingStageX + tradingCornerInset,                                              vy: tradingStageY + tradingCornerInset },
-                { hx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong,       hy: tradingStageY + tradingCornerInset,                                              vx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerShort,       vy: tradingStageY + tradingCornerInset },
-                { hx: tradingStageX + tradingCornerInset,                                              hy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort,      vx: tradingStageX + tradingCornerInset,                                              vy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerLong },
-                { hx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong,       hy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort,      vx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerShort,       vy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerLong },
+                { hx: tradingStageX + tradingCornerInset, hy: tradingStageY + tradingCornerInset, vx: tradingStageX + tradingCornerInset, vy: tradingStageY + tradingCornerInset },
+                { hx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong, hy: tradingStageY + tradingCornerInset, vx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerShort, vy: tradingStageY + tradingCornerInset },
+                { hx: tradingStageX + tradingCornerInset, hy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort, vx: tradingStageX + tradingCornerInset, vy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerLong },
+                { hx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerLong, hy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerShort, vx: tradingStageX + tradingZone.size - tradingCornerInset - tradingCornerShort, vy: tradingStageY + tradingZone.size - tradingCornerInset - tradingCornerLong },
               ].map((c, i) => (
                 <g key={`tc-${i}`}>
                   <rect x={c.hx} y={c.hy} width={tradingCornerLong} height={tradingCornerShort} fill="#888" />
@@ -661,7 +661,7 @@ const FloorPlanAfrica = () => {
                 strokeWidth="1"
               />
 
-              {/* Center logo image — shrunk to 75% of circle so it fits without clipping */}
+              {/* Center logo image - shrunk to 75% of circle so it fits without clipping */}
               <image
                 href={buildAssetUrl("assets/images/league/league.png")}
                 x={tradingZone.x + tradingZone.width / 2 - tradingZone.circleRadius * 0.75}
@@ -695,13 +695,13 @@ const FloorPlanAfrica = () => {
 
             </g>
 
-            {/* Bottom booth row — Gold | Silver x3 | Gold */}
+            {/* Bottom booth row - Gold | Silver x3 | Gold */}
             {[
-              { boothId: "AFRICA-BOT-GOLD-51",  boothType: "gold",   boothNo: 51, title: "Gold\nBooth",   color: colors.gold   },
-              { boothId: "AFRICA-BOT-SILVER-52", boothType: "silver", boothNo: 52, title: "Silver\nBooth", color: colors.silver },
-              { boothId: "AFRICA-BOT-SILVER-53", boothType: "silver", boothNo: 53, title: "Silver\nBooth", color: colors.silver },
-              { boothId: "AFRICA-BOT-SILVER-54", boothType: "silver", boothNo: 54, title: "Silver\nBooth", color: colors.silver },
-              { boothId: "AFRICA-BOT-GOLD-55",   boothType: "gold",   boothNo: 55, title: "Gold\nBooth",   color: colors.gold   },
+              { boothId: "AFRICA-BOT-GOLD-51", boothType: "gold", boothNo: 11, title: "Gold\nBooth", color: colors.gold },
+              { boothId: "AFRICA-BOT-SILVER-52", boothType: "silver", boothNo: 12, title: "Silver\nBooth", color: colors.silver },
+              { boothId: "AFRICA-BOT-SILVER-53", boothType: "silver", boothNo: 13, title: "Silver\nBooth", color: colors.silver },
+              { boothId: "AFRICA-BOT-SILVER-54", boothType: "silver", boothNo: 14, title: "Silver\nBooth", color: colors.silver },
+              { boothId: "AFRICA-BOT-GOLD-55", boothType: "gold", boothNo: 15, title: "Gold\nBooth", color: colors.gold },
             ].map((booth, i) => {
               const reservedInfo = getReservedInfo(booth.boothNo);
               return (
@@ -727,10 +727,10 @@ const FloorPlanAfrica = () => {
               );
             })}
 
-            {/* Diamond + Elite — top row (row 3) */}
+            {/* Diamond + Elite - top row (row 3) */}
             {[
-              { boothId: "AFRICA-RIGHT-DIAMOND-61", boothType: "diamond", boothNo: 61, title: "Diamond\nSponsorship", size: "4 x 3", color: colors.diamond },
-              { boothId: "AFRICA-RIGHT-ELITE-62",   boothType: "elite",   boothNo: 62, title: "Elite\nSponsorship",   size: "4 x 3", color: colors.elite   },
+              { boothId: "AFRICA-RIGHT-DIAMOND-61", boothType: "diamond", boothNo: 4, title: "Diamond\nSponsorship", size: "4 x 3", color: colors.diamond },
+              { boothId: "AFRICA-RIGHT-ELITE-62", boothType: "elite", boothNo: 5, title: "Elite\nSponsorship", size: "4 x 3", color: colors.elite },
             ].map((booth, i) => {
               const reservedInfo = getReservedInfo(booth.boothNo);
               return (
@@ -756,10 +756,10 @@ const FloorPlanAfrica = () => {
               );
             })}
 
-            {/* Diamond + Elite — middle row (row 2) */}
+            {/* Diamond + Elite - middle row (row 2) */}
             {[
-              { boothId: "AFRICA-RIGHT-DIAMOND-59", boothType: "diamond", boothNo: 59, title: "Diamond\nSponsorship", size: "4 x 3", color: colors.diamond },
-              { boothId: "AFRICA-RIGHT-ELITE-60",   boothType: "elite",   boothNo: 60, title: "Elite\nSponsorship",   size: "4 x 3", color: colors.elite   },
+              { boothId: "AFRICA-RIGHT-DIAMOND-59", boothType: "diamond", boothNo: 6, title: "Diamond\nSponsorship", size: "4 x 3", color: colors.diamond },
+              { boothId: "AFRICA-RIGHT-ELITE-60", boothType: "elite", boothNo: 7, title: "Elite\nSponsorship", size: "4 x 3", color: colors.elite },
             ].map((booth, i) => {
               const reservedInfo = getReservedInfo(booth.boothNo);
               return (
@@ -785,10 +785,10 @@ const FloorPlanAfrica = () => {
               );
             })}
 
-            {/* Diamond + Exclusive — sticky pair next to bottom gold row */}
+            {/* Diamond + Exclusive - sticky pair next to bottom gold row */}
             {[
-              { boothId: "AFRICA-BOT-DIAMOND", boothType: "diamond",   boothNo: 56, title: "Diamond\nSponsorship", size: "4 x 3", color: colors.diamond  },
-              { boothId: "AFRICA-BOT-EXCLUSIVE", boothType: "exclusive", boothNo: 57, title: "Exclusive\nSponsorship", size: "3 x 4", color: colors.exclusive },
+              { boothId: "AFRICA-BOT-DIAMOND", boothType: "diamond", boothNo: 8, title: "Diamond\nSponsorship", size: "4 x 3", color: colors.diamond },
+              { boothId: "AFRICA-BOT-EXCLUSIVE", boothType: "exclusive", boothNo: 9, title: "Exclusive\nSponsorship", size: "3 x 4", color: colors.exclusive },
             ].map((booth, i) => {
               const reservedInfo = getReservedInfo(booth.boothNo);
               return (
@@ -814,14 +814,14 @@ const FloorPlanAfrica = () => {
               );
             })}
 
-            {/* Official Sponsorship — above Regional */}
+            {/* Official Sponsorship - above Regional */}
             {(() => {
-              const reservedInfo = getReservedInfo(60);
+              const reservedInfo = getReservedInfo(3);
               return (
                 <Booth
                   boothId="AFRICA-BOT-OFFICIAL"
                   boothType="official"
-                  boothNo={60}
+                  boothNo={3}
                   size="3 x 4"
                   x={speakerHall.x + speakerHall.width + 1 + speakerSideBoothWidth + 28 + 5 * 60 + 8 + 2 * 100}
                   y={topRowY + 104 + 100 + 8 + 60 + 71 - 130 - 8 - 130 - 8}
@@ -840,14 +840,14 @@ const FloorPlanAfrica = () => {
               );
             })()}
 
-            {/* Regional Sponsorship — above Title */}
+            {/* Regional Sponsorship - above Title */}
             {(() => {
-              const reservedInfo = getReservedInfo(59);
+              const reservedInfo = getReservedInfo(2);
               return (
                 <Booth
                   boothId="AFRICA-BOT-REGIONAL"
                   boothType="regional"
-                  boothNo={59}
+                  boothNo={2}
                   size="5 x 3"
                   x={speakerHall.x + speakerHall.width + 1 + speakerSideBoothWidth + 28 + 5 * 60 + 8 + 2 * 100}
                   y={topRowY + 104 + 100 + 8 + 60 + 71 - 130 - 8}
@@ -866,14 +866,14 @@ const FloorPlanAfrica = () => {
               );
             })()}
 
-            {/* Title Sponsorship — sticky next to Exclusive, taller */}
+            {/* Title Sponsorship - sticky next to Exclusive, taller */}
             {(() => {
-              const reservedInfo = getReservedInfo(58);
+              const reservedInfo = getReservedInfo(1);
               return (
                 <Booth
                   boothId="AFRICA-BOT-TITLE"
                   boothType="title"
-                  boothNo={58}
+                  boothNo={1}
                   size="5 x 3"
                   x={speakerHall.x + speakerHall.width + 1 + speakerSideBoothWidth + 28 + 5 * 60 + 8 + 2 * 100}
                   y={topRowY + 104 + 100 + 8 + 60 + 71}
@@ -918,7 +918,7 @@ const FloorPlanAfrica = () => {
               fontSize="6" fill="#fff" fontWeight="700"
             >LED Exposure Wall</text>
 
-            {/* Vertical LED Wall — left of digital kiosks */}
+            {/* Vertical LED Wall - left of digital kiosks */}
             <rect
               x={startX + 27 - 18}
               y={topRowY + 50}
@@ -933,7 +933,7 @@ const FloorPlanAfrica = () => {
               transform={`rotate(-90,${startX + 27 - 18 + 7},${topRowY + 50 + digitalBoothHeight / 2})`}
             >LED Exposure Wall</text>
 
-            {/* Horizontal LED Wall — right of top-right row last Gold */}
+            {/* Horizontal LED Wall - right of top-right row last Gold */}
             <rect
               x={startX + 784}
               y={topRowY + topRowHeight - 56}
@@ -949,7 +949,7 @@ const FloorPlanAfrica = () => {
 
             {/* LED Wall Screens */}
 
-            {/* Trading zone tooltip — rendered last so it paints above everything */}
+            {/* Trading zone tooltip - rendered last so it paints above everything */}
             {showTradingTooltip && (
               <g pointerEvents="none">
                 <rect

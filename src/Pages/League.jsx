@@ -5,19 +5,19 @@ import LetsDoIt from "../Components/LetsDoIt";
 import { buildAssetUrl } from "../utils/assetUrl";
 
 const ENROLL_URL = "https://profxleague.com/championship";
-const GOLD  = "linear-gradient(135deg, #c19d38, #e8c96b)";
+const GOLD = "linear-gradient(135deg, #c19d38, #e8c96b)";
 const GREEN = "linear-gradient(135deg, #0e5941, #15831d)";
 
-const BULL  = buildAssetUrl("/assets/images/league/team-bull.avif");
-const BEAR  = buildAssetUrl("/assets/images/league/team-bear.avif");
-const VS    = buildAssetUrl("/assets/images/league/game-vs1.svg");
-const FREE  = buildAssetUrl("/assets/images/league/club_free.png");
+const BULL = buildAssetUrl("/assets/images/league/team-bull.avif");
+const BEAR = buildAssetUrl("/assets/images/league/team-bear.avif");
+const VS = buildAssetUrl("/assets/images/league/game-vs1.svg");
+const FREE = buildAssetUrl("/assets/images/league/club_free.png");
 
 const rounds = [
-  { num: 1, name: "Volatility Vault Qualifier",  start: "2026-03-09T00:00:00", end: "2026-03-13T23:59:59" },
-  { num: 2, name: "Trend Triumph Qualifier",      start: "2026-03-16T00:00:00", end: "2026-03-20T23:59:59" },
-  { num: 3, name: "Precision Power Qualifier",    start: "2026-03-23T00:00:00", end: "2026-03-27T23:59:59" },
-  { num: 4, name: "Momentum Mastery Qualifier",   start: "2026-03-30T00:00:00", end: "2026-04-03T23:59:59" },
+  { num: 1, name: "Volatility Vault Qualifier", start: "2026-03-09T00:00:00", end: "2026-03-13T23:59:59" },
+  { num: 2, name: "Trend Triumph Qualifier", start: "2026-03-16T00:00:00", end: "2026-03-20T23:59:59" },
+  { num: 3, name: "Precision Power Qualifier", start: "2026-03-23T00:00:00", end: "2026-03-27T23:59:59" },
+  { num: 4, name: "Momentum Mastery Qualifier", start: "2026-03-30T00:00:00", end: "2026-04-03T23:59:59" },
 ];
 const grandFinal = {
   num: 5, name: "Grand Final Showdown",
@@ -25,26 +25,26 @@ const grandFinal = {
 };
 
 const statItems = [
-  { icon: "fa-trophy",   label: "Total Prize Pool",  target: 25000, prefix: "$", suffix: ""        },
-  { icon: "fa-users",    label: "Total Winners",     target: 50,    prefix: "",  suffix: " Traders" },
-  { icon: "fa-calendar", label: "Qualifier Rounds",  target: 4,     prefix: "",  suffix: " Rounds"  },
-  { icon: "fa-tag",      label: "Entry Fee",         target: -1,    prefix: "",  suffix: "FREE"     },
+  { icon: "fa-trophy", label: "Total Prize Pool", target: 25000, prefix: "$", suffix: "" },
+  { icon: "fa-users", label: "Total Winners", target: 50, prefix: "", suffix: " Traders" },
+  { icon: "fa-calendar", label: "Qualifier Rounds", target: 4, prefix: "", suffix: " Rounds" },
+  { icon: "fa-tag", label: "Entry Fee", target: -1, prefix: "", suffix: "FREE" },
 ];
 
 const prizes = [
-  { trophy: "#daa520", rank: "Champion",    winners: 1,      prize: "$5,000"  },
-  { trophy: "#c0c0c0", rank: "2nd Place",   winners: 1,      prize: "$3,000"  },
-  { trophy: "#cd7f32", rank: "3rd Place",   winners: 1,      prize: "$2,000"  },
-  { trophy: null,      rank: "4th Place",   winners: 1,      prize: "$1,500"  },
-  { trophy: null,      rank: "5th Place",   winners: 1,      prize: "$1,200"  },
-  { trophy: null,      rank: "6th Place",   winners: 1,      prize: "$1,000"  },
-  { trophy: null,      rank: "7th Place",   winners: 1,      prize: "$900"    },
-  { trophy: null,      rank: "8th Place",   winners: 1,      prize: "$800"    },
-  { trophy: null,      rank: "9th Place",   winners: 1,      prize: "$800"    },
-  { trophy: null,      rank: "10th Place",  winners: 1,      prize: "$800"    },
-  { trophy: null,      rank: "11th – 15th", winners: "Each", prize: "$400"    },
-  { trophy: null,      rank: "16th – 20th", winners: "Each", prize: "$300"    },
-  { trophy: null,      rank: "21st – 25th", winners: "Each", prize: "$250"    },
+  { trophy: "#daa520", rank: "Champion", winners: 1, prize: "$5,000" },
+  { trophy: "#c0c0c0", rank: "2nd Place", winners: 1, prize: "$3,000" },
+  { trophy: "#cd7f32", rank: "3rd Place", winners: 1, prize: "$2,000" },
+  { trophy: null, rank: "4th Place", winners: 1, prize: "$1,500" },
+  { trophy: null, rank: "5th Place", winners: 1, prize: "$1,200" },
+  { trophy: null, rank: "6th Place", winners: 1, prize: "$1,000" },
+  { trophy: null, rank: "7th Place", winners: 1, prize: "$900" },
+  { trophy: null, rank: "8th Place", winners: 1, prize: "$800" },
+  { trophy: null, rank: "9th Place", winners: 1, prize: "$800" },
+  { trophy: null, rank: "10th Place", winners: 1, prize: "$800" },
+  { trophy: null, rank: "11th – 15th", winners: "Each", prize: "$400" },
+  { trophy: null, rank: "16th – 20th", winners: "Each", prize: "$300" },
+  { trophy: null, rank: "21st – 25th", winners: "Each", prize: "$250" },
 ];
 
 /* ── Countdown hook ──────────────────────────────────────── */
@@ -52,11 +52,11 @@ function useCountdown(startISO, endISO) {
   const [state, setState] = useState({ mode: "countdown", d: 0, h: 0, m: 0, s: 0 });
   useEffect(() => {
     function tick() {
-      const now   = Date.now();
+      const now = Date.now();
       const start = new Date(startISO).getTime();
-      const end   = new Date(endISO).getTime();
-      if (now > end)    { setState({ mode: "completed" }); return; }
-      if (now >= start) { setState({ mode: "started" });   return; }
+      const end = new Date(endISO).getTime();
+      if (now > end) { setState({ mode: "completed" }); return; }
+      if (now >= start) { setState({ mode: "started" }); return; }
       const diff = start - now;
       setState({
         mode: "countdown",
@@ -165,7 +165,7 @@ function StatCard({ item, started }) {
 function TournamentCard({ round, isFinal }) {
   const dateLabel = (() => {
     const s = new Date(round.start), e = new Date(round.end);
-    const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const mo = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return `${mo[s.getMonth()]} ${s.getDate()} – ${mo[e.getMonth()]} ${e.getDate()}`;
   })();
 
@@ -186,7 +186,7 @@ function TournamentCard({ round, isFinal }) {
       <div className="tournament-card-content">
         <div className="tournament-card-details">
 
-          {/* Left — round label + name */}
+          {/* Left - round label + name */}
           <div className="card-title-wrap text-md-end">
             <h6 className="tournament-card-subtitle">
               {isFinal ? "Round 5" : `Round ${round.num}`}
@@ -194,7 +194,7 @@ function TournamentCard({ round, isFinal }) {
             <h3 className="tournament-card-title">{round.name}</h3>
           </div>
 
-          {/* Center — countdown (exact original wrapper structure) */}
+          {/* Center - countdown (exact original wrapper structure) */}
           <div className="tournament-details">
             <div className="lg-tournament-details">
               <div className="tournament-card-date-wrap">
@@ -203,7 +203,7 @@ function TournamentCard({ round, isFinal }) {
             </div>
           </div>
 
-          {/* Right — date label + button */}
+          {/* Right - date label + button */}
           <div className="card-title-wrap text-center">
             <span className="tournament-card-subtitle">{dateLabel}</span>
             <div className="btn-wrap justify-content-center align-items-center pt-2">
@@ -300,13 +300,13 @@ export default function League() {
         <div className="container position-relative">
           <div className="row align-items-center g-5">
             <div className="col-lg-6">
-              <span className="league-sub-title">PROFX EXPO AFRICA 2026 — FX TRADING CHAMPIONSHIP</span>
+              <span className="league-sub-title">PROFX EXPO AFRICA 2026 - FX TRADING CHAMPIONSHIP</span>
               <h2 className="mb-3">
                 World's Largest Free &amp; Online{" "}
                 <span className="pink">Trading Championship 2026</span>
               </h2>
               <p className="text-grey fs-5 mb-5">
-                ProFX League – FX Championship 2026. Compete, qualify, and win your share of USD&nbsp;$25,000 in prizes. Entry is completely free — open to all traders globally.
+                ProFX League – FX Championship 2026. Compete, qualify, and win your share of USD&nbsp;$25,000 in prizes. Entry is completely free - open to all traders globally.
               </p>
               <div className="btn-wrap">
                 <a
@@ -315,7 +315,7 @@ export default function League() {
                   rel="noopener noreferrer"
                   className="th-btn"
                 >
-                  Enroll Now — It's Free
+                  Enroll Now - It's Free
                 </a>
               </div>
             </div>
@@ -387,7 +387,7 @@ export default function League() {
             </div>
           </div>
 
-          {/* Divider — Weekly */}
+          {/* Divider - Weekly */}
           <div className="d-flex align-items-center gap-3 mb-4">
             <div style={{ flex: 1, height: 1, background: "rgba(14,89,65,0.15)" }}></div>
             <span className="fw-bold px-3" style={{ color: "#0e5941", fontSize: "0.78rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>Weekly Qualifier Rounds</span>
@@ -398,7 +398,7 @@ export default function League() {
             {rounds.map(r => <TournamentCard key={r.num} round={r} isFinal={false} />)}
           </div>
 
-          {/* Divider — Final */}
+          {/* Divider - Final */}
           <div className="d-flex align-items-center gap-3 mb-4">
             <div style={{ flex: 1, height: 1, background: "rgba(193,157,56,0.3)" }}></div>
             <span className="fw-bold px-3" style={{ color: "#c19d38", fontSize: "0.78rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>Grand Finale</span>
@@ -483,7 +483,7 @@ export default function League() {
                         <div className="d-flex align-items-center gap-2">
                           {row.trophy ? (
                             <svg width="18" height="18" viewBox="0 0 16 16">
-                              <path fill={row.trophy} d="M11.7 8c4.2-0.3 4.3-2.7 4.3-5h-3v-3h-10v3h-3c0 2.3 0.1 4.7 4.3 5 0.9 1.4 2.1 2 2.7 2v4c-3 0-3 2-3 2h8c0 0 0-2-3-2v-4c0.6 0 1.8-0.6 2.7-2zM13 4h2c-0.1 1.6-0.4 2.7-2.7 2.9 0.3-0.8 0.6-1.7 0.7-2.9zM1 4h2c0.1 1.2 0.4 2.1 0.7 2.9-2.2-0.2-2.6-1.3-2.7-2.9zM4.5 6.1c-0.5-1.7-0.5-3.1-0.5-3.1v-2h1v2c0 0 0 1.7 0.4 3.1 0.5 1.7 1.6 2.9 1.6 2.9s-1.8-0.2-2.5-2.9z"/>
+                              <path fill={row.trophy} d="M11.7 8c4.2-0.3 4.3-2.7 4.3-5h-3v-3h-10v3h-3c0 2.3 0.1 4.7 4.3 5 0.9 1.4 2.1 2 2.7 2v4c-3 0-3 2-3 2h8c0 0 0-2-3-2v-4c0.6 0 1.8-0.6 2.7-2zM13 4h2c-0.1 1.6-0.4 2.7-2.7 2.9 0.3-0.8 0.6-1.7 0.7-2.9zM1 4h2c0.1 1.2 0.4 2.1 0.7 2.9-2.2-0.2-2.6-1.3-2.7-2.9zM4.5 6.1c-0.5-1.7-0.5-3.1-0.5-3.1v-2h1v2c0 0 0 1.7 0.4 3.1 0.5 1.7 1.6 2.9 1.6 2.9s-1.8-0.2-2.5-2.9z" />
                             </svg>
                           ) : (
                             <i className="fa fa-star-o" style={{ color: "#bbb", fontSize: "0.9rem" }}></i>
@@ -538,7 +538,7 @@ export default function League() {
               <p><b>ProFX League – FX Championship 2026</b> is completely free to enter! Compete against the world's best traders and win your share of USD&nbsp;$25,000.</p>
               <div className="ticket-button">
                 <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="btn">
-                  Enroll Now — It's Free!
+                  Enroll Now - It's Free!
                 </a>
               </div>
             </div>

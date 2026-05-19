@@ -232,12 +232,12 @@ function Influencers() {
       <section className="py-10 py-md-14" style={{ background: "#fff" }}>
         <div className="container">
           <div className="col-lg-8 mx-auto text-center mb-8">
-            <p className="pink fw-bold mb-1"><b>PROFX EXPO AFRICA 2026</b> — OFFICIAL INFLUENCERS</p>
+            <p className="pink fw-bold mb-1"><b>PROFX EXPO AFRICA 2026</b> - OFFICIAL INFLUENCERS</p>
             <h2 className="mb-3">
               MEET OUR <span className="pink">Digital Voice Leaders</span>
             </h2>
             <p className="text-grey fs-5 m-0">
-              Partnered with the most impactful voices in global finance, forex, and fintech — creators who educate, inspire, and move markets. Their reach amplifies the ProFX Expo Africa story to millions worldwide.
+              Partnered with the most impactful voices in global finance, forex, and fintech - creators who educate, inspire, and move markets. Their reach amplifies the ProFX Expo Africa story to millions worldwide.
             </p>
           </div>
           <div className="row g-4">

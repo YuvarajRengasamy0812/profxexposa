@@ -1,0 +1,93 @@
+/* ===== Global input / select / textarea — gold border, 25px radius ===== */
+input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+textarea,
+.form-control {
+  border: 1.5px solid #c9a227 !important;
+  border-radius: 25px !important;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus,
+.form-control:focus {
+  border-color: #a07d1a !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.18) !important;
+}
+
+/* Select — reset appearance so custom border shows */
+select,
+.form-select {
+  border: 1.5px solid #c9a227 !important;
+  border-radius: 25px !important;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a227' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus,
+.form-select:focus {
+  border-color: #a07d1a !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.18) !important;
+}
+
+/* ===== Phone input — border on container, none on children ===== */
+.react-tel-input {
+  border: 1.5px solid #c9a227 !important;
+  border-radius: 25px !important;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.react-tel-input:focus-within {
+  border-color: #a07d1a !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.18) !important;
+}
+
+.react-tel-input .form-control {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  width: 100%;
+}
+
+.react-tel-input .form-control:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.react-tel-input .flag-dropdown {
+  border: none !important;
+  border-right: 1px solid rgba(201, 162, 39, 0.3) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.react-tel-input .flag-dropdown.open {
+  border-color: rgba(160, 125, 26, 0.4) !important;
+}
