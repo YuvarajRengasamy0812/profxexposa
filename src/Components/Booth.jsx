@@ -1,5 +1,5 @@
 import { Lock } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Booth = ({
   boothId,
@@ -16,8 +16,14 @@ const Booth = ({
   borderRadius = 6,
   textColor = "#1a1a2e",
   fontSize = 14,
+  showBoothNo = true,
+  showBottomSize = true,
+  showShadow = true,
+  showHighlight = true,
   onClick,
   isReserved = false,
+  activeTooltipId = null,
+  setActiveTooltipId,
   // 👇 NEW
   reservedInfo = null,
   // {
@@ -26,43 +32,70 @@ const Booth = ({
   //   url: "https://abccorp.com"
   // },
 }) => {
-  // const [hover, setHover] = useState(false);
-  const [hover, setHover] = useState(false);
-  const [reservedHover, setReservedHover] = useState(false);
+  const boothGroupRef = useRef(null);
 
 
   const tooltipWidth = 160;
   const tooltipHeight = 70;
-  const showTooltipBelow = y < 80;
+  const tooltipOffset = 12;
+  const arrowHeight = 8;
+  const showTooltipBelow = y <= tooltipHeight + tooltipOffset + arrowHeight;
+  const tooltipX = x + width / 2 - tooltipWidth / 2;
+  const tooltipY = showTooltipBelow
+    ? y + height + tooltipOffset
+    : y - tooltipHeight - tooltipOffset;
+  const arrowBaseY = showTooltipBelow ? y + height + tooltipOffset : y - tooltipOffset;
+  const arrowTipY = showTooltipBelow ? y + height + 4 : y - 4;
+
+  const isPodcast = boothType === "podcast";
+  const isTooltipVisible = activeTooltipId === boothId;
+
+  useEffect(() => {
+    if (!isTooltipVisible || !boothGroupRef.current?.parentNode) return;
+
+    // SVG stacking follows DOM order, so move the active booth to the end.
+    boothGroupRef.current.parentNode.appendChild(boothGroupRef.current);
+  }, [isTooltipVisible]);
+
+  const gradientId = `hover-gold-${boothId}`;
 
   return (
     <g
+      ref={boothGroupRef}
       onMouseEnter={() => {
-        if (isReserved) setReservedHover(true);
-        else setHover(true);
+        setActiveTooltipId?.(boothId);
       }}
       onMouseLeave={() => {
-        setHover(false);
-        setReservedHover(false);
+        setActiveTooltipId?.((currentId) => (currentId === boothId ? null : currentId));
       }}
       onClick={() => {
-        if (!isReserved && onClick) {
+        if (!isReserved && !isPodcast && onClick) {
           onClick({ boothId, boothNo, boothType, title, size });
         }
       }}
       style={{
-        cursor: isReserved ? "pointer" : "pointer",
+        cursor: isPodcast ? "default" : "pointer",
       }}
     >
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#FFE066" />
+          <stop offset="50%" stopColor="#F4A800" />
+          <stop offset="100%" stopColor="#C8750A" />
+        </linearGradient>
+      </defs>
+
       {/* Shadow */}
-      <rect
-        x={x + 3}
-        y={y + 3}
-        width={width}
-        height={height}
-        rx={borderRadius}
-        fill="rgba(0,0,0,0.1)"
-      />
+      {showShadow && (
+        <rect
+          x={x + 3}
+          y={y + 3}
+          width={width}
+          height={height}
+          rx={borderRadius}
+          fill="rgba(0,0,0,0.1)"
+        />
+      )}
 
       {/* Booth body */}
       <rect
@@ -71,21 +104,23 @@ const Booth = ({
         width={width}
         height={height}
         rx={borderRadius}
-        fill={hover ? "#c19d38" : color}
-        stroke={hover ? "#0e5941" : "rgba(0,0,0,0.15)"}
-        strokeWidth={hover ? 3 : 1.5}
+        fill={isTooltipVisible ? `url(#${gradientId})` : color}
+        stroke="rgba(0,0,0,0.15)"
+        strokeWidth={1.5}
         style={{ transition: "all 0.2s ease" }}
       />
 
       {/* Highlight */}
-      <rect
-        x={x + 2}
-        y={y + 3}
-        width={width - 4}
-        height={height / 4}
-        rx={borderRadius + 3}
-        fill="rgba(255,255,255,0.2)"
-      />
+      {showHighlight && (
+        <rect
+          x={x + 2}
+          y={y + 3}
+          width={width - 4}
+          height={height / 4}
+          rx={borderRadius + 3}
+          fill="rgba(255,255,255,0.2)"
+        />
+      )}
 
       {/* ===== RESERVED STATE ===== */}
       {isReserved && (
@@ -126,13 +161,13 @@ const Booth = ({
       {!isReserved && (
         <>
           {/* Booth No (optional) */}
-          {boothNo && (
+          {showBoothNo && boothNo && (
             <text
               x={x + width / 2}
               y={y + 16}
               textAnchor="middle"
               fontSize={fontSize - 3}
-              fill={hover ? "#fff" : "rgba(0,0,0,0.7)"}
+              fill={isTooltipVisible ? "#1a1a1a" : "rgba(0,0,0,0.7)"}
               fontWeight="600"
             >
               Booth no: {boothNo}
@@ -147,7 +182,7 @@ const Booth = ({
             textAnchor="middle"
             dominantBaseline="middle"
             fontSize={fontSize}
-            fill={hover ? "#fff" : textColor}
+            fill={isTooltipVisible ? "#1a1a1a" : textColor}
             fontWeight="700"
           >
             {String(title).split("\n").map((line, index) => (
@@ -164,13 +199,13 @@ const Booth = ({
 
           {/* Size */}
           {/* Size (optional) */}
-          {size && (
+          {size && showBottomSize && (
             <text
               x={x + width / 2}
               y={y + height - 10}
               textAnchor="middle"
               fontSize={fontSize - 3}
-              fill={hover ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.6)"}
+              fill={isTooltipVisible ? "rgba(0,0,0,0.75)" : "rgba(0,0,0,0.6)"}
             >
               {size}
             </text>
@@ -182,7 +217,7 @@ const Booth = ({
               y={y + height - 40}
               textAnchor="middle"
               fontSize={fontSize}
-              fill={hover ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.9)"}
+              fill="rgba(255,255,255,0.9)"
             >
               {subtitle}
             </text>
@@ -192,12 +227,58 @@ const Booth = ({
       )}
 
       {/* ===== TOOLTIP ===== */}
-      {hover && !isReserved && (
+      {isTooltipVisible && !isReserved && isPodcast && (
+        <g pointerEvents="none">
+          <rect
+            x={tooltipX}
+            y={tooltipY}
+            width={tooltipWidth}
+            height={tooltipHeight}
+            rx={8}
+            fill="#fff"
+            stroke="#e0e0e0"
+            filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))"
+          />
+          <polygon
+            points={
+              showTooltipBelow
+                ? `${x + width / 2 - 8},${arrowBaseY}
+                   ${x + width / 2 + 8},${arrowBaseY}
+                   ${x + width / 2},${arrowTipY}`
+                : `${x + width / 2 - 8},${arrowBaseY}
+                   ${x + width / 2 + 8},${arrowBaseY}
+                   ${x + width / 2},${arrowTipY}`
+            }
+            fill="#fff"
+          />
+          <text
+            x={x + width / 2}
+            y={tooltipY + 18}
+            textAnchor="middle"
+            fontSize="12"
+            fontWeight="700"
+          >
+            ProFX Media
+          </text>
+          <text
+            x={x + width / 2}
+            y={tooltipY + 32}
+            textAnchor="middle"
+            fontSize="11"
+            fill="#666"
+          >
+            <tspan x={x + width / 2} dy="0">Podcast Included</tspan>
+            <tspan x={x + width / 2} dy="1.3em">in package</tspan>
+          </text>
+        </g>
+      )}
+
+      {isTooltipVisible && !isReserved && !isPodcast && (
         <g pointerEvents="none">
           {/* Tooltip box */}
           <rect
-            x={x + width / 2 - tooltipWidth / 2}
-            y={showTooltipBelow ? y + height + 12 : y - tooltipHeight - 12}
+            x={tooltipX}
+            y={tooltipY}
             width={tooltipWidth}
             height={tooltipHeight}
             rx={8}
@@ -210,12 +291,12 @@ const Booth = ({
           <polygon
             points={
               showTooltipBelow
-                ? `${x + width / 2 - 8},${y + height + 12}
-                   ${x + width / 2 + 8},${y + height + 12}
-                   ${x + width / 2},${y + height + 4}`
-                : `${x + width / 2 - 8},${y - 12}
-                   ${x + width / 2 + 8},${y - 12}
-                   ${x + width / 2},${y - 4}`
+                ? `${x + width / 2 - 8},${arrowBaseY}
+                   ${x + width / 2 + 8},${arrowBaseY}
+                   ${x + width / 2},${arrowTipY}`
+                : `${x + width / 2 - 8},${arrowBaseY}
+                   ${x + width / 2 + 8},${arrowBaseY}
+                   ${x + width / 2},${arrowTipY}`
             }
             fill="#fff"
           />
@@ -224,7 +305,7 @@ const Booth = ({
           {boothNo && (
             <text
               x={x + width / 2}
-              y={showTooltipBelow ? y + height + 30 : y - tooltipHeight + 10}
+              y={tooltipY + 18}
               textAnchor="middle"
               fontSize="12"
               fontWeight="700"
@@ -233,10 +314,9 @@ const Booth = ({
             </text>
           )}
 
-
           <text
             x={x + width / 2}
-            y={showTooltipBelow ? y + height + 46 : y - tooltipHeight + 28}
+            y={tooltipY + 34}
             textAnchor="middle"
             fontSize="12"
           >
@@ -246,7 +326,7 @@ const Booth = ({
           {size && (
             <text
               x={x + width / 2}
-              y={showTooltipBelow ? y + height + 62 : y - tooltipHeight + 42}
+              y={tooltipY + 50}
               textAnchor="middle"
               fontSize="11"
               fill="#666"
@@ -259,12 +339,12 @@ const Booth = ({
       )}
 
       {/* ===== RESERVED TOOLTIP ===== */}
-      {isReserved && reservedHover && reservedInfo && (
+      {isReserved && isTooltipVisible && reservedInfo && (
         <g>
           {/* Tooltip box */}
           <rect
-            x={x + width / 2 - tooltipWidth / 2}
-            y={showTooltipBelow ? y + height + 12 : y - tooltipHeight - 12}
+            x={tooltipX}
+            y={tooltipY}
             width={tooltipWidth}
             height={tooltipHeight}
             rx={8}
@@ -277,12 +357,12 @@ const Booth = ({
           <polygon
             points={
               showTooltipBelow
-                ? `${x + width / 2 - 8},${y + height + 12}
-                   ${x + width / 2 + 8},${y + height + 12}
-                   ${x + width / 2},${y + height + 4}`
-                : `${x + width / 2 - 8},${y - 12}
-                   ${x + width / 2 + 8},${y - 12}
-                   ${x + width / 2},${y - 4}`
+                ? `${x + width / 2 - 8},${arrowBaseY}
+                   ${x + width / 2 + 8},${arrowBaseY}
+                   ${x + width / 2},${arrowTipY}`
+                : `${x + width / 2 - 8},${arrowBaseY}
+                   ${x + width / 2 + 8},${arrowBaseY}
+                   ${x + width / 2},${arrowTipY}`
             }
             fill="#fff"
           />
@@ -304,9 +384,9 @@ const Booth = ({
             <image
               href={reservedInfo.logo}
               x={x + width / 2 - 50}
-              y={y - 88}
+              y={tooltipY + 6}
               width={100}
-              height={100}
+              height={42}
               preserveAspectRatio="xMidYMid meet"
               style={{ cursor: "pointer" }}
             />
@@ -316,7 +396,7 @@ const Booth = ({
           {/* Company name */}
           <text
             x={x + width / 2}
-            y={y - 65}
+            y={tooltipY + 60}
             fontSize="12"
             fontWeight="700"
             fill="#333"

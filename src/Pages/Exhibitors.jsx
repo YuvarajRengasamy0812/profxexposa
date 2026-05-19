@@ -8,7 +8,7 @@ import TicketSection from "../Components/TicketSection";
 import FloorPlan from "../Components/FloorPlan";
 import BoothCat from "../Components/BoothCat";
 // import FloorPlanDubai from "../Components/FloorPlanDubai";
-import FloorPlanImage from "../Components/FloorPlanImage";
+import FloorPlanSection from "../Components/FloorPlanSection";
 import { buildAssetUrl } from "../utils/assetUrl";
 
 const Exhibitors = () => {
@@ -68,7 +68,7 @@ const Exhibitors = () => {
         {/* <TicketSection /> */}
         {/* <FloorPlan /> */}
         {/* <FloorPlanDubai /> */}
-        <FloorPlanImage />
+        <FloorPlanSection />
 
         {/* -- Exhibitor Success Path Section Start -- */}
         <section className="exhibitor-success py-5 py-md-14">

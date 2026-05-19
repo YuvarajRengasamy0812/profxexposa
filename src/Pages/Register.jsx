@@ -134,17 +134,18 @@ const Register = () => {
   };
 
   const customSelectStyles = {
-    control: (provided) => ({
+    control: (provided, state) => ({
       ...provided,
       backgroundColor: "#F7F7F7",
-      border: "none",
+      border: `1.5px solid ${state.isFocused ? "#a07d1a" : "#c9a227"}`,
       borderRadius: "25px",
       minHeight: "50px",
-      boxShadow: "none",
+      boxShadow: state.isFocused ? "0 0 0 3px rgba(201,162,39,0.18)" : "none",
       paddingLeft: "30px",
       fontSize: "15px",
       fontWeight: "400",
       color: "#707070",
+      "&:hover": { borderColor: "#a07d1a" },
     }),
     valueContainer: (provided) => ({
       ...provided,

@@ -18,7 +18,7 @@ import { getBrochure } from "../api/brochure";
 import { useEffect, useState } from "react";
 import TrustedPartners from "../Components/TrustedPartners";
 // import FloorPlanDubai from "../Components/FloorPlanDubai";
-import FloorPlanImage from "../Components/FloorPlanImage";
+import FloorPlanSection from "../Components/FloorPlanSection";
 import MediaPartners from "../Components/MediaPartners";
 import SponsorPartners from "../Components/SponsorPartners";
 import Speakersection from "../Components/Speakersection";
@@ -483,8 +483,7 @@ function Home() {
       {/*--Pricing Section end--*/}
 
       {/* Floorplan Component */}
-      {/* <FloorPlanDubai id="floorplan" /> */}
-      <FloorPlanImage id="floorplan" />
+      <FloorPlanSection id="floorplan" />
       {/* Floorplan Component */}
 
       {/*--Gallery Section end--*/}
