@@ -5,12 +5,12 @@ import Breadcrumb from '../Components/Breadcrumb'
 import FloorPlanImage from '../Components/FloorPlanImage'
 
 const tabs = [
-  { id: 'image', label: 'Floor Plan' },
   { id: 'interactive', label: 'Interactive Floor Plan' },
+  { id: 'image', label: '2D Floorplan' },
 ]
 
 const Floorplan = () => {
-  const [activeTab, setActiveTab] = useState('image')
+  const [activeTab, setActiveTab] = useState('interactive')
 
   return (
     <>

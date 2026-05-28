@@ -3,12 +3,12 @@ import FloorPlanAfrica from "./FloorPlanAfrica";
 import { buildAssetUrl } from "../utils/assetUrl";
 
 const TABS = [
-  { key: "layout", label: "Floor Plan" },
   { key: "interactive", label: "Interactive Floor Plan" },
+  { key: "layout", label: "2D Floorplan" },
 ];
 
 const FloorPlanSection = ({ id }) => {
-  const [activeTab, setActiveTab] = useState("layout");
+  const [activeTab, setActiveTab] = useState("interactive");
 
   return (
     <section id={id} className="floorplan-section py-5 py-md-7">
