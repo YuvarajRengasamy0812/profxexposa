@@ -25,8 +25,8 @@ const grandFinal = {
 };
 
 const statItems = [
-  { icon: "fa-trophy", label: "Total Prize Pool", target: 25000, prefix: "$", suffix: "" },
-  { icon: "fa-users", label: "Total Winners", target: 50, prefix: "", suffix: " Traders" },
+  { icon: "fa-trophy", label: "Total Prize Pool", target: 5000, prefix: "$", suffix: "" },
+  { icon: "fa-users", label: "Total Winners", target: 10, prefix: "", suffix: " Traders" },
   { icon: "fa-calendar", label: "Qualifier Rounds", target: 4, prefix: "", suffix: " Rounds" },
   { icon: "fa-tag", label: "Entry Fee", target: -1, prefix: "", suffix: "FREE" },
 ];
@@ -306,7 +306,7 @@ export default function League() {
                 <span className="pink">Trading Championship 2026</span>
               </h2>
               <p className="text-grey fs-5 mb-5">
-                ProFX League – FX Championship 2026. Compete, qualify, and win your share of USD&nbsp;$25,000 in prizes. Entry is completely free - open to all traders globally.
+                ProFX League – FX Championship 2026. Compete, qualify, and win your share of USD&nbsp;$5,000 in prizes. Entry is completely free - open to all traders globally.
               </p>
               <div className="btn-wrap">
                 <a
@@ -331,8 +331,8 @@ export default function League() {
                 <p className="mb-4" style={{ color: "#e8c96b", fontSize: "0.83rem" }}>World's Largest Free Online Trading Championship</p>
 
                 <ul className="cfx-stats">
-                  <li><strong>$25,000</strong> Prize Pool</li>
-                  <li><strong>50</strong> Winners</li>
+                  <li><strong>$5,000</strong> Prize Pool</li>
+                  <li><strong>10</strong> Winners</li>
                   <li><strong>FREE</strong> Entry</li>
                   <li><strong>4</strong> Qualifier Rounds</li>
                   <li><strong>MT5</strong> Platform</li>
@@ -535,7 +535,7 @@ export default function League() {
               </h1>
             </div>
             <div className="ticket-info">
-              <p><b>ProFX League – FX Championship 2026</b> is completely free to enter! Compete against the world's best traders and win your share of USD&nbsp;$25,000.</p>
+              <p><b></b> is completely free to enter! Compete against the world's best traders and win your share of USD&nbsp;$25,000.</p>
               <div className="ticket-button">
                 <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="btn">
                   Enroll Now - It's Free!
