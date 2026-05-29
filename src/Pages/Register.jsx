@@ -58,6 +58,36 @@ const termsSections = [
   },
 ];
 
+const isBlockedAnalyticsFetchError = (event) => {
+  const error = event.reason || event.error || event;
+  const message = String(error?.message || event.message || "");
+  const stack = String(error?.stack || event.filename || "");
+
+  return (
+    message.includes("Failed to fetch") &&
+    (stack.includes("googletagmanager.com") ||
+      stack.includes("gtag/js") ||
+      stack.includes("injectScriptAdjust") ||
+      stack.includes("chrome-extension://"))
+  );
+};
+
+const sendRegistrationAnalytics = () => {
+  if (process.env.NODE_ENV !== "production") return;
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+
+  try {
+    window.gtag("event", "sign_up", { method: "register_form" });
+    window.gtag("event", "conversion", {
+      send_to: "AW-16663879548/vKA5CIeCoMgZEPy--ok-",
+    });
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.warn("Registration analytics skipped:", error);
+    }
+  }
+};
+
 const Register = () => {
   const countryOptions = countryList().getData();
   const handlePhoneChange = (value, country) => {
@@ -107,6 +137,22 @@ const Register = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [termsScrolledToEnd, setTermsScrolledToEnd] = useState(false);
   const termsBodyRef = useRef(null);
+
+  useEffect(() => {
+    const suppressBlockedAnalyticsError = (event) => {
+      if (isBlockedAnalyticsFetchError(event)) {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener("error", suppressBlockedAnalyticsError);
+    window.addEventListener("unhandledrejection", suppressBlockedAnalyticsError);
+
+    return () => {
+      window.removeEventListener("error", suppressBlockedAnalyticsError);
+      window.removeEventListener("unhandledrejection", suppressBlockedAnalyticsError);
+    };
+  }, []);
 
   const openTermsModal = () => {
     setTermsScrolledToEnd(false);
@@ -195,10 +241,7 @@ const Register = () => {
         });
 
       if (res.data.code === "1" || res.data.code === 1) {
-        if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "sign_up", { method: "register_form" });
-          window.gtag("event", "conversion", { send_to: "AW-16663879548/vKA5CIeCoMgZEPy--ok-" });
-        }
+        sendRegistrationAnalytics();
         // ✅ Success SweetAlert
         await Swal.fire({
           icon: "success",
