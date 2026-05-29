@@ -40,8 +40,10 @@ const FloorPlanAfrica = () => {
       });
   }, []);
 
-  const getReservedInfo = (boothNo) =>
-    reservedBooths.find((b) => b.boothNo === String(boothNo));
+  const getReservedInfo = (...boothNos) => {
+    const boothNoSet = new Set(boothNos.map((boothNo) => String(boothNo)));
+    return reservedBooths.find((b) => boothNoSet.has(b.boothNo));
+  };
 
 
 
@@ -529,7 +531,7 @@ const FloorPlanAfrica = () => {
               const finxY = topRowY + 104;
               const finxW = 100;
               const finxH = 100;
-              const reservedInfo = getReservedInfo("FINXCARTN");
+              const reservedInfo = getReservedInfo(10, "FINXCARTN");
               return (
                 <Booth
                   boothId="AFRICA-FINXCARTN"
