@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PageHelmet from "../Components/Pagehelmet";
 import Breadcrumb from "../Components/Breadcrumb";
@@ -10,6 +10,53 @@ import API from "../api/api";
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css';
 import { Eye, EyeOff, Globe, Mail, PhoneCall, Pin } from "lucide-react";
+
+const termsSections = [
+  {
+    title: "1. Acceptance of Terms",
+    text: 'By registering for and using the BridgeX Suite client portal ("Platform"), you confirm that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must not use the Platform.',
+  },
+  {
+    title: "2. Eligibility",
+    text: "You must be at least 18 years of age and have full legal capacity to enter into binding agreements under the laws of your jurisdiction. Use of the Platform is void where prohibited by applicable laws or regulations. By registering, you represent and warrant that you meet these eligibility requirements.",
+  },
+  {
+    title: "3. Account Registration & Security",
+    text: "You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorised use of your account. We reserve the right to suspend or terminate accounts where we suspect unauthorised access or fraudulent activity.",
+  },
+  {
+    title: "4. KYC & Identity Verification",
+    text: "To comply with applicable anti-money laundering (AML) and Know Your Customer (KYC) regulations, you may be required to submit identity and address verification documents before accessing full platform features. We reserve the right to restrict or suspend accounts that fail to complete verification within the required timeframe.",
+  },
+  {
+    title: "5. Trading Risks",
+    text: "Trading in financial instruments involves significant risk, including the risk of losing all invested capital. Past performance is not indicative of future results. You acknowledge that all trading decisions are made independently and at your own risk. The Platform does not provide financial advice or investment recommendations.",
+  },
+  {
+    title: "6. Deposits & Withdrawals",
+    text: "All deposits and withdrawals are subject to applicable processing fees and timeframes as set out in our fee schedule. Funds may be subject to holds or restrictions in accordance with our AML policy or when required by regulatory authorities. We are not liable for delays caused by third-party payment providers.",
+  },
+  {
+    title: "7. Privacy & Data Protection",
+    text: "Your personal data is collected, stored, and processed in accordance with our Privacy Policy. By using the Platform you consent to such processing. We implement industry-standard security measures to protect your information but cannot guarantee absolute security of data transmitted over the internet.",
+  },
+  {
+    title: "8. Prohibited Activities",
+    text: "You agree not to use the Platform for any unlawful purpose, to engage in market manipulation, to attempt unauthorised access to any part of the system, or to transmit any harmful, fraudulent, or misleading content. Violation of these prohibitions may result in immediate account termination and referral to relevant authorities.",
+  },
+  {
+    title: "9. Limitation of Liability",
+    text: "To the fullest extent permitted by law, BridgeX Suite and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Platform, including but not limited to trading losses, system downtime, or data loss.",
+  },
+  {
+    title: "10. Amendments",
+    text: "We reserve the right to update or modify these Terms & Conditions at any time. Continued use of the Platform following notification of changes constitutes your acceptance of the revised terms. We will provide reasonable notice of material changes via the Platform or the email address registered to your account.",
+  },
+  {
+    title: "11. Governing Law",
+    text: "These Terms & Conditions are governed by and construed in accordance with the applicable laws of the jurisdiction in which BridgeX Suite operates. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the competent courts in that jurisdiction.",
+  },
+];
 
 const Register = () => {
   const countryOptions = countryList().getData();
@@ -56,9 +103,58 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [termsScrolledToEnd, setTermsScrolledToEnd] = useState(false);
+  const termsBodyRef = useRef(null);
+
+  const openTermsModal = () => {
+    setTermsScrolledToEnd(false);
+    setShowTermsModal(true);
+
+    setTimeout(() => {
+      const termsBody = termsBodyRef.current;
+      if (termsBody && termsBody.scrollHeight <= termsBody.clientHeight + 5) {
+        setTermsScrolledToEnd(true);
+      }
+    }, 0);
+  };
+
+  const handleTermsScroll = () => {
+    const termsBody = termsBodyRef.current;
+    if (!termsBody) return;
+
+    const reachedEnd =
+      termsBody.scrollTop + termsBody.clientHeight >= termsBody.scrollHeight - 8;
+
+    if (reachedEnd) {
+      setTermsScrolledToEnd(true);
+    }
+  };
+
+  const handleTermsCheckboxChange = (e) => {
+    if (e.target.checked) {
+      openTermsModal();
+      return;
+    }
+
+    setTermsAccepted(false);
+  };
+
+  const acceptTerms = () => {
+    if (!termsScrolledToEnd) return;
+
+    setTermsAccepted(true);
+    setShowTermsModal(false);
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (!termsAccepted) {
+      openTermsModal();
+      return;
+    }
 
     // ✅ Password match check
     if (password !== confirmPassword) {
@@ -372,9 +468,16 @@ const Register = () => {
 
                   <div className="col-12">
                     <div className="form-check">
-                      <input className="form-check-input" type="checkbox" id="terms" required />
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="terms"
+                        checked={termsAccepted}
+                        onChange={handleTermsCheckboxChange}
+                        required
+                      />
                       <label className="form-check-label" htmlFor="terms">
-                        I agree to the <Link to="/terms" className="pink">Terms & Conditions</Link>
+                        I agree to the{" "} <a className="text-decoration-none text-primary" onClick={openTermsModal}>Terms & Conditions</a>
                       </label>
                     </div>
                   </div>
@@ -398,6 +501,67 @@ const Register = () => {
           </div>
         </div>
       </div>
+
+      {showTermsModal && (
+        <div
+          className="modal fade show"
+          style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.45)" }}
+          tabIndex="-1"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="termsModalTitle"
+        >
+          <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content border-0 shadow">
+              <div className="modal-header">
+                <div>
+                  <h5 className="modal-title pink mb-1" id="termsModalTitle">
+                    Terms & Conditions
+                  </h5>
+                  <small className="text-grey">
+                    Please read and scroll through the full terms before accepting.
+                  </small>
+                </div>
+              </div>
+
+              <div
+                className="modal-body"
+                ref={termsBodyRef}
+                onScroll={handleTermsScroll}
+                style={{ maxHeight: "60vh" }}
+              >
+                {termsSections.map((section) => (
+                  <div className="mb-4" key={section.title}>
+                    <h6 className="fw-bold mb-2">{section.title}</h6>
+                    <p className="text-grey mb-0">{section.text}</p>
+                  </div>
+                ))}
+
+                <p className="text-grey mb-0">
+                  Last updated: March 2026. If you have any questions about these Terms
+                  & Conditions, please contact our support team before registering.
+                </p>
+              </div>
+
+              <div className="modal-footer d-flex flex-column align-items-stretch">
+                {!termsScrolledToEnd && (
+                  <small className="text-grey text-center">
+                    Scroll to the bottom to enable acceptance.
+                  </small>
+                )}
+                <button
+                  type="button"
+                  className="btn bg-pink text-white w-100"
+                  onClick={acceptTerms}
+                  disabled={!termsScrolledToEnd}
+                >
+                  Accept Terms & Continue Registration
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
