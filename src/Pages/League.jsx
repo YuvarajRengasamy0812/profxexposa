@@ -1,22 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Breadcrumb from "../Components/Breadcrumb";
 import Pagehelmet from "../Components/Pagehelmet";
 import LetsDoIt from "../Components/LetsDoIt";
 import { buildAssetUrl } from "../utils/assetUrl";
 
-const ENROLL_URL = "https://profxleague.com/championship";
+const ENROLL_URL = "/LeagueEnroll";
 const GOLD = "linear-gradient(135deg, #c19d38, #e8c96b)";
 const GREEN = "linear-gradient(135deg, #0e5941, #15831d)";
 
-const BULL = buildAssetUrl("/assets/images/league/team-bull.avif");
-const BEAR = buildAssetUrl("/assets/images/league/team-bear.avif");
-const VS = buildAssetUrl("/assets/images/league/game-vs1.svg");
-const FREE = buildAssetUrl("/assets/images/league/club_free.png");
+const BULL       = buildAssetUrl("/assets/images/league/team-bull.avif");
+const BEAR       = buildAssetUrl("/assets/images/league/team-bear.avif");
+const VS         = buildAssetUrl("/assets/images/league/game-vs1.svg");
+const FREE       = buildAssetUrl("/assets/images/league/club_free.png");
+const BULL_BEAR_BG = buildAssetUrl("/assets/images/league/bull-bear.jpg");
+const LEAGUE_LOGO  = buildAssetUrl("/assets/images/league/League-white.png");
 
 const rounds = [
   { num: 1, name: "Volatility Vault Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
-  { num: 2, name: "Trend Triumph Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
-  { num: 3, name: "Precision Power Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
+  { num: 2, name: "Trend Triumph Qualifier",    start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
+  { num: 3, name: "Precision Power Qualifier",  start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
   { num: 4, name: "Momentum Mastery Qualifier", start: "2026-08-20T00:00:00", end: "2026-08-21T23:59:59" },
 ];
 const grandFinal = {
@@ -25,26 +28,26 @@ const grandFinal = {
 };
 
 const statItems = [
-  { icon: "fa-trophy", label: "Total Prize Pool", target: 5000, prefix: "$", suffix: "" },
-  { icon: "fa-users", label: "Total Winners", target: 10, prefix: "", suffix: " Traders" },
-  { icon: "fa-calendar", label: "Qualifier Rounds", target: 4, prefix: "", suffix: " Rounds" },
-  { icon: "fa-tag", label: "Entry Fee", target: -1, prefix: "", suffix: "FREE" },
+  { icon: "fa-trophy",   label: "Total Prize Pool",    target: 5000, prefix: "$", suffix: "" },
+  { icon: "fa-users",    label: "Total Winners",        target: 10,   prefix: "", suffix: " Traders" },
+  { icon: "fa-calendar", label: "Qualifier Rounds",     target: 4,    prefix: "", suffix: " Rounds" },
+  { icon: "fa-tag",      label: "Entry Fee",            target: -1,   prefix: "", suffix: "FREE" },
 ];
 
 const prizes = [
-  { trophy: "#daa520", rank: "Champion", winners: 1, prize: "$5,000" },
-  { trophy: "#c0c0c0", rank: "2nd Place", winners: 1, prize: "$3,000" },
-  { trophy: "#cd7f32", rank: "3rd Place", winners: 1, prize: "$2,000" },
-  { trophy: null, rank: "4th Place", winners: 1, prize: "$1,500" },
-  { trophy: null, rank: "5th Place", winners: 1, prize: "$1,200" },
-  { trophy: null, rank: "6th Place", winners: 1, prize: "$1,000" },
-  { trophy: null, rank: "7th Place", winners: 1, prize: "$900" },
-  { trophy: null, rank: "8th Place", winners: 1, prize: "$800" },
-  { trophy: null, rank: "9th Place", winners: 1, prize: "$800" },
-  { trophy: null, rank: "10th Place", winners: 1, prize: "$800" },
-  { trophy: null, rank: "11th – 15th", winners: "Each", prize: "$400" },
-  { trophy: null, rank: "16th – 20th", winners: "Each", prize: "$300" },
-  { trophy: null, rank: "21st – 25th", winners: "Each", prize: "$250" },
+  { trophy: "#daa520", rank: "Champion",    winners: 1,     prize: "$5,000" },
+  { trophy: "#c0c0c0", rank: "2nd Place",   winners: 1,     prize: "$3,000" },
+  { trophy: "#cd7f32", rank: "3rd Place",   winners: 1,     prize: "$2,000" },
+  { trophy: null,      rank: "4th Place",   winners: 1,     prize: "$1,500" },
+  { trophy: null,      rank: "5th Place",   winners: 1,     prize: "$1,200" },
+  { trophy: null,      rank: "6th Place",   winners: 1,     prize: "$1,000" },
+  { trophy: null,      rank: "7th Place",   winners: 1,     prize: "$900"   },
+  { trophy: null,      rank: "8th Place",   winners: 1,     prize: "$800"   },
+  { trophy: null,      rank: "9th Place",   winners: 1,     prize: "$800"   },
+  { trophy: null,      rank: "10th Place",  winners: 1,     prize: "$800"   },
+  { trophy: null,      rank: "11th – 15th", winners: "Each", prize: "$400"  },
+  { trophy: null,      rank: "16th – 20th", winners: "Each", prize: "$300"  },
+  { trophy: null,      rank: "21st – 25th", winners: "Each", prize: "$250"  },
 ];
 
 /* ── Countdown hook ──────────────────────────────────────── */
@@ -52,18 +55,18 @@ function useCountdown(startISO, endISO) {
   const [state, setState] = useState({ mode: "countdown", d: 0, h: 0, m: 0, s: 0 });
   useEffect(() => {
     function tick() {
-      const now = Date.now();
+      const now   = Date.now();
       const start = new Date(startISO).getTime();
-      const end = new Date(endISO).getTime();
-      if (now > end) { setState({ mode: "completed" }); return; }
-      if (now >= start) { setState({ mode: "started" }); return; }
+      const end   = new Date(endISO).getTime();
+      if (now > end)    { setState({ mode: "completed" }); return; }
+      if (now >= start) { setState({ mode: "started"   }); return; }
       const diff = start - now;
       setState({
         mode: "countdown",
         d: Math.floor(diff / 86400000),
         h: Math.floor((diff / 3600000) % 24),
-        m: Math.floor((diff / 60000) % 60),
-        s: Math.floor((diff / 1000) % 60),
+        m: Math.floor((diff / 60000)   % 60),
+        s: Math.floor((diff / 1000)    % 60),
       });
     }
     tick();
@@ -165,7 +168,7 @@ function StatCard({ item, started }) {
 function TournamentCard({ round, isFinal }) {
   const dateLabel = (() => {
     const s = new Date(round.start), e = new Date(round.end);
-    const mo = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     return `${mo[s.getMonth()]} ${s.getDate()} – ${mo[e.getMonth()]} ${e.getDate()}`;
   })();
 
@@ -194,7 +197,7 @@ function TournamentCard({ round, isFinal }) {
             <h3 className="tournament-card-title">{round.name}</h3>
           </div>
 
-          {/* Center - countdown (exact original wrapper structure) */}
+          {/* Center - countdown */}
           <div className="tournament-details">
             <div className="lg-tournament-details">
               <div className="tournament-card-date-wrap">
@@ -207,9 +210,9 @@ function TournamentCard({ round, isFinal }) {
           <div className="card-title-wrap text-center">
             <span className="tournament-card-subtitle">{dateLabel}</span>
             <div className="btn-wrap justify-content-center align-items-center pt-2">
-              <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="th-btn btn-sm">
+              <Link to={ENROLL_URL} className="th-btn btn-sm">
                 More Info
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -290,58 +293,246 @@ export default function League() {
 
   return (
     <div>
+      <style>{`
+        @keyframes leagueLogoFloat {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-16px); }
+        }
+        @keyframes leagueLogoGlow {
+          0%, 100% { filter: drop-shadow(0 0 18px rgba(193,157,56,0.55)) drop-shadow(0 0 40px rgba(193,157,56,0.25)); }
+          50%       { filter: drop-shadow(0 0 42px rgba(193,157,56,1))    drop-shadow(0 0 90px rgba(21,131,29,0.45)); }
+        }
+        @keyframes heroFadeUp {
+          from { opacity: 0; transform: translateY(28px); }
+          to   { opacity: 1; transform: translateY(0);    }
+        }
+        @keyframes heroBadgePop {
+          from { opacity: 0; transform: scale(0.85); }
+          to   { opacity: 1; transform: scale(1);    }
+        }
+        @keyframes heroOrb {
+          0%, 100% { transform: scale(1)    translate(0, 0); }
+          33%       { transform: scale(1.12) translate(8px, -12px); }
+          66%       { transform: scale(0.92) translate(-6px,  10px); }
+        }
+        @keyframes shimmerBar {
+          0%   { background-position: -300% center; }
+          100% { background-position:  300% center; }
+        }
+        .league-hero-logo {
+          animation: leagueLogoFloat 4s ease-in-out infinite,
+                     leagueLogoGlow  3s ease-in-out infinite;
+        }
+        .league-hero-badge {
+          opacity: 0;
+          animation: heroBadgePop 0.7s ease forwards 0.2s;
+        }
+        .league-hero-title {
+          opacity: 0;
+          animation: heroFadeUp 0.8s ease forwards 0.5s;
+        }
+        .league-hero-desc {
+          opacity: 0;
+          animation: heroFadeUp 0.8s ease forwards 0.8s;
+        }
+        .league-hero-cta {
+          opacity: 0;
+          animation: heroFadeUp 0.8s ease forwards 1.1s;
+        }
+        .league-hero-stats {
+          opacity: 0;
+          animation: heroFadeUp 0.8s ease forwards 1.4s;
+        }
+        .league-hero-orb {
+          position: absolute;
+          border-radius: 50%;
+          pointer-events: none;
+          animation: heroOrb 8s ease-in-out infinite;
+        }
+        .league-shimmer-bar {
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(232,201,107,0.6) 30%,
+            rgba(193,157,56,1) 50%,
+            rgba(232,201,107,0.6) 70%,
+            transparent 100%
+          );
+          background-size: 300% 100%;
+          animation: shimmerBar 2.5s linear infinite;
+        }
+        .hero-enroll-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          background: linear-gradient(135deg, #c19d38, #e8c96b);
+          color: #1a1a1a !important;
+          font-weight: 800;
+          font-size: 1rem;
+          padding: 16px 44px;
+          border-radius: 50px;
+          text-decoration: none;
+          border: none;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 28px rgba(193,157,56,0.45);
+          letter-spacing: 0.02em;
+        }
+        .hero-enroll-btn:hover {
+          transform: translateY(-3px) scale(1.04);
+          box-shadow: 0 16px 48px rgba(193,157,56,0.65);
+          color: #1a1a1a !important;
+        }
+      `}</style>
+
       <Pagehelmet pageTitle="ProFX League" />
-      <Breadcrumb title="ProFX League" />
 
-      {/* ── Intro ─────────────────────────────────────────── */}
-      <section className="py-8 py-md-10" style={{ background: "linear-gradient(135deg, #fdfdfd, #f6f5ea)", position: "relative", overflow: "hidden" }}>
-        <div className="glow-1"></div>
-        <div className="glow-2"></div>
-        <div className="container position-relative">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-6">
-              <span className="league-sub-title">PROFX EXPO AFRICA 2026 - FX TRADING CHAMPIONSHIP</span>
-              <h2 className="mb-3">
-                World's Largest Free &amp; Online{" "}
-                <span className="pink">Trading Championship 2026</span>
-              </h2>
-              <p className="text-grey fs-5 mb-5">
-                ProFX League – FX Championship 2026. Compete, qualify, and win your share of USD&nbsp;$5,000 in prizes. Entry is completely free - open to all traders globally.
-              </p>
-              <div className="btn-wrap">
-                <a
-                  href={ENROLL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="th-btn"
-                >
-                  Enroll Now - It's Free
-                </a>
-              </div>
-            </div>
+      {/* ── Hero Banner ───────────────────────────────────── */}
+      <section
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          backgroundImage: `url(${BULL_BEAR_BG})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+        }}
+      >
+        {/* Multi-layer dark overlay */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(14,89,65,0.55) 50%, rgba(0,0,0,0.88) 100%)",
+        }} />
 
-            <div className="col-lg-6">
-              <div
-                className="rounded-4 p-4 p-md-5"
-                style={{ background: GREEN, boxShadow: "0 16px 48px rgba(14,89,65,0.22)", transition: "box-shadow 0.3s" }}
-                onMouseEnter={e => e.currentTarget.style.boxShadow = "0 24px 64px rgba(14,89,65,0.32)"}
-                onMouseLeave={e => e.currentTarget.style.boxShadow = "0 16px 48px rgba(14,89,65,0.22)"}
-              >
-                <h5 className="text-white fw-bold mb-1">ProFX League – FX Championship 2026</h5>
-                <p className="mb-4" style={{ color: "#e8c96b", fontSize: "0.83rem" }}>World's Largest Free Online Trading Championship</p>
+        {/* Animated background orbs */}
+        <div className="league-hero-orb" style={{
+          width: 420, height: 420,
+          top: "-80px", left: "-100px",
+          background: "radial-gradient(circle, rgba(14,89,65,0.28) 0%, transparent 70%)",
+          animationDuration: "9s",
+        }} />
+        <div className="league-hero-orb" style={{
+          width: 360, height: 360,
+          bottom: "-60px", right: "-80px",
+          background: "radial-gradient(circle, rgba(193,157,56,0.22) 0%, transparent 70%)",
+          animationDuration: "11s",
+          animationDelay: "-4s",
+        }} />
+        <div className="league-hero-orb" style={{
+          width: 280, height: 280,
+          top: "30%", right: "8%",
+          background: "radial-gradient(circle, rgba(21,131,29,0.18) 0%, transparent 70%)",
+          animationDuration: "13s",
+          animationDelay: "-7s",
+        }} />
 
-                <ul className="cfx-stats">
-                  <li><strong>$5,000</strong> Prize Pool</li>
-                  <li><strong>10</strong> Winners</li>
-                  <li><strong>FREE</strong> Entry</li>
-                  <li><strong>4</strong> Qualifier Rounds</li>
-                  <li><strong>MT5</strong> Platform</li>
-                  <li><strong>20 – 21 Aug 2026</strong></li>
-                </ul>
-              </div>
-            </div>
+        {/* Gold shimmer bar - top */}
+        <div className="league-shimmer-bar" style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: 3,
+        }} />
+
+        {/* Hero content */}
+        <div
+          className="container position-relative"
+          style={{ zIndex: 2, textAlign: "center", paddingTop: 100, paddingBottom: 120 }}
+        >
+          {/* League logo */}
+          <div style={{ marginBottom: 28 }}>
+            <img
+              src={LEAGUE_LOGO}
+              alt="ProFX League"
+              className="league-hero-logo"
+              style={{ maxWidth: 440, width: "82%" }}
+            />
           </div>
+
+          {/* Championship badge */}
+          <div className="league-hero-badge" style={{ marginBottom: 24 }}>
+            <span style={{
+              display: "inline-block",
+              background: "linear-gradient(135deg, #c19d38, #e8c96b)",
+              color: "#1a1a1a",
+              fontWeight: 800,
+              fontSize: "0.72rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              padding: "7px 28px",
+              borderRadius: 50,
+              boxShadow: "0 4px 16px rgba(193,157,56,0.45)",
+            }}>
+              PROFX EXPO AFRICA 2026 &nbsp;·&nbsp; FX TRADING CHAMPIONSHIP
+            </span>
+          </div>
+
+          {/* Main title */}
+          <h1 className="league-hero-title" style={{
+            color: "#fff",
+            fontWeight: 900,
+            fontSize: "clamp(1.9rem, 5vw, 3.6rem)",
+            lineHeight: 1.1,
+            marginBottom: 18,
+            textShadow: "0 4px 32px rgba(0,0,0,0.6)",
+          }}>
+            World's Largest Free &amp; Online<br />
+            <span style={{
+              background: "linear-gradient(135deg, #c19d38, #e8c96b)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}>
+              Trading Championship 2026
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p className="league-hero-desc" style={{
+            color: "rgba(255,255,255,0.82)",
+            fontSize: "1.05rem",
+            maxWidth: 540,
+            margin: "0 auto 36px",
+            lineHeight: 1.7,
+          }}>
+            Compete, qualify, and win your share of <strong style={{ color: "#e8c96b" }}>USD&nbsp;$5,000</strong> in prizes.
+            Entry is completely free — open to all traders globally.
+          </p>
+
+          {/* CTA button */}
+          <div className="league-hero-cta" style={{ marginBottom: 52 }}>
+            <Link to={ENROLL_URL} className="hero-enroll-btn">
+              <i className="fa fa-trophy"></i>
+              Enroll Now – It's Free
+            </Link>
+          </div>
+
+          {/* Stats pills */}
+          <ul className="league-hero-stats cfx-stats" style={{
+            maxWidth: 640,
+            margin: "0 auto",
+            justifyContent: "center",
+          }}>
+            <li><strong>$5,000</strong> Prize Pool</li>
+            <li><strong>10</strong> Winners</li>
+            <li><strong>FREE</strong> Entry</li>
+            <li><strong>4</strong> Qualifier Rounds</li>
+            <li><strong>MT5</strong> Platform</li>
+            <li><strong>20 – 21 Aug 2026</strong></li>
+          </ul>
         </div>
+
+        {/* Bottom fade into next section */}
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, height: 140,
+          background: "linear-gradient(to bottom, transparent, #f9f9f5)",
+          pointerEvents: "none",
+        }} />
+
+        {/* Gold shimmer bar - bottom */}
+        <div className="league-shimmer-bar" style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, height: 3,
+          animationDelay: "-1.25s",
+        }} />
       </section>
 
       {/* ── Rules & Structure ─────────────────────────────── */}
@@ -381,9 +572,9 @@ export default function League() {
             <h2 className="mb-1">ProFX League – FX Championship <span className="pink">2026!</span></h2>
             <p className="text-grey mb-4">4 Weekly Qualifier Rounds + 1 Grand Final. Top 50 from each round advance.</p>
             <div className="btn-wrap justify-content-center mb-6">
-              <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="th-btn">
+              <Link to={ENROLL_URL} className="th-btn">
                 Enroll Now
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -500,9 +691,9 @@ export default function League() {
             </div>
             <div className="text-center mt-5">
               <div className="btn-wrap justify-content-center">
-                <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="th-btn">
+                <Link to={ENROLL_URL} className="th-btn">
                   Enroll in Championship &rarr;
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -537,9 +728,9 @@ export default function League() {
             <div className="ticket-info">
               <p><b></b> is completely free to enter! Compete against the world's best traders and win your share of USD&nbsp;$25,000.</p>
               <div className="ticket-button">
-                <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="btn">
+                <Link to={ENROLL_URL} className="btn">
                   Enroll Now - It's Free!
-                </a>
+                </Link>
               </div>
             </div>
           </div>
