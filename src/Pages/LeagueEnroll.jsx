@@ -6,7 +6,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import countryList from "react-select-country-list";
-import API from "../api/api";
+import { postLeagueBooking } from "../api/leaguebooking";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import { buildAssetUrl } from "../utils/assetUrl";
@@ -152,15 +152,14 @@ const LeagueEnroll = () => {
 
     setLoading(true);
     try {
-      const res = await API.post("/register", {
-        api_key:              process.env.REACT_APP_API_KEY,
-        full_name:            fullName,
-        email:                email,
-        company_name:         companyName,
-        phone:                digitsOnly,
-        nationality:          nationality?.label || "",
-        special_requirements: position,
-        user_type:            "trader",
+      const res = await postLeagueBooking({
+        api_key: process.env.REACT_APP_API_KEY,
+        name:    fullName,
+        email:   email,
+        phone:   digitsOnly,
+        country: nationality?.label || "",
+        company: companyName,
+        role:    position,
       });
 
       if (res.data.code === "1" || res.data.code === 1) {
@@ -195,7 +194,7 @@ const LeagueEnroll = () => {
           animation: leagueFormGlow 4s ease-in-out infinite;
         }
         .league-enroll-input {
-          border-radius: 12px !important;
+          border-radius: 25px !important;
           border: 1.5px solid #ddd !important;
           height: 50px;
           font-size: 15px;
@@ -370,7 +369,7 @@ const LeagueEnroll = () => {
                             fontWeight: "400",
                             backgroundColor: "#F7F7F7",
                             border: "none",
-                            borderRadius: "12px",
+                            borderRadius: "25px",
                             padding: "3px 42px",
                             color: "#707070",
                             width: "100%",
@@ -380,7 +379,7 @@ const LeagueEnroll = () => {
                         }}
                         containerStyle={{ width: "100%" }}
                         inputStyle={{ width: "100%", height: "50px" }}
-                        buttonStyle={{ border: "none", backgroundColor: "transparent", borderRadius: "12px 0 0 12px" }}
+                        buttonStyle={{ border: "none", backgroundColor: "transparent", borderRadius: "25px 0 0 25px" }}
                         dropdownStyle={{ fontSize: "15px" }}
                         specialLabel=""
                       />
