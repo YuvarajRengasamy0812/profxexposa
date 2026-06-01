@@ -14,47 +14,58 @@ import { Eye, EyeOff, Globe, Mail, PhoneCall, Pin } from "lucide-react";
 const termsSections = [
   {
     title: "1. Acceptance of Terms",
-    text: 'By registering for and using the BridgeX Suite client portal ("Platform"), you confirm that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must not use the Platform.',
+    text:
+      'By registering for PROFXEXPO AFRICA 2026 ("Event"), you confirm that you have read, understood, and agree to these Terms & Conditions. If you do not agree with any part of these terms, please do not complete your registration or attend the Event.',
   },
   {
     title: "2. Eligibility",
-    text: "You must be at least 18 years of age and have full legal capacity to enter into binding agreements under the laws of your jurisdiction. Use of the Platform is void where prohibited by applicable laws or regulations. By registering, you represent and warrant that you meet these eligibility requirements.",
+    text:
+      "You must provide accurate and complete registration details. The Event is intended for attendees who are legally permitted to participate in business, finance, fintech, trading, investment, or related industry events in their jurisdiction. The organiser reserves the right to refuse, cancel, or limit registrations where required.",
   },
   {
-    title: "3. Account Registration & Security",
-    text: "You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorised use of your account. We reserve the right to suspend or terminate accounts where we suspect unauthorised access or fraudulent activity.",
+    title: "3. Registration & Badge Access",
+    text:
+      "Your registration is personal to you and may not be transferred without prior approval from the organiser. Entry to PROFXEXPO AFRICA 2026 may require a valid confirmation email, badge, QR code, government-issued identification, or other verification requested at the venue.",
   },
   {
-    title: "4. KYC & Identity Verification",
-    text: "To comply with applicable anti-money laundering (AML) and Know Your Customer (KYC) regulations, you may be required to submit identity and address verification documents before accessing full platform features. We reserve the right to restrict or suspend accounts that fail to complete verification within the required timeframe.",
+    title: "4. Event Changes & Admission",
+    text:
+      "Event dates, venue areas, schedules, speakers, exhibitors, sessions, and activities may be changed, postponed, or cancelled due to operational, safety, venue, regulatory, or other circumstances. The organiser may deny admission or remove any attendee who violates these terms, venue rules, or reasonable event instructions.",
   },
   {
-    title: "5. Trading Risks",
-    text: "Trading in financial instruments involves significant risk, including the risk of losing all invested capital. Past performance is not indicative of future results. You acknowledge that all trading decisions are made independently and at your own risk. The Platform does not provide financial advice or investment recommendations.",
+    title: "5. Industry & Investment Disclaimer",
+    text:
+      "PROFXEXPO AFRICA 2026 is an industry networking, exhibition, and educational event. Information shared by speakers, sponsors, exhibitors, partners, or attendees is for general informational purposes only and does not constitute financial, investment, trading, legal, tax, or professional advice. Any business or investment decision is made at your own risk.",
   },
   {
-    title: "6. Deposits & Withdrawals",
-    text: "All deposits and withdrawals are subject to applicable processing fees and timeframes as set out in our fee schedule. Funds may be subject to holds or restrictions in accordance with our AML policy or when required by regulatory authorities. We are not liable for delays caused by third-party payment providers.",
+    title: "6. Payments, Passes & Refunds",
+    text:
+      "If any paid pass, booth, sponsorship, upgrade, or service is purchased, the applicable price, inclusions, payment deadline, and refund terms will be communicated separately. The organiser is not responsible for delays, charges, or failures caused by banks, card providers, payment gateways, travel providers, hotels, or other third parties.",
   },
   {
     title: "7. Privacy & Data Protection",
-    text: "Your personal data is collected, stored, and processed in accordance with our Privacy Policy. By using the Platform you consent to such processing. We implement industry-standard security measures to protect your information but cannot guarantee absolute security of data transmitted over the internet.",
+    text:
+      "Your personal information may be collected and processed for registration, event access, communication, badge printing, attendee support, analytics, security, and post-event follow-up. Your details may also be shared with relevant event service providers where necessary to deliver the Event. We take reasonable measures to protect your data but cannot guarantee absolute security of information transmitted online.",
   },
   {
-    title: "8. Prohibited Activities",
-    text: "You agree not to use the Platform for any unlawful purpose, to engage in market manipulation, to attempt unauthorised access to any part of the system, or to transmit any harmful, fraudulent, or misleading content. Violation of these prohibitions may result in immediate account termination and referral to relevant authorities.",
+    title: "8. Attendee Conduct",
+    text:
+      "You agree to behave professionally and respectfully at all times. Harassment, discrimination, disruptive behaviour, unauthorised selling, misleading promotions, unlawful activity, damage to property, or failure to follow venue and organiser instructions may result in removal from the Event without refund and may be reported to relevant authorities where appropriate.",
   },
   {
-    title: "9. Limitation of Liability",
-    text: "To the fullest extent permitted by law, BridgeX Suite and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Platform, including but not limited to trading losses, system downtime, or data loss.",
+    title: "9. Photography, Video & Media",
+    text:
+      "By attending PROFXEXPO AFRICA 2026, you acknowledge that photography, video recording, livestreaming, and media coverage may take place. You grant the organiser permission to use your image, likeness, voice, and participation in event-related promotional, editorial, social media, and marketing materials without additional compensation.",
   },
   {
-    title: "10. Amendments",
-    text: "We reserve the right to update or modify these Terms & Conditions at any time. Continued use of the Platform following notification of changes constitutes your acceptance of the revised terms. We will provide reasonable notice of material changes via the Platform or the email address registered to your account.",
+    title: "10. Limitation of Liability",
+    text:
+      "To the fullest extent permitted by law, PROFXEXPO AFRICA 2026, its organiser, affiliates, partners, sponsors, suppliers, and representatives shall not be liable for indirect, incidental, special, consequential, or punitive damages, including loss of business, travel costs, accommodation costs, missed opportunities, personal belongings, or third-party actions.",
   },
   {
-    title: "11. Governing Law",
-    text: "These Terms & Conditions are governed by and construed in accordance with the applicable laws of the jurisdiction in which BridgeX Suite operates. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the competent courts in that jurisdiction.",
+    title: "11. Amendments & Governing Law",
+    text:
+      "The organiser may update these Terms & Conditions when necessary. Continued registration or attendance after updates means you accept the revised terms. These terms are governed by applicable laws and venue regulations relevant to PROFXEXPO AFRICA 2026, and any disputes shall be handled by the competent authorities or courts with appropriate jurisdiction.",
   },
 ];
 
