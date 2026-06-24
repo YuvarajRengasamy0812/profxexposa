@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PageHelmet from "../Components/Pagehelmet";
 import Breadcrumb from "../Components/Breadcrumb";
 import PhoneInput from "react-phone-input-2";
@@ -99,6 +99,10 @@ const sendRegistrationAnalytics = () => {
   }
 };
 
+const WHATSAPP_GROUP_LINK =
+  process.env.REACT_APP_WHATSAPP_GROUP_LINK ||
+  "https://chat.whatsapp.com/Er7vSpSmGoK68nFbGrxAQk";
+
 const Register = () => {
   const countryOptions = countryList().getData();
   const handlePhoneChange = (value, country) => {
@@ -124,11 +128,6 @@ const Register = () => {
       setNationality(defaultCountry);
     }
   }, []);
-
-
-
-
-  const navigate = useNavigate();
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -253,17 +252,16 @@ const Register = () => {
 
       if (res.data.code === "1" || res.data.code === 1) {
         sendRegistrationAnalytics();
-        // ✅ Success SweetAlert
         await Swal.fire({
           icon: "success",
           title: "Registration Successful",
-          text: "You can now login with your credentials",
-          showConfirmButton: false,
-          timer: 2000
+          text: "Opening the official WhatsApp group invite now.",
+          confirmButtonText: "Join WhatsApp Group",
+          timer: 2500,
+          timerProgressBar: true
         });
 
-        // ✅ Redirect to Login page
-        navigate("/login");
+        window.location.assign(WHATSAPP_GROUP_LINK);
       } else {
         Swal.fire({
           icon: "error",
