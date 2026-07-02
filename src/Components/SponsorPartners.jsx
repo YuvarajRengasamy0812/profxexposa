@@ -1,38 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
+import "./SponsorPartners.css";
 
 // SponsorSection component
 const SponsorSection = ({ title, items, single = false, showTitle = true }) => (
-    <div className="text-center mb-3">
-        <h5 className="profx-sponsors-title mb-4">{title}</h5>
+    <div className="profx-sponsors-group text-center">
+        <h5 className="profx-sponsors-title">{title}</h5>
 
-        <div className={`row justify-content-center ${single ? "" : "g-4"}`}>
+        <div
+            className={`profx-sponsors-grid ${
+                single ? "profx-sponsors-grid--single" : ""
+            }`}
+        >
             {items.map((item, index) => (
-                <div
-                    key={index}
-                    className={
-                        single
-                            ? "col-12 d-flex justify-content-center"
-                            : "col-12 col-md-3 d-flex justify-content-center"
-                    }
-                >
-                    <div className="text-center">
+                <div key={item.id ?? item.title ?? index} className="profx-sponsor-item">
+                    <div className="profx-sponsor-item-inner text-center">
                         <a
                             href={item.description} // API "description" is the URL
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="profx-sponsors-card d-block"
+                            className="profx-sponsors-card"
                         >
                             {item.image ? (
-                                <img src={item.image} alt={item.title} />
+                                <img
+                                    src={item.image}
+                                    alt={item.title || `${title} sponsor`}
+                                    loading="lazy"
+                                />
                             ) : (
                                 <span>{item.title}</span> // fallback if no image
                             )}
                         </a>
 
                         {/* Show title under logo only if showTitle is true */}
-                        {showTitle && <p className="mt-3 mb-0 fw-bold pink">{item.title}</p>}
+                        {showTitle && (
+                            <p className="profx-sponsor-name fw-bold pink">{item.title}</p>
+                        )}
                     </div>
                 </div>
             ))}
@@ -70,9 +74,9 @@ export default function SponsorPartners() {
     };
 
     return (
-        <section className="profx-sponsors-section py-5 bg-white">
+        <section className="profx-sponsors-section bg-white">
             {/* Section Title */}
-            <div className="text-center mb-5 px-3 py-5">
+            <div className="profx-sponsors-intro text-center">
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -103,11 +107,16 @@ export default function SponsorPartners() {
             </div>
 
             {/* Sponsors Categories */}
-            <div className="container">
+            <div className="container profx-sponsors-container">
                 <SponsorSection
                     title="Official Sponsors"
                     items={getCategoryItems("OFFICIAL")}
                     single
+                    showTitle={false}
+                />
+                <SponsorSection
+                    title="Elite Sponsors"
+                    items={getCategoryItems("eliteHub")}
                     showTitle={false}
                 />
                 <SponsorSection
