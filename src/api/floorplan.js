@@ -1,11 +1,10 @@
 import API from "./api";
-import { Floorplan } from "./endpoints";
+import { Floorplan, FloorplanList } from "./endpoints";
 
-/**
- * Sends booking form data to the backend.
- * @param {Object} payload - The form data including api_key
- * @returns {Promise} Axios POST promise
- */
+export const getFloorplanList = () => {
+  return API.get(FloorplanList);
+};
+
 export const postFloorplan = (payload) => {
   return API.post(Floorplan, payload);
 };

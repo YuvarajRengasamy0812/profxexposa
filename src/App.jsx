@@ -70,6 +70,8 @@ function App() {
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/MyProfile" element={<Profile />} />
           <Route path="/Floorplan" element={<Floorplan />} />
+          <Route path="/FloorPlan" element={<Floorplan />} />
+          <Route path="/floorplan" element={<Floorplan />} />
           <Route path="/Influencers" element={<Influencers />} />
           <Route path="/League" element={<League />} />
           <Route path="/LeagueEnroll" element={<LeagueEnroll />} />
@@ -90,6 +92,8 @@ function App() {
           {/* <Route path="/Productlists" element={<Productlists />} /> */}
           {/* <Route path="/Productsingle" element={<Productsingle />} /> */}
           <Route path="/Sponsers" element={<Sponsers />} />
+          <Route path="/Sponsors" element={<Sponsers />} />
+          <Route path="/sponsors" element={<Sponsers />} />
           <Route path="/Testimonials" element={<Testimonials />} />
           {/* <Route path="/Blogs" element={<Blogs />} /> */}
           <Route path="/Bloglists" element={<Bloglists />} />

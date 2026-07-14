@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { getAllSpeakers } from "../api/speakers";
 
 const Speakersection = () => {
   const [speakersData, setSpeakersData] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/website/speakers`)
-      .then((res) => res.json())
-      .then((data) => {
+    let ignore = false;
+
+    getAllSpeakers()
+      .then((res) => {
+        if (ignore) {
+          return;
+        }
+
+        const data = res?.data || {};
+        const topics = Array.isArray(data?.topics) ? data.topics : [];
+
         if (data.success) {
-          const formattedData = data.topics.map((item) => {
-            // convert fields array to object
+          const formattedData = topics.map((item) => {
             const fieldsObj = {};
-            item.fields.forEach((field) => {
+            const fields = Array.isArray(item.fields) ? item.fields : [];
+
+            fields.forEach((field) => {
               fieldsObj[field.field_title] = field.value;
             });
 
@@ -34,6 +44,10 @@ const Speakersection = () => {
         }
       })
       .catch((err) => console.error("API Error:", err));
+
+    return () => {
+      ignore = true;
+    };
   }, []);
 
   return (

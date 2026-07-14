@@ -3,45 +3,9 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "../Components/Breadcrumb";
 import Pagehelmet from "../Components/Pagehelmet";
 import { buildAssetUrl } from "../utils/assetUrl";
+import { getAllInfluencers } from "../api/influencer";
 
 const defaultInfluencerImage = buildAssetUrl("/assets/images/speakers/1.jpg");
-
-const trimTrailingSlash = (value = "") => value.replace(/\/+$/, "");
-
-const resolvePublicApiBaseUrl = () => {
-  const configuredUrl = trimTrailingSlash(process.env.REACT_APP_API_URL || "");
-
-  if (!configuredUrl) {
-    return "/adminpanel/api/v1";
-  }
-
-  if (typeof window === "undefined") {
-    return configuredUrl;
-  }
-
-  try {
-    const parsedUrl = new URL(configuredUrl, window.location.origin);
-    const isConfiguredLocalHost = ["localhost", "127.0.0.1"].includes(parsedUrl.hostname);
-    const isCurrentLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
-
-    // If the app is opened from another host/device, "localhost" points to the user's machine,
-    // not the server running the backend. Reuse the current host with the configured API path.
-    if (isConfiguredLocalHost && !isCurrentLocalHost) {
-      parsedUrl.protocol = window.location.protocol;
-      parsedUrl.hostname = window.location.hostname;
-
-      if (window.location.port && !parsedUrl.port) {
-        parsedUrl.port = window.location.port;
-      }
-    }
-
-    return trimTrailingSlash(parsedUrl.toString());
-  } catch {
-    return configuredUrl;
-  }
-};
-
-const apiBaseUrl = resolvePublicApiBaseUrl();
 
 const badgeStyle = {
   Featured: { background: "linear-gradient(135deg, #c19d38, #e8c96b)", color: "#1a1a1a" },
@@ -243,18 +207,11 @@ function Influencers() {
   useEffect(() => {
     let isMounted = true;
 
-    fetch(`${apiBaseUrl}/website/influencers`)
-      .then(async (response) => {
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data?.message || `Request failed with status ${response.status}`);
-        }
-
-        return data;
-      })
-      .then((data) => {
+    getAllInfluencers()
+      .then((res) => {
         if (!isMounted) return;
+
+        const data = res?.data || {};
 
         if (data?.success) {
           setInfluencersData(formatInfluencerData(data));
@@ -269,11 +226,7 @@ function Influencers() {
 
         console.error("Influencers API Error:", err);
         setInfluencersData([]);
-        setError(
-          err?.message === "Failed to fetch"
-            ? `Failed to fetch from ${apiBaseUrl}/website/influencers`
-            : (err?.message || "Unable to load influencers.")
-        );
+        setError(err?.response?.data?.message || err?.message || "Unable to load influencers.");
       })
       .finally(() => {
         if (isMounted) {
