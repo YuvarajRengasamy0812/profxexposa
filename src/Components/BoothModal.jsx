@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { Link, X } from "lucide-react";
+import { X } from "lucide-react";
 import Swal from "sweetalert2";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { buildAssetUrl } from "../utils/assetUrl";
+import { postFloorplan } from "../api/floorplan";
 
 
 const BoothModal = ({ booth, onClose, onReserve }) => {
@@ -136,20 +137,10 @@ const BoothModal = ({ booth, onClose, onReserve }) => {
 
         formData.append("api_key", process.env.REACT_APP_API_KEY);
 
-        const response = await fetch(
-            `${process.env.REACT_APP_API_URL}/floorplansubmit`,
-            {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                },
-                body: formData,
-            }
-        );
+        const response = await postFloorplan(formData);
+        const result = response?.data || {};
 
-        const result = await response.json();
-
-        if (result.code === 1) {
+        if (result.code === 1 || result.success === true) {
             Swal.fire({
                 icon: "success",
                 title: "Booth Reserved Successfully!",
@@ -514,3 +505,4 @@ const BoothModal = ({ booth, onClose, onReserve }) => {
 
 
 export default BoothModal;
+

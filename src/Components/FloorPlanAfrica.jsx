@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Users } from "lucide-react";
 import Booth from "./Booth";
 import FloorBorder from "./FloorBorder";
-import { createPortal } from "react-dom";
 import BoothModal from "./BoothModal";
-import axios from "axios";
 import { buildAssetUrl } from "../utils/assetUrl";
+import { getFloorplanList } from "../api/floorplan";
 
 const FloorPlanAfrica = () => {
   const [selectedBooth, setSelectedBooth] = React.useState(null);
@@ -14,23 +13,43 @@ const FloorPlanAfrica = () => {
   const [activeTooltipId, setActiveTooltipId] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/floorplanList`)
-      .then((res) => {
-        const tickets = res.data.details.tickets.data;
+    let ignore = false;
 
-        const reserved = tickets
+    const getTickets = (data) => {
+      const tickets =
+        data?.details?.tickets?.data ||
+        data?.tickets?.data ||
+        data?.details?.data ||
+        data?.data ||
+        [];
+
+      return Array.isArray(tickets) ? tickets : [];
+    };
+
+    const getLogo = (logo) => {
+      if (!logo) {
+        return buildAssetUrl("/assets/images/booth-reserved/v-process.png");
+      }
+
+      return logo;
+    };
+
+    getFloorplanList()
+      .then((res) => {
+        if (ignore) {
+          return;
+        }
+
+        const reserved = getTickets(res?.data)
           .filter((t) => t.boothno)
           .map((t) => ({
             boothNo: String(t.boothno),
-            companyName: t.company || "",
-            // ✅ Set default placeholder if logo is missing
-            logo: t.company_logo || "assets/images/booth-reserved/v-process.png",
+            companyName: t.company || t.company_name || "",
+            logo: getLogo(t.company_logo),
             url: t.company_url || "#",
             title: t.boothtitle || "Reserved Booth",
             size: t.boothsize || "",
-            // ✅ Optional: you can track approval status
-            approved: !!t.company_logo // if logo exists, assume approved
+            approved: !!t.company_logo,
           }));
 
         setReservedBooths(reserved);
@@ -38,6 +57,10 @@ const FloorPlanAfrica = () => {
       .catch((err) => {
         console.error("Error fetching floorplan:", err);
       });
+
+    return () => {
+      ignore = true;
+    };
   }, []);
 
   const getReservedInfo = (...boothNos) => {
@@ -986,11 +1009,18 @@ const FloorPlanAfrica = () => {
           booth={selectedBooth}
           onClose={() => setSelectedBooth(null)}
           onReserve={({ name, company, phone }) => {
-            // Mark booth as reserved
-            setReservedBooths(prev => ({
+            setReservedBooths((prev) => [
               ...prev,
-              [selectedBooth.boothId]: true
-            }));
+              {
+                boothNo: String(selectedBooth.boothNo || selectedBooth.boothId),
+                companyName: company || name || "Reserved",
+                logo: buildAssetUrl("/assets/images/booth-reserved/v-process.png"),
+                url: "#",
+                title: selectedBooth.title || "Reserved Booth",
+                size: selectedBooth.size || "",
+                approved: false,
+              },
+            ]);
 
             // SweetAlert confirmation
             import("sweetalert2").then((Swal) => {
