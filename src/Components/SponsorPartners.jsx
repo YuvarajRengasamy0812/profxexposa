@@ -108,17 +108,18 @@ export default function SponsorPartners() {
       single: true,
       showTitle: false,
     },
-    {
-      title: "Elite Sponsors",
-      aliases: ["elite", "elite hub", "elitehub"],
-      showTitle: false,
-    },
-    {
+     {
       title: "Exclusive Sponsors",
       aliases: ["exclusive"],
       single: true,
       showTitle: false,
     },
+    {
+      title: "Elite Sponsors",
+      aliases: ["elite", "elite hub", "elitehub"],
+      showTitle: false,
+    },
+   
     {
       title: "Diamond Sponsors",
       aliases: ["diamond"],

@@ -59,7 +59,7 @@ function Home() {
                     data-aos="fade-up"
                     data-aos-delay="200">
                     <img
-                      src={buildAssetUrl('/assets/images/team/4.png')}
+                      src={buildAssetUrl('/assets/images/team/Original.png')}
                       alt="banner-image"
                       className="w-50 shake"
                     />
