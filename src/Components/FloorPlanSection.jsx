@@ -4,7 +4,7 @@ import { buildAssetUrl } from "../utils/assetUrl";
 
 const TABS = [
   { key: "interactive", label: "Interactive Floor Plan" },
-  { key: "layout", label: "2D Floorplan" },
+ 
 ];
 
 const FloorPlanSection = ({ id }) => {

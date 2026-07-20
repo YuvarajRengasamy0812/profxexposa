@@ -22,16 +22,16 @@ const BoothModal = ({ booth, onClose, onReserve }) => {
 
     /* ================= AMOUNT ================= */
     const boothPrices = {
-        title: 35000,
-        regional: 30000,
-        official: 25000,
-        exclusive: 25000,
-        elite: 20000,
-        diamond: 17500,
-        gold: 10000,
-        silver: 6000,
-        standard: 2500,
-        finxcartn: 3500,
+        title: 3500,
+        regional: 3000,
+        official: 2500,
+        exclusive: 2500,
+        elite: 2000,
+        diamond: 1750,
+        gold: 1000,
+        silver: 600,
+        standard: 250,
+        finxcartn: 350,
     };
 
     const sponsorshipPrices = {

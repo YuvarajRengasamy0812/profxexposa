@@ -6,7 +6,7 @@ import FloorPlanImage from '../Components/FloorPlanImage'
 
 const tabs = [
   { id: 'interactive', label: 'Interactive Floor Plan' },
-  { id: 'image', label: '2D Floorplan' },
+  
 ]
 
 const Floorplan = () => {
@@ -62,7 +62,9 @@ const Floorplan = () => {
           </div>
         </div>
 
-        {activeTab === 'interactive' ? <FloorPlanAfrica /> : <FloorPlanImage />}
+        {/* {activeTab === 'interactive' ? <FloorPlanAfrica /> : <FloorPlanImage />} */}
+              <FloorPlanAfrica /> 
+
       </div>
     </>
   )

@@ -206,48 +206,90 @@ const FloorPlanAfrica = () => {
 
             {/* Top-left row: Silver x5 then Gold */}
             {[
-              {
-                boothId: "AFRICA-TOP-LEFT-SILVER-18",
-                boothType: "silver",
+              // {
+              //   boothId: "AFRICA-TOP-LEFT-SILVER-18",
+              //   boothType: "silver",
+              //   boothNo: 34,
+              //   title: "Silver\nBooth",
+              //   color: colors.silver,
+              // },
+                  {
+                boothId: "AFRICA-DIGITAL-KIOSK-9",
+                boothType: "title",
                 boothNo: 34,
-                title: "Silver\nBooth",
-                color: colors.silver,
+                title: "Digital\nKiosk",
+                color: "#F7A83F",
               },
-              {
-                boothId: "AFRICA-TOP-LEFT-SILVER-17",
-                boothType: "silver",
+              // {
+              //   boothId: "AFRICA-TOP-LEFT-SILVER-17",
+              //   boothType: "silver",
+              //   boothNo: 33,
+              //   title: "Silver\nBooth",
+              //   color: colors.silver,
+              // },
+                  {
+                boothId: "AFRICA-DIGITAL-KIOSK-8",
+                boothType: "title",
                 boothNo: 33,
-                title: "Silver\nBooth",
-                color: colors.silver,
+                title: "Digital\nKiosk",
+                color: "#F7A83F",
               },
-              {
-                boothId: "AFRICA-TOP-LEFT-SILVER-16",
-                boothType: "silver",
+              // {
+              //   boothId: "AFRICA-TOP-LEFT-SILVER-16",
+              //   boothType: "silver",
+              //   boothNo: 32,
+              //   title: "Silver\nBooth",
+              //   color: colors.silver,
+              // },
+                  {
+                boothId: "AFRICA-DIGITAL-KIOSK-7",
+                boothType: "title",
                 boothNo: 32,
-                title: "Silver\nBooth",
-                color: colors.silver,
+                title: "Digital\nKiosk",
+                color: "#F7A83F",
               },
-              {
-                boothId: "AFRICA-TOP-LEFT-SILVER-15",
-                boothType: "silver",
+              // {
+              //   boothId: "AFRICA-TOP-LEFT-SILVER-15",
+              //   boothType: "silver",
+              //   boothNo: 31,
+              //   title: "Silver\nBooth",
+              //   color: colors.silver,
+              // },
+                  {
+                boothId: "AFRICA-DIGITAL-KIOSK-6",
+                boothType: "title",
                 boothNo: 31,
-                title: "Silver\nBooth",
-                color: colors.silver,
+                title: "Digital\nKiosk",
+                color: "#F7A83F",
               },
-              {
-                boothId: "AFRICA-TOP-LEFT-SILVER-14",
-                boothType: "silver",
+              // {
+              //   boothId: "AFRICA-TOP-LEFT-SILVER-14",
+              //   boothType: "silver",
+              //   boothNo: 30,
+              //   title: "Silver\nBooth",
+              //   color: colors.silver,
+              // },
+                {
+                boothId: "AFRICA-DIGITAL-KIOSK-5",
+                boothType: "title",
                 boothNo: 30,
-                title: "Silver\nBooth",
-                color: colors.silver,
+                title: "Digital\nKiosk",
+                color: "#F7A83F",
               },
-              {
-                boothId: "AFRICA-TOP-LEFT-GOLD-10",
-                boothType: "gold",
+               {
+                boothId: "AFRICA-DIGITAL-KIOSK-4",
+                boothType: "title",
                 boothNo: 29,
-                title: "Gold\nBooth",
-                color: colors.gold,
+                title: "Digital\nKiosk",
+                color: "#F7A83F",
               },
+              // {
+              //   boothId: "AFRICA-TOP-LEFT-GOLD-10",
+              //   boothType: "gold",
+              //   boothNo: 29,
+              //   title: "Gold\nBooth",
+              //   color: colors.gold,
+              // },
             ].map((booth, i) => {
               const reservedInfo = getReservedInfo(booth.boothNo);
 
