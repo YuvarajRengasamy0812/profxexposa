@@ -21,7 +21,13 @@ const getSponsorImage = (item) =>
 
 const getSponsorUrl = (item) => item?.description || item?.url || item?.link || "#";
 
-const SponsorSection = ({ title, items, single = false, showTitle = true }) => {
+const SponsorSection = ({
+  title,
+  items,
+  single = false,
+  showTitle = true,
+  threePerRow = false,
+}) => {
   if (!items.length) {
     return null;
   }
@@ -33,7 +39,7 @@ const SponsorSection = ({ title, items, single = false, showTitle = true }) => {
       <div
         className={`profx-sponsors-grid ${
           single ? "profx-sponsors-grid--single" : ""
-        }`}
+        } ${threePerRow ? "profx-sponsors-grid--three" : ""}`}
       >
         {items.map((item, index) => {
           const image = getSponsorImage(item);
@@ -135,6 +141,7 @@ export default function SponsorPartners() {
       title: "Silver Sponsors",
       aliases: ["silver"],
       showTitle: false,
+      threePerRow: true,
     },
     {
       title: "Standard Sponsors",
@@ -188,6 +195,7 @@ export default function SponsorPartners() {
             items={getCategoryItems(...section.aliases)}
             single={section.single}
             showTitle={section.showTitle}
+            threePerRow={section.threePerRow}
           />
         ))}
       </div>
