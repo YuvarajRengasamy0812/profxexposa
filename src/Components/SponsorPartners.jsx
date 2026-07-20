@@ -136,11 +136,11 @@ export default function SponsorPartners() {
       aliases: ["silver"],
       showTitle: false,
     },
-    // {
-    //   title: "Standard Sponsors",
-    //   aliases: ["standard"],
-    //   showTitle: false,
-    // },
+    {
+      title: "Standard Sponsors",
+      aliases: ["standard"],
+      showTitle: false,
+    },
     {
       title: "Other Sponsors",
       aliases: ["others", "other"],
