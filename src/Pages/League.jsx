@@ -35,19 +35,17 @@ const statItems = [
 ];
 
 const prizes = [
-  { trophy: "#daa520", rank: "Champion",    winners: 1,     prize: "$5,000" },
-  { trophy: "#c0c0c0", rank: "2nd Place",   winners: 1,     prize: "$3,000" },
-  { trophy: "#cd7f32", rank: "3rd Place",   winners: 1,     prize: "$2,000" },
-  { trophy: null,      rank: "4th Place",   winners: 1,     prize: "$1,500" },
-  { trophy: null,      rank: "5th Place",   winners: 1,     prize: "$1,200" },
-  { trophy: null,      rank: "6th Place",   winners: 1,     prize: "$1,000" },
-  { trophy: null,      rank: "7th Place",   winners: 1,     prize: "$900"   },
-  { trophy: null,      rank: "8th Place",   winners: 1,     prize: "$800"   },
-  { trophy: null,      rank: "9th Place",   winners: 1,     prize: "$800"   },
-  { trophy: null,      rank: "10th Place",  winners: 1,     prize: "$800"   },
-  { trophy: null,      rank: "11th – 15th", winners: "Each", prize: "$400"  },
-  { trophy: null,      rank: "16th – 20th", winners: "Each", prize: "$300"  },
-  { trophy: null,      rank: "21st – 25th", winners: "Each", prize: "$250"  },
+  { trophy: "#daa520", rank: "Champion",    winners: 1,     prize: "$2,000" },
+  { trophy: "#c0c0c0", rank: "2nd Place",   winners: 1,     prize: "$1,000" },
+  { trophy: "#cd7f32", rank: "3rd Place",   winners: 1,     prize: "$750" },
+  { trophy: null,      rank: "4th Place",   winners: 1,     prize: "$500" },
+  { trophy: null,      rank: "5th Place",   winners: 1,     prize: "$250" },
+  { trophy: null,      rank: "6th Place",   winners: 1,     prize: "$1,00" },
+  { trophy: null,      rank: "7th Place",   winners: 1,     prize: "$100"   },
+  { trophy: null,      rank: "8th Place",   winners: 1,     prize: "$100"   },
+  { trophy: null,      rank: "9th Place",   winners: 1,     prize: "$100"   },
+  { trophy: null,      rank: "10th Place",  winners: 1,     prize: "$100"   },
+
 ];
 
 /* ── Countdown hook ──────────────────────────────────────── */
@@ -648,8 +646,8 @@ export default function League() {
         <div className="container">
           <div className="title-content text-center mb-5">
             <span className="league-sub-title"># PRIZE POOL</span>
-            <h2 className="mb-1">Prize Pool Breakdown <span className="pink">USD $25,000</span></h2>
-            <p className="text-grey m-0">Top 25 traders win. Rankings based on profit %, drawdown &amp; compliance.</p>
+            <h2 className="mb-1">Prize Pool Breakdown <span className="pink">USD $5,000</span></h2>
+            <p className="text-grey m-0">Top 10 traders win. Rankings based on profit %, drawdown &amp; compliance.</p>
           </div>
 
           <div className="col-lg-8 mx-auto">

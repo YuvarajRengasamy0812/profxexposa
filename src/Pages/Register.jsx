@@ -99,6 +99,10 @@ const sendRegistrationAnalytics = () => {
   }
 };
 
+const TELEGRAM_GROUP_LINK =
+  process.env.REACT_APP_TELEGRAM_GROUP_LINK ||
+  "https://t.me/profxexpoafrica";
+
 const WHATSAPP_GROUP_LINK =
   process.env.REACT_APP_WHATSAPP_GROUP_LINK ||
   "https://chat.whatsapp.com/Er7vSpSmGoK68nFbGrxAQk";
@@ -252,16 +256,28 @@ const Register = () => {
 
       if (res.data.code === "1" || res.data.code === 1) {
         sendRegistrationAnalytics();
-        await Swal.fire({
+        const groupChoice = await Swal.fire({
           icon: "success",
           title: "Registration Successful",
-          text: "Opening the official WhatsApp group invite now.",
-          confirmButtonText: "Join WhatsApp Group",
+          html: `
+            <p style="margin-bottom:14px">You will be redirected to our official Telegram group.</p>
+            <p style="margin:0;color:#64748b;font-size:14px">WhatsApp group is optional.</p>
+          `,
+          confirmButtonText: `<i class="fa fa-telegram me-2"></i> Join Telegram Group`,
+          showDenyButton: true,
+          denyButtonText: `<i class="fa fa-whatsapp me-2"></i> Join WhatsApp Group`,
+          confirmButtonColor: "#229ed9",
+          denyButtonColor: "#25d366",
           timer: 2500,
-          timerProgressBar: true
+          timerProgressBar: true,
+          allowOutsideClick: false,
         });
 
-        window.location.assign(WHATSAPP_GROUP_LINK);
+        if (groupChoice.isDenied) {
+          window.location.assign(WHATSAPP_GROUP_LINK);
+        } else {
+          window.location.assign(TELEGRAM_GROUP_LINK);
+        }
       } else {
         Swal.fire({
           icon: "error",
@@ -619,3 +635,5 @@ const Register = () => {
 };
 
 export default Register;
+
+
