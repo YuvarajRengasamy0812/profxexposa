@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { getAllSpeakers } from "../api/speakers";
+import { buildAssetUrl } from "../utils/assetUrl";
 
 const Speakersection = () => {
   const [speakersData, setSpeakersData] = useState([]);
@@ -32,7 +33,7 @@ const Speakersection = () => {
               name: item.title,
               designation: item.description,
               company: fieldsObj.company || "",
-              image: item.image,
+              image: item.image || buildAssetUrl("/assets/images/resources/avatar.png"),
               socials: {
                 linkedin: fieldsObj.linkedin || "#",
                 instagram: fieldsObj.instagram || "#",
@@ -132,3 +133,4 @@ const Speakersection = () => {
 };
 
 export default Speakersection;
+

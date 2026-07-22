@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Users } from "lucide-react";
 import Booth from "./Booth";
 import FloorBorder from "./FloorBorder";
@@ -7,6 +8,7 @@ import { buildAssetUrl } from "../utils/assetUrl";
 import { getFloorplanList } from "../api/floorplan";
 
 const FloorPlanAfrica = () => {
+  const navigate = useNavigate();
   const [selectedBooth, setSelectedBooth] = React.useState(null);
   const [reservedBooths, setReservedBooths] = useState([]);
   const [showTradingTooltip, setShowTradingTooltip] = useState(false);
@@ -41,16 +43,19 @@ const FloorPlanAfrica = () => {
         }
 
         const reserved = getTickets(res?.data)
-          .filter((t) => t.boothno)
-          .map((t) => ({
-            boothNo: String(t.boothno),
-            companyName: t.company || t.company_name || "",
-            logo: getLogo(t.company_logo),
-            url: t.company_url || "#",
-            title: t.boothtitle || "Reserved Booth",
-            size: t.boothsize || "",
-            approved: !!t.company_logo,
-          }));
+          .filter((t) => t.boothno && String(t.status || "pending").toLowerCase() !== "rejected")
+          .map((t) => {
+            const approved = t.is_company_profile_approved === true || t.status === "approved";
+            return {
+              boothNo: String(t.boothno),
+              companyName: approved ? (t.public_company_name || t.company_profile_name || t.company || t.company_name || "") : "",
+              logo: approved ? getLogo(t.company_logo) : null,
+              url: approved ? (t.public_company_url || t.company_url || "#") : "#",
+              title: t.boothtitle || "Reserved Booth",
+              size: t.boothsize || "",
+              approved,
+            };
+          });
 
         setReservedBooths(reserved);
       })
@@ -67,6 +72,15 @@ const FloorPlanAfrica = () => {
     const boothNoSet = new Set(boothNos.map((boothNo) => String(boothNo)));
     return reservedBooths.find((b) => boothNoSet.has(b.boothNo));
   };
+
+  const handleBoothSelect = React.useCallback((booth) => {
+    if (!localStorage.getItem("user")) {
+      navigate("/Register", { state: { from: "/Floorplan", booth } });
+      return;
+    }
+
+    setSelectedBooth(booth);
+  }, [navigate]);
 
 
 
@@ -309,7 +323,7 @@ const FloorPlanAfrica = () => {
                   fontSize={topRowFontSize}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -373,7 +387,7 @@ const FloorPlanAfrica = () => {
                   fontSize={topRowFontSize}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -422,7 +436,7 @@ const FloorPlanAfrica = () => {
                   fontSize={digitalBoothFontSize}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -582,7 +596,7 @@ const FloorPlanAfrica = () => {
                   fontSize={speakerSideBoothFontSize}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -612,7 +626,7 @@ const FloorPlanAfrica = () => {
                   fontSize={10}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -643,7 +657,7 @@ const FloorPlanAfrica = () => {
                   fontSize={10}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -673,7 +687,7 @@ const FloorPlanAfrica = () => {
                   fontSize={10}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -787,7 +801,7 @@ const FloorPlanAfrica = () => {
                   fontSize={topRowFontSize}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -816,7 +830,7 @@ const FloorPlanAfrica = () => {
                   fontSize={9}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -845,7 +859,7 @@ const FloorPlanAfrica = () => {
                   fontSize={9}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -874,7 +888,7 @@ const FloorPlanAfrica = () => {
                   fontSize={9}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -900,7 +914,7 @@ const FloorPlanAfrica = () => {
                   fontSize={9}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -926,7 +940,7 @@ const FloorPlanAfrica = () => {
                   fontSize={9}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -952,7 +966,7 @@ const FloorPlanAfrica = () => {
                   fontSize={9}
                   isReserved={!!reservedInfo}
                   reservedInfo={reservedInfo}
-                  onClick={setSelectedBooth}
+                  onClick={handleBoothSelect}
                   activeTooltipId={activeTooltipId}
                   setActiveTooltipId={setActiveTooltipId}
                 />
@@ -1088,3 +1102,7 @@ const FloorPlanAfrica = () => {
 };
 
 export default FloorPlanAfrica;
+
+
+
+

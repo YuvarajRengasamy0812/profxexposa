@@ -21,22 +21,24 @@ const getPublicPath = () => {
 const resolveApiBaseUrl = () => {
   const configuredUrl = trimTrailingSlash(process.env.REACT_APP_API_URL || "");
 
+  if (typeof window === "undefined") {
+    return configuredUrl || "/adminpanel/api/v1";
+  }
+
+  const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+  if (isLocalHost) {
+    return "http://localhost/profxexposabackend/api/v1";
+  }
+
   if (configuredUrl) {
     return configuredUrl;
   }
 
-  if (typeof window === "undefined") {
-    return "/adminpanel/api/v1";
-  }
-
   const publicPath = trimSurroundingSlashes(getPublicPath());
   const appPrefix = publicPath ? `/${publicPath}` : "";
-  const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
-  const origin = isLocalHost
-    ? `${window.location.protocol}//${window.location.hostname}`
-    : window.location.origin;
 
-  return `${origin}${appPrefix}/adminpanel/api/v1`;
+  return `${window.location.origin}${appPrefix}/adminpanel/api/v1`;
 };
 
 const API = axios.create({
@@ -58,3 +60,4 @@ API.interceptors.response.use((response) => {
 });
 
 export default API;
+

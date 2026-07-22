@@ -8,12 +8,26 @@ export const useAuth = () => useContext(AuthContext);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // 🔥 Load user from localStorage on refresh
+  // Load user from localStorage on refresh and after profile updates.
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    const syncUser = (event) => {
+      if (event?.detail) {
+        setUser(event.detail);
+        return;
+      }
+
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser ? JSON.parse(storedUser) : null);
+    };
+
+    syncUser();
+    window.addEventListener("userProfileUpdated", syncUser);
+    window.addEventListener("storage", syncUser);
+
+    return () => {
+      window.removeEventListener("userProfileUpdated", syncUser);
+      window.removeEventListener("storage", syncUser);
+    };
   }, []);
 
   const login = (userData) => {
@@ -54,3 +68,4 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
+

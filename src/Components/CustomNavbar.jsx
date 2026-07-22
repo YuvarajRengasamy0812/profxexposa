@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { getAllHeader } from '../api/header';
 import ProfileDropdown from "../Pages/ProfileDropdown";
 import { useAuth } from "./AuthContext";
-import { buildAssetUrl } from "../utils/assetUrl";
 const CustomNavbar = () => {
   const { user, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -56,7 +55,7 @@ const CustomNavbar = () => {
         {/* Left side: ProfileDropdown if logged in */}
         {user && (
           <ProfileDropdown
-            user={{ avatar: buildAssetUrl('/assets/images/resources/avatar.png') }}
+            user={user}
             onLogout={logout}
           />
         )}
@@ -165,3 +164,5 @@ const CustomNavbar = () => {
 };
 
 export default CustomNavbar;
+
+

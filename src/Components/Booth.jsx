@@ -367,43 +367,55 @@ const Booth = ({
             fill="#fff"
           />
 
-          {/* Company logo */}
-          {/* <image
-            href={reservedInfo.logo}
-            x={x + width / 2 - 55}
-            y={y - 88}
-            width={100}
-            height={100}
-            preserveAspectRatio="xMidYMid meet"
-          /> */}
-          <a
-            href={reservedInfo.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <image
-              href={reservedInfo.logo}
-              x={x + width / 2 - 50}
-              y={tooltipY + 6}
-              width={100}
-              height={42}
-              preserveAspectRatio="xMidYMid meet"
-              style={{ cursor: "pointer" }}
-            />
-          </a>
+          {/* Company logo */}          {reservedInfo.approved ? (
+            <>
+              <a
+                href={reservedInfo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <image
+                  href={reservedInfo.logo}
+                  x={x + width / 2 - 50}
+                  y={tooltipY + 6}
+                  width={100}
+                  height={42}
+                  preserveAspectRatio="xMidYMid meet"
+                  style={{ cursor: "pointer" }}
+                />
+              </a>
 
-
-          {/* Company name */}
-          <text
-            x={x + width / 2}
-            y={tooltipY + 60}
-            fontSize="12"
-            fontWeight="700"
-            fill="#333"
-            textAnchor="middle"
-          >
-            {reservedInfo.companyName}
-          </text>
+              <text
+                x={x + width / 2}
+                y={tooltipY + 60}
+                fontSize="12"
+                fontWeight="700"
+                fill="#333"
+                textAnchor="middle"
+              >
+                {reservedInfo.companyName}
+              </text>
+            </>
+          ) : (
+            <>
+              <Lock
+                x={x + width / 2 - 12}
+                y={tooltipY + 12}
+                size={24}
+                color="#c19d38"
+              />
+              <text
+                x={x + width / 2}
+                y={tooltipY + 54}
+                fontSize="12"
+                fontWeight="700"
+                fill="#333"
+                textAnchor="middle"
+              >
+                RESERVED
+              </text>
+            </>
+          )}
 
         </g>
       )}
@@ -413,3 +425,4 @@ const Booth = ({
 };
 
 export default Booth;
+

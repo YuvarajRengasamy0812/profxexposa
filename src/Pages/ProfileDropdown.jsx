@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { User, LogOut } from "lucide-react";
 import { buildAssetUrl } from "../utils/assetUrl";
 
 const ProfileDropdown = ({ user, onLogout }) => {
 
   const [open, setOpen] = useState(false);
+  const avatarSrc = user?.profile_photo_url || user?.avatar || buildAssetUrl("/assets/images/resources/avatar.png");
   const dropdownRef = useRef(null);
 
 
@@ -50,7 +51,7 @@ const ProfileDropdown = ({ user, onLogout }) => {
         onClick={() => setOpen(!open)}
       >
         <img
-          src={user?.avatar || buildAssetUrl('/assets/images/resources/avatar.png')}
+          src={avatarSrc}
           alt="User Avatar"
           className="pd-avatar rounded-circle"
         />
@@ -94,7 +95,10 @@ const ProfileDropdown = ({ user, onLogout }) => {
         .pd-avatar {
           width: 36px;
           height: 36px;
-          border: 2px solid #fff; /* subtle pink border */
+          object-fit: cover;
+          object-position: center;
+          display: block;
+          border: 2px solid #fff;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -150,3 +154,4 @@ const ProfileDropdown = ({ user, onLogout }) => {
 };
 
 export default ProfileDropdown;
+
