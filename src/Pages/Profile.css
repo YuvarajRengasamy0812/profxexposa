@@ -1147,3 +1147,174 @@
 
 
 
+
+.profile-modern-panel {
+  overflow: hidden;
+}
+
+.profile-modern-head {
+  align-items: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eef1f4;
+}
+
+.profile-modern-head p {
+  margin: 8px 0 0;
+  color: #657384;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.profile-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.profile-info-card {
+  position: relative;
+  min-height: 82px;
+  padding: 15px 16px;
+  border: 1px solid #e1e7ee;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  overflow: hidden;
+}
+
+.profile-info-card::after {
+  content: "";
+  position: absolute;
+  right: -28px;
+  bottom: -34px;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: rgba(198, 161, 51, 0.12);
+}
+
+.profile-info-card.wide {
+  grid-column: 1 / -1;
+  min-height: 104px;
+}
+
+.profile-info-card span,
+.profile-referral-intro span,
+.profile-copy-field span {
+  display: block;
+  margin-bottom: 7px;
+  color: #c6a133;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.profile-info-card strong,
+.profile-copy-field strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: #112f45;
+  font-size: 16px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.profile-referral-card {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(198, 161, 51, 0.28);
+  background: linear-gradient(135deg, #082e24 0%, #0d5f39 62%, #c6a133 180%);
+  color: #fff;
+}
+
+.profile-referral-intro {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.profile-referral-icon {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f1ce61;
+}
+
+.profile-referral-intro h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.profile-referral-intro p {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.55;
+}
+
+.profile-referral-fields {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
+  gap: 12px;
+}
+
+.profile-copy-field {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #112f45;
+}
+
+.profile-copy-field strong {
+  min-height: 24px;
+  margin-bottom: 12px;
+}
+
+.profile-copy-field button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 13px;
+  background: #c6a133;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.profile-copy-field button:hover {
+  background: #ad8c2e;
+}
+
+@media (max-width: 768px) {
+  .profile-modern-grid,
+  .profile-referral-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-modern-head {
+    align-items: stretch;
+  }
+
+  .profile-referral-intro {
+    flex-direction: column;
+  }
+
+  .profile-copy-field button {
+    width: 100%;
+  }
+}

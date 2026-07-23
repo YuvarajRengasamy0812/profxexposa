@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PageHelmet from "../Components/Pagehelmet";
 import Breadcrumb from "../Components/Breadcrumb";
 import PhoneInput from "react-phone-input-2";
@@ -88,6 +88,7 @@ const customSelectStyles = {
 const LeagueEnroll = () => {
   const countryOptions = countryList().getData();
   const navigate = useNavigate();
+  const location = useLocation();
   const termsBodyRef = useRef(null);
 
   const [fullName,           setFullName]           = useState("");
@@ -96,6 +97,8 @@ const LeagueEnroll = () => {
   const [nationality,        setNationality]        = useState(null);
   const [companyName,        setCompanyName]        = useState("");
   const [position,           setPosition]           = useState("");
+  const [referralCode,       setReferralCode]       = useState("");
+  const [referralFromLink,   setReferralFromLink]   = useState(false);
   const [loading,            setLoading]            = useState(false);
   const [termsAccepted,      setTermsAccepted]      = useState(false);
   const [showTermsModal,     setShowTermsModal]     = useState(false);
@@ -106,6 +109,19 @@ const LeagueEnroll = () => {
     if (defaultCountry && !nationality) setNationality(defaultCountry);
   }, []);
 
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const codeFromLink = params.get("ref") || params.get("referral_code") || params.get("referral");
+
+    if (codeFromLink) {
+      setReferralCode(codeFromLink.trim().toUpperCase());
+      setReferralFromLink(true);
+    } else {
+      setReferralCode("");
+      setReferralFromLink(false);
+    }
+  }, [location.search]);
   const handlePhoneChange = (value, country) => {
     setPhone(value);
     if (country?.name) {
@@ -160,6 +176,7 @@ const LeagueEnroll = () => {
         country: nationality?.label || "",
         company: companyName,
         role:    position,
+        referral_code: referralCode.trim().toUpperCase(),
       });
 
       if (res.data.code === "1" || res.data.code === 1) {
@@ -242,6 +259,26 @@ const LeagueEnroll = () => {
           font-weight: 500;
         }
         .league-stat-pill strong { color: #e8c96b; }
+        .league-referral-applied {
+          min-height: 50px;
+          border-radius: 25px;
+          border: 1.5px dashed #c9a227;
+          background: #fff9e7;
+          color: #1a1a1a;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 0 20px;
+          font-weight: 700;
+        }
+        .league-referral-applied i,
+        .league-referral-applied strong {
+          color: #c19d38;
+        }
+        .league-referral-applied strong {
+          margin-left: auto;
+          letter-spacing: 0.04em;
+        }
       `}</style>
 
       <PageHelmet pageTitle="Enroll – ProFX League" />
@@ -419,6 +456,26 @@ const LeagueEnroll = () => {
                     />
                   </div>
 
+
+                  {referralFromLink ? (
+                    <div className="col-12">
+                      <div className="league-referral-applied">
+                        <i className="fa fa-link"></i>
+                        <span>Referral link applied</span>
+                        <strong>Applied</strong>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="col-12">
+                      <input
+                        type="text"
+                        className="form-control league-enroll-input"
+                        placeholder="Referral Code"
+                        value={referralCode}
+                        onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
+                      />
+                    </div>
+                  )}
                   <div className="col-12">
                     <div className="form-check">
                       <input
@@ -533,3 +590,4 @@ const LeagueEnroll = () => {
 };
 
 export default LeagueEnroll;
+

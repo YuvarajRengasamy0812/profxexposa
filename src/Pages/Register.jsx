@@ -251,7 +251,8 @@ const Register = () => {
           password_confirmation: confirmPassword,
           special_requirements: specialReq,
           sponsor_package: sponsorPackage,
-          products_services: products
+          products_services: products,
+          frontend_url: `${window.location.origin}/africa/LeagueEnroll`
         });
 
       if (res.data.code === "1" || res.data.code === 1) {
@@ -635,5 +636,6 @@ const Register = () => {
 };
 
 export default Register;
+
 
 

@@ -5,6 +5,8 @@ import {
   Building2,
   Camera,
   CheckCircle2,
+  Copy,
+  Link2,
   Edit3,
   Eye,
   LayoutDashboard,
@@ -576,34 +578,105 @@ const Profile = () => {
     }
   };
 
-  const renderProfile = () => (
-    <section className="crm-panel">
-      <div className="crm-section-head">
-        <div>
-          <span>Account</span>
-          <h2>Profile Information</h2>
+  const copyProfileValue = async (label, value) => {
+    const text = String(value || "").trim();
+
+    if (!text || text === "-") {
+      showProfileAlert("info", "No Data", `${label} is not available yet.`);
+      return;
+    }
+
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      showProfileAlert("success", "Copied", `${label} copied successfully.`);
+    } catch (error) {
+      showProfileAlert("error", "Copy Failed", `Unable to copy ${label}.`);
+    }
+  };
+  const renderProfile = () => {
+    const fallbackReferralCode = getUserId(user) ? `PFX${String(getUserId(user)).padStart(6, "0")}` : "";
+    const referralCode = user?.referral_code || fallbackReferralCode;
+    const referralLink = user?.referral_link || (referralCode ? `${window.location.origin}/africa/LeagueEnroll?ref=${encodeURIComponent(referralCode)}` : "");
+    const profileItems = [
+      { label: "Full Name", value: getUserName(user) },
+      { label: "Email Address", value: user?.email || "-" },
+      { label: "Company", value: getUserCompany(user) || "-" },
+      { label: "Phone", value: user?.phone || "-" },
+      { label: "Nationality", value: user?.nationality || "-" },
+      { label: "Account Type", value: user?.sponsor_package || user?.user_type || "-" },
+      { label: "Products / Services", value: user?.products_services || "-" },
+      { label: "Special Requirements", value: user?.special_requirements || "-", wide: true },
+    ];
+
+    return (
+      <section className="crm-panel profile-modern-panel">
+        <div className="crm-section-head profile-modern-head">
+          <div>
+            <span>Account</span>
+            <h2>Profile Overview</h2>
+            <p>Manage your company profile, account details, and referral access.</p>
+          </div>
+          <div className="crm-section-actions">
+            <button type="button" className="crm-ghost-button" onClick={openProfileModal}>
+              <Edit3 size={16} /> Edit Profile
+            </button>
+            <button type="button" className="crm-gold-button" onClick={openPasswordModal}>
+              <LockKeyhole size={16} /> Password
+            </button>
+          </div>
         </div>
-        <div className="crm-section-actions">
-          <button type="button" className="crm-ghost-button" onClick={openProfileModal}>
-            <Edit3 size={16} /> Edit Profile
-          </button>
-          <button type="button" className="crm-gold-button" onClick={openPasswordModal}>
-            <LockKeyhole size={16} /> Password
-          </button>
+  <div className="profile-referral-card">
+          <div className="profile-referral-intro">
+            <div className="profile-referral-icon"><Link2 size={22} /></div>
+            <div>
+              <span>Referral Access</span>
+              <h3>Your PROFX League Referral</h3>
+              <p>Share this link with users. Their league enrollments will be tracked under your account.</p>
+            </div>
+          </div>
+
+          <div className="profile-referral-fields">
+            <div className="profile-copy-field">
+              <span>Referral Code</span>
+              <strong>{referralCode || "Not generated yet"}</strong>
+              <button type="button" onClick={() => copyProfileValue("Referral code", referralCode)} title="Copy referral code">
+                <Copy size={16} /> Copy
+              </button>
+            </div>
+            <div className="profile-copy-field wide">
+              <span>Referral Link</span>
+              <strong>{referralLink || "Not generated yet"}</strong>
+              <button type="button" onClick={() => copyProfileValue("Referral link", referralLink)} title="Copy referral link">
+                <Copy size={16} /> Copy
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="crm-form-grid">
-        <input value={getUserName(user)} readOnly />
-        <input value={user?.email || ""} readOnly />
-        <input value={getUserCompany(user)} readOnly />
-        <input value={user?.phone || ""} readOnly />
-        <input value={user?.nationality || ""} readOnly />
-        <input value={user?.sponsor_package || user?.user_type || ""} readOnly />
-        <input value={user?.products_services || ""} readOnly />
-        <textarea value={user?.special_requirements || ""} readOnly rows={4} />
-      </div>
-    </section>
-  );
+        <div className="profile-modern-grid">
+          {profileItems.map((item) => (
+            <article key={item.label} className={`profile-info-card${item.wide ? " wide" : ""}`}>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+            </article>
+          ))}
+        </div>
+
+      
+      </section>
+    );
+  };
   const renderDashboard = () => {
     const latestSpeaker = speakers[0];
     const latestBooth = booths[0];
@@ -1116,6 +1189,7 @@ const Profile = () => {
 };
 
 export default Profile;
+
 
 
 
