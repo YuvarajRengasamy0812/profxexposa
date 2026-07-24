@@ -1,9 +1,33 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { getAllHeader } from '../api/header';
 import ProfileDropdown from "../Pages/ProfileDropdown";
 import { useAuth } from "./AuthContext";
+const ensureAwardsLink = (links = []) => links.map((link) => {
+  const subLinks = Array.isArray(link.sub_links) ? [...link.sub_links] : [];
+  const isCompanyMenu = String(link.title || "").toLowerCase() === "company";
+
+  if (!isCompanyMenu || subLinks.some((sub) => String(sub.title || "").toLowerCase() === "awards")) {
+    return link;
+  }
+
+  const awardsLink = { id: "awards-static", title: "Awards", href: "/Awards" };
+  const galleryIndex = subLinks.findIndex((sub) => String(sub.title || "").toLowerCase() === "gallery");
+
+  if (galleryIndex >= 0) {
+    subLinks.splice(galleryIndex + 1, 0, awardsLink);
+  } else {
+    subLinks.push(awardsLink);
+  }
+
+  return {
+    ...link,
+    sub_links: subLinks,
+    sub_links_count: subLinks.length,
+  };
+});
+
 const CustomNavbar = () => {
   const { user, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,8 +41,8 @@ const CustomNavbar = () => {
     getAllHeader()
       .then((res) => {
         const links = res?.data?.links || [];
-        setMenuLinks(links);
-        sessionStorage.setItem("menuLinks", JSON.stringify(links));
+        setMenuLinks(ensureAwardsLink(links));
+        sessionStorage.setItem("menuLinks", JSON.stringify(ensureAwardsLink(links)));
       })
       .catch(() => {});
   }, []);
@@ -27,7 +51,7 @@ const CustomNavbar = () => {
     <>
       {/* DESKTOP MENU */}
       <ul className="cust-nav-desktop justify-content-center" style={{ marginBottom: 0 }}>
-        {menuLinks.map((link) =>
+        {ensureAwardsLink(menuLinks).map((link) =>
           link.sub_links_count > 0 ? (
             // Dropdown menu
             <li key={link.id} className="cust-dropdown">
@@ -88,7 +112,7 @@ const CustomNavbar = () => {
         </div>
 
         <div className="cust-mobile-list">
-          {menuLinks.map((link) =>
+          {ensureAwardsLink(menuLinks).map((link) =>
             link.sub_links_count > 0 ? (
               <div key={link.id} className="cust-mobile-dropdown">
                 <button
@@ -164,5 +188,6 @@ const CustomNavbar = () => {
 };
 
 export default CustomNavbar;
+
 
 

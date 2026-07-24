@@ -1318,3 +1318,152 @@
     width: 100%;
   }
 }
+
+.profile-mini-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+  gap: 16px;
+}
+
+.profile-mini-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  min-height: 230px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid #e0e8ee;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfa 100%);
+  box-shadow: 0 16px 34px rgba(9, 46, 38, 0.08);
+}
+
+.profile-mini-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, #082f27, #168632, #c6a133);
+}
+
+.profile-mini-card::after {
+  content: "";
+  position: absolute;
+  right: -36px;
+  bottom: -42px;
+  width: 118px;
+  height: 118px;
+  border-radius: 999px;
+  background: rgba(198, 161, 51, 0.09);
+  pointer-events: none;
+}
+
+.profile-mini-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 3px;
+}
+
+.profile-mini-card-top > span {
+  display: inline-flex;
+  max-width: 62%;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #edf8f1;
+  color: #08793c;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.profile-mini-card-top > strong:not(.status-pill) {
+  color: #c6a133;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: right;
+}
+
+.profile-mini-card h3 {
+  margin: 0;
+  color: #082f49;
+  font-size: 17px;
+  line-height: 1.28;
+}
+
+.profile-mini-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.profile-mini-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: auto;
+}
+
+.profile-mini-meta div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #edf1f4;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.profile-mini-meta span {
+  display: block;
+  color: #87959d;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.profile-mini-meta strong {
+  display: block;
+  margin-top: 4px;
+  color: #0b3147;
+  font-size: 12px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.award-status-winner::before,
+.award-status-approved::before {
+  background: linear-gradient(90deg, #08793c, #22c55e, #c6a133);
+}
+
+.award-status-rejected::before {
+  background: linear-gradient(90deg, #be123c, #ef4444, #c6a133);
+}
+
+.award-status-pending::before {
+  background: linear-gradient(90deg, #c6a133, #f3cf63, #082f27);
+}
+
+.league-user-card::before {
+  background: linear-gradient(90deg, #082f27, #0f7a3b, #44d16c);
+}
+
+.league-referral-summary {
+  margin: 0 0 16px;
+}
+
+.league-card-grid .profile-mini-card-top > span {
+  background: #fff7dd;
+  color: #a17400;
+}
+
+@media (max-width: 680px) {
+  .profile-mini-card-grid,
+  .profile-mini-meta {
+    grid-template-columns: 1fr;
+  }
+}

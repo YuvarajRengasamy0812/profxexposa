@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
+  Award,
   Building2,
   Camera,
   CheckCircle2,
@@ -15,8 +16,10 @@ import {
   Plus,
   Save,
   Trash2,
+  Trophy,
   Upload,
   User,
+  UsersRound,
   X,
 } from "lucide-react";
 import PageHelmet from "../Components/Pagehelmet";
@@ -28,7 +31,12 @@ import {
   submitClientSpeaker,
   updateClientSpeaker,
 } from "../api/speakers";
-import { updateClientPassword, updateClientProfile } from "../api/profile";
+import {
+  getClientAwardNominations,
+  getClientLeagueReferrals,
+  updateClientPassword,
+  updateClientProfile,
+} from "../api/profile";
 import { buildAssetUrl } from "../utils/assetUrl";
 import "./Profile.css";
 
@@ -60,7 +68,7 @@ const getStatusLabel = (status) => {
 
 const getStatusClass = (status) => {
   const value = normalizeStatus(status);
-  if (value === "approved") return "status-pill approved";
+  if (value === "approved" || value === "winner") return "status-pill approved";
   if (value === "rejected") return "status-pill rejected";
   return "status-pill pending";
 };
@@ -146,6 +154,8 @@ const Profile = () => {
   const [user, setUser] = useState(null);
   const [booths, setBooths] = useState([]);
   const [speakers, setSpeakers] = useState([]);
+  const [awards, setAwards] = useState([]);
+  const [leagueReferrals, setLeagueReferrals] = useState([]);
   const [boothForms, setBoothForms] = useState({});
   const [editingBoothId, setEditingBoothId] = useState(null);
   const [viewBooth, setViewBooth] = useState(null);
@@ -186,20 +196,24 @@ const Profile = () => {
     }
   }, [navigate]);
 
-  const loadClientData = useCallback(async (email, companyName = "") => {
+  const loadClientData = useCallback(async (email, companyName = "", userId = "") => {
     if (!email) return;
 
     setLoading(true);
     setMessage("");
 
     try {
-      const [boothRes, speakerRes] = await Promise.all([
+      const [boothRes, speakerRes, awardRes, leagueRes] = await Promise.all([
         getClientBooths(email),
         getClientSpeakers(email),
+        getClientAwardNominations({ email, userId }),
+        getClientLeagueReferrals({ email, userId }),
       ]);
 
       const boothItems = getDataArray(boothRes);
       const speakerItems = getDataArray(speakerRes);
+      const awardItems = getDataArray(awardRes);
+      const leagueItems = getDataArray(leagueRes);
       const nextForms = {};
 
       boothItems.forEach((booth) => {
@@ -216,6 +230,8 @@ const Profile = () => {
 
       setBooths(boothItems);
       setSpeakers(speakerItems);
+      setAwards(awardItems);
+      setLeagueReferrals(leagueItems);
       setBoothForms(nextForms);
     } catch (error) {
       setMessage(error?.response?.data?.msg || "Unable to load your booth and speaker details.");
@@ -226,7 +242,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      loadClientData(user.email, getUserCompany(user));
+      loadClientData(user.email, getUserCompany(user), getUserId(user));
     }
   }, [loadClientData, user]);
 
@@ -236,6 +252,8 @@ const Profile = () => {
       { id: "profile", label: "My Profile", icon: User },
       { id: "booth", label: "My Booth", icon: Building2 },
       { id: "speakers", label: "Speakers", icon: Mic },
+      { id: "awards", label: "Awards", icon: Award },
+      { id: "league", label: "League", icon: Trophy },
     ],
     []
   );
@@ -246,6 +264,8 @@ const Profile = () => {
     const speakerRejected = speakers.filter((speaker) => normalizeStatus(speaker.status) === "rejected").length;
     const boothPending = booths.filter((booth) => normalizeStatus(booth.status) !== "approved").length;
     const boothApproved = booths.filter((booth) => normalizeStatus(booth.status) === "approved").length;
+    const awardPending = awards.filter((award) => normalizeStatus(award.status) === "pending").length;
+    const awardWinner = awards.filter((award) => normalizeStatus(award.status) === "winner").length;
 
     return {
       boothCount: booths.length,
@@ -255,9 +275,13 @@ const Profile = () => {
       speakerRejected,
       boothPending,
       boothApproved,
-      pendingTotal: speakerPending + boothPending,
+      awardCount: awards.length,
+      awardPending,
+      awardWinner,
+      leagueReferralCount: leagueReferrals.length,
+      pendingTotal: speakerPending + boothPending + awardPending,
     };
-  }, [booths, speakers]);
+  }, [booths, speakers, awards, leagueReferrals]);
 
   const resetSpeakerForm = () => {
     setEditingSpeakerId(null);
@@ -359,7 +383,7 @@ const Profile = () => {
       setProfileForm(buildProfileForm(updatedUser));
       setProfileModalOpen(false);
       setMessage("Profile updated successfully.");
-      await loadClientData(updatedUser.email, getUserCompany(updatedUser));
+      await loadClientData(updatedUser.email, getUserCompany(updatedUser), getUserId(updatedUser));
       showProfileAlert("success", "Updated", "Profile updated successfully.");
     } catch (error) {
       const errorText = error?.response?.data?.message || error?.response?.data?.msg || "Profile update failed.";
@@ -459,7 +483,7 @@ const Profile = () => {
       const successText = "Booth company profile submitted. Admin approval pending.";
       setMessage(successText);
       setEditingBoothId(null);
-      await loadClientData(user.email, getUserCompany(user));
+      await loadClientData(user.email, getUserCompany(user), getUserId(user));
       showProfileAlert("success", "Submitted", successText);
     } catch (error) {
       const errorText = error?.response?.data?.message || error?.response?.data?.msg || "Booth update failed.";
@@ -490,7 +514,7 @@ const Profile = () => {
       const successText = "Booth company profile details deleted. Admin approval pending.";
       setEditingBoothId(null);
       setMessage(successText);
-      await loadClientData(user.email, getUserCompany(user));
+      await loadClientData(user.email, getUserCompany(user), getUserId(user));
       showProfileAlert("success", "Deleted", successText);
     } catch (error) {
       const errorText = error?.response?.data?.message || error?.response?.data?.msg || "Booth delete failed.";
@@ -546,7 +570,7 @@ const Profile = () => {
 
       setSpeakerModalOpen(false);
       resetSpeakerForm();
-      await loadClientData(user.email, getUserCompany(user));
+      await loadClientData(user.email, getUserCompany(user), getUserId(user));
     } catch (error) {
       const errorText = error?.response?.data?.message || error?.response?.data?.msg || "Speaker submit failed.";
       setMessage(errorText);
@@ -567,7 +591,7 @@ const Profile = () => {
       await deleteClientSpeaker(speaker.id, user.email);
       const successText = "Speaker profile deleted successfully.";
       setMessage(successText);
-      await loadClientData(user.email, getUserCompany(user));
+      await loadClientData(user.email, getUserCompany(user), getUserId(user));
       showProfileAlert("success", "Deleted", successText);
     } catch (error) {
       const errorText = error?.response?.data?.message || error?.response?.data?.msg || "Speaker delete failed.";
@@ -856,6 +880,126 @@ const Profile = () => {
       )}
     </section>
   );
+  const renderAwards = () => (
+    <section className="crm-panel">
+      <div className="crm-section-head">
+        <div>
+          <span>Awards CRM</span>
+          <h2>My Award Nominations</h2>
+        </div>
+        <Link to="/Awards" className="crm-primary-link">Nominate Award</Link>
+      </div>
+
+      {awards.length === 0 ? (
+        <div className="crm-empty-state">
+          <Award size={48} />
+          <h3>No Award Nominations</h3>
+          <p>Your submitted awards will appear here with admin status.</p>
+          <Link to="/Awards">Start Nomination</Link>
+        </div>
+      ) : (
+        <div className="profile-mini-card-grid">
+          {awards.map((award) => {
+            const status = normalizeStatus(award.status);
+            const submittedDate = award.submitted_at || award.created_at || "-";
+
+            return (
+              <article key={award.id || `${award.award_title}-${submittedDate}`} className={`profile-mini-card award-status-${status}`}>
+                <div className="profile-mini-card-top">
+                  <span>{award.category || "Award"}</span>
+                  <strong className={getStatusClass(award.status)}>{getStatusLabel(award.status)}</strong>
+                </div>
+                <h3>{award.award_title || "Award Nomination"}</h3>
+                <p>{award.reason || award.nomination_details || "Nomination submitted for admin review."}</p>
+                <div className="profile-mini-meta">
+                  <div><span>Nominee</span><strong>{award.name || getUserName(user)}</strong></div>
+                  <div><span>Company</span><strong>{award.company || getUserCompany(user) || "-"}</strong></div>
+                  <div><span>Submitted</span><strong>{submittedDate}</strong></div>
+                  <div><span>Result</span><strong>{award.winner_status ? getStatusLabel(award.winner_status) : getStatusLabel(award.status)}</strong></div>
+                </div>
+                {(award.winner_note || award.status_note) && <small className="admin-note">{award.winner_note || award.status_note}</small>}
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  );
+
+  const renderLeague = () => {
+    const fallbackReferralCode = getUserId(user) ? `PFX${String(getUserId(user)).padStart(6, "0")}` : "";
+    const referralCode = user?.referral_code || fallbackReferralCode;
+    const referralLink = user?.referral_link || (referralCode ? `${window.location.origin}/africa/LeagueEnroll?ref=${encodeURIComponent(referralCode)}` : "");
+
+    return (
+      <section className="crm-panel">
+        <div className="crm-section-head">
+          <div>
+            <span>League Referral CRM</span>
+            <h2>Referral Registrations</h2>
+          </div>
+          <Link to="/LeagueEnroll" className="crm-primary-link">League Enroll</Link>
+        </div>
+
+        <div className="profile-referral-card league-referral-summary">
+          <div className="profile-referral-intro">
+            <div className="profile-referral-icon"><Trophy size={22} /></div>
+            <div>
+              <span>Referral Tracking</span>
+              <h3>Your league referral code and link</h3>
+              <p>Users who enroll through this code or link will show below.</p>
+            </div>
+          </div>
+          <div className="profile-referral-fields">
+            <div className="profile-copy-field">
+              <span>Referral Code</span>
+              <strong>{referralCode || "Not generated yet"}</strong>
+              <button type="button" onClick={() => copyProfileValue("Referral code", referralCode)} title="Copy referral code">
+                <Copy size={16} /> Copy
+              </button>
+            </div>
+            <div className="profile-copy-field wide">
+              <span>Referral Link</span>
+              <strong>{referralLink || "Not generated yet"}</strong>
+              <button type="button" onClick={() => copyProfileValue("Referral link", referralLink)} title="Copy referral link">
+                <Copy size={16} /> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {leagueReferrals.length === 0 ? (
+          <div className="crm-empty-state">
+            <UsersRound size={48} />
+            <h3>No Referral Users Yet</h3>
+            <p>League users registered with your referral code or link will appear here.</p>
+          </div>
+        ) : (
+          <div className="profile-mini-card-grid league-card-grid">
+            {leagueReferrals.map((item) => {
+              const leagueId = item.league_id || `PFXL-${String(item.id || "").padStart(5, "0")}`;
+              return (
+                <article key={item.id || item.email} className="profile-mini-card league-user-card">
+                  <div className="profile-mini-card-top">
+                    <span>{leagueId}</span>
+                    <strong>{item.role || "League User"}</strong>
+                  </div>
+                  <h3>{item.name || item.full_name || "League User"}</h3>
+                  <p>{item.email || "-"}</p>
+                  <div className="profile-mini-meta">
+                    <div><span>Company</span><strong>{item.company || item.company_name || "-"}</strong></div>
+                    <div><span>Phone</span><strong>{item.phone || "-"}</strong></div>
+                    <div><span>Country</span><strong>{item.country || "-"}</strong></div>
+                    <div><span>Joined</span><strong>{item.created_at || "-"}</strong></div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
+      </section>
+    );
+  };
 
   if (!user) return null;
 
@@ -890,6 +1034,8 @@ const Profile = () => {
             <div className="crm-sidebar-counts">
               <div><span>Booths</span><strong>{stats.boothCount}</strong></div>
               <div><span>Speakers</span><strong>{stats.speakerCount}</strong></div>
+              <div><span>Awards</span><strong>{stats.awardCount}</strong></div>
+              <div><span>League</span><strong>{stats.leagueReferralCount}</strong></div>
               <div><span>Pending</span><strong>{stats.pendingTotal}</strong></div>
             </div>
           </aside>
@@ -912,6 +1058,8 @@ const Profile = () => {
             {activeTab === "profile" && renderProfile()}
             {activeTab === "booth" && renderBooth()}
             {activeTab === "speakers" && renderSpeakers()}
+            {activeTab === "awards" && renderAwards()}
+            {activeTab === "league" && renderLeague()}
           </main>
         </div>
       </div>

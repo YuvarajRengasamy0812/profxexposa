@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PageHelmet from "../Components/Pagehelmet";
 import Breadcrumb from "../Components/Breadcrumb";
 import PhoneInput from "react-phone-input-2";
@@ -108,6 +108,8 @@ const WHATSAPP_GROUP_LINK =
   "https://chat.whatsapp.com/Er7vSpSmGoK68nFbGrxAQk";
 
 const Register = () => {
+  const location = useLocation();
+  const redirectAfterRegister = new URLSearchParams(location.search).get("redirect");
   const countryOptions = countryList().getData();
   const handlePhoneChange = (value, country) => {
     setPhone(value);
@@ -216,7 +218,7 @@ const Register = () => {
       return;
     }
 
-    // ✅ Password match check
+    // âœ… Password match check
     if (password !== confirmPassword) {
       return Swal.fire({
         icon: "error",
@@ -256,6 +258,31 @@ const Register = () => {
         });
 
       if (res.data.code === "1" || res.data.code === 1) {
+        if (redirectAfterRegister) {
+          const registeredUser = {
+            id: res.data.data?.user_id,
+            user_id: res.data.data?.user_id,
+            full_name: fullName,
+            email,
+            company_name: companyName,
+            phone: digitsOnly,
+            user_type: userType,
+            nationality: nationality?.label || "",
+            referral_code: res.data.data?.referral_code,
+            referral_link: res.data.data?.referral_link,
+          };
+
+          localStorage.setItem("user", JSON.stringify(registeredUser));
+          window.dispatchEvent(new CustomEvent("userProfileUpdated", { detail: registeredUser }));
+          await Swal.fire({
+            icon: "success",
+            title: "Registration Successful",
+            text: "Registration completed. You can now submit your nomination.",
+            confirmButtonColor: "#c9a227",
+          });
+          window.location.assign(redirectAfterRegister);
+          return;
+        }
         sendRegistrationAnalytics();
         const groupChoice = await Swal.fire({
           icon: "success",
@@ -357,7 +384,7 @@ const Register = () => {
         <div className="container">
           <div className="row g-4 align-items-stretch">
 
-            {/* LEFT SIDE – CONTACT INFO */}
+            {/* LEFT SIDE â€“ CONTACT INFO */}
             <div className="col-12 col-lg-5">
               <div className="h-100 bg-white rounded shadow p-4 d-flex flex-column gap-3">
                 <h5 className="pink mb-2">Contact Info:</h5>
@@ -380,7 +407,7 @@ const Register = () => {
               </div>
             </div>
 
-            {/* RIGHT SIDE – REGISTER FORM */}
+            {/* RIGHT SIDE â€“ REGISTER FORM */}
             <div className="col-12 col-lg-7">
               <div className="h-100 bg-white rounded shadow p-4">
                 <h4 className="pink mb-4 text-center">Register for PROFX EXPO AFRICA 2026</h4>
@@ -636,6 +663,8 @@ const Register = () => {
 };
 
 export default Register;
+
+
 
 
 

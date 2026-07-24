@@ -39,6 +39,7 @@ import Floorplan from "./Pages/Floorplan";
 import Influencers from "./Pages/Influencers";
 import League from "./Pages/League";
 import LeagueEnroll from "./Pages/LeagueEnroll";
+import Awards from "./Pages/Awards";
 function App() {
   const location = useLocation();
   const hideHeaderFooter = location.pathname === "/Comingsoon";
@@ -51,7 +52,7 @@ function App() {
     });
   }, []);
 
-  // ⭐ Scroll to top whenever route changes
+  // â­ Scroll to top whenever route changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname])
@@ -75,6 +76,7 @@ function App() {
           <Route path="/Influencers" element={<Influencers />} />
           <Route path="/League" element={<League />} />
           <Route path="/LeagueEnroll" element={<LeagueEnroll />} />
+          <Route path="/Awards" element={<Awards />} />
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
@@ -113,3 +115,5 @@ function App() {
 }
 
 export default App;
+
+
