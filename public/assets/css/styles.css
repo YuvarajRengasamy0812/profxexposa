@@ -427,6 +427,13 @@
   background-position: center;
 }
 
+.banner-image .home-hero-person {
+  width: clamp(260px, 29vw, 380px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .banner-button .btn2:hover {
   background-image: linear-gradient(230deg, #f0e27b, #c19d38);
   background-color: #c19d38;
