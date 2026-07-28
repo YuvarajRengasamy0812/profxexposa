@@ -1,8 +1,8 @@
 import API from "./api";
 import { ClientBooths, Floorplan, FloorplanList } from "./endpoints";
 
-export const getFloorplanList = () => {
-  return API.get(FloorplanList);
+export const getFloorplanList = (params = {}) => {
+  return API.get(FloorplanList, { params });
 };
 
 export const getClientBooths = (email) => {

@@ -49,6 +49,12 @@ const Booth = ({
 
   const isPodcast = boothType === "podcast";
   const isTooltipVisible = activeTooltipId === boothId;
+  const reservedCompanyName = reservedInfo?.companyName || "Reserved";
+  const reservedBoothNo = reservedInfo?.boothNo || boothNo;
+  const reservedTooltipLabel = reservedBoothNo
+    ? `${reservedCompanyName} - Booth no: ${reservedBoothNo}`
+    : reservedCompanyName;
+  const reservedTooltipFontSize = reservedTooltipLabel.length > 24 ? 10 : 12;
 
   useEffect(() => {
     if (!isTooltipVisible || !boothGroupRef.current?.parentNode) return;
@@ -388,12 +394,12 @@ const Booth = ({
               <text
                 x={x + width / 2}
                 y={tooltipY + 60}
-                fontSize="12"
+                fontSize={reservedTooltipFontSize}
                 fontWeight="700"
                 fill="#333"
                 textAnchor="middle"
               >
-                {reservedInfo.companyName}
+                {reservedTooltipLabel}
               </text>
             </>
           ) : (

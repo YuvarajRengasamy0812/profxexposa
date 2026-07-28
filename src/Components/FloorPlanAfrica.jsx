@@ -36,13 +36,37 @@ const FloorPlanAfrica = () => {
       return logo;
     };
 
-    getFloorplanList()
-      .then((res) => {
+    const getLastPage = (data) => {
+      const lastPage =
+        data?.details?.tickets?.last_page ||
+        data?.tickets?.last_page ||
+        data?.details?.last_page ||
+        data?.last_page ||
+        1;
+
+      return Number(lastPage) || 1;
+    };
+
+    const fetchAllFloorplanTickets = async () => {
+      const firstPage = await getFloorplanList();
+      const tickets = [...getTickets(firstPage?.data)];
+      const lastPage = getLastPage(firstPage?.data);
+
+      for (let page = 2; page <= lastPage; page += 1) {
+        const nextPage = await getFloorplanList({ page });
+        tickets.push(...getTickets(nextPage?.data));
+      }
+
+      return tickets;
+    };
+
+    fetchAllFloorplanTickets()
+      .then((tickets) => {
         if (ignore) {
           return;
         }
 
-        const reserved = getTickets(res?.data)
+        const reserved = tickets
           .filter((t) => t.boothno && String(t.status || "pending").toLowerCase() !== "rejected")
           .map((t) => {
             const approved = t.is_company_profile_approved === true || t.status === "approved";

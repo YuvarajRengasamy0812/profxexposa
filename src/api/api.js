@@ -28,7 +28,7 @@ const resolveApiBaseUrl = () => {
   const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
 
   if (isLocalHost) {
-    return "http://localhost/profxexposabackend/api/v1";
+    return "https://profxexpo.com/africa/adminpanel/api/v1";
   }
 
   if (configuredUrl) {
