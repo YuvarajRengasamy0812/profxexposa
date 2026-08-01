@@ -26,9 +26,8 @@ const colors = {
 
 const boothStroke = {
   borderRadius: 0,
-  strokeColor: "#111111",
-  strokeWidth: 1.5,
-  strokeDasharray: "5 5",
+  strokeColor: "rgba(0,0,0,0.35)",
+  strokeWidth: 1,
   showShadow: false,
   showHighlight: false,
 };
@@ -269,16 +268,10 @@ const FloorPlanAfrica = () => {
             className="transform-floor"
             style={{ background: "#ffffff", display: "block" }}
           >
-            <defs>
-              <pattern id="africaGrid" width="22" height="22" patternUnits="userSpaceOnUse">
-                <path d="M22 0H0V22" fill="none" stroke="#9aa0a4" strokeWidth="0.75" opacity="0.78" />
-              </pattern>
-            </defs>
 
             <FloorBorder x="18" y="3" width="1555" height="744" opacity="0.25" pointerEvents="none" />
 
             <rect x="150" y="96" width="1200" height="630" fill="#ffffff" opacity="0.94" />
-            <rect x="150" y="96" width="1200" height="630" fill="url(#africaGrid)" />
             <rect x="150" y="96" width="1200" height="630" fill="none" stroke="#cfd3d4" strokeWidth="1.4" />
 
             <g opacity="0.78">
@@ -434,7 +427,7 @@ const FloorPlanAfrica = () => {
             {renderUtility(1115, 698, "util-bottom")}
             {renderUtility(1308, 498, "util-right")}
 
-           
+
 
             {showTradingTooltip && (
               <g pointerEvents="none">

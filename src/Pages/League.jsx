@@ -1,11 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Breadcrumb from "../Components/Breadcrumb";
 import Pagehelmet from "../Components/Pagehelmet";
 import LetsDoIt from "../Components/LetsDoIt";
 import { buildAssetUrl } from "../utils/assetUrl";
+import LeagueEnrollSection from "../Components/LeagueEnrollSection";
 
-const ENROLL_URL = "/LeagueEnroll";
+const ENROLL_SECTION_ID = "league-enroll";
+const ENROLL_URL = `#${ENROLL_SECTION_ID}`;
+
+const scrollToEnrollSection = (event) => {
+  event?.preventDefault();
+  const section = document.getElementById(ENROLL_SECTION_ID);
+  if (!section) return;
+
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.history.replaceState(null, "", ENROLL_URL);
+};
 const GOLD = "linear-gradient(135deg, #c19d38, #e8c96b)";
 const GREEN = "linear-gradient(135deg, #0e5941, #15831d)";
 
@@ -208,9 +218,9 @@ function TournamentCard({ round, isFinal }) {
           <div className="card-title-wrap text-center">
             <span className="tournament-card-subtitle">{dateLabel}</span>
             <div className="btn-wrap justify-content-center align-items-center pt-2">
-              <Link to={ENROLL_URL} className="th-btn btn-sm">
+              <a href={ENROLL_URL} onClick={scrollToEnrollSection} className="th-btn btn-sm">
                 More Info
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -498,10 +508,10 @@ export default function League() {
 
           {/* CTA button */}
           <div className="league-hero-cta" style={{ marginBottom: 52 }}>
-            <Link to={ENROLL_URL} className="hero-enroll-btn">
+            <a href={ENROLL_URL} onClick={scrollToEnrollSection} className="hero-enroll-btn">
               <i className="fa fa-trophy"></i>
               Enroll Now – It's Free
-            </Link>
+            </a>
           </div>
 
           {/* Stats pills */}
@@ -532,6 +542,10 @@ export default function League() {
           animationDelay: "-1.25s",
         }} />
       </section>
+
+      <div id={ENROLL_SECTION_ID}>
+        <LeagueEnrollSection showBackLink={false} />
+      </div>
 
       {/* ── Rules & Structure ─────────────────────────────── */}
       <section className="py-8 py-md-10" style={{ background: "#f9f9f5" }}>
@@ -570,9 +584,9 @@ export default function League() {
             <h2 className="mb-1">ProFX League – FX Championship <span className="pink">2026!</span></h2>
             <p className="text-grey mb-4">4 Weekly Qualifier Rounds + 1 Grand Final. Top 50 from each round advance.</p>
             <div className="btn-wrap justify-content-center mb-6">
-              <Link to={ENROLL_URL} className="th-btn">
+              <a href={ENROLL_URL} onClick={scrollToEnrollSection} className="th-btn">
                 Enroll Now
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -689,9 +703,9 @@ export default function League() {
             </div>
             <div className="text-center mt-5">
               <div className="btn-wrap justify-content-center">
-                <Link to={ENROLL_URL} className="th-btn">
+                <a href={ENROLL_URL} onClick={scrollToEnrollSection} className="th-btn">
                   Enroll in Championship &rarr;
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -726,9 +740,9 @@ export default function League() {
             <div className="ticket-info">
               <p><b></b> is completely free to enter! Compete against the world's best traders and win your share of USD&nbsp;$25,000.</p>
               <div className="ticket-button">
-                <Link to={ENROLL_URL} className="btn">
+                <a href={ENROLL_URL} onClick={scrollToEnrollSection} className="btn">
                   Enroll Now - It's Free!
-                </Link>
+                </a>
               </div>
             </div>
           </div>
