@@ -20,6 +20,9 @@ const Booth = ({
   showBottomSize = true,
   showShadow = true,
   showHighlight = true,
+  strokeColor = "rgba(0,0,0,0.15)",
+  strokeWidth = 1.5,
+  strokeDasharray,
   onClick,
   isReserved = false,
   activeTooltipId = null,
@@ -111,8 +114,9 @@ const Booth = ({
         height={height}
         rx={borderRadius}
         fill={isTooltipVisible ? `url(#${gradientId})` : color}
-        stroke="rgba(0,0,0,0.15)"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
+        strokeDasharray={strokeDasharray}
         style={{ transition: "all 0.2s ease" }}
       />
 
@@ -431,4 +435,3 @@ const Booth = ({
 };
 
 export default Booth;
-
