@@ -251,23 +251,23 @@ const FloorPlanAfrica = () => {
         <div
           className="mx-auto bg-white rounded shadow-xl floor-plan-dubai"
           style={{
-            width: "90%",
-            maxWidth: "1500px",
-            height: "75vh",
-            minHeight: "520px",
-            overflow: "auto",
+            width: "88%",
+            maxWidth: "1450px",
+            height: "68vh",
+            minHeight: "0",
+            overflow: "hidden",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
           <svg
-            viewBox="0 0 1660 760"
+            viewBox="95 0 1525 760"
             width="100%"
             height="100%"
             preserveAspectRatio="xMidYMid meet"
             className="transform-floor"
-            style={{ background: "#ffffff", minWidth: "1180px" }}
+            style={{ background: "#ffffff", display: "block" }}
           >
             <defs>
               <pattern id="africaGrid" width="22" height="22" patternUnits="userSpaceOnUse">
@@ -491,4 +491,3 @@ const FloorPlanAfrica = () => {
 };
 
 export default FloorPlanAfrica;
-
