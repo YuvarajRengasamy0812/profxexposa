@@ -120,6 +120,12 @@ export default function SponsorPartners() {
       single: true,
       showTitle: false,
     },
+      {
+      title: "Regional  Sponsors",
+      aliases: ["regional"],
+      single: true,
+      showTitle: false,
+    },
     {
       title: "Elite Sponsors",
       aliases: ["elite", "elite hub", "elitehub"],
