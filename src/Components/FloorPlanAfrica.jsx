@@ -8,65 +8,77 @@ import { buildAssetUrl } from "../utils/assetUrl";
 import { getFloorplanList } from "../api/floorplan";
 
 const colors = {
-  title: "#3f7c71",
-  regional: "#b9f5bd",
-  elite: "#f58a00",
-  official: "#465879",
-  exclusive: "#70cedb",
-  gold: "#d2b060",
-  silver: "#bfc1c1",
+  title: "#2f6f67",
+  regional: "#7f9d83",
+  elite: "#aa5f00",
+  official: "#33445f",
+  exclusive: "#3f8790",
+  gold: "#ffd943",
+  silver: "#cfd8dc",
   speakerHall: "#e8ecec",
-  networking: "#cbc5ec",
-  cafe: "#9a7440",
-  kiosk: "#ffab32",
-  screen: "#e5261d",
-  ledWall: "#e5261d",
-  trading: "#d7dada",
+  networking: "#9784e3",
+  cafe: "#a87531",
+  kiosk: "#ffa629",
+  screen: "#f00610",
+  ledWall: "#f00610",
+  trading: "#d8dadb",
+};
+
+const boothBorderColors = {
+  title: "#24554f",
+  regional: "#6d8b70",
+  elite: "#8e4f00",
+  official: "#25344b",
+  exclusive: "#32717a",
+  gold: "#d3a600",
+  silver: "#aeb8bd",
+  networking: "#7968c7",
+  cafe: "#825b24",
+  kiosk: "#d68a17",
+  "digital-kiosk": "#d68a17",
+  finxcart: "#d68a17",
+  networklounge: "#7968c7",
 };
 
 const boothStroke = {
-  borderRadius: 0,
-  strokeColor: "rgba(0,0,0,0.35)",
-  strokeWidth: 1,
-  showShadow: false,
-  showHighlight: false,
+  borderRadius: 7,
+  strokeWidth: 2.2,
+  showShadow: true,
+  showHighlight: true,
 };
 
 const topBooths = [
-  { boothNo: 18, type: "gold", title: "Booth 18\nGold\nBooth", color: colors.gold, x: 353, y: 164 },
-  { boothNo: 17, type: "gold", title: "Booth 17\nGold\nBooth", color: colors.gold, x: 510, y: 164 },
-  { boothNo: 16, type: "silver", title: "Booth 16\nSilver\nBooth", color: colors.silver, x: 578, y: 164 },
-  { boothNo: 15, type: "silver", title: "Booth 15\nSilver\nBooth", color: colors.silver, x: 646, y: 164 },
-  { boothNo: 14, type: "silver", title: "Booth 14\nSilver\nBooth", color: colors.silver, x: 714, y: 164 },
-  { boothNo: 13, type: "gold", title: "Booth 13\nGold\nBooth", color: colors.gold, x: 781, y: 164 },
-  { boothNo: 12, type: "gold", title: "Booth 12\nGold\nBooth", color: colors.gold, x: 913, y: 164 },
-  { boothNo: 11, type: "silver", title: "Booth 11\nSilver\nBooth", color: colors.silver, x: 980, y: 164 },
-  { boothNo: 10, type: "silver", title: "Booth 10\nSilver\nBooth", color: colors.silver, x: 1048, y: 164 },
-  { boothNo: 9, type: "silver", title: "Booth 09\nSilver\nBooth", color: colors.silver, x: 1116, y: 164 },
-  { boothNo: 8, type: "gold", title: "Booth 08\nGold\nBooth", color: colors.gold, x: 1182, y: 164 },
+  { boothNo: 18, type: "gold", title: "Booth 18\nGold\nBooth", color: colors.gold, x: 360, y: 164 },
+  { boothNo: 17, type: "gold", title: "Booth 17\nGold\nBooth", color: colors.gold, x: 502, y: 164 },
+  { boothNo: 16, type: "silver", title: "Booth 16\nSilver\nBooth", color: colors.silver, x: 582, y: 164 },
+  { boothNo: 15, type: "silver", title: "Booth 15\nSilver\nBooth", color: colors.silver, x: 662, y: 164 },
+  { boothNo: 14, type: "silver", title: "Booth 14\nSilver\nBooth", color: colors.silver, x: 742, y: 164 },
+  { boothNo: 13, type: "gold", title: "Booth 13\nGold\nBooth", color: colors.gold, x: 822, y: 164 },
+  { boothNo: 12, type: "gold", title: "Booth 12\nGold\nBooth", color: colors.gold, x: 918, y: 164 },
+  { boothNo: 11, type: "silver", title: "Booth 11\nSilver\nBooth", color: colors.silver, x: 998, y: 164 },
+  { boothNo: 10, type: "silver", title: "Booth 10\nSilver\nBooth", color: colors.silver, x: 1078, y: 164 },
+  { boothNo: 9, type: "silver", title: "Booth 09\nSilver\nBooth", color: colors.silver, x: 1158, y: 164 },
+  { boothNo: 8, type: "gold", title: "Booth 08\nGold\nBooth", color: colors.gold, x: 1238, y: 164 },
 ];
-
 const sideBooths = [
-  { boothNo: 19, type: "silver", title: "Booth 19\nSilver\nBooth", color: colors.silver, y: 231 },
-  { boothNo: 20, type: "silver", title: "Booth 20\nSilver\nBooth", color: colors.silver, y: 296 },
-  { boothNo: 21, type: "silver", title: "Booth 21\nSilver\nBooth", color: colors.silver, y: 361 },
-  { boothNo: 22, type: "silver", title: "Booth 22\nSilver\nBooth", color: colors.silver, y: 427 },
-  { boothNo: 23, type: "gold", title: "Booth 23\nGold\nBooth", color: colors.gold, y: 502 },
+  { boothNo: 19, type: "silver", title: "Booth 19\nSilver\nBooth", color: colors.silver, y: 242 },
+  { boothNo: 20, type: "silver", title: "Booth 20\nSilver\nBooth", color: colors.silver, y: 318 },
+  { boothNo: 21, type: "silver", title: "Booth 21\nSilver\nBooth", color: colors.silver, y: 394 },
+  { boothNo: 22, type: "silver", title: "Booth 22\nSilver\nBooth", color: colors.silver, y: 470 },
+  { boothNo: 23, type: "gold", title: "Booth 23\nGold\nBooth", color: colors.gold, y: 546 },
 ];
-
 const featureBooths = [
-  { boothNo: 5, type: "exclusive", title: "Booth 05\nExclusive\nSponsorship", size: "3 x 4", color: colors.exclusive, x: 822, y: 590, width: 90, height: 68, fontSize: 7.2 },
-  { boothNo: 6, type: "elite", title: "Booth 06\nElite\nSponsorship", size: "4 x 3", color: colors.elite, x: 822, y: 455, width: 90, height: 69, fontSize: 7.2 },
-  { boothNo: 7, type: "finxcart", title: "Booth 07\nFinXcart", size: "4 x 3", color: colors.kiosk, x: 979, y: 388, width: 90, height: 67, fontSize: 7.2 },
-  { boothNo: 4, type: "elite", title: "Booth 04\nElite\nSponsorship", size: "4 x 3", color: colors.elite, x: 979, y: 455, width: 90, height: 69, fontSize: 7.2 },
-  { boothNo: 3, type: "official", title: "Booth 03\nOfficial\nSponsorship", size: "3 x 4", color: colors.official, x: 979, y: 589, width: 90, height: 69, fontSize: 7.2, textColor: "#ffffff" },
-  { boothNo: 2, type: "regional", title: "Booth 02\nRegional\nSponsorship", size: "5 x 3", color: colors.regional, x: 1136, y: 454, width: 113, height: 67, fontSize: 7.4 },
-  { boothNo: 1, type: "title", title: "Booth 01\nTitle\nSponsorship", size: "5 x 3", color: colors.title, x: 1136, y: 589, width: 113, height: 69, fontSize: 7.4, textColor: "#ffffff" },
+  { boothNo: 5, type: "exclusive", title: "Booth 05\nExclusive\nSponsorship", size: "3 x 4", color: colors.exclusive, x: 822, y: 598, width: 96, height: 76, fontSize: 7.4 },
+  { boothNo: 6, type: "elite", title: "Booth 06\nElite\nSponsorship", size: "4 x 3", color: colors.elite, x: 822, y: 466, width: 96, height: 76, fontSize: 7.4 },
+  { boothNo: 7, type: "finxcart", title: "Booth 07\nFinXcart", size: "4 x 3", color: colors.kiosk, x: 979, y: 378, width: 96, height: 78, fontSize: 7.4 },
+  { boothNo: 4, type: "elite", title: "Booth 04\nElite\nSponsorship", size: "4 x 3", color: colors.elite, x: 979, y: 470, width: 96, height: 76, fontSize: 7.4 },
+  { boothNo: 3, type: "official", title: "Booth 03\nOfficial\nSponsorship", size: "3 x 4", color: colors.official, x: 979, y: 598, width: 96, height: 76, fontSize: 7.4, textColor: "#ffffff" },
+  { boothNo: 2, type: "regional", title: "Booth 02\nRegional\nSponsorship", size: "5 x 3", color: colors.regional, x: 1128, y: 454, width: 122, height: 78, fontSize: 7.6 },
+  { boothNo: 1, type: "title", title: "Booth 01\nTitle\nSponsorship", size: "5 x 3", color: colors.title, x: 1128, y: 596, width: 122, height: 78, fontSize: 7.6, textColor: "#ffffff" },
 ];
-
 const kiosks = [
-  { boothNo: 24, x: 979, y: 297 },
-  { boothNo: 25, x: 1024, y: 297 },
+  { boothNo: 24, x: 974, y: 291 },
+  { boothNo: 25, x: 1035, y: 291 },
 ];
 
 const FloorPlanAfrica = () => {
@@ -181,8 +193,8 @@ const FloorPlanAfrica = () => {
         size={booth.size || "3 x 3"}
         x={booth.x}
         y={booth.y}
-        width={booth.width || 69}
-        height={booth.height || 66}
+        width={booth.width || 73}
+        height={booth.height || 68}
         color={booth.color}
         textColor={booth.textColor || "#111111"}
         fontSize={booth.fontSize || 7.2}
@@ -192,6 +204,7 @@ const FloorPlanAfrica = () => {
         onClick={handleBoothSelect}
         activeTooltipId={activeTooltipId}
         setActiveTooltipId={setActiveTooltipId}
+        strokeColor={booth.strokeColor || boothBorderColors[booth.type] || "rgba(0,0,0,0.22)"}
         {...boothStroke}
       />
     );
@@ -218,8 +231,8 @@ const FloorPlanAfrica = () => {
     <g key={label}>
       <path d={`M${x - 24} 39 Q${x} 15 ${x + 24} 39`} fill="none" stroke="#cbd0d2" strokeWidth="1" />
       <line x1={x} y1="43" x2={x} y2="62" stroke="#b8dcea" strokeWidth="3" />
-      <polygon points={`${x},34 ${x - 7},45 ${x + 7},45`} fill="#b8dcea" />
-      <text x={x} y="69" textAnchor="middle" fontSize="10" fill="#5f6368" fontWeight="700">EXIT</text>
+      {/* <polygon points={`${x},34 ${x - 7},45 ${x + 7},45`} fill="#b8dcea" /> */}
+      <text x={x} y="69" textAnchor="middle" fontSize="10" fill="#5f6368" fontWeight="700"></text>
     </g>
   );
 
@@ -269,10 +282,10 @@ const FloorPlanAfrica = () => {
             style={{ background: "#ffffff", display: "block" }}
           >
 
-            <FloorBorder x="18" y="3" width="1555" height="744" opacity="0.25" pointerEvents="none" />
+            <FloorBorder x="18" y="3" width="1555" height="744" opacity="0.58" pointerEvents="none" />
 
-            <rect x="150" y="96" width="1200" height="630" fill="#ffffff" opacity="0.94" />
-            <rect x="150" y="96" width="1200" height="630" fill="none" stroke="#cfd3d4" strokeWidth="1.4" />
+            <rect x="150" y="96" width="1200" height="630" fill="#ffffff" opacity="0.78" />
+            <rect x="150" y="96" width="1200" height="630" fill="none" stroke="#bfc5c7" strokeWidth="1.8" />
 
             <g opacity="0.78">
               <line x1="68" y1="96" x2="68" y2="724" stroke="#8d8d8d" strokeWidth="1" />
@@ -307,10 +320,17 @@ const FloorPlanAfrica = () => {
               {renderSeatBlock({ x: 263, y: 435, cols: 6, rows: 7, prefix: "speaker-f" })}
               {renderSeatBlock({ x: 170, y: 548, cols: 6, rows: 6, prefix: "speaker-g" })}
               {renderSeatBlock({ x: 263, y: 548, cols: 6, rows: 6, prefix: "speaker-h" })}
+              <g aria-label="Speaker hall door">
+                <rect x="350" y="626" width="8" height="66" fill={colors.speakerHall} />
+                <line x1="353" y1="96" x2="353" y2="626" stroke="#111" strokeWidth="1.4" />
+                <line x1="353" y1="692" x2="353" y2="726" stroke="#111" strokeWidth="1.4" />
+                <path d="M353 626 L379 626 Q374 647 353 659 Z" fill="#617a97" opacity="0.98" />
+                <path d="M353 692 L379 692 Q374 671 353 659 Z" fill="#617a97" opacity="0.98" />
+              </g>
             </g>
 
             {topBooths.map(renderBooth)}
-            {sideBooths.map((booth) => renderBooth({ ...booth, x: 353, width: 67, height: 65, fontSize: 7.1 }))}
+            {sideBooths.map((booth) => renderBooth({ ...booth, x: 360, width: 72, height: 70, fontSize: 7.2 }))}
             {kiosks.map((booth) => renderBooth({
               boothNo: booth.boothNo,
               type: "digital-kiosk",
@@ -319,8 +339,8 @@ const FloorPlanAfrica = () => {
               color: colors.kiosk,
               x: booth.x,
               y: booth.y,
-              width: 45,
-              height: 55,
+              width: 52,
+              height: 60,
               fontSize: 7,
             }))}
             {featureBooths.map(renderBooth)}
@@ -330,7 +350,7 @@ const FloorPlanAfrica = () => {
               onMouseLeave={() => setShowTradingTooltip(false)}
               style={{ cursor: "default" }}
             >
-              <rect x="486" y="297" width="270" height="359" fill={colors.trading} />
+              <rect x="486" y="297" width="270" height="359" rx="8" fill={colors.trading} />
               {renderSeatBlock({ x: 512, y: 355, cols: 3, rows: 5, gapX: 18, gapY: 15, size: 13, prefix: "trade-left-top" })}
               {renderSeatBlock({ x: 684, y: 355, cols: 3, rows: 5, gapX: 18, gapY: 15, size: 13, prefix: "trade-right-top" })}
               {renderSeatBlock({ x: 512, y: 448, cols: 3, rows: 5, gapX: 18, gapY: 15, size: 13, prefix: "trade-left-mid" })}
@@ -339,8 +359,8 @@ const FloorPlanAfrica = () => {
               {renderSeatBlock({ x: 592, y: 355, cols: 5, rows: 4, gapX: 14, gapY: 14, size: 13, prefix: "trade-top-center" })}
               {renderSeatBlock({ x: 592, y: 552, cols: 5, rows: 3, gapX: 14, gapY: 15, size: 13, prefix: "trade-bottom-center" })}
               {renderSeatBlock({ x: 684, y: 538, cols: 3, rows: 4, gapX: 18, gapY: 15, size: 13, prefix: "trade-right-bot" })}
-              <rect x="571" y="417" width="104" height="96" fill="#8b8f90" />
-              <rect x="582" y="428" width="82" height="74" fill={colors.trading} />
+              <rect x="571" y="417" width="104" height="96" rx="4" fill="#8b8f90" />
+              <rect x="582" y="428" width="82" height="74" rx="3" fill={colors.trading} />
               <circle cx="623" cy="469" r="34" fill="#ffffff" />
               <image
                 href={buildAssetUrl("assets/images/league/league.png")}
@@ -362,9 +382,9 @@ const FloorPlanAfrica = () => {
               size: "7 x 4",
               color: colors.networking,
               x: 822,
-              y: 297,
-              width: 90,
-              height: 157,
+              y: 292,
+              width: 96,
+              height: 160,
               fontSize: 10,
             })}
             {renderBooth({
@@ -374,10 +394,10 @@ const FloorPlanAfrica = () => {
               title: "Cafe Lounge",
               size: "4 x 5",
               color: colors.cafe,
-              x: 1136,
-              y: 297,
-              width: 113,
-              height: 91,
+              x: 1128,
+              y: 292,
+              width: 122,
+              height: 98,
               fontSize: 12,
               textColor: "#ffffff",
             })}
@@ -402,16 +422,7 @@ const FloorPlanAfrica = () => {
               >LED Exposure Wall</text>
             </g>
 
-            <g>
-              <rect x="1234" y="566" width="106" height="130" fill="#f1efd9" opacity="0.65" stroke="#e0dcc7" />
-              <text x="1299" y="636" textAnchor="middle" fontSize="11" fill="#777" fontWeight="800" transform="rotate(-90 1299 636)">ENTRANCE</text>
-              <text x="1390" y="636" textAnchor="middle" fontSize="12" fill="#111" fontWeight="800" transform="rotate(-90 1390 636)">ENTRANCE GATE</text>
-              <polygon points="1389,588 1383,602 1395,602" fill="#111" />
-              <text x="1512" y="627" textAnchor="middle" fontSize="13" fill="#8f8f8f" fontWeight="800">
-                <tspan x="1512" dy="0">HALL</tspan><tspan x="1512" dy="16">ENTRANCE</tspan>
-              </text>
-              <polygon points="1351,627 1364,620 1364,634" fill="#c4eaf4" />
-            </g>
+            {/* <polygon points="1351,627 1364,620 1364,634" fill="#c4eaf4" /> */}
 
             <g>
               {[598, 646, 694, 842, 890, 938].map((x, index) => renderExit(x, `exit-${index}`))}
@@ -484,3 +495,8 @@ const FloorPlanAfrica = () => {
 };
 
 export default FloorPlanAfrica;
+
+
+
+
+

@@ -147,6 +147,39 @@ const showProfileConfirm = (title, text) => Swal.fire({
   cancelButtonColor: "#64748b",
 });
 
+const isValidReferralValue = (value) => {
+  const text = String(value || "").trim();
+  if (!text || text === "-") return false;
+  return !/(^|[|])(?:nullable|string|max:\d+)(?:[|]|$)/i.test(text);
+};
+
+const firstValidReferralValue = (...values) => {
+  return values.map((value) => String(value || "").trim()).find(isValidReferralValue) || "";
+};
+
+const getReferralAccess = (currentUser) => {
+  const fallbackReferralCode = getUserId(currentUser) ? `PFX${String(getUserId(currentUser)).padStart(6, "0")}` : "";
+  const referralCode = firstValidReferralValue(
+    currentUser?.referral_code,
+    currentUser?.referal_code,
+    currentUser?.league_referral_code,
+    currentUser?.referralCode,
+    currentUser?.leagueReferralCode,
+    currentUser?.referral?.code,
+    fallbackReferralCode
+  );
+  const referralLink = firstValidReferralValue(
+    currentUser?.referral_link,
+    currentUser?.referal_link,
+    currentUser?.league_referral_link,
+    currentUser?.referralLink,
+    currentUser?.leagueReferralLink,
+    currentUser?.referral?.link
+  ) || (referralCode ? `${window.location.origin}/africa/LeagueEnroll?ref=${encodeURIComponent(referralCode)}` : "");
+
+  return { referralCode, referralLink };
+};
+
 const Profile = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -605,7 +638,7 @@ const Profile = () => {
   const copyProfileValue = async (label, value) => {
     const text = String(value || "").trim();
 
-    if (!text || text === "-") {
+    if (!isValidReferralValue(text)) {
       showProfileAlert("info", "No Data", `${label} is not available yet.`);
       return;
     }
@@ -630,9 +663,7 @@ const Profile = () => {
     }
   };
   const renderProfile = () => {
-    const fallbackReferralCode = getUserId(user) ? `PFX${String(getUserId(user)).padStart(6, "0")}` : "";
-    const referralCode = user?.referral_code || fallbackReferralCode;
-    const referralLink = user?.referral_link || (referralCode ? `${window.location.origin}/africa/LeagueEnroll?ref=${encodeURIComponent(referralCode)}` : "");
+    const { referralCode, referralLink } = getReferralAccess(user);
     const profileItems = [
       { label: "Full Name", value: getUserName(user) },
       { label: "Email Address", value: user?.email || "-" },
@@ -927,9 +958,7 @@ const Profile = () => {
   );
 
   const renderLeague = () => {
-    const fallbackReferralCode = getUserId(user) ? `PFX${String(getUserId(user)).padStart(6, "0")}` : "";
-    const referralCode = user?.referral_code || fallbackReferralCode;
-    const referralLink = user?.referral_link || (referralCode ? `${window.location.origin}/africa/LeagueEnroll?ref=${encodeURIComponent(referralCode)}` : "");
+    const { referralCode, referralLink } = getReferralAccess(user);
 
     return (
       <section className="crm-panel">
@@ -1337,16 +1366,4 @@ const Profile = () => {
 };
 
 export default Profile;
-
-
-
-
-
-
-
-
-
-
-
-
 
