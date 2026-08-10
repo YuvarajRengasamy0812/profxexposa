@@ -109,7 +109,9 @@ const WHATSAPP_GROUP_LINK =
 
 const Register = () => {
   const location = useLocation();
-  const redirectAfterRegister = new URLSearchParams(location.search).get("redirect");
+  const urlParams = new URLSearchParams(location.search);
+  const redirectAfterRegister = urlParams.get("redirect");
+  const referralFromUrl = urlParams.get("ref") || urlParams.get("referral_code") || "";
   const countryOptions = countryList().getData();
   const handlePhoneChange = (value, country) => {
     setPhone(value);
@@ -254,6 +256,7 @@ const Register = () => {
           special_requirements: specialReq,
           sponsor_package: sponsorPackage,
           products_services: products,
+          referral_code: referralFromUrl,
           frontend_url: `${window.location.origin}/africa/LeagueEnroll`
         });
 

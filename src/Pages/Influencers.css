@@ -1384,6 +1384,11 @@ body.influencer-header-visible .main_header_area .btn3 {
   color: var(--ifx-green-light);
 }
 
+.ifx-status-pill.registered {
+  background: rgba(21, 131, 29, 0.12);
+  color: var(--ifx-green);
+}
+
 .ifx-status-pill.rejected {
   background: rgba(193, 157, 56, 0.12);
   color: var(--ifx-dark);

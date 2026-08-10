@@ -183,7 +183,7 @@ function InfluencerRegisterModal({ isOpen, onClose, onSuccess, initialReferralCo
     setIsSubmitting(true);
 
     try {
-      const frontendBase = `${window.location.origin}/africa/Influencers`;
+      const frontendBase = `${window.location.origin}/africa/Register`;
       const payload = new FormData();
 
       payload.append("full_name", formData.fullName);
