@@ -37,6 +37,7 @@ import ResetPassword from "./Pages/ResetPassword";
 import Profile from "./Pages/Profile";
 import Floorplan from "./Pages/Floorplan";
 import Influencers from "./Pages/Influencers";
+import InfluencerProfile from "./Pages/InfluencerProfile";
 import League from "./Pages/League";
 import LeagueEnroll from "./Pages/LeagueEnroll";
 import Awards from "./Pages/Awards";
@@ -74,6 +75,7 @@ function App() {
           <Route path="/FloorPlan" element={<Floorplan />} />
           <Route path="/floorplan" element={<Floorplan />} />
           <Route path="/Influencers" element={<Influencers />} />
+          <Route path="/InfluencerProfile" element={<InfluencerProfile />} />
           <Route path="/League" element={<League />} />
           <Route path="/LeagueEnroll" element={<LeagueEnroll />} />
           <Route path="/Awards" element={<Awards />} />
