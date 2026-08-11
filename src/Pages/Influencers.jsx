@@ -13,8 +13,8 @@ import "./Influencers.css";
 
 const influencerAsset = (fileName) => buildAssetUrl(`/assets/images/influencers/${fileName}`);
 
-const heroImage = influencerAsset("hero-influencers.jpg");
-const trophyImage = influencerAsset("top25-trophy.jpg");
+const heroImage = influencerAsset("hero-influencers.png");
+const trophyImage = influencerAsset("top25-trophy.png");
 const medalImage = influencerAsset("top25-medal.png");
 const qrImage = influencerAsset("influencer-qr.png");
 const storedReferralKey = "profx_influencer_referral";
@@ -663,10 +663,10 @@ function Influencers() {
             <div className="col-lg-6">
               <div className="ifx-hero-image">
                 <img src={heroImage} alt="ProFX Expo influencer partners in Cape Town" />
-                <div className="ifx-hero-badge">
+                {/* <div className="ifx-hero-badge">
                   <span>OFFICIAL</span>
                   <strong>INFLUENCER PARTNER</strong>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -807,7 +807,7 @@ function Influencers() {
 
             <div className="ifx-medal-visual">
               <img src={medalImage} alt="Top 25 Influencer Award Medal" />
-              <span>TOP 25 INFLUENCER AWARDS</span>
+              {/* <span>TOP 25 INFLUENCER AWARDS</span> */}
             </div>
           </article>
         </div>
