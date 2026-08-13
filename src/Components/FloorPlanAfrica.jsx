@@ -48,7 +48,7 @@ const boothStroke = {
 };
 
 const topBooths = [
-  { boothNo: 18, type: "gold", title: "Booth 18\nGold\nBooth", color: colors.gold, x: 360, y: 164 },
+  // { boothNo: 18, type: "gold", title: "Booth 18\nGold\nBooth", color: colors.gold, x: 360, y: 164 },
   { boothNo: 17, type: "gold", title: "Booth 17\nGold\nBooth", color: colors.gold, x: 502, y: 164 },
   { boothNo: 16, type: "silver", title: "Booth 16\nSilver\nBooth", color: colors.silver, x: 582, y: 164 },
   { boothNo: 15, type: "silver", title: "Booth 15\nSilver\nBooth", color: colors.silver, x: 662, y: 164 },
@@ -60,17 +60,17 @@ const topBooths = [
   { boothNo: 9, type: "silver", title: "Booth 09\nSilver\nBooth", color: colors.silver, x: 1158, y: 164 },
   { boothNo: 8, type: "gold", title: "Booth 08\nGold\nBooth", color: colors.gold, x: 1238, y: 164 },
 ];
-const sideBooths = [
-  { boothNo: 19, type: "silver", title: "Booth 19\nSilver\nBooth", color: colors.silver, y: 242 },
-  { boothNo: 20, type: "silver", title: "Booth 20\nSilver\nBooth", color: colors.silver, y: 318 },
-  { boothNo: 21, type: "silver", title: "Booth 21\nSilver\nBooth", color: colors.silver, y: 394 },
-  { boothNo: 22, type: "silver", title: "Booth 22\nSilver\nBooth", color: colors.silver, y: 470 },
-  { boothNo: 23, type: "gold", title: "Booth 23\nGold\nBooth", color: colors.gold, y: 546 },
-];
+// const sideBooths = [
+//   { boothNo: 19, type: "silver", title: "Booth 19\nSilver\nBooth", color: colors.silver, y: 242 },
+//   { boothNo: 20, type: "silver", title: "Booth 20\nSilver\nBooth", color: colors.silver, y: 318 },
+//   { boothNo: 21, type: "silver", title: "Booth 21\nSilver\nBooth", color: colors.silver, y: 394 },
+//   { boothNo: 22, type: "silver", title: "Booth 22\nSilver\nBooth", color: colors.silver, y: 470 },
+//   { boothNo: 23, type: "gold", title: "Booth 23\nGold\nBooth", color: colors.gold, y: 546 },
+// ];
 const featureBooths = [
-  { boothNo: 5, type: "exclusive", title: "Booth 05\nExclusive\nSponsorship", size: "3 x 4", color: colors.exclusive, x: 822, y: 598, width: 96, height: 76, fontSize: 7.4 },
+  { boothNo: 7, type: "exclusive", title: "Booth 05\nExclusive\nSponsorship", size: "3 x 4", color: colors.exclusive, x: 822, y: 598, width: 96, height: 76, fontSize: 7.4 },
   { boothNo: 6, type: "elite", title: "Booth 06\nElite\nSponsorship", size: "4 x 3", color: colors.elite, x: 822, y: 466, width: 96, height: 76, fontSize: 7.4 },
-  { boothNo: 7, type: "finxcart", title: "Booth 07\nFinXcart", size: "4 x 3", color: colors.kiosk, x: 979, y: 378, width: 96, height: 78, fontSize: 7.4 },
+  { boothNo: 5, type: "finxcart", title: "Booth 07\nFinXcart", size: "4 x 3", color: colors.kiosk, x: 979, y: 378, width: 96, height: 78, fontSize: 7.4 },
   { boothNo: 4, type: "elite", title: "Booth 04\nElite\nSponsorship", size: "4 x 3", color: colors.elite, x: 979, y: 470, width: 96, height: 76, fontSize: 7.4 },
   { boothNo: 3, type: "official", title: "Booth 03\nOfficial\nSponsorship", size: "3 x 4", color: colors.official, x: 979, y: 598, width: 96, height: 76, fontSize: 7.4, textColor: "#ffffff" },
   { boothNo: 2, type: "regional", title: "Booth 02\nRegional\nSponsorship", size: "5 x 3", color: colors.regional, x: 1128, y: 454, width: 122, height: 78, fontSize: 7.6 },
@@ -330,7 +330,7 @@ const FloorPlanAfrica = () => {
             </g>
 
             {topBooths.map(renderBooth)}
-            {sideBooths.map((booth) => renderBooth({ ...booth, x: 360, width: 72, height: 70, fontSize: 7.2 }))}
+            {/* {sideBooths.map((booth) => renderBooth({ ...booth, x: 360, width: 72, height: 70, fontSize: 7.2 }))} */}
             {kiosks.map((booth) => renderBooth({
               boothNo: booth.boothNo,
               type: "digital-kiosk",
