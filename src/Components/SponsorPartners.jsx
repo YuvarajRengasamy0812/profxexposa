@@ -108,6 +108,18 @@ export default function SponsorPartners() {
   };
 
   const sections = [
+        {
+      title: "EXCLUSIVE TITLE SPONSHOR",
+      aliases: ["yunus"],
+      single: true,
+      showTitle: false,
+    },
+    {
+      title: "Title Sponsors",
+      aliases: ["title"],
+      single: true,
+      showTitle: false,
+    },
     {
       title: "Official Sponsors",
       aliases: ["official"],
