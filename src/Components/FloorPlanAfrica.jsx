@@ -76,9 +76,23 @@ const featureBooths = [
   { boothNo: 2, type: "regional", title: "Booth 02\nRegional\nSponsorship", size: "5 x 3", color: colors.regional, x: 1128, y: 454, width: 122, height: 78, fontSize: 7.6 },
   { boothNo: 1, type: "title", title: "Booth 01\nTitle\nSponsorship", size: "5 x 3", color: colors.title, x: 1128, y: 596, width: 122, height: 78, fontSize: 7.6, textColor: "#ffffff" },
 ];
-const kiosks = [
-  { boothNo: 24, x: 974, y: 291 },
-  { boothNo: 25, x: 1035, y: 291 },
+const ledScreens = [
+  {
+    id: "bridgex",
+    image: "/assets/images/floorplan/bridgex-logo.png",
+    x: 974,
+    y: 291,
+    width: 52,
+    height: 60,
+  },
+  {
+    id: "finxcart",
+    image: "/assets/images/floorplan/finxcart-logo.png",
+    x: 1035,
+    y: 291,
+    width: 52,
+    height: 60,
+  },
 ];
 
 const FloorPlanAfrica = () => {
@@ -87,6 +101,7 @@ const FloorPlanAfrica = () => {
   const [reservedBooths, setReservedBooths] = useState([]);
   const [showTradingTooltip, setShowTradingTooltip] = useState(false);
   const [activeTooltipId, setActiveTooltipId] = useState(null);
+  const [visibleLedLogos, setVisibleLedLogos] = useState({});
 
   useEffect(() => {
     let ignore = false;
@@ -180,6 +195,13 @@ const FloorPlanAfrica = () => {
     setSelectedBooth(booth);
   }, [navigate]);
 
+  const handleLedScreenClick = React.useCallback((screenId) => {
+    setVisibleLedLogos((current) => ({
+      ...current,
+      [screenId]: !current[screenId],
+    }));
+  }, []);
+
   const renderBooth = (booth) => {
     const reservedInfo = getReservedInfo(booth.boothNo);
 
@@ -242,6 +264,93 @@ const FloorPlanAfrica = () => {
       <path d={`M${x + 7} ${y + 3} L${x + 3} ${y + 11} H${x + 7} L${x + 5} ${y + 17} L${x + 11} ${y + 8} H${x + 7} Z`} fill="#00a859" />
       <rect x={x + 18} y={y - 1} width="13" height="20" rx="5" fill="#ffffff" stroke="#111" strokeWidth="1.5" />
       <ellipse cx={x + 24.5} cy={y + 7} rx="5" ry="4" fill="#79c9e7" />
+    </g>
+  );
+
+  const renderLedScreens = () => (
+    <g key="africa-led-screens">
+      <defs>
+        {ledScreens.map((screen) => (
+          <clipPath key={screen.id} id={`led-screen-${screen.id}-clip`}>
+            <rect x={screen.x + 5} y={screen.y + 8} width={screen.width - 10} height={screen.height - 22} rx="3" />
+          </clipPath>
+        ))}
+      </defs>
+
+      {ledScreens.map((screen) => {
+        const showLogo = !!visibleLedLogos[screen.id];
+
+        return (
+        <g
+          key={screen.id}
+          onClick={() => handleLedScreenClick(screen.id)}
+          style={{ cursor: "pointer" }}
+        >
+          <rect
+            x={screen.x + 3}
+            y={screen.y + 3}
+            width={screen.width}
+            height={screen.height}
+            rx="7"
+            fill="rgba(0,0,0,0.1)"
+          />
+          <rect
+            x={screen.x}
+            y={screen.y}
+            width={screen.width}
+            height={screen.height}
+            rx="7"
+            fill={colors.ledWall}
+            stroke="#b90008"
+            strokeWidth="2.2"
+          />
+          {showLogo ? (
+            <>
+              <rect
+                x={screen.x + 5}
+                y={screen.y + 8}
+                width={screen.width - 10}
+                height={screen.height - 22}
+                rx="3"
+                fill="#ffffff"
+              />
+              <image
+                href={buildAssetUrl(screen.image)}
+                x={screen.x + 5}
+                y={screen.y + 8}
+                width={screen.width - 10}
+                height={screen.height - 22}
+                preserveAspectRatio="xMidYMid meet"
+                clipPath={`url(#led-screen-${screen.id}-clip)`}
+              />
+            </>
+          ) : (
+            <text
+              x={screen.x + screen.width / 2}
+              y={screen.y + 28}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fontSize="9"
+              fill="#ffffff"
+              fontWeight="800"
+            >
+              <tspan x={screen.x + screen.width / 2} dy="0">LED</tspan>
+              <tspan x={screen.x + screen.width / 2} dy="1.15em">Screen</tspan>
+            </text>
+          )}
+          <text
+            x={screen.x + screen.width / 2}
+            y={screen.y + screen.height - 6}
+            textAnchor="middle"
+            fontSize="6"
+            fill="#ffffff"
+            fontWeight="800"
+          >
+            LED Screen
+          </text>
+        </g>
+        );
+      })}
     </g>
   );
 
@@ -331,18 +440,7 @@ const FloorPlanAfrica = () => {
 
             {topBooths.map(renderBooth)}
             {/* {sideBooths.map((booth) => renderBooth({ ...booth, x: 360, width: 72, height: 70, fontSize: 7.2 }))} */}
-            {kiosks.map((booth) => renderBooth({
-              boothNo: booth.boothNo,
-              type: "digital-kiosk",
-              title: "Digital\nKiosk",
-              size: "2 x 2",
-              color: colors.kiosk,
-              x: booth.x,
-              y: booth.y,
-              width: 52,
-              height: 60,
-              fontSize: 7,
-            }))}
+            {renderLedScreens()}
             {featureBooths.map(renderBooth)}
 
             <g
@@ -495,8 +593,5 @@ const FloorPlanAfrica = () => {
 };
 
 export default FloorPlanAfrica;
-
-
-
 
 
