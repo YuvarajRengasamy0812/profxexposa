@@ -166,10 +166,11 @@ const LeagueEnrollSection = ({ showBackLink = true }) => {
 
     setLoading(true);
     try {
+      const normalizedEmail = email.trim().toLowerCase();
       const res = await postLeagueBooking({
         api_key: process.env.REACT_APP_API_KEY,
         name:    fullName,
-        email:   email,
+        email:   normalizedEmail,
         phone:   digitsOnly,
         country: nationality?.label || "",
         company: companyName,
@@ -190,7 +191,12 @@ const LeagueEnrollSection = ({ showBackLink = true }) => {
         Swal.fire({ icon: "error", title: "Enrollment Failed", text: res.data.msg || "Something went wrong." });
       }
     } catch (err) {
-      Swal.fire({ icon: "error", title: "Error", text: err.response?.data?.msg || "Something went wrong. Try again later." });
+      const message = err.response?.data?.msg || "Something went wrong. Try again later.";
+      Swal.fire({
+        icon: "error",
+        title: err.response?.status === 409 ? "Email Already Registered" : "Error",
+        text: message,
+      });
     } finally {
       setLoading(false);
     }
